@@ -1,14 +1,14 @@
 {
-"generated_at": "2026-07-04T22:15:50.795650+05:30",
+"generated_at": "2026-07-04T22:16:51.050800+05:30",
 "trade_date": "2026-07-04",
-"universe_size": 7,
-"scored": 7,
-"excluded_no_fundamentals": 0,
+"universe_size": 400,
+"scored": 399,
+"excluded_no_fundamentals": 1,
 "excluded_illiquid": 0,
 "excluded_low_coverage": 0,
 "min_coverage": 0.6,
-"universe_source": "SAMPLE",
-"fundamentals_source": "SAMPLE (mocked)",
+"universe_source": "cache (2026-07-04)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-07-04)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -20,7 +20,7 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 29.2,
+"universe_pe_median": 37.3,
 "note": "valuation components in Pabrai/Damani are scored vs this median; 'cheap' is regime-dependent"
 },
 "attribution": {
@@ -44,51 +44,368 @@
 "lane1_volume_confirmed": [],
 "lane2_watching": [
 {
-"symbol": "HIGHQ",
-"name": "HighQ Compounder (SAMPLE)",
+"symbol": "IGIL",
+"name": "International Gemological Institute Ltd.",
 "index": "smallcap250",
-"composite": 7.8,
-"grade": "B+",
-"cmp": 131.15,
-"chg_pct": 0.77,
+"composite": 8.35,
+"grade": "A-",
+"cmp": 359.5,
+"chg_pct": -0.51,
 "rvol20": null,
-"integrity_flags": [],
-"bear_case": [
-"Weakest lens: Kacholia scores just 3.3/10 (3y growth + operating leverage + size runway)",
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
-"PAT compounding slower than revenue - margins are being given up to buy growth"
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
-"sector": "Technology"
+"bear_case": [
+"PAT compounding slower than revenue - margins are being given up to buy growth",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Basic Materials"
 },
 {
-"symbol": "SYRMA",
-"name": "Syrma SGS (SAMPLE)",
+"symbol": "BLS",
+"name": "BLS International Services Ltd.",
 "index": "smallcap250",
-"composite": 7.52,
-"grade": "B+",
-"cmp": 149.56,
-"chg_pct": -0.6,
+"composite": 8.25,
+"grade": "A-",
+"cmp": 253.6,
+"chg_pct": 0.36,
 "rvol20": null,
-"integrity_flags": [],
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
 "bear_case": [
-"Weakest lens: Kacholia scores just 3.3/10 (3y growth + operating leverage + size runway)",
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "sector": "Industrials"
 },
 {
-"symbol": "AZAD",
-"name": "Azad Engineering (SAMPLE)",
+"symbol": "IKS",
+"name": "Inventurus Knowledge Solutions Ltd.",
 "index": "smallcap250",
-"composite": 7.19,
-"grade": "B",
-"cmp": 142.02,
-"chg_pct": -0.41,
+"composite": 8.14,
+"grade": "A-",
+"cmp": 1861.2,
+"chg_pct": 1.29,
 "rvol20": null,
-"integrity_flags": [],
+"integrity_flags": [
+"64% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
 "bear_case": [
-"Weakest lens: Kacholia scores just 3.3/10 (3y growth + operating leverage + size runway)",
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+"PAT compounding slower than revenue - margins are being given up to buy growth",
+"Volume integrity: 64% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Healthcare"
+},
+{
+"symbol": "OFSS",
+"name": "Oracle Financial Services Software Ltd.",
+"index": "midcap150",
+"composite": 8.12,
+"grade": "A-",
+"cmp": 11248.0,
+"chg_pct": 2.38,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.6/10 (3y growth + operating leverage + size runway)",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Technology"
+},
+{
+"symbol": "CAPLIPOINT",
+"name": "Caplin Point Laboratories Ltd.",
+"index": "smallcap250",
+"composite": 8.08,
+"grade": "A-",
+"cmp": 2538.1,
+"chg_pct": -0.0,
+"rvol20": null,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Healthcare"
+},
+{
+"symbol": "MCX",
+"name": "Multi Commodity Exchange of India Ltd.",
+"index": "midcap150",
+"composite": 8.07,
+"grade": "A-",
+"cmp": 2814.0,
+"chg_pct": -3.74,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 3.3/10 (size + promoter holding + growth)",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Financial Services"
+},
+{
+"symbol": "GESHIP",
+"name": "Great Eastern Shipping Co. Ltd.",
+"index": "smallcap250",
+"composite": 8.03,
+"grade": "A-",
+"cmp": 1440.4,
+"chg_pct": 1.3,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.3/10 (3y growth + operating leverage + size runway)",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Industrials"
+},
+{
+"symbol": "CHENNPETRO",
+"name": "Chennai Petroleum Corporation Ltd.",
+"index": "smallcap250",
+"composite": 7.98,
+"grade": "B+",
+"cmp": 1125.8,
+"chg_pct": -0.73,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.5/10 (3y growth + operating leverage + size runway)",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Energy"
+},
+{
+"symbol": "HBLENGINE",
+"name": "HBL Engineering Ltd.",
+"index": "smallcap250",
+"composite": 7.96,
+"grade": "B+",
+"cmp": 816.95,
+"chg_pct": -0.83,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 4.5/10 (size + promoter holding + growth)",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Industrials"
+},
+{
+"symbol": "CHALET",
+"name": "Chalet Hotels Ltd.",
+"index": "smallcap250",
+"composite": 7.95,
+"grade": "B+",
+"cmp": 834.7,
+"chg_pct": -0.29,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Consumer Cyclical"
+},
+{
+"symbol": "BSE",
+"name": "BSE Ltd.",
+"index": "midcap150",
+"composite": 7.91,
+"grade": "B+",
+"cmp": 3816.6,
+"chg_pct": -0.47,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 3.3/10 (size + promoter holding + growth)",
+"PE 63.3 is 1.7x the current universe median (37) - priced for perfection in this regime",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Financial Services"
+},
+{
+"symbol": "HINDCOPPER",
+"name": "Hindustan Copper Ltd.",
+"index": "smallcap250",
+"composite": 7.85,
+"grade": "B+",
+"cmp": 499.2,
+"chg_pct": 0.86,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Basic Materials"
+},
+{
+"symbol": "ANANDRATHI",
+"name": "Anand Rathi Wealth Ltd.",
+"index": "smallcap250",
+"composite": 7.84,
+"grade": "B+",
+"cmp": 2061.7,
+"chg_pct": 3.62,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 4.5/10 (size + promoter holding + growth)",
+"PE 87.7 is 2.4x the current universe median (37) - priced for perfection in this regime",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Financial Services"
+},
+{
+"symbol": "CEMPRO",
+"name": "Cemindia Projects Ltd.",
+"index": "smallcap250",
+"composite": 7.83,
+"grade": "B+",
+"cmp": 1449.0,
+"chg_pct": 1.23,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Damani scores just 4.1/10 (CFO/PAT conversion + margin + valuation)",
+"82% above its 200 DMA - buying here is paying for a move that already happened",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Industrials"
+},
+{
+"symbol": "EMMVEE",
+"name": "Emmvee Photovoltaic Power Ltd.",
+"index": "smallcap250",
+"composite": 7.81,
+"grade": "B+",
+"cmp": 358.95,
+"chg_pct": -0.91,
+"rvol20": null,
+"integrity_flags": [
+"only 157 sessions of history (< 200) - recently listed, pre-run signals unreliable",
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Vanguard scores just 4.3/10 (profit consistency / low volatility)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Volume integrity: only 157 sessions of history (< 200) - recently listed, pre-run signals unreliable"
+],
+"sector": "Technology"
+},
+{
+"symbol": "GVT&D",
+"name": "GE Vernova T&D India Ltd.",
+"index": "midcap150",
+"composite": 7.73,
+"grade": "B+",
+"cmp": 4401.5,
+"chg_pct": -8.74,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"PE 91.7 is 2.5x the current universe median (37) - priced for perfection in this regime",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Industrials"
+},
+{
+"symbol": "ANTHEM",
+"name": "Anthem Biosciences Ltd.",
+"index": "midcap150",
+"composite": 7.7,
+"grade": "B+",
+"cmp": 770.9,
+"chg_pct": -0.19,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.6/10 (3y growth + operating leverage + size runway)",
+"PE 74.1 is 2.0x the current universe median (37) - priced for perfection in this regime",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"sector": "Healthcare"
+},
+{
+"symbol": "KARURVYSYA",
+"name": "Karur Vysya Bank Ltd.",
+"index": "smallcap250",
+"composite": 7.68,
+"grade": "B+",
+"cmp": 291.8,
+"chg_pct": -0.73,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 4.1/10 (size + promoter holding + growth)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Financial Services"
+},
+{
+"symbol": "NAVINFLUOR",
+"name": "Navin Fluorine International Ltd.",
+"index": "smallcap250",
+"composite": 7.68,
+"grade": "B+",
+"cmp": 7552.5,
+"chg_pct": -1.23,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 4.1/10 (size + promoter holding + growth)",
+"PE 57.8 is 1.5x the current universe median (37) - priced for perfection in this regime",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Basic Materials"
+},
+{
+"symbol": "VIJAYA",
+"name": "Vijaya Diagnostic Centre Ltd.",
+"index": "smallcap250",
+"composite": 7.63,
+"grade": "B+",
+"cmp": 1365.2,
+"chg_pct": -2.33,
+"rvol20": null,
+"integrity_flags": [
+"3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"PE 81.3 is 2.2x the current universe median (37) - priced for perfection in this regime",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "sector": "Healthcare"
 }
