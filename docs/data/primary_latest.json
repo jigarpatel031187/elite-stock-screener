@@ -1,0 +1,243 @@
+{
+"generated_at": "2026-07-04T22:30:47.086264+05:30",
+"trade_date": "2026-07-04",
+"criteria": {
+"universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
+"hard_filters": [
+"NSE EQ series \u00b7 20d avg turnover >= Rs 3.0cr",
+"5+ quarters of reported financials (missing data = excluded, never guessed)",
+"framework coverage >= 60% or excluded"
+],
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"grade_bands": "A+ >=9.0 \u00b7 A 8.5 \u00b7 A- 8.0 \u00b7 B+ 7.5 \u00b7 B 7.0 \u00b7 B- 6.5 \u00b7 below -> C/D/F",
+"vetoes_automated": [
+"V3: D/E > 3.0 with declining CFO (caps grade at C)"
+],
+"vetoes_manual": [
+"V1",
+"V2",
+"V4",
+"V5",
+"V6",
+"V7"
+],
+"valuation_regime": "PE scored relative to live universe median, not absolute",
+"queue_rules": "composite >= 7.0, no vetoes, not on leaderboard; Lane 1 = RVol >= 1.5x on an up day",
+"radar_gates": "universe: Smallcap 250 + Microcap 250 \u00b7 mcap <= 25000cr \u00b7 rev CAGR >= 15.0% \u00b7 PAT CAGR >= 18.0% \u00b7 D/E <= 0.6 \u00b7 ROE >= 15.0% \u00b7 above 200DMA \u00b7 volume integrity (200+ sessions, no volume concentration, no zero-volume days) \u00b7 no vetoes",
+"leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
+},
+"universe_size": 4,
+"scored": 4,
+"excluded_no_fundamentals": 0,
+"excluded_illiquid": 0,
+"excluded_low_coverage": 0,
+"min_coverage": 0.6,
+"universe_source": "SAMPLE",
+"fundamentals_source": "SAMPLE",
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"regime": {
+"universe_pe_median": 22.4,
+"note": "valuation components in Pabrai/Damani are scored vs this median; 'cheap' is regime-dependent"
+},
+"attribution": {
+"status": "ok",
+"sessions_logged": 1,
+"horizons": {
+"1m": {
+"status": "insufficient history (1/22 sessions)"
+},
+"3m": {
+"status": "insufficient history (1/64 sessions)"
+},
+"6m": {
+"status": "insufficient history (1/127 sessions)"
+}
+}
+},
+"grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
+"disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
+"portfolio": {
+"sector_concentration": {
+"counts": {
+"Industrials": 2
+},
+"warnings": []
+},
+"correlation_flags": [],
+"sizing_note": "inverse-volatility weights, capped at 8% - risk illustration only"
+},
+"tab": "primary",
+"count": 2,
+"stocks": [
+{
+"symbol": "SYRMA",
+"name": "Syrma SGS (S)",
+"index": "smallcap250",
+"cmp": 127.09,
+"chg_pct": -0.56,
+"composite": 7.59,
+"grade": "B+",
+"coverage": 1.0,
+"frameworks": {
+"buffett": 9.29,
+"jhunjhunwala": 9.29,
+"pabrai": 7.49,
+"kacholia": 3.32,
+"kedia": 8.59,
+"blackrock": 7.44,
+"vanguard": 6.81,
+"damani": 6.4
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + promoter holding + growth",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.07,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 252,
+"top3_vol_share": 0.22,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 9000,
+"pe": 29.6,
+"roe_pct": 26.0,
+"op_margin_pct": 20.0,
+"de": 0.07,
+"rev_cagr3y_pct": -29.6,
+"pat_cagr3y_pct": -37.1,
+"promoter_pct": 58.0,
+"sector": "Industrials",
+"latest_quarter": "2026-03-31"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 1.4,
+"dd_from_52wk": -10.4,
+"ret_6m_pct": 1.8,
+"turnover_cr": 24.24,
+"ann_vol_pct": 21.3
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.3/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"suggested_weight_pct": 8.0
+},
+{
+"symbol": "CUMMINSIND",
+"name": "Cummins India (S)",
+"index": "midcap150",
+"cmp": 154.38,
+"chg_pct": -0.28,
+"composite": 7.37,
+"grade": "B",
+"coverage": 1.0,
+"frameworks": {
+"buffett": 9.29,
+"jhunjhunwala": 9.49,
+"pabrai": 8.38,
+"kacholia": 1.0,
+"kedia": 5.87,
+"blackrock": 9.33,
+"vanguard": 6.78,
+"damani": 7.08
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + promoter holding + growth",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.07,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 252,
+"top3_vol_share": 0.26,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 100000,
+"pe": 21.3,
+"roe_pct": 26.0,
+"op_margin_pct": 20.0,
+"de": 0.07,
+"rev_cagr3y_pct": -29.6,
+"pat_cagr3y_pct": -37.1,
+"promoter_pct": 58.0,
+"sector": "Industrials",
+"latest_quarter": "2026-03-31"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 8.6,
+"dd_from_52wk": -5.4,
+"ret_6m_pct": 14.8,
+"turnover_cr": 25.17,
+"ann_vol_pct": 21.7
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 1.0/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"suggested_weight_pct": 8.0
+}
+]
+}

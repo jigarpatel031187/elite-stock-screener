@@ -1,7 +1,8 @@
 # Elite Stock Screener — Midcap 150 · Smallcap 250 · Multibagger Radar
 
-Automated, rule-based quality screener for Indian mid/small-cap equities.
-Every stock in the Nifty Midcap 150 + Smallcap 250 universe is scored against
+Automated, rule-based quality screener for Indian mid/small/micro-cap equities.
+Every stock in the Nifty Midcap 150 + Smallcap 250 (+ Microcap 250, radar-only)
+universe is scored against
 eight quantified investor frameworks (Elite Stock Analysis Engine v2.0 weights):
 
 | Framework | Weight | Proxy measures |
@@ -24,8 +25,10 @@ Grades: A+ ≥9.0 · A 8.5 · A− 8.0 · B+ 7.5 · B 7.0 · B− 6.5 · below �
   shown as a manual-verification checklist on every card. This screener never
   silently marks them as passed.
 
-**Multibagger Radar** is a separate, stricter gate on top of the graded
-universe: mcap ≤ ₹25,000 cr, 3y revenue CAGR ≥ 15%, 3y PAT CAGR ≥ 18%,
+**Multibagger Radar** hunts in Smallcap 250 + **Microcap 250** (microcaps never
+appear in the Primary Screener or Queue - they are the multibagger hunting
+ground AND the manufactured-volume hunting ground, hence the hard integrity
+gates). Gates: mcap ≤ ₹25,000 cr, 3y revenue CAGR ≥ 15%, 3y PAT CAGR ≥ 18%,
 D/E ≤ 0.6, ROE ≥ 15%, promoter ≥ 40% (flagged if unavailable), price above
 200 DMA, no vetoes. If nothing qualifies, the tab stays empty by design.
 

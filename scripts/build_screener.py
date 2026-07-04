@@ -16,7 +16,9 @@ from datetime import datetime, timezone, timedelta
 from config import (DATA, DOCS_DATA, HISTORY, FRAMEWORK_WEIGHTS, MULTIBAGGER,
                     LIQUIDITY_FLOOR_CR, TOP_N_PER_TAB, VETO_SCORE_CAP,
                     MIN_COVERAGE, EXIT_RULES, QUEUE, LEADERBOARD_FILE,
-                    LEADERBOARD_CUTOFF, LEADERBOARD_MAX, grade_for, GRADE_BANDS)
+                    LEADERBOARD_CUTOFF, LEADERBOARD_MAX, PRIMARY_INDICES,
+                    INTEGRITY, V3_DE_LIMIT, MANUAL_VETOES,
+                    grade_for, GRADE_BANDS)
 from universe import get_universe
 from datafeed import load_fundamentals, has_min_data, fetch_price_history
 from technical import tech_context
@@ -194,6 +196,8 @@ def build_queue(rows: list, leaderboard_syms: set) -> dict:
     """
     lane1, lane2 = [], []
     for r in rows:
+        if r["index"] not in PRIMARY_INDICES:
+            continue
         if (r["composite"] is None or r["composite"] < QUEUE["min_composite"]
                 or r["vetoes_triggered"] or r["symbol"] in leaderboard_syms):
             continue
@@ -308,8 +312,27 @@ def main() -> int:
     for r in rows:
         r["bear_case"] = bear_case(r, regime["universe_pe_median"])
 
+    criteria = {
+        "universe": "Nifty Midcap 150 + Smallcap 250 (primary) · + Microcap 250 (radar only)",
+        "hard_filters": [f"NSE EQ series · 20d avg turnover >= Rs {LIQUIDITY_FLOOR_CR}cr",
+                         "5+ quarters of reported financials (missing data = excluded, never guessed)",
+                         f"framework coverage >= {int(MIN_COVERAGE*100)}% or excluded"],
+        "framework_weights": FRAMEWORK_WEIGHTS,
+        "grade_bands": "A+ >=9.0 · A 8.5 · A- 8.0 · B+ 7.5 · B 7.0 · B- 6.5 · below -> C/D/F",
+        "vetoes_automated": [f"V3: D/E > {V3_DE_LIMIT} with declining CFO (caps grade at C)"],
+        "vetoes_manual": list(MANUAL_VETOES.keys()),
+        "valuation_regime": "PE scored relative to live universe median, not absolute",
+        "queue_rules": f"composite >= {QUEUE['min_composite']}, no vetoes, not on leaderboard; Lane 1 = RVol >= {QUEUE['lane1_rvol']}x on an up day",
+        "radar_gates": (f"universe: Smallcap 250 + Microcap 250 · mcap <= {MULTIBAGGER['max_mcap_cr']}cr · "
+                        f"rev CAGR >= {MULTIBAGGER['min_rev_cagr3y_pct']}% · PAT CAGR >= {MULTIBAGGER['min_pat_cagr3y_pct']}% · "
+                        f"D/E <= {MULTIBAGGER['max_de']} · ROE >= {MULTIBAGGER['min_roe_pct']}% · above 200DMA · "
+                        f"volume integrity ({INTEGRITY['min_sessions']}+ sessions, no volume concentration, "
+                        "no zero-volume days) · no vetoes"),
+        "leaderboard": f"manual ACE deep-dives only, entry bar {LEADERBOARD_CUTOFF}, max {LEADERBOARD_MAX}",
+    }
     meta = {
         "generated_at": now.isoformat(), "trade_date": trade_date,
+        "criteria": criteria,
         "universe_size": len(syms), "scored": len(rows),
         "excluded_no_fundamentals": excl_fund, "excluded_illiquid": excl_liquid,
         "excluded_low_coverage": excl_coverage, "min_coverage": MIN_COVERAGE,
@@ -323,19 +346,19 @@ def main() -> int:
     }
 
     tab_members: dict[str, list] = {}
-    # ---- TAB 1: Mechanical Screener (whole graded universe, filterable by index)
-    mech_rows = rows[:TOP_N_PER_TAB * 2]
-    suggested_weights(mech_rows)                         # (#9)
-    conc = sector_concentration(mech_rows[:TOP_N_PER_TAB])
-    corr = correlation_flags(mech_rows, hists)
-    tab_members["mechanical"] = [r["symbol"] for r in mech_rows[:TOP_N_PER_TAB]]
-    write_tab("mechanical", mech_rows, {**meta,
+    # ---- TAB 1: Primary Screener (Midcap 150 + Smallcap 250; microcap is radar-only)
+    primary_rows = [r for r in rows if r["index"] in PRIMARY_INDICES][:TOP_N_PER_TAB * 2]
+    suggested_weights(primary_rows)                      # (#9)
+    conc = sector_concentration(primary_rows[:TOP_N_PER_TAB])
+    corr = correlation_flags(primary_rows, hists)
+    tab_members["primary"] = [r["symbol"] for r in primary_rows[:TOP_N_PER_TAB]]
+    write_tab("primary", primary_rows, {**meta,
               "portfolio": {"sector_concentration": conc,
                             "correlation_flags": corr,
                             "sizing_note": "inverse-volatility weights, "
                                            "capped at 8% - risk illustration only"}})
-    print(f"[main] mechanical: {len(mech_rows)} cards, "
-          f"leader {mech_rows[0]['symbol'] if mech_rows else '-'}, "
+    print(f"[main] primary: {len(primary_rows)} cards, "
+          f"leader {primary_rows[0]['symbol'] if primary_rows else '-'}, "
           f"{len(conc['warnings'])} concentration warnings")
 
     # ---- TAB 3: Elite Leaderboard (manual ACE + live CMP) - built before the
@@ -355,6 +378,8 @@ def main() -> int:
 
     radar, near = [], []
     for r in rows:
+        if r["index"] not in MULTIBAGGER["eligible_indices"]:
+            continue
         ok, fails = multibagger_pass(r)
         if ok:
             radar.append(r)

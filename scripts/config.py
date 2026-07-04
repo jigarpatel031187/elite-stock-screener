@@ -13,9 +13,18 @@ HISTORY = DOCS_DATA / "history"
 
 # ---------------------------------------------------------------- universes
 NSE_INDEX_CSVS = {
-    "midcap150": "https://nsearchives.nseindia.com/content/indices/ind_niftymidcap150list.csv",
-    "smallcap250": "https://nsearchives.nseindia.com/content/indices/ind_niftysmallcap250list.csv",
+    "midcap150": ["https://nsearchives.nseindia.com/content/indices/ind_niftymidcap150list.csv"],
+    "smallcap250": ["https://nsearchives.nseindia.com/content/indices/ind_niftysmallcap250list.csv"],
+    # NSE has used both filename spellings for the microcap list; try both
+    "microcap250": ["https://nsearchives.nseindia.com/content/indices/ind_niftymicrocap250_list.csv",
+                     "https://nsearchives.nseindia.com/content/indices/ind_niftymicrocap250list.csv"],
 }
+# Which indices feed which surface. Microcap is RADAR-ONLY by design: it is
+# the multibagger hunting ground, not the quality screener - and it is also
+# where manufactured volume lives, which is why the radar's integrity gates
+# are hard gates.
+PRIMARY_INDICES = ("midcap150", "smallcap250")
+RADAR_INDICES = ("smallcap250", "microcap250")
 UNIVERSE_CACHE = DATA / "universe.json"
 UNIVERSE_MAX_AGE_DAYS = 30          # re-download index constituents monthly
 
@@ -85,6 +94,7 @@ MULTIBAGGER = {
                                   # flagged - never guessed)
     "require_above_200dma": True, # radar wants live uptrends only
     "max_names": 25,
+    "eligible_indices": RADAR_INDICES,
 }
 
 # ---------------------------------------------------------------- output

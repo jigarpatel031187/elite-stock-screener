@@ -131,7 +131,7 @@
   </header>
 
   <div class="tabs" role="tablist">
-    <button class="tab on" role="tab" data-tab="mechanical">1 · Mechanical Screener</button>
+    <button class="tab on" role="tab" data-tab="primary">1 · Primary Screener</button>
     <button class="tab" role="tab" data-tab="queue">2 · Deep-Dive Queue</button>
     <button class="tab" role="tab" data-tab="leaderboard">3 · Elite Leaderboard</button>
     <button class="tab" role="tab" data-tab="multibagger">4 · Multibagger Radar</button>
@@ -142,6 +142,7 @@
     <button class="tab sm" data-idx="smallcap250">Smallcap 250</button>
   </div>
   <div class="provenance" id="prov"></div>
+  <div id="criteria"></div>
   <div id="exitbar"></div>
   <div id="attribution"></div>
   <div id="portfolio"></div>
@@ -168,10 +169,10 @@ const cache = {};
 function gcls(g){return g.replace("+","p").replace("-","m");}
 function fmt(v,suf=""){return v===null||v===undefined?"—":v+suf;}
 
-let curTab = "mechanical", curIdx = "all";
+let curTab = "primary", curIdx = "all";
 async function load(tab){
   curTab = tab;
-  document.getElementById("idxfilter").style.display = (tab==="mechanical")?"flex":"none";
+  document.getElementById("idxfilter").style.display = (tab==="primary")?"flex":"none";
   if(!cache[tab]){
     try{
       const r = await fetch(`data/${tab}_latest.json?t=${Date.now()}`);
@@ -198,10 +199,10 @@ function render(d){
     `universe: ${d.universe_source} · fundamentals: <span class="${stale?"":"amber"}">${d.fundamentals_source}</span>` +
     (d.tab==="multibagger" ? ` · rules: mcap≤${d.rules.max_mcap_cr}cr, rev CAGR≥${d.rules.min_rev_cagr3y_pct}%, PAT CAGR≥${d.rules.min_pat_cagr3y_pct}%, D/E≤${d.rules.max_de}, ROE≥${d.rules.min_roe_pct}%, above 200DMA` : "");
 
-  renderExit(d); renderAttribution(d); renderPortfolio(d);
+  renderCriteria(d); renderExit(d); renderAttribution(d); renderPortfolio(d);
   const grid = document.getElementById("grid");
   let stocks = d.stocks || [];
-  if(d.tab==="mechanical" && curIdx!=="all") stocks = stocks.filter(s=>s.index===curIdx);
+  if(d.tab==="primary" && curIdx!=="all") stocks = stocks.filter(s=>s.index===curIdx);
   d = {...d, stocks};
   if(!d.stocks || !d.stocks.length){
     grid.innerHTML = `<div class="empty">${d.tab==="multibagger" ?
@@ -261,6 +262,24 @@ function card(s,rank){
   </div>`;
 }
 
+function renderCriteria(d){
+  const el = document.getElementById("criteria");
+  const c = d.criteria;
+  if(!c){ el.innerHTML=""; return; }
+  const fw = Object.entries(c.framework_weights).map(([k,v])=>`${k[0].toUpperCase()+k.slice(1)} ${Math.round(v*100)}%`).join(" · ");
+  el.innerHTML = `<div class="panel"><h3>Screener criteria</h3>
+    <div class="ok-line"><b>Universe:</b> ${c.universe}</div>
+    <div class="ok-line"><b>Hard filters:</b> ${c.hard_filters.join(" · ")}</div>
+    <div class="ok-line"><b>Framework weights:</b> ${fw}</div>
+    <div class="ok-line"><b>Grades:</b> ${c.grade_bands}</div>
+    <div class="ok-line"><b>Vetoes:</b> ${c.vetoes_automated.join("; ")} · manual checklist: ${c.vetoes_manual.join(", ")}</div>
+    <div class="ok-line"><b>Valuation:</b> ${c.valuation_regime}</div>
+    <div class="ok-line"><b>Queue:</b> ${c.queue_rules}</div>
+    <div class="ok-line"><b>Radar gates:</b> ${c.radar_gates}</div>
+    <div class="ok-line"><b>Leaderboard:</b> ${c.leaderboard}</div>
+  </div>`;
+}
+
 function renderExit(d){
   const el = document.getElementById("exitbar");
   fetch(`data/system_latest.json?t=${Date.now()}`).then(r=>r.json()).then(s=>{
@@ -305,7 +324,7 @@ function renderPortfolio(d){
 }
 
 function renderQueue(d){
-  renderExit(d); renderAttribution(d);
+  renderCriteria(d); renderExit(d); renderAttribution(d);
   document.getElementById("portfolio").innerHTML="";
   document.getElementById("meta").innerHTML =
     `Trade date <b>${d.trade_date}</b> · Deep-Dive Queue — mechanically qualified names awaiting your ACE session`;
@@ -328,7 +347,7 @@ function renderQueue(d){
 }
 
 function renderLeaderboard(d){
-  renderExit(d); document.getElementById("attribution").innerHTML="";
+  renderCriteria(d); renderExit(d); document.getElementById("attribution").innerHTML="";
   document.getElementById("portfolio").innerHTML="";
   document.getElementById("meta").innerHTML =
     `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — manual ACE deep-dives, entry bar ${d.cutoff}, max ${d.max}`;
@@ -355,7 +374,25 @@ document.querySelectorAll("#idxfilter .tab").forEach(t=>t.addEventListener("clic
 }));
 
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
-  function renderExit(d){
+  function renderCriteria(d){
+  const el = document.getElementById("criteria");
+  const c = d.criteria;
+  if(!c){ el.innerHTML=""; return; }
+  const fw = Object.entries(c.framework_weights).map(([k,v])=>`${k[0].toUpperCase()+k.slice(1)} ${Math.round(v*100)}%`).join(" · ");
+  el.innerHTML = `<div class="panel"><h3>Screener criteria</h3>
+    <div class="ok-line"><b>Universe:</b> ${c.universe}</div>
+    <div class="ok-line"><b>Hard filters:</b> ${c.hard_filters.join(" · ")}</div>
+    <div class="ok-line"><b>Framework weights:</b> ${fw}</div>
+    <div class="ok-line"><b>Grades:</b> ${c.grade_bands}</div>
+    <div class="ok-line"><b>Vetoes:</b> ${c.vetoes_automated.join("; ")} · manual checklist: ${c.vetoes_manual.join(", ")}</div>
+    <div class="ok-line"><b>Valuation:</b> ${c.valuation_regime}</div>
+    <div class="ok-line"><b>Queue:</b> ${c.queue_rules}</div>
+    <div class="ok-line"><b>Radar gates:</b> ${c.radar_gates}</div>
+    <div class="ok-line"><b>Leaderboard:</b> ${c.leaderboard}</div>
+  </div>`;
+}
+
+function renderExit(d){
   const el = document.getElementById("exitbar");
   fetch(`data/system_latest.json?t=${Date.now()}`).then(r=>r.json()).then(s=>{
     const ex = s.exit_review;
@@ -399,7 +436,7 @@ function renderPortfolio(d){
 }
 
 function renderQueue(d){
-  renderExit(d); renderAttribution(d);
+  renderCriteria(d); renderExit(d); renderAttribution(d);
   document.getElementById("portfolio").innerHTML="";
   document.getElementById("meta").innerHTML =
     `Trade date <b>${d.trade_date}</b> · Deep-Dive Queue — mechanically qualified names awaiting your ACE session`;
@@ -422,7 +459,7 @@ function renderQueue(d){
 }
 
 function renderLeaderboard(d){
-  renderExit(d); document.getElementById("attribution").innerHTML="";
+  renderCriteria(d); renderExit(d); document.getElementById("attribution").innerHTML="";
   document.getElementById("portfolio").innerHTML="";
   document.getElementById("meta").innerHTML =
     `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — manual ACE deep-dives, entry bar ${d.cutoff}, max ${d.max}`;

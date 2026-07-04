@@ -20,28 +20,34 @@ HEADERS = {
 }
 
 
-def _download_index(url: str) -> dict[str, str] | None:
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=30)
-        r.raise_for_status()
-        df = pd.read_csv(io.StringIO(r.text))
-        col_sym = next(c for c in df.columns if c.strip().lower() == "symbol")
-        col_name = next(c for c in df.columns if "company" in c.strip().lower())
-        return {str(row[col_sym]).strip(): str(row[col_name]).strip()
-                for _, row in df.iterrows()}
-    except Exception as e:
-        print(f"[universe] download failed {url}: {e}")
-        return None
+def _download_index(urls: list[str]) -> dict[str, str] | None:
+    for url in urls:
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            df = pd.read_csv(io.StringIO(r.text))
+            col_sym = next(c for c in df.columns if c.strip().lower() == "symbol")
+            col_name = next(c for c in df.columns if "company" in c.strip().lower())
+            return {str(row[col_sym]).strip(): str(row[col_name]).strip()
+                    for _, row in df.iterrows()}
+        except Exception as e:
+            print(f"[universe] download failed {url}: {e}")
+    return None
 
 
 def get_universe() -> tuple[dict, str]:
     """Returns ({symbol: {name, index}}, source_note)."""
     cached = None
+    want_indices = sorted(NSE_INDEX_CSVS)
     if UNIVERSE_CACHE.exists():
         cached = json.loads(UNIVERSE_CACHE.read_text())
         asof = datetime.fromisoformat(cached["asof"])
-        if datetime.now(timezone.utc) - asof < timedelta(days=UNIVERSE_MAX_AGE_DAYS):
+        have_indices = sorted({m["index"] for m in cached["symbols"].values()})
+        fresh = datetime.now(timezone.utc) - asof < timedelta(days=UNIVERSE_MAX_AGE_DAYS)
+        if fresh and have_indices == want_indices:
             return cached["symbols"], f"cache ({cached['asof'][:10]})"
+        if have_indices != want_indices:
+            print(f"[universe] index set changed {have_indices} -> {want_indices}, re-downloading")
 
     symbols: dict[str, dict] = {}
     ok = True
