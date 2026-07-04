@@ -1,0 +1,97 @@
+{
+"generated_at": "2026-07-04T22:15:50.795650+05:30",
+"trade_date": "2026-07-04",
+"universe_size": 7,
+"scored": 7,
+"excluded_no_fundamentals": 0,
+"excluded_illiquid": 0,
+"excluded_low_coverage": 0,
+"min_coverage": 0.6,
+"universe_source": "SAMPLE",
+"fundamentals_source": "SAMPLE (mocked)",
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"regime": {
+"universe_pe_median": 29.2,
+"note": "valuation components in Pabrai/Damani are scored vs this median; 'cheap' is regime-dependent"
+},
+"attribution": {
+"status": "ok",
+"sessions_logged": 1,
+"horizons": {
+"1m": {
+"status": "insufficient history (1/22 sessions)"
+},
+"3m": {
+"status": "insufficient history (1/64 sessions)"
+},
+"6m": {
+"status": "insufficient history (1/127 sessions)"
+}
+}
+},
+"grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
+"disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
+"tab": "queue",
+"lane1_volume_confirmed": [],
+"lane2_watching": [
+{
+"symbol": "HIGHQ",
+"name": "HighQ Compounder (SAMPLE)",
+"index": "smallcap250",
+"composite": 7.8,
+"grade": "B+",
+"cmp": 131.15,
+"chg_pct": 0.77,
+"rvol20": null,
+"integrity_flags": [],
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.3/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"sector": "Technology"
+},
+{
+"symbol": "SYRMA",
+"name": "Syrma SGS (SAMPLE)",
+"index": "smallcap250",
+"composite": 7.52,
+"grade": "B+",
+"cmp": 149.56,
+"chg_pct": -0.6,
+"rvol20": null,
+"integrity_flags": [],
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.3/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"sector": "Industrials"
+},
+{
+"symbol": "AZAD",
+"name": "Azad Engineering (SAMPLE)",
+"index": "smallcap250",
+"composite": 7.19,
+"grade": "B",
+"cmp": 142.02,
+"chg_pct": -0.41,
+"rvol20": null,
+"integrity_flags": [],
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.3/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"sector": "Healthcare"
+}
+],
+"rule": "composite >= 7.0, no vetoes, not on leaderboard; Lane 1 = RVol >= 1.5x 20d avg on an up day. A queue entry is an invitation to run the full ACE deep-dive - never a buy signal by itself."
+}

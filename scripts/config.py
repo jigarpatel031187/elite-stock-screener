@@ -113,3 +113,20 @@ PORTFOLIO = {
 }
 # (1)/(2) attribution horizons in trading sessions
 ATTRIBUTION_HORIZONS = {"1m": 21, "3m": 63, "6m": 126}
+
+# ---------------------------------------------------------------- v1.2: 4-tab workflow
+# Deep-Dive Queue: the bridge between the mechanical screen and manual ACE
+# deep-dives. Lane 1 = volume-confirmed today (act-soon), Lane 2 = qualified
+# on quality, awaiting volume confirmation.
+QUEUE = {
+    "min_composite": 7.0,      # mechanical bar to enter the queue at all
+    "lane1_rvol": 1.5,         # today's volume >= 1.5x its 20d average
+    "lane1_requires_up_day": True,
+    "max_names": 20,
+}
+# Elite Leaderboard: manually curated ACE deep-dive results (data/leaderboard.json).
+# The pipeline refreshes CMP/day-change nightly; ACE scores/ranks change ONLY
+# when you complete a deep-dive and edit the JSON - by design, never on a timer.
+LEADERBOARD_FILE = DATA / "leaderboard.json"
+LEADERBOARD_CUTOFF = 7.48      # your standing entry bar (ACE scale)
+LEADERBOARD_MAX = 17

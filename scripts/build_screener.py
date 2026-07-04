@@ -15,7 +15,8 @@ from datetime import datetime, timezone, timedelta
 
 from config import (DATA, DOCS_DATA, HISTORY, FRAMEWORK_WEIGHTS, MULTIBAGGER,
                     LIQUIDITY_FLOOR_CR, TOP_N_PER_TAB, VETO_SCORE_CAP,
-                    MIN_COVERAGE, EXIT_RULES, grade_for, GRADE_BANDS)
+                    MIN_COVERAGE, EXIT_RULES, QUEUE, LEADERBOARD_FILE,
+                    LEADERBOARD_CUTOFF, LEADERBOARD_MAX, grade_for, GRADE_BANDS)
 from universe import get_universe
 from datafeed import load_fundamentals, has_min_data, fetch_price_history
 from technical import tech_context
@@ -182,6 +183,76 @@ def write_tab(tab: str, rows: list, meta: dict):
     (hdir / f"{meta['trade_date']}.json").write_text(json.dumps(payload, indent=0))
 
 
+# ---------------------------------------------------------------- queue (v1.2)
+def build_queue(rows: list, leaderboard_syms: set) -> dict:
+    """Deep-Dive Queue: mechanically qualified names awaiting your ACE session.
+
+    Lane 1 = volume-confirmed today (RVol >= threshold on an up day): act soon.
+    Lane 2 = quality qualified, volume not confirming yet: watch.
+    Names already on the Elite Leaderboard are excluded - the queue exists to
+    feed the leaderboard, not to echo it.
+    """
+    lane1, lane2 = [], []
+    for r in rows:
+        if (r["composite"] is None or r["composite"] < QUEUE["min_composite"]
+                or r["vetoes_triggered"] or r["symbol"] in leaderboard_syms):
+            continue
+        rvol = r["technical"].get("rvol20")
+        up = (r["chg_pct"] or 0) > 0
+        confirmed = (rvol is not None and rvol >= QUEUE["lane1_rvol"]
+                     and (up or not QUEUE["lane1_requires_up_day"]))
+        entry = {"symbol": r["symbol"], "name": r["name"], "index": r["index"],
+                 "composite": r["composite"], "grade": r["grade"],
+                 "cmp": r["cmp"], "chg_pct": r["chg_pct"], "rvol20": rvol,
+                 "integrity_flags": r["integrity"]["flags"],
+                 "bear_case": r["bear_case"][:3],
+                 "sector": r["fundamentals"].get("sector")}
+        (lane1 if confirmed else lane2).append(entry)
+    lane1 = lane1[:QUEUE["max_names"]]
+    lane2 = lane2[:QUEUE["max_names"]]
+    return {"lane1_volume_confirmed": lane1, "lane2_watching": lane2,
+            "rule": (f"composite >= {QUEUE['min_composite']}, no vetoes, not on "
+                     f"leaderboard; Lane 1 = RVol >= {QUEUE['lane1_rvol']}x 20d avg "
+                     "on an up day. A queue entry is an invitation to run the full "
+                     "ACE deep-dive - never a buy signal by itself.")}
+
+
+# ---------------------------------------------------------------- leaderboard (v1.2)
+def build_leaderboard(by_sym: dict) -> dict:
+    """Elite Leaderboard: manual ACE results, machine-refreshed prices.
+
+    ace_score / grade / verdict / theme come ONLY from data/leaderboard.json
+    (your deep-dive output). The pipeline adds live cmp/chg, the current
+    mechanical composite for divergence-watching, and any active veto or
+    exit-review signal on board names. ACE never changes on a timer.
+    """
+    if not LEADERBOARD_FILE.exists():
+        return {"entries": [], "note": "data/leaderboard.json not found"}
+    lb = json.loads(LEADERBOARD_FILE.read_text())
+    entries = []
+    for e in sorted(lb.get("entries", []), key=lambda x: -(x.get("ace_score") or 0)):
+        r = by_sym.get(e["symbol"])
+        entries.append({**e,
+            "cmp": r["cmp"] if r else None,
+            "chg_pct": r["chg_pct"] if r else None,
+            "mech_composite": r["composite"] if r else None,
+            "mech_grade": r["grade"] if r else None,
+            "divergence": (round(e["ace_score"] - r["composite"], 2)
+                           if r and r["composite"] is not None and e.get("ace_score")
+                           else None),
+            "vetoes_now": r["vetoes_triggered"] if r else [],
+            "in_universe": r is not None,
+        })
+    return {"entries": entries[:LEADERBOARD_MAX],
+            "cutoff": LEADERBOARD_CUTOFF, "max": LEADERBOARD_MAX,
+            "todo": lb.get("todo"),
+            "note": ("ACE scores are manual deep-dive results; CMP refreshes "
+                     "nightly. 'divergence' = ACE minus today's mechanical "
+                     "composite - a widening gap is a re-review prompt, exactly "
+                     "the 'nobody re-ran Cummins' failure the exit engine exists "
+                     "to prevent.")}
+
+
 # ---------------------------------------------------------------- main
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -252,20 +323,35 @@ def main() -> int:
     }
 
     tab_members: dict[str, list] = {}
-    for tab in ("midcap150", "smallcap250"):
-        tab_rows = [r for r in rows if r["index"] == tab][:TOP_N_PER_TAB]
-        suggested_weights(tab_rows)                      # (#9)
-        conc = sector_concentration(tab_rows)            # (#3)
-        corr = correlation_flags(tab_rows, hists)        # (#3)
-        tab_members[tab] = [r["symbol"] for r in tab_rows]
-        write_tab(tab, tab_rows, {**meta,
-                  "portfolio": {"sector_concentration": conc,
-                                "correlation_flags": corr,
-                                "sizing_note": "inverse-volatility weights, "
-                                               "capped at 8% - risk illustration only"}})
-        print(f"[main] {tab}: {len(tab_rows)} cards, "
-              f"leader {tab_rows[0]['symbol'] if tab_rows else '-'}, "
-              f"{len(conc['warnings'])} concentration warnings")
+    # ---- TAB 1: Mechanical Screener (whole graded universe, filterable by index)
+    mech_rows = rows[:TOP_N_PER_TAB * 2]
+    suggested_weights(mech_rows)                         # (#9)
+    conc = sector_concentration(mech_rows[:TOP_N_PER_TAB])
+    corr = correlation_flags(mech_rows, hists)
+    tab_members["mechanical"] = [r["symbol"] for r in mech_rows[:TOP_N_PER_TAB]]
+    write_tab("mechanical", mech_rows, {**meta,
+              "portfolio": {"sector_concentration": conc,
+                            "correlation_flags": corr,
+                            "sizing_note": "inverse-volatility weights, "
+                                           "capped at 8% - risk illustration only"}})
+    print(f"[main] mechanical: {len(mech_rows)} cards, "
+          f"leader {mech_rows[0]['symbol'] if mech_rows else '-'}, "
+          f"{len(conc['warnings'])} concentration warnings")
+
+    # ---- TAB 3: Elite Leaderboard (manual ACE + live CMP) - built before the
+    #      queue so queue can exclude board names
+    leaderboard = build_leaderboard(by_sym)
+    (DOCS_DATA / "leaderboard_latest.json").write_text(
+        json.dumps({**meta, "tab": "leaderboard", **leaderboard}, indent=0))
+    lb_syms = {e["symbol"] for e in leaderboard["entries"]}
+    print(f"[main] leaderboard: {len(leaderboard['entries'])} names (manual ACE)")
+
+    # ---- TAB 2: Deep-Dive Queue
+    queue = build_queue(rows, lb_syms)
+    (DOCS_DATA / "queue_latest.json").write_text(
+        json.dumps({**meta, "tab": "queue", **queue}, indent=0))
+    print(f"[main] queue: lane1 {len(queue['lane1_volume_confirmed'])}, "
+          f"lane2 {len(queue['lane2_watching'])}")
 
     radar, near = [], []
     for r in rows:

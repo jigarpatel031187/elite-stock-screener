@@ -28,6 +28,22 @@
   .tab{background:var(--card);border:1px solid var(--line);color:var(--dim);
     padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600}
   .tab.on{background:var(--gold);color:#1a1408;border-color:var(--gold)}
+  .tab.sm{padding:5px 12px;font-size:12px;border-radius:6px}
+  .lane{margin-top:16px}
+  .lane h3{font-size:13px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px}
+  .lane.l1 h3{color:var(--green)} .lane.l2 h3{color:var(--dim)}
+  .qrow{background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:10px 14px;margin:6px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px}
+  .qrow .sym{font:700 15px var(--mono);color:var(--gold);min-width:110px}
+  .qrow .rvol{font-family:var(--mono)} .qrow .rvol.hot{color:var(--green);font-weight:700}
+  .qrow details{width:100%;font-size:12px;color:var(--dim)}
+  .lb-card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin:8px 0;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center}
+  .lb-card .rk{font:800 18px var(--mono);color:var(--dim)}
+  .lb-card .ace{font:800 20px var(--mono);color:var(--gold);text-align:right}
+  .lb-card .div{font-size:11px;font-family:var(--mono)}
+  .lb-card .div.neg{color:var(--red)} .lb-card .div.pos{color:var(--green)}
+  .lb-card.pending{border-style:dashed;opacity:.85}
   .tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
   .provenance{font-size:12px;color:var(--dim);font-family:var(--mono);
@@ -46,6 +62,7 @@
   .nm{color:var(--dim);font-size:12.5px}
   .px{font-family:var(--mono);font-size:15px;margin-top:4px}
   .px .up{color:var(--green)} .px .dn{color:var(--red)}
+  .pos{color:var(--green)} .neg{color:var(--red)}
 
   .gradechip{display:inline-flex;align-items:center;gap:8px;margin:10px 0 4px}
   .g{font:800 20px var(--mono);padding:3px 12px;border-radius:7px;background:var(--card2)}
@@ -114,9 +131,15 @@
   </header>
 
   <div class="tabs" role="tablist">
-    <button class="tab on" role="tab" data-tab="midcap150">Midcap 150</button>
-    <button class="tab" role="tab" data-tab="smallcap250">Smallcap 250</button>
-    <button class="tab" role="tab" data-tab="multibagger">Multibagger Radar</button>
+    <button class="tab on" role="tab" data-tab="mechanical">1 · Mechanical Screener</button>
+    <button class="tab" role="tab" data-tab="queue">2 · Deep-Dive Queue</button>
+    <button class="tab" role="tab" data-tab="leaderboard">3 · Elite Leaderboard</button>
+    <button class="tab" role="tab" data-tab="multibagger">4 · Multibagger Radar</button>
+  </div>
+  <div class="tabs" id="idxfilter" style="display:none;margin-top:-2px">
+    <button class="tab sm on" data-idx="all">All</button>
+    <button class="tab sm" data-idx="midcap150">Midcap 150</button>
+    <button class="tab sm" data-idx="smallcap250">Smallcap 250</button>
   </div>
   <div class="provenance" id="prov"></div>
   <div id="exitbar"></div>
@@ -145,18 +168,25 @@ const cache = {};
 function gcls(g){return g.replace("+","p").replace("-","m");}
 function fmt(v,suf=""){return v===null||v===undefined?"—":v+suf;}
 
+let curTab = "mechanical", curIdx = "all";
 async function load(tab){
+  curTab = tab;
+  document.getElementById("idxfilter").style.display = (tab==="mechanical")?"flex":"none";
   if(!cache[tab]){
     try{
       const r = await fetch(`data/${tab}_latest.json?t=${Date.now()}`);
       cache[tab] = await r.json();
     }catch(e){
       document.getElementById("grid").innerHTML =
-        `<div class="empty">No data yet. Run the workflow once from the Actions tab — first run takes 60–90 minutes while the fundamentals cache builds.</div>`;
+        `<div class="empty">No data yet for this tab. If you just pushed v1.2, trigger the workflow once (Actions tab) to generate it.</div>`;
+      document.getElementById("portfolio").innerHTML="";
       return;
     }
   }
-  render(cache[tab]);
+  const d = cache[tab];
+  if(tab==="queue") return renderQueue(d);
+  if(tab==="leaderboard") return renderLeaderboard(d);
+  render(d);
 }
 
 function render(d){
@@ -170,6 +200,9 @@ function render(d){
 
   renderExit(d); renderAttribution(d); renderPortfolio(d);
   const grid = document.getElementById("grid");
+  let stocks = d.stocks || [];
+  if(d.tab==="mechanical" && curIdx!=="all") stocks = stocks.filter(s=>s.index===curIdx);
+  d = {...d, stocks};
   if(!d.stocks || !d.stocks.length){
     grid.innerHTML = `<div class="empty">${d.tab==="multibagger" ?
       "No stock currently clears every Multibagger Radar gate. That is the design — the radar stays empty rather than lowering the bar." :
@@ -271,6 +304,56 @@ function renderPortfolio(d){
   el.innerHTML = html;
 }
 
+function renderQueue(d){
+  renderExit(d); renderAttribution(d);
+  document.getElementById("portfolio").innerHTML="";
+  document.getElementById("meta").innerHTML =
+    `Trade date <b>${d.trade_date}</b> · Deep-Dive Queue — mechanically qualified names awaiting your ACE session`;
+  document.getElementById("prov").innerHTML = d.rule;
+  const row = q => `<div class="qrow">
+      <span class="sym">${q.symbol}</span><span>${q.grade} ${q.composite}</span>
+      <span>₹${fmt(q.cmp)} <span class="${q.chg_pct>=0?"pos":"neg"}">${q.chg_pct>=0?"+":""}${fmt(q.chg_pct,"%")}</span></span>
+      <span class="rvol ${q.rvol20>=1.5?"hot":""}">RVol ${fmt(q.rvol20)}x</span>
+      <span style="color:var(--dim)">${q.sector||""}</span>
+      ${q.integrity_flags.length?`<span class="flag bad">⚠ ${q.integrity_flags.length} integrity flag(s)</span>`:""}
+      <details><summary>bear case preview</summary><ul>${q.bear_case.map(b=>`<li>${b}</li>`).join("")}</ul></details>
+    </div>`;
+  document.getElementById("grid").innerHTML = `
+    <div style="grid-column:1/-1">
+      <div class="lane l1"><h3>Lane 1 — volume confirmed today (act soon: run the deep-dive)</h3>
+        ${d.lane1_volume_confirmed.length?d.lane1_volume_confirmed.map(row).join(""):`<div class="empty">No volume-confirmed candidates today.</div>`}</div>
+      <div class="lane l2"><h3>Lane 2 — quality qualified, watching for volume</h3>
+        ${d.lane2_watching.length?d.lane2_watching.map(row).join(""):`<div class="empty">Empty.</div>`}</div>
+    </div>`;
+}
+
+function renderLeaderboard(d){
+  renderExit(d); document.getElementById("attribution").innerHTML="";
+  document.getElementById("portfolio").innerHTML="";
+  document.getElementById("meta").innerHTML =
+    `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — manual ACE deep-dives, entry bar ${d.cutoff}, max ${d.max}`;
+  document.getElementById("prov").innerHTML = d.note;
+  const cards = d.entries.map((e,i)=>`<div class="lb-card ${e.pending_add?"pending":""}">
+      <div class="rk">#${i+1}</div>
+      <div>
+        <span class="sym" style="font:700 16px var(--mono);color:var(--gold)">${e.symbol}</span>
+        <span class="nm" style="color:var(--dim);font-size:12px"> ${e.name}${e.pending_add?" · PENDING FORMAL ADD":""}</span><br>
+        <span style="font-size:12.5px">${e.verdict||""}</span><br>
+        <span style="font-size:11px;color:var(--dim)">theme: ${e.theme||"—"} · added ${e.added||"—"} · ₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span></span><br>
+        ${e.vetoes_now&&e.vetoes_now.length?`<span class="flag bad">⛔ veto now active: ${e.vetoes_now.join(",")}</span>`:""}
+        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.divergence>1.5?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} (Δ${e.divergence}) ${e.divergence>1.5?"— re-review prompt":""}</span>`:""}
+      </div>
+      <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}</div></div>
+    </div>`).join("");
+  document.getElementById("grid").innerHTML = `<div style="grid-column:1/-1">${cards}
+    ${d.todo?`<div class="empty" style="font-size:12px">${d.todo}</div>`:""}</div>`;
+}
+
+document.querySelectorAll("#idxfilter .tab").forEach(t=>t.addEventListener("click",()=>{
+  document.querySelectorAll("#idxfilter .tab").forEach(x=>x.classList.remove("on"));
+  t.classList.add("on"); curIdx = t.dataset.idx; render(cache[curTab]);
+}));
+
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
   function renderExit(d){
   const el = document.getElementById("exitbar");
@@ -314,6 +397,56 @@ function renderPortfolio(d){
   html += `<div class="ok-line">${p.sizing_note}</div></div>`;
   el.innerHTML = html;
 }
+
+function renderQueue(d){
+  renderExit(d); renderAttribution(d);
+  document.getElementById("portfolio").innerHTML="";
+  document.getElementById("meta").innerHTML =
+    `Trade date <b>${d.trade_date}</b> · Deep-Dive Queue — mechanically qualified names awaiting your ACE session`;
+  document.getElementById("prov").innerHTML = d.rule;
+  const row = q => `<div class="qrow">
+      <span class="sym">${q.symbol}</span><span>${q.grade} ${q.composite}</span>
+      <span>₹${fmt(q.cmp)} <span class="${q.chg_pct>=0?"pos":"neg"}">${q.chg_pct>=0?"+":""}${fmt(q.chg_pct,"%")}</span></span>
+      <span class="rvol ${q.rvol20>=1.5?"hot":""}">RVol ${fmt(q.rvol20)}x</span>
+      <span style="color:var(--dim)">${q.sector||""}</span>
+      ${q.integrity_flags.length?`<span class="flag bad">⚠ ${q.integrity_flags.length} integrity flag(s)</span>`:""}
+      <details><summary>bear case preview</summary><ul>${q.bear_case.map(b=>`<li>${b}</li>`).join("")}</ul></details>
+    </div>`;
+  document.getElementById("grid").innerHTML = `
+    <div style="grid-column:1/-1">
+      <div class="lane l1"><h3>Lane 1 — volume confirmed today (act soon: run the deep-dive)</h3>
+        ${d.lane1_volume_confirmed.length?d.lane1_volume_confirmed.map(row).join(""):`<div class="empty">No volume-confirmed candidates today.</div>`}</div>
+      <div class="lane l2"><h3>Lane 2 — quality qualified, watching for volume</h3>
+        ${d.lane2_watching.length?d.lane2_watching.map(row).join(""):`<div class="empty">Empty.</div>`}</div>
+    </div>`;
+}
+
+function renderLeaderboard(d){
+  renderExit(d); document.getElementById("attribution").innerHTML="";
+  document.getElementById("portfolio").innerHTML="";
+  document.getElementById("meta").innerHTML =
+    `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — manual ACE deep-dives, entry bar ${d.cutoff}, max ${d.max}`;
+  document.getElementById("prov").innerHTML = d.note;
+  const cards = d.entries.map((e,i)=>`<div class="lb-card ${e.pending_add?"pending":""}">
+      <div class="rk">#${i+1}</div>
+      <div>
+        <span class="sym" style="font:700 16px var(--mono);color:var(--gold)">${e.symbol}</span>
+        <span class="nm" style="color:var(--dim);font-size:12px"> ${e.name}${e.pending_add?" · PENDING FORMAL ADD":""}</span><br>
+        <span style="font-size:12.5px">${e.verdict||""}</span><br>
+        <span style="font-size:11px;color:var(--dim)">theme: ${e.theme||"—"} · added ${e.added||"—"} · ₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span></span><br>
+        ${e.vetoes_now&&e.vetoes_now.length?`<span class="flag bad">⛔ veto now active: ${e.vetoes_now.join(",")}</span>`:""}
+        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.divergence>1.5?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} (Δ${e.divergence}) ${e.divergence>1.5?"— re-review prompt":""}</span>`:""}
+      </div>
+      <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}</div></div>
+    </div>`).join("");
+  document.getElementById("grid").innerHTML = `<div style="grid-column:1/-1">${cards}
+    ${d.todo?`<div class="empty" style="font-size:12px">${d.todo}</div>`:""}</div>`;
+}
+
+document.querySelectorAll("#idxfilter .tab").forEach(t=>t.addEventListener("click",()=>{
+  document.querySelectorAll("#idxfilter .tab").forEach(x=>x.classList.remove("on"));
+  t.classList.add("on"); curIdx = t.dataset.idx; render(cache[curTab]);
+}));
 
 document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
   t.classList.add("on"); load(t.dataset.tab);

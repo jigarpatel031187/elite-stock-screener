@@ -20,7 +20,7 @@ def tech_context(hist: pd.DataFrame | None) -> dict:
     out = {
         "cmp": None, "chg_pct": None, "above_200dma": False, "above_50dma": False,
         "dd_from_52wk": None, "ann_vol_pct": None, "turnover_cr": None,
-        "ret_6m_pct": None, "dma200_dist_pct": None,
+        "ret_6m_pct": None, "dma200_dist_pct": None, "rvol20": None,
     }
     if hist is None or len(hist) < 60:
         return out
@@ -62,4 +62,10 @@ def tech_context(hist: pd.DataFrame | None) -> dict:
         turn = (tail["Close"] * tail["Volume"]).mean()
         t = _f(turn)
         out["turnover_cr"] = round(t / 1e7, 2) if t else None
+        v = hist["Volume"].dropna()
+        if len(v) >= 21:
+            avg20 = _f(v.iloc[-21:-1].mean())
+            today = _f(v.iloc[-1])
+            if avg20 and today is not None and avg20 > 0:
+                out["rvol20"] = round(today / avg20, 2)
     return out
