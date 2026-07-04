@@ -127,18 +127,20 @@ def kacholia(f, tech):
 
 
 def kedia(f, tech):
-    """SMILE: small size, large aspiration, promoter skin-in-game."""
+    """SMILE proxy: small size, growth runway, earnings acceleration.
+
+    Promoter holding REMOVED from scoring (fix #5): yfinance's
+    heldPercentInsiders is not the SEBI promoter category and is
+    unreliable-to-wrong for NSE names. Scoring on a wrong number is worse
+    than not scoring it; the field is displayed with a verify flag instead.
+    """
     mcap_cr = (f.get("mcap") or 0) / 1e7 if f.get("mcap") else None
     size_s = _scale(40_000 - mcap_cr, 0, 38_000) if mcap_cr else None
-    promoter = f.get("promoter_pct")
-    prom_s = _scale(promoter * 100 if promoter is not None else None, 20, 70)
-    rev_y, _ = _yoy_quarter(f)
+    rev_y, pat_y = _yoy_quarter(f)
     grow_s = _scale(rev_y, 0, 30)
-    s = _mean([size_s, prom_s, grow_s])
-    note = "size + promoter holding + growth"
-    if promoter is None:
-        note += " (promoter % unavailable - verify)"
-    return s, note
+    accel_s = _scale(pat_y, 0, 40)
+    s = _mean([size_s, grow_s, accel_s])
+    return s, "size + growth runway (promoter % display-only, verify NSE SHP)"
 
 
 def blackrock(f, tech):

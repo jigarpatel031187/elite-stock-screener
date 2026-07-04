@@ -121,7 +121,14 @@ def has_min_data(f: dict | None) -> bool:
 
 
 def fetch_price_history(symbols: list[str]) -> dict[str, pd.DataFrame]:
-    """Batched 1y daily OHLCV for the whole universe."""
+    """Batched 1y daily OHLCV, SPLIT/BONUS-ADJUSTED (auto_adjust=True).
+
+    Raw prices poison every derived number the day a stock splits - the 200DMA
+    flag flips, drawdowns hallucinate, attribution records crashes that never
+    happened. Adjusted series make all history-derived math split-safe; the
+    latest bar equals the actual traded price, so displayed CMP is unaffected.
+    Callers may include ex-universe "ghost" symbols so attribution can follow
+    stocks that left the index (survivorship fix)."""
     out: dict[str, pd.DataFrame] = {}
     CHUNK = 50
     for i in range(0, len(symbols), CHUNK):
@@ -129,7 +136,7 @@ def fetch_price_history(symbols: list[str]) -> dict[str, pd.DataFrame]:
         tickers = [s + YF_SUFFIX for s in batch]
         try:
             df = yf.download(tickers, period="1y", interval="1d",
-                             group_by="ticker", auto_adjust=False,
+                             group_by="ticker", auto_adjust=True,
                              progress=False, threads=True)
         except Exception as e:
             print(f"[hist] batch {i//CHUNK} failed: {e}")

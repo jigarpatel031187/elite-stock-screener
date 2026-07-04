@@ -124,6 +124,26 @@ PORTFOLIO = {
 # (1)/(2) attribution horizons in trading sessions
 ATTRIBUTION_HORIZONS = {"1m": 21, "3m": 63, "6m": 126}
 
+# ---------------------------------------------------------------- v1.4: critical-loophole fixes
+# (3) degraded-run publish guard: a run that fetched/scored dramatically less
+# than last time is a DATA FAILURE, not a market event. It must fail loudly
+# and touch nothing - not tabs, not watch-state, not the score log.
+RUN_GUARD = {
+    "min_hist_ratio": 0.70,        # price histories fetched / universe
+    "min_scored_ratio_vs_prev": 0.70,
+    "min_scored_abs": 50,
+}
+# (4) opacity must cost, not pay: composite loses points for missing coverage
+COVERAGE_PENALTY = 2.0             # 65% coverage -> -0.7; 100% -> -0.0
+# (6) pre-run must be enforced, not asserted
+RADAR_EXTENSION = {
+    "max_dma200_ext_pct": 35.0,    # more extended than this = chasing
+    "max_ret6m_pct": 80.0,         # your standing rule: post-100%-run signals
+                                   # are momentum confirmation, not discovery
+    "min_coverage": 0.85,          # microcap opacity gets no benefit of doubt
+    "stale_after_runs": 30,        # sessions on radar before flagged stale
+}
+
 # ---------------------------------------------------------------- v1.2: 4-tab workflow
 # Deep-Dive Queue: the bridge between the mechanical screen and manual ACE
 # deep-dives. Lane 1 = volume-confirmed today (act-soon), Lane 2 = qualified

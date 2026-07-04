@@ -76,6 +76,28 @@ Implemented from a structured PM critique of v1.0:
 9. **Position sizing** — inverse-volatility suggested weights capped at 8%
    per name and 30% per theme. A risk-budget illustration, never advice.
 
+## v1.4 - six loopholes closed (institutional review round 2)
+
+1. **Split safety**: all price history is split/bonus-adjusted (`auto_adjust`);
+   attribution computes BOTH return endpoints from the same adjusted series, so
+   corporate actions can no longer fabricate crashes in the evidence.
+2. **Survivorship**: symbols are followed after leaving the universe (ghost
+   fetch); delisted names contribute their terminal return; names with no
+   retrievable history are counted and published with an explicit upward-bias
+   warning - failures can no longer vanish from the grade-band table.
+3. **Degraded-run guard**: if <70% of the universe has price history, or the
+   scored count collapses vs the last published run, the pipeline refuses to
+   publish and touches nothing (tabs, watch-state, score log). A rate-limit
+   storm is a data failure, not a market event. Override: `--force-publish`.
+4. **Coverage penalty**: composite loses 2.0 x missing-coverage share -
+   opacity now costs points instead of hiding risk. Radar requires >= 85%.
+5. **Promoter demoted**: yfinance's insider field is not the SEBI promoter
+   category; it no longer scores (Kedia) or gates (radar) anything -
+   display-only with a verify-NSE-SHP flag until a proper source is wired.
+6. **Pre-run enforced**: radar rejects names > 35% above their 200 DMA or
+   > 80% up in 6 months (momentum confirmation, not discovery), and tracks
+   signal age per name - stale after 30 sessions on the radar.
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it

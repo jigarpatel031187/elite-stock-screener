@@ -17,7 +17,8 @@ from config import (DATA, DOCS_DATA, HISTORY, FRAMEWORK_WEIGHTS, MULTIBAGGER,
                     LIQUIDITY_FLOOR_CR, TOP_N_PER_TAB, VETO_SCORE_CAP,
                     MIN_COVERAGE, EXIT_RULES, QUEUE, LEADERBOARD_FILE,
                     LEADERBOARD_CUTOFF, LEADERBOARD_MAX, PRIMARY_INDICES,
-                    INTEGRITY, V3_DE_LIMIT, MANUAL_VETOES,
+                    INTEGRITY, V3_DE_LIMIT, MANUAL_VETOES, RUN_GUARD,
+                    COVERAGE_PENALTY, RADAR_EXTENSION,
                     grade_for, GRADE_BANDS)
 from universe import get_universe
 from datafeed import load_fundamentals, has_min_data, fetch_price_history
@@ -25,7 +26,7 @@ from technical import tech_context
 from frameworks import score_all, _cagr, _latest
 from vetoes import check_vetoes
 from integrity import integrity_check
-from attribution import log_run, compute_attribution
+from attribution import log_run, compute_attribution, ghost_symbols
 from portfolio import sector_concentration, correlation_flags, suggested_weights
 from bear_case import bear_case
 
@@ -44,6 +45,12 @@ DISCLAIMER = ("Educational purposes only. Not investment advice. Not SEBI-regist
 def build_row(sym, meta, f, tech, scored, integ):
     veto = check_vetoes(f)
     composite = scored["composite"]
+    # fix #4: opacity is penalized, never rewarded. Weight redistribution keeps
+    # the math sound, but a stock scored on 65% of the frameworks must not
+    # outrank an equal stock scored on 100% - missing data hides risk.
+    cov_penalty = round((1.0 - scored["coverage"]) * COVERAGE_PENALTY, 2)
+    if composite is not None and cov_penalty > 0:
+        composite = max(0.0, round(composite - cov_penalty, 2))
     vetoed = bool(veto["triggered"])
     if vetoed and composite is not None:
         composite = min(composite, VETO_SCORE_CAP)
@@ -57,6 +64,7 @@ def build_row(sym, meta, f, tech, scored, integ):
         "cmp": tech["cmp"], "chg_pct": tech["chg_pct"],
         "composite": composite, "grade": grade,
         "coverage": scored["coverage"],
+        "coverage_penalty": cov_penalty,
         "frameworks": scored["frameworks"],
         "framework_notes": scored["notes"],
         "vetoes_triggered": veto["triggered"],
@@ -169,10 +177,20 @@ def multibagger_pass(row) -> tuple[bool, list[str]]:
         fails.append("leverage")
     if fu["roe_pct"] is None or fu["roe_pct"] < m["min_roe_pct"]:
         fails.append("ROE")
-    if fu["promoter_pct"] is not None and fu["promoter_pct"] < m["min_promoter_pct"]:
-        fails.append("promoter holding")
+    # fix #5: promoter % (yfinance heldPercentInsiders) is NOT the SEBI promoter
+    # category and is unreliable for NSE names - display-only until wired to the
+    # NSE quarterly shareholding pattern. It no longer gates or scores anything.
     if m["require_above_200dma"] and not te["above_200dma"]:
         fails.append("below 200DMA")
+    # fix #6: pre-run is enforced, not asserted - extension caps
+    d200 = te.get("dma200_dist_pct")
+    if d200 is not None and d200 > RADAR_EXTENSION["max_dma200_ext_pct"]:
+        fails.append(f"over-extended ({d200:.0f}% above 200DMA)")
+    r6 = te.get("ret_6m_pct")
+    if r6 is not None and r6 > RADAR_EXTENSION["max_ret6m_pct"]:
+        fails.append(f"already ran ({r6:.0f}% in 6m - momentum confirmation, not discovery)")
+    if row["coverage"] < RADAR_EXTENSION["min_coverage"]:
+        fails.append("framework coverage below radar bar")
     return (not fails), fails
 
 
@@ -261,6 +279,8 @@ def build_leaderboard(by_sym: dict) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--weekly", action="store_true", help="full fundamentals refresh")
+    ap.add_argument("--force-publish", action="store_true",
+                    help="override the degraded-run guard (use only deliberately)")
     args = ap.parse_args()
 
     now = datetime.now(IST)
@@ -269,7 +289,19 @@ def main() -> int:
     print(f"[main] universe {len(syms)} symbols ({uni_src})")
 
     funds, fund_src = load_fundamentals(syms, weekly=args.weekly)
-    hists = fetch_price_history(syms)
+    ghosts = ghost_symbols(set(syms))          # fix #2: keep following exits
+    if ghosts:
+        print(f"[main] following {len(ghosts)} ex-universe symbols for attribution")
+    hists = fetch_price_history(syms + ghosts)
+
+    # ---- fix #3: degraded-run guard, stage 1 (fetch layer). A rate-limit storm
+    # is a data failure, not a market event: refuse to score on a gutted feed.
+    hist_ratio = len([s for s in syms if s in hists]) / max(1, len(syms))
+    if hist_ratio < RUN_GUARD["min_hist_ratio"] and not args.force_publish:
+        print(f"[GUARD] only {hist_ratio:.0%} of universe has price history "
+              f"(< {RUN_GUARD['min_hist_ratio']:.0%}). Refusing to publish - "
+              "nothing written. Re-run later or use --force-publish.")
+        return 2
 
     # ---- regime (#7): live universe median PE - valuation is relative, not absolute
     pes = sorted(f["pe"] for f in funds.values()
@@ -304,9 +336,23 @@ def main() -> int:
     by_sym = {r["symbol"]: r for r in rows}
     trade_date = now.strftime("%Y-%m-%d")
 
-    # ---- attribution (#1/#2): judge the system before publishing today's scores
-    current_prices = {r["symbol"]: r["cmp"] for r in rows if r["cmp"]}
-    attribution = compute_attribution(current_prices)
+    # ---- fix #3 stage 2: compare against the last published run before writing
+    prev_file = DOCS_DATA / "primary_latest.json"
+    if prev_file.exists() and not args.force_publish:
+        try:
+            prev_scored = json.loads(prev_file.read_text()).get("scored", 0)
+        except Exception:
+            prev_scored = 0
+        if (prev_scored >= RUN_GUARD["min_scored_abs"]
+                and len(rows) < prev_scored * RUN_GUARD["min_scored_ratio_vs_prev"]):
+            print(f"[GUARD] scored {len(rows)} vs {prev_scored} last run "
+                  f"(< {RUN_GUARD['min_scored_ratio_vs_prev']:.0%}). This is a data "
+                  "failure, not a market event. Nothing written - tabs, watch-state "
+                  "and score log untouched. Re-run later or use --force-publish.")
+            return 2
+
+    # ---- attribution (#1/#2): split-safe, survivorship-aware
+    attribution = compute_attribution(hists)
 
     # ---- bear case (#8) on every published row
     for r in rows:
@@ -326,8 +372,15 @@ def main() -> int:
         "radar_gates": (f"universe: Smallcap 250 + Microcap 250 · mcap <= {MULTIBAGGER['max_mcap_cr']}cr · "
                         f"rev CAGR >= {MULTIBAGGER['min_rev_cagr3y_pct']}% · PAT CAGR >= {MULTIBAGGER['min_pat_cagr3y_pct']}% · "
                         f"D/E <= {MULTIBAGGER['max_de']} · ROE >= {MULTIBAGGER['min_roe_pct']}% · above 200DMA · "
+                        f"NOT over-extended (<= {RADAR_EXTENSION['max_dma200_ext_pct']:.0f}% above 200DMA, "
+                        f"<= {RADAR_EXTENSION['max_ret6m_pct']:.0f}% 6m return) · "
+                        f"framework coverage >= {int(RADAR_EXTENSION['min_coverage']*100)}% · "
                         f"volume integrity ({INTEGRITY['min_sessions']}+ sessions, no volume concentration, "
-                        "no zero-volume days) · no vetoes"),
+                        "no zero-volume days) · no vetoes · signal age tracked, stale after "
+                        f"{RADAR_EXTENSION['stale_after_runs']} sessions"),
+        "data_honesty": (f"prices split/bonus-adjusted · coverage penalty -{COVERAGE_PENALTY} x missing share · "
+                         "promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) · "
+                         "degraded runs refuse to publish · attribution follows exits and counts unmatched names"),
         "leaderboard": f"manual ACE deep-dives only, entry bar {LEADERBOARD_CUTOFF}, max {LEADERBOARD_MAX}",
     }
     meta = {
@@ -387,6 +440,18 @@ def main() -> int:
             near.append({"symbol": r["symbol"], "name": r["name"],
                          "composite": r["composite"], "near_miss": fails[0]})
     radar = radar[:MULTIBAGGER["max_names"]]
+    # fix #6: signal age - day 2 on the radar is discovery, day 40 is a stale
+    # signal that probably already ran. First-cleared date persists per name.
+    radar_state_file = DATA / "radar_state.json"
+    rstate = json.loads(radar_state_file.read_text()) if radar_state_file.exists() else {}
+    for r in radar:
+        st = rstate.get(r["symbol"]) or {"first_seen": trade_date, "runs": 0}
+        st["runs"] += 1
+        rstate[r["symbol"]] = st
+        r["radar_age"] = {"first_seen": st["first_seen"], "runs": st["runs"],
+                          "stale": st["runs"] > RADAR_EXTENSION["stale_after_runs"]}
+    rstate = {s: v for s, v in rstate.items() if s in {r["symbol"] for r in radar}}
+    radar_state_file.write_text(json.dumps(rstate, indent=0))
     suggested_weights(radar)
     tab_members["multibagger"] = [r["symbol"] for r in radar]
     write_tab("multibagger", radar, {**meta, "rules": MULTIBAGGER,
