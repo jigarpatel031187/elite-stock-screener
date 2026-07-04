@@ -38,6 +38,41 @@ are excluded and counted, never guessed. This repo is deliberately separate
 from the Smart Money Ledger (momentum/accumulation system): different
 philosophy, different codebase, different repo.
 
+## v1.1 — the nine institutional gaps, closed or honestly named
+
+Implemented from a structured PM critique of v1.0:
+
+1. **Attribution loop** — every run logs composite/grade/price/framework scores;
+   after 21+ sessions the dashboard publishes median forward return *by grade
+   band* (1m/3m/6m) and a Spearman rank IC per framework. Persistent near-zero
+   IC for a framework is published evidence its weight is decorative.
+2. **Weight validation** — same mechanism: weights stay as priors until the IC
+   table earns or indicts them. No fake backtest is pretended (point-in-time
+   fundamentals aren't freely available; forward evidence is collected instead).
+3. **Portfolio layer** — per-tab sector concentration (warn > 30% one theme:
+   "17 tickers, one macro bet"), pairwise 6m return-correlation flags among
+   top names.
+4. **Sell discipline** — watch-state engine records entry composite/grade when
+   a name enters any tab; composite decay ≥ 1.5, a 2-band grade fall, or a
+   fresh veto raises a persistent **EXIT REVIEW** banner. Entry is no longer
+   the only door.
+5. **Volume-integrity gates** — minimum 200 sessions of history, top-3-day
+   volume share ≤ 60% of the 20d total, zero tolerance for zero-volume days.
+   Flags shown everywhere; **hard gates** on the Multibagger Radar, which is
+   the most manipulable surface by design.
+6. **V6/V7 manual vetoes** — related-party transactions and auditor
+   change/resignation added to the checklist. Not automatable from free
+   structured data; never silently passed.
+7. **Regime overlay** — Pabrai/Damani valuation components score PE *relative
+   to the live universe median*, not absolute thresholds. "Expensive" is
+   regime-dependent; the median is printed on every run.
+8. **Structural bear case** — a deterministic devil's-advocate extracts the
+   most damaging true statements from each stock's own data (weakest
+   framework, valuation percentile, extension, CFO decline, coverage gaps,
+   volume flags) onto every card. Skepticism as a system property, not a habit.
+9. **Position sizing** — inverse-volatility suggested weights capped at 8%
+   per name and 30% per theme. A risk-budget illustration, never advice.
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it

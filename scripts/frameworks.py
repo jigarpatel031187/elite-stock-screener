@@ -92,12 +92,20 @@ def jhunjhunwala(f, tech):
     return s, "earnings momentum vs valuation"
 
 
-def pabrai(f, tech):
-    """Heads I win, tails I don't lose much: low leverage, cheapness, cash."""
+def pabrai(f, tech, regime=None):
+    """Heads I win, tails I don't lose much: low leverage, cheapness, cash.
+    Valuation is scored RELATIVE to the live universe median PE (critique #7):
+    'cheap' and 'expensive' are regime-dependent, not absolute."""
     debt, eq, cash = _latest(f.get("total_debt")), _latest(f.get("equity")), _latest(f.get("cash"))
     de = (debt / eq) if (debt is not None and eq not in (None, 0) and eq > 0) else None
     debt_s = _scale(1.5 - de, 0, 1.5) if de is not None else None
-    pe_s = _scale(50 - f["pe"], 10, 40) if f.get("pe") else None    # cheaper -> higher
+    med = (regime or {}).get("universe_pe_median")
+    if f.get("pe") and med:
+        pe_s = _scale(2.0 - f["pe"] / med, 0.2, 1.8)   # at median -> 5.6; half -> 9+
+    elif f.get("pe"):
+        pe_s = _scale(50 - f["pe"], 10, 40)
+    else:
+        pe_s = None
     net_cash = 10.0 if (cash is not None and debt is not None and cash > debt) else None
     dd_s = _scale(40 + tech.get("dd_from_52wk", 0), 0, 40) if tech.get("dd_from_52wk") is not None else None
     s = _mean([debt_s, pe_s, net_cash, dd_s])
@@ -157,14 +165,20 @@ def vanguard(f, tech):
     return s, "profit consistency / low volatility"
 
 
-def damani(f, tech):
+def damani(f, tech, regime=None):
     """Cash-generative quality at a sane price; earnings you can bank."""
     cfo, pat = _latest(f.get("cfo")), _latest(f.get("a_pat"))
     conv = (cfo / pat) if (cfo is not None and pat not in (None, 0) and pat > 0) else None
     conv_s = _scale(conv, 0.4, 1.2) if conv is not None else None
     pm = f.get("profit_margin")
     pm_s = _scale(pm * 100 if pm is not None else None, 3, 18)
-    pe_s = _scale(60 - f["pe"], 15, 50) if f.get("pe") else None
+    med = (regime or {}).get("universe_pe_median")
+    if f.get("pe") and med:
+        pe_s = _scale(2.2 - f["pe"] / med, 0.2, 2.0)
+    elif f.get("pe"):
+        pe_s = _scale(60 - f["pe"], 15, 50)
+    else:
+        pe_s = None
     s = _mean([conv_s, pm_s, pe_s])
     return s, "CFO/PAT conversion + margin + valuation"
 
@@ -176,12 +190,16 @@ SCORERS = {
 }
 
 
-def score_all(f: dict, tech: dict) -> dict:
+def score_all(f: dict, tech: dict, regime: dict | None = None) -> dict:
     """Run all 8 frameworks; redistribute weights of non-computable ones."""
     raw, notes = {}, {}
     for name, fn in SCORERS.items():
         try:
-            s, note = fn(f, tech)
+            import inspect
+            if "regime" in inspect.signature(fn).parameters:
+                s, note = fn(f, tech, regime)
+            else:
+                s, note = fn(f, tech)
         except Exception as e:
             s, note = None, f"error: {e}"
         raw[name] = None if s is None else round(s, 2)

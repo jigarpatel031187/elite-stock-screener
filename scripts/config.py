@@ -57,6 +57,11 @@ MANUAL_VETOES = {
     "V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
     "V4": "Qualified audit opinion - verify latest annual report",
     "V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+    "V6": "Related-party transactions - verify RPT disclosures in annual report; "
+          "value siphoning via related entities destroys more Indian small/midcaps "
+          "than pledges do",
+    "V7": "Auditor change / resignation in last 24 months - verify NSE announcements; "
+          "a resigning auditor is a fire alarm",
 }
 
 # ---------------------------------------------------------------- hard filters (pre-scoring)
@@ -85,3 +90,26 @@ MULTIBAGGER = {
 # ---------------------------------------------------------------- output
 TOP_N_PER_TAB = 30
 YF_SUFFIX = ".NS"
+
+# ---------------------------------------------------------------- v1.1: institutional-gap upgrades
+# (5) volume-integrity gates
+INTEGRITY = {
+    "min_sessions": 200,          # min trading history before a pre-run signal is trusted
+    "max_top3_vol_share": 0.60,   # top-3 days' volume / 20d total - above this = concentrated
+    "max_zero_vol_days_60d": 0,   # any zero-volume day in 60d = too thin to trust
+}
+# (4) exit discipline
+EXIT_RULES = {
+    "composite_decay": 1.5,       # drop vs entry composite that triggers EXIT REVIEW
+    "grade_floor_bands": 2,       # grade bands fallen vs entry that triggers review
+    "stale_sessions_drop": 15,    # sessions out of all tabs before watch-state forgets a name
+}
+# (9) position sizing / (3) concentration
+PORTFOLIO = {
+    "max_position_pct": 8.0,      # cap on any single suggested weight
+    "max_sector_share": 0.30,     # warn when a sector exceeds this share of a tab's top list
+    "corr_flag": 0.70,            # pairwise 6m return correlation above this gets flagged
+    "corr_window": 126,
+}
+# (1)/(2) attribution horizons in trading sessions
+ATTRIBUTION_HORIZONS = {"1m": 21, "3m": 63, "6m": 126}
