@@ -1,14 +1,14 @@
 {
-"generated_at": "2026-07-04T17:37:55.681308+05:30",
+"generated_at": "2026-07-04T17:39:53.747421+05:30",
 "trade_date": "2026-07-04",
-"universe_size": 7,
-"scored": 7,
-"excluded_no_fundamentals": 0,
+"universe_size": 400,
+"scored": 399,
+"excluded_no_fundamentals": 1,
 "excluded_illiquid": 0,
 "excluded_low_coverage": 0,
 "min_coverage": 0.6,
-"universe_source": "SAMPLE DATA - run the workflow for real output",
-"fundamentals_source": "SAMPLE DATA (mocked)",
+"universe_source": "cache (2026-07-04)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-07-04)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -20,7 +20,7 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 28.1,
+"universe_pe_median": 37.3,
 "note": "valuation components in Pabrai/Damani are scored vs this median; 'cheap' is regime-dependent"
 },
 "attribution": {
@@ -41,32 +41,8 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 2,
-"names": [
-{
-"symbol": "CUMMINSIND",
-"name": "Cummins India Ltd. (SAMPLE)",
-"entered": "2026-06-01",
-"entry_composite": 8.6,
-"current_composite": 6.45,
-"grade": "C",
-"reasons": [
-"composite 8.6 -> 6.45 since entry 2026-06-01",
-"grade A -> C (5 bands)"
-]
-},
-{
-"symbol": "JUNKCO",
-"name": "Leveraged Junk Co (SAMPLE)",
-"entered": "2026-07-04",
-"entry_composite": 2.18,
-"current_composite": 2.18,
-"grade": "F",
-"reasons": [
-"veto V3 now active"
-]
-}
-],
+"count": 0,
+"names": [],
 "rule": "review when composite decays >= 1.5 vs entry, grade falls 2+ bands, or any veto fires"
 }
 }
