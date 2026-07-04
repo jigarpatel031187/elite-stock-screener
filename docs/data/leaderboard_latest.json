@@ -1,14 +1,48 @@
 {
-"generated_at": "2026-07-04T22:16:51.050800+05:30",
+"generated_at": "2026-07-04T22:31:45.376098+05:30",
 "trade_date": "2026-07-04",
-"universe_size": 400,
-"scored": 399,
-"excluded_no_fundamentals": 1,
-"excluded_illiquid": 0,
+"criteria": {
+"universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
+"hard_filters": [
+"NSE EQ series \u00b7 20d avg turnover >= Rs 3.0cr",
+"5+ quarters of reported financials (missing data = excluded, never guessed)",
+"framework coverage >= 60% or excluded"
+],
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"grade_bands": "A+ >=9.0 \u00b7 A 8.5 \u00b7 A- 8.0 \u00b7 B+ 7.5 \u00b7 B 7.0 \u00b7 B- 6.5 \u00b7 below -> C/D/F",
+"vetoes_automated": [
+"V3: D/E > 3.0 with declining CFO (caps grade at C)"
+],
+"vetoes_manual": [
+"V1",
+"V2",
+"V4",
+"V5",
+"V6",
+"V7"
+],
+"valuation_regime": "PE scored relative to live universe median, not absolute",
+"queue_rules": "composite >= 7.0, no vetoes, not on leaderboard; Lane 1 = RVol >= 1.5x on an up day",
+"radar_gates": "universe: Smallcap 250 + Microcap 250 \u00b7 mcap <= 25000cr \u00b7 rev CAGR >= 15.0% \u00b7 PAT CAGR >= 18.0% \u00b7 D/E <= 0.6 \u00b7 ROE >= 15.0% \u00b7 above 200DMA \u00b7 volume integrity (200+ sessions, no volume concentration, no zero-volume days) \u00b7 no vetoes",
+"leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
+},
+"universe_size": 651,
+"scored": 644,
+"excluded_no_fundamentals": 3,
+"excluded_illiquid": 4,
 "excluded_low_coverage": 0,
 "min_coverage": 0.6,
-"universe_source": "cache (2026-07-04)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-07-04)",
+"universe_source": "NSE index CSVs (fresh)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -20,7 +54,7 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 37.3,
+"universe_pe_median": 35.0,
 "note": "valuation components in Pabrai/Damani are scored vs this median; 'cheap' is regime-dependent"
 },
 "attribution": {
@@ -69,9 +103,9 @@
 "pending_add": true,
 "cmp": 2462.3,
 "chg_pct": 0.66,
-"mech_composite": 7.41,
+"mech_composite": 7.38,
 "mech_grade": "B",
-"divergence": 0.61,
+"divergence": 0.64,
 "vetoes_now": [],
 "in_universe": true
 },
@@ -86,9 +120,9 @@
 "pending_add": true,
 "cmp": 2476.0,
 "chg_pct": 3.18,
-"mech_composite": 8.56,
+"mech_composite": 8.55,
 "mech_grade": "A",
-"divergence": -0.97,
+"divergence": -0.96,
 "vetoes_now": [],
 "in_universe": true
 }
