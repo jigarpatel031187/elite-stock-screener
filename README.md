@@ -202,6 +202,24 @@ console.anthropic.com. Never in a file, never in chat - a public GitHub
 Pages site has no backend, so a client-side key field would be visible to
 every visitor via browser dev tools.
 
+## v1.9 - three usability fixes
+
+1. **Screener Criteria collapsed by default** on the Primary Screener tab -
+   was pushing every card down; now a one-line clickable summary.
+2. **Leaderboard "why this stock"** - each card is now expandable, showing
+   your recorded verdict/theme, the 3 strongest frameworks driving the
+   mechanical score, an explicit note on whether the mechanical screen
+   currently corroborates your ACE call or not, and the standing bear case.
+   All synthesized from data already computed - no new judgment invented.
+3. **Lane 1 trade-plan reference** - Section 10 was MANUAL for every queue
+   candidate, including volume-confirmed Lane 1 names, which felt like a
+   gap given the existing BHEL swing-setup convention. Lane 1 now gets
+   ILLUSTRATIVE technical structure (20-session swing low/high, ATR14,
+   reference stop/target, R:R) computed from price data - explicitly
+   labeled NOT a recommendation: no position size, no entry timing, no
+   directional call. Your actual entry/stop/target/sizing still goes in
+   the fields below it. Lane 2 stays fully manual (not yet volume-confirmed).
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it

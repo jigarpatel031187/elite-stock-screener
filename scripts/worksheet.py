@@ -49,9 +49,46 @@ def sector_peers(row: dict, universe_rows: list[dict], n: int = 5) -> list[dict]
             for p in peers[:n]]
 
 
-def draft_worksheet(row: dict, universe_rows: list[dict]) -> dict:
+def technical_structure(te: dict, cmp_: float | None) -> dict | None:
+    """Illustrative support/resistance/ATR-based levels for Lane 1 only -
+    volume-confirmed names, worth having a technical reference point ready.
+
+    THIS IS NOT A RECOMMENDATION. It describes what the price structure
+    already shows (recent swing low/high, ATR-based distance), the same way
+    a chart would - it does not predict direction, does not size a position,
+    and does not tell you to enter. Final entry/stop/target/sizing stays
+    yours, same as it always has, consistent with your BHEL swing-setup
+    convention where the LT call is separate from any swing overlay.
+    """
+    lo, hi, atr = te.get("swing_low_20"), te.get("swing_high_20"), te.get("atr14")
+    if cmp_ is None or lo is None or hi is None:
+        return None
+    illustrative_stop = round(lo - atr, 2) if atr else round(lo * 0.98, 2)
+    illustrative_target = hi
+    rr = None
+    if illustrative_stop and cmp_ > illustrative_stop:
+        risk = cmp_ - illustrative_stop
+        reward = illustrative_target - cmp_
+        if risk > 0:
+            rr = round(reward / risk, 2)
+    return {
+        "cmp": cmp_, "recent_swing_low_20d": lo, "recent_swing_high_20d": hi,
+        "atr14": atr, "illustrative_stop_ref": illustrative_stop,
+        "illustrative_target_ref": illustrative_target, "illustrative_rr": rr,
+        "note": "Reference levels from price structure only (20-session "
+                "swing low/high, ATR). NOT a recommendation - no position "
+                "size, no entry timing, no directional call. Your own "
+                "trade plan (entry zone, actual stop, target, theme tag) "
+                "still goes in the fields below.",
+    }
+
+
+def draft_worksheet(row: dict, universe_rows: list[dict], lane: str = "lane2") -> dict:
     """Build the 11-section worksheet. Every field is either a real computed
-    value or an explicit MANUAL placeholder - never a filled-in guess."""
+    value or an explicit MANUAL placeholder - never a filled-in guess.
+    `lane` = "lane1" attaches illustrative technical structure to section 10;
+    lane2 stays fully manual (not yet volume-confirmed, lower actionability).
+    """
     fu, te = row["fundamentals"], row["technical"]
     sym, name = row["symbol"], row["name"]
 
@@ -96,9 +133,16 @@ def draft_worksheet(row: dict, universe_rows: list[dict]) -> dict:
                 "moat_narrative": None, "management_candor": None,
                 "scuttlebutt_notes": None, "governance_read": None,
                 "instruction": "This is the layer ACE exists for. Do not auto-fill."}},
-            {"n": 10, "title": "Trade plan / scenario", "status": "MANUAL", "data": {
+            {"n": 10, "title": "Trade plan / scenario",
+             "status": "PARTIAL-AUTO" if lane == "lane1" else "MANUAL", "data": {
+                "technical_reference": (technical_structure(te, row.get("cmp"))
+                                        if lane == "lane1" else None),
                 "entry_zone": None, "stop": None, "target": None, "rr": None,
-                "theme_tag": None}},
+                "theme_tag": None,
+                "instruction": ("Reference levels above are illustrative only "
+                                "(see note) - set your actual entry/stop/target/"
+                                "sizing here." if lane == "lane1" else
+                                "Fill this in during your deep-dive.")}},
             {"n": 11, "title": "Verdict", "status": "MANUAL", "data": {
                 "ace_score": None, "grade": None, "verdict": None,
                 "instruction": "Once decided, add/update this stock in "

@@ -21,6 +21,7 @@ def tech_context(hist: pd.DataFrame | None) -> dict:
         "cmp": None, "chg_pct": None, "above_200dma": False, "above_50dma": False,
         "dd_from_52wk": None, "ann_vol_pct": None, "turnover_cr": None,
         "ret_6m_pct": None, "dma200_dist_pct": None, "rvol20": None,
+        "swing_low_20": None, "swing_high_20": None, "atr14": None,
     }
     if hist is None or len(hist) < 60:
         return out
@@ -56,6 +57,23 @@ def tech_context(hist: pd.DataFrame | None) -> dict:
         base = _f(close.iloc[-126])
         if base and cmp_:
             out["ret_6m_pct"] = round((cmp_ / base - 1) * 100, 1)
+
+    # swing structure - for illustrative technical levels only, never a
+    # recommendation. Uses High/Low if the feed has them, else Close as proxy.
+    lo_col = "Low" if "Low" in hist.columns else "Close"
+    hi_col = "High" if "High" in hist.columns else "Close"
+    if len(hist) >= 20:
+        w20 = hist.tail(20)
+        lo20 = _f(w20[lo_col].min())
+        hi20 = _f(w20[hi_col].max())
+        out["swing_low_20"] = round(lo20, 2) if lo20 else None
+        out["swing_high_20"] = round(hi20, 2) if hi20 else None
+    if len(hist) >= 15 and "High" in hist.columns and "Low" in hist.columns:
+        h, l, c = hist["High"], hist["Low"], hist["Close"]
+        pc = c.shift(1)
+        tr = pd.concat([(h - l), (h - pc).abs(), (l - pc).abs()], axis=1).max(axis=1)
+        atr = _f(tr.tail(14).mean())
+        out["atr14"] = round(atr, 2) if atr else None
 
     if "Volume" in hist.columns and cmp_:
         tail = hist.tail(20)

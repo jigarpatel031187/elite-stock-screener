@@ -97,6 +97,9 @@ def build_row(sym, meta, f, tech, scored, integ):
             "turnover_cr": tech["turnover_cr"],
             "ann_vol_pct": tech["ann_vol_pct"],
             "rvol20": tech["rvol20"],
+            "swing_low_20": tech.get("swing_low_20"),
+            "swing_high_20": tech.get("swing_high_20"),
+            "atr14": tech.get("atr14"),
         },
         "_ann_vol_pct": tech["ann_vol_pct"],       # sizing input (stripped later)
     }
@@ -276,6 +279,24 @@ def build_leaderboard(by_sym: dict) -> dict:
                 dstate[e["symbol"]] = {"baseline_div": div,
                                        "set_on": datetime.now(IST).strftime("%Y-%m-%d")}
             drift = round(div - dstate[e["symbol"]]["baseline_div"], 2)
+        why = None
+        if r:
+            fw = {k: v for k, v in r["frameworks"].items() if v is not None}
+            top3 = sorted(fw.items(), key=lambda kv: -kv[1])[:3]
+            corroborated = (r["composite"] or 0) >= 7.0 and not r["vetoes_triggered"]
+            why = {
+                "verdict": e.get("verdict"),
+                "theme": e.get("theme"),
+                "top_frameworks": [{"name": k, "score": v} for k, v in top3],
+                "mechanical_corroboration": ("Mechanical screen currently agrees "
+                    f"(composite {r['composite']}, {r['grade']}) - your deep-dive "
+                    "call and the automated read are aligned." if corroborated else
+                    "Mechanical screen currently does NOT corroborate as strongly "
+                    f"(composite {r['composite']}, {r['grade']}) - your ACE score "
+                    "rests more on the qualitative layer than on the current numbers."),
+                "bear_case": r.get("bear_case", []),
+                "vetoes_now": r["vetoes_triggered"],
+            }
         entries.append({**e,
             "cmp": r["cmp"] if r else None,
             "chg_pct": r["chg_pct"] if r else None,
@@ -287,6 +308,7 @@ def build_leaderboard(by_sym: dict) -> dict:
             "re_review": bool(drift is not None and drift >= DIVERGENCE_DRIFT_ALERT),
             "vetoes_now": r["vetoes_triggered"] if r else [],
             "in_universe": r is not None and r.get("index") != "board-only",
+            "why": why,
         })
     dstate = {s: v for s, v in dstate.items()
               if s in {e["symbol"] for e in lb.get("entries", [])}}
@@ -467,11 +489,12 @@ def main() -> int:
     queue = build_queue(rows, lb_syms)
     # automation #1: auto-drafted ACE worksheet for every queue candidate -
     # mechanical prep only, qualitative sections stay blank by design
-    for lane_key in ("lane1_volume_confirmed", "lane2_watching"):
+    for lane_key, lane_name in (("lane1_volume_confirmed", "lane1"),
+                                ("lane2_watching", "lane2")):
         for entry in queue[lane_key]:
             r = by_sym.get(entry["symbol"])
             if r:
-                entry["ace_worksheet"] = draft_worksheet(r, rows)
+                entry["ace_worksheet"] = draft_worksheet(r, rows, lane=lane_name)
     enrich_queue(queue)   # Section 8 upgrade: grounded, cited research for
                           # Lane 1 only, server-side, degrades gracefully if
                           # ANTHROPIC_API_KEY secret is not set
