@@ -127,6 +127,34 @@ CSV pipeline can replace the fundamentals leg later without touching scoring.
 
 Run: Actions -> "Point-in-time backtest" -> asof (e.g. 2025-10-01), horizons "63,126".
 
+## v1.6 - Deep-Dive automation (mechanical prep, not judgment)
+
+Two additions, deliberately scoped to NOT automate ACE judgment itself -
+that qualitative layer is the entire reason ACE scores richer than the
+mechanical composite, and auto-filling it would collapse the
+divergence-drift alarm's whole purpose.
+
+1. **Auto-drafted ACE worksheet** (`worksheet.py`): every Deep-Dive Queue
+   candidate gets an 11-section worksheet mirroring the Elite Stock Analysis
+   Engine v2.0 methodology, each section tagged AUTO or MANUAL:
+   - AUTO: company overview, financial snapshot, 8-framework scorecard,
+     technical structure, sector-peer comparison, auto-generated bear case,
+     automated V3 veto status.
+   - MANUAL: the 6 mandatory web searches (exact query strings generated,
+     never fake results - GitHub Actions has no search credentials and a
+     fabricated finding is worse than an honest gap), qualitative judgment
+     (moat/management/governance), trade plan, final verdict.
+   Turns a ~45-minute research task into a ~10-minute review-and-decide task
+   with zero loss of your judgment in the actual score.
+
+2. **Deep-Dive Queue digest** (`digest.py` + a GitHub Issue upsert step in
+   `screener.yml`): each run diffs the queue against last run's membership
+   and posts what's NEW (not the full list every time, to avoid notification
+   fatigue) to a pinned GitHub Issue titled "Deep-Dive Queue digest" - using
+   only the workflow's built-in token, no WhatsApp/email API keys to
+   provision. GitHub's own notification system (mobile app, email) then
+   delivers it to you like any other issue update.
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it

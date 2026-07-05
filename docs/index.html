@@ -37,6 +37,14 @@
   .qrow .sym{font:700 15px var(--mono);color:var(--gold);min-width:110px}
   .qrow .rvol{font-family:var(--mono)} .qrow .rvol.hot{color:var(--green);font-weight:700}
   .qrow details{width:100%;font-size:12px;color:var(--dim)}
+  .ws{width:100%;background:#0d1220;border:1px solid #26304d;border-radius:8px;padding:10px 12px;margin-top:6px;font-size:11.5px}
+  .ws-sec{margin:8px 0;padding-bottom:6px;border-bottom:1px solid #1a2340}
+  .ws-sec:last-child{border-bottom:none}
+  .ws-h{font-weight:700;color:var(--gold);font-size:11px}
+  .ws-h .auto{color:var(--green);font-size:9px;margin-left:6px;font-weight:400}
+  .ws-h .manual{color:var(--amber);font-size:9px;margin-left:6px;font-weight:400}
+  .ws-kv{color:var(--dim);margin:2px 0}
+  .ws-q{font-family:var(--font-mono,monospace);background:#141b2e;padding:2px 6px;border-radius:4px;display:inline-block;margin:2px 4px 2px 0;color:#8b96b3}
   .lb-card{background:var(--card);border:1px solid var(--line);border-radius:12px;
     padding:14px 16px;margin:8px 0;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center}
   .lb-card .rk{font:800 18px var(--mono);color:var(--dim)}
@@ -326,6 +334,31 @@ function renderPortfolio(d){
   el.innerHTML = html;
 }
 
+function worksheetHtml(ws){
+  return `<div class="ws">
+    <div style="color:var(--dim);font-size:10.5px;margin-bottom:6px">${ws.mode}</div>
+    ${ws.sections.map(s=>{
+      const tag = s.status==="AUTO" ? `<span class="auto">AUTO</span>` :
+                  s.status==="MANUAL" ? `<span class="manual">MANUAL</span>` :
+                  `<span class="manual">PARTIAL-AUTO</span>`;
+      let body = "";
+      if(s.n===8){
+        body = s.data.queries.map(q=>`<span class="ws-q">${q}</span>`).join("");
+        body += `<div class="ws-kv" style="margin-top:4px">${s.data.instruction}</div>`;
+      } else if(s.n===6){
+        body = (s.data.peers||[]).map(p=>`<div class="ws-kv">${p.symbol}: ${p.grade} ${p.composite} (PE ${fmt(p.pe)}, ROE ${fmt(p.roe_pct,"%")})</div>`).join("") || `<div class="ws-kv">no sector peers found</div>`;
+      } else if(s.n===7){
+        body = (s.data.bullets||[]).map(b=>`<div class="ws-kv">· ${b}</div>`).join("");
+      } else if(s.status==="MANUAL"){
+        body = `<div class="ws-kv">${s.data.instruction||"Fill this in during your deep-dive."}</div>`;
+      } else {
+        body = Object.entries(s.data).filter(([k])=>k!=="frameworks"&&k!=="notes").map(([k,v])=>`<div class="ws-kv">${k}: ${JSON.stringify(v)}</div>`).join("");
+      }
+      return `<div class="ws-sec"><div class="ws-h">${s.n}. ${s.title} ${tag}</div>${body}</div>`;
+    }).join("")}
+  </div>`;
+}
+
 function renderQueue(d){
   renderCriteria(d); renderExit(d); renderAttribution(d);
   document.getElementById("portfolio").innerHTML="";
@@ -339,6 +372,7 @@ function renderQueue(d){
       <span style="color:var(--dim)">${q.sector||""}</span>
       ${q.integrity_flags.length?`<span class="flag bad">⚠ ${q.integrity_flags.length} integrity flag(s)</span>`:""}
       <details><summary>bear case preview</summary><ul>${q.bear_case.map(b=>`<li>${b}</li>`).join("")}</ul></details>
+      ${q.ace_worksheet?`<details><summary>📋 ACE deep-dive worksheet (auto-drafted)</summary>${worksheetHtml(q.ace_worksheet)}</details>`:""}
     </div>`;
   document.getElementById("grid").innerHTML = `
     <div style="grid-column:1/-1">
@@ -438,6 +472,31 @@ function renderPortfolio(d){
   el.innerHTML = html;
 }
 
+function worksheetHtml(ws){
+  return `<div class="ws">
+    <div style="color:var(--dim);font-size:10.5px;margin-bottom:6px">${ws.mode}</div>
+    ${ws.sections.map(s=>{
+      const tag = s.status==="AUTO" ? `<span class="auto">AUTO</span>` :
+                  s.status==="MANUAL" ? `<span class="manual">MANUAL</span>` :
+                  `<span class="manual">PARTIAL-AUTO</span>`;
+      let body = "";
+      if(s.n===8){
+        body = s.data.queries.map(q=>`<span class="ws-q">${q}</span>`).join("");
+        body += `<div class="ws-kv" style="margin-top:4px">${s.data.instruction}</div>`;
+      } else if(s.n===6){
+        body = (s.data.peers||[]).map(p=>`<div class="ws-kv">${p.symbol}: ${p.grade} ${p.composite} (PE ${fmt(p.pe)}, ROE ${fmt(p.roe_pct,"%")})</div>`).join("") || `<div class="ws-kv">no sector peers found</div>`;
+      } else if(s.n===7){
+        body = (s.data.bullets||[]).map(b=>`<div class="ws-kv">· ${b}</div>`).join("");
+      } else if(s.status==="MANUAL"){
+        body = `<div class="ws-kv">${s.data.instruction||"Fill this in during your deep-dive."}</div>`;
+      } else {
+        body = Object.entries(s.data).filter(([k])=>k!=="frameworks"&&k!=="notes").map(([k,v])=>`<div class="ws-kv">${k}: ${JSON.stringify(v)}</div>`).join("");
+      }
+      return `<div class="ws-sec"><div class="ws-h">${s.n}. ${s.title} ${tag}</div>${body}</div>`;
+    }).join("")}
+  </div>`;
+}
+
 function renderQueue(d){
   renderCriteria(d); renderExit(d); renderAttribution(d);
   document.getElementById("portfolio").innerHTML="";
@@ -451,6 +510,7 @@ function renderQueue(d){
       <span style="color:var(--dim)">${q.sector||""}</span>
       ${q.integrity_flags.length?`<span class="flag bad">⚠ ${q.integrity_flags.length} integrity flag(s)</span>`:""}
       <details><summary>bear case preview</summary><ul>${q.bear_case.map(b=>`<li>${b}</li>`).join("")}</ul></details>
+      ${q.ace_worksheet?`<details><summary>📋 ACE deep-dive worksheet (auto-drafted)</summary>${worksheetHtml(q.ace_worksheet)}</details>`:""}
     </div>`;
   document.getElementById("grid").innerHTML = `
     <div style="grid-column:1/-1">

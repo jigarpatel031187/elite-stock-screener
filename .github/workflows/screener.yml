@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: screener-update
@@ -47,6 +48,24 @@ jobs:
 
       - name: Run screener
         run: python scripts/build_screener.py ${{ steps.mode.outputs.flag }}
+
+      - name: Update Deep-Dive Queue digest issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BODY_FILE="docs/data/digest_latest.md"
+          if [ ! -f "$BODY_FILE" ]; then echo "no digest file, skipping"; exit 0; fi
+          TITLE="📋 Deep-Dive Queue digest"
+          ISSUE_NUM=$(gh issue list --search "in:title \"$TITLE\"" --state open --json number,title \
+            --jq ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          if [ -z "$ISSUE_NUM" ]; then
+            gh issue create --title "$TITLE" --body-file "$BODY_FILE" \
+              --label "digest" 2>&1 || gh issue create --title "$TITLE" --body-file "$BODY_FILE"
+          else
+            gh issue comment "$ISSUE_NUM" --body-file "$BODY_FILE"
+            # keep the issue itself showing the latest digest too
+            gh issue edit "$ISSUE_NUM" --body-file "$BODY_FILE"
+          fi
 
       - name: Commit results
         run: |

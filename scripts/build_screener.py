@@ -29,6 +29,8 @@ from integrity import integrity_check
 from attribution import log_run, compute_attribution, ghost_symbols
 from portfolio import sector_concentration, correlation_flags, suggested_weights
 from bear_case import bear_case
+from worksheet import draft_worksheet
+from digest import build_digest, save_state
 
 IST = timezone(timedelta(hours=5, minutes=30))
 WATCH_STATE = DATA / "watch_state.json"
@@ -462,10 +464,23 @@ def main() -> int:
 
     # ---- TAB 2: Deep-Dive Queue
     queue = build_queue(rows, lb_syms)
+    # automation #1: auto-drafted ACE worksheet for every queue candidate -
+    # mechanical prep only, qualitative sections stay blank by design
+    for lane_key in ("lane1_volume_confirmed", "lane2_watching"):
+        for entry in queue[lane_key]:
+            r = by_sym.get(entry["symbol"])
+            if r:
+                entry["ace_worksheet"] = draft_worksheet(r, rows)
     (DOCS_DATA / "queue_latest.json").write_text(
         json.dumps({**meta, "tab": "queue", **queue}, indent=0))
     print(f"[main] queue: lane1 {len(queue['lane1_volume_confirmed'])}, "
-          f"lane2 {len(queue['lane2_watching'])}")
+          f"lane2 {len(queue['lane2_watching'])} (worksheets attached)")
+
+    # automation #2: digest of what's NEW in the queue since last run
+    digest_md, digest_state = build_digest(queue, trade_date)
+    (DOCS_DATA / "digest_latest.md").write_text(digest_md)
+    save_state(digest_state)
+    print("[main] digest written")
 
     radar, near = [], []
     for r in rows:
