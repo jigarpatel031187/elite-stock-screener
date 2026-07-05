@@ -1,0 +1,45 @@
+name: Point-in-time backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      asof:
+        description: "Backtest as-of date (YYYY-MM-DD)"
+        required: true
+      horizons:
+        description: "Forward horizons in trading sessions"
+        required: false
+        default: "63,126"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: screener-update        # serialize with daily runs - shared caches
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 210
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run backtest
+        run: python scripts/backtest.py --asof "${{ github.event.inputs.asof }}" --horizons "${{ github.event.inputs.horizons }}"
+      - name: Commit results
+        run: |
+          git config user.name "screener-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs/data
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Backtest as-of ${{ github.event.inputs.asof }}"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 10
+          done
+          exit 1

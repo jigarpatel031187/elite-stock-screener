@@ -51,6 +51,7 @@ def _extract_one(sym: str) -> dict | None:
     q_pat = _row(qf, ["Net Income", "Net Income Common Stockholders"])
     q_dates = [str(c.date()) for c in qf.columns] if qf is not None and not qf.empty else []
 
+    a_dates = [str(c.date()) for c in af.columns] if af is not None and not af.empty else []
     a_rev = _row(af, ["Total Revenue", "Operating Revenue"])
     a_pat = _row(af, ["Net Income", "Net Income Common Stockholders"])
     a_op  = _row(af, ["Operating Income", "EBIT"])
@@ -64,7 +65,7 @@ def _extract_one(sym: str) -> dict | None:
 
     return {
         "asof": datetime.now(timezone.utc).isoformat(),
-        "q_dates": q_dates, "q_rev": q_rev, "q_pat": q_pat,
+        "q_dates": q_dates, "q_rev": q_rev, "q_pat": q_pat, "a_dates": a_dates,
         "a_rev": a_rev, "a_pat": a_pat, "a_op": a_op,
         "total_debt": total_debt, "equity": equity, "cash": cash,
         "cfo": cfo, "capex": capex,
@@ -113,6 +114,26 @@ def load_fundamentals(symbols: list[str], weekly: bool) -> tuple[dict, str]:
         FUND_CACHE.write_text(json.dumps(cached, indent=0))
     ages = [c.get("asof", "")[:10] for c in cached.values() if c.get("asof")]
     return cached, f"yfinance statements (cached, oldest {min(ages) if ages else '?'})"
+
+
+def market_regime() -> dict:
+    """Fix #10: orthogonal regime inputs - Nifty trend + India VIX.
+    Best-effort and non-fatal: a missing index feed must never block the run."""
+    out = {"nifty_above_200dma": None, "nifty_3m_pct": None, "india_vix": None}
+    try:
+        df = yf.download(["^NSEI", "^INDIAVIX"], period="1y", interval="1d",
+                         group_by="ticker", auto_adjust=True, progress=False)
+        n = df["^NSEI"]["Close"].dropna()
+        if len(n) >= 200:
+            out["nifty_above_200dma"] = bool(n.iloc[-1] > n.rolling(200).mean().iloc[-1])
+        if len(n) >= 63:
+            out["nifty_3m_pct"] = round(float(n.iloc[-1] / n.iloc[-63] - 1) * 100, 1)
+        v = df["^INDIAVIX"]["Close"].dropna()
+        if len(v):
+            out["india_vix"] = round(float(v.iloc[-1]), 1)
+    except Exception as e:
+        out["note"] = f"index feed unavailable: {e}"
+    return out
 
 
 def has_min_data(f: dict | None) -> bool:

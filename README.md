@@ -98,6 +98,35 @@ Implemented from a structured PM critique of v1.0:
    > 80% up in 6 months (momentum confirmation, not discovery), and tracks
    signal age per name - stale after 30 sessions on the radar.
 
+## v1.5 - review round 2 complete + point-in-time backtesting
+
+- **#7 Divergence drift**: ACE-vs-mechanical gap is baselined per name at
+  first sight; the re-review alarm fires on DRIFT >= 1.0 from that baseline,
+  not on the structural ACE premium. An alarm that is always red is not an alarm.
+- **#8 Earnings quality**: Jhunjhunwala damps PAT spikes that wildly outrun
+  revenue (exceptional-item signature) and caps momentum when CFO is declining
+  - paper earnings without cash are not momentum.
+- **#9 Board names never go silent**: leaderboard symbols are force-scored
+  every run even outside the index/liquidity screen; an unscoreable board name
+  raises the loudest exit-review alarm instead of disappearing.
+- **#10 Regime context**: Nifty 200DMA state, 3m trend, and India VIX join the
+  universe-median-PE line (best-effort, never blocks a run).
+
+### Backtesting (`backtest.yml` workflow)
+Runs the SAME engine as-of a past date with point-in-time enforcement:
+prices truncated at the date; only statements ended 90+ days prior are
+"known"; ratios recomputed from dated filings; unreconstructable fields
+(beta/dividend/promoter) degrade with the standard coverage penalty. Forward
+returns come from the same split-adjusted series. Every output carries a
+`caveats` block - notably UNIVERSE SURVIVORSHIP (today's constituents; free
+sources do not provide historical index membership), so trust the A-vs-C
+grade SEPARATION and ICs, not absolute return levels. Sources: NSE archives
+(constituents) + Yahoo Finance dated statements/adjusted prices. Screener.in
+is a display/export product without free point-in-time snapshots - a paid
+CSV pipeline can replace the fundamentals leg later without touching scoring.
+
+Run: Actions -> "Point-in-time backtest" -> asof (e.g. 2025-10-01), horizons "63,126".
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it

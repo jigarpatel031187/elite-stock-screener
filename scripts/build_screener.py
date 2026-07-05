@@ -21,7 +21,7 @@ from config import (DATA, DOCS_DATA, HISTORY, FRAMEWORK_WEIGHTS, MULTIBAGGER,
                     COVERAGE_PENALTY, RADAR_EXTENSION,
                     grade_for, GRADE_BANDS)
 from universe import get_universe
-from datafeed import load_fundamentals, has_min_data, fetch_price_history
+from datafeed import load_fundamentals, has_min_data, fetch_price_history, market_regime
 from technical import tech_context
 from frameworks import score_all, _cagr, _latest
 from vetoes import check_vetoes
@@ -240,6 +240,10 @@ def build_queue(rows: list, leaderboard_syms: set) -> dict:
 
 
 # ---------------------------------------------------------------- leaderboard (v1.2)
+DIVERGENCE_STATE = DATA / "divergence_state.json"
+DIVERGENCE_DRIFT_ALERT = 1.0
+
+
 def build_leaderboard(by_sym: dict) -> dict:
     """Elite Leaderboard: manual ACE results, machine-refreshed prices.
 
@@ -251,20 +255,38 @@ def build_leaderboard(by_sym: dict) -> dict:
     if not LEADERBOARD_FILE.exists():
         return {"entries": [], "note": "data/leaderboard.json not found"}
     lb = json.loads(LEADERBOARD_FILE.read_text())
+    dstate = (json.loads(DIVERGENCE_STATE.read_text())
+              if DIVERGENCE_STATE.exists() else {})
     entries = []
     for e in sorted(lb.get("entries", []), key=lambda x: -(x.get("ace_score") or 0)):
         r = by_sym.get(e["symbol"])
+        div = (round(e["ace_score"] - r["composite"], 2)
+               if r and r["composite"] is not None and e.get("ace_score") else None)
+        # fix #7: ACE runs structurally ~1-1.5 richer than the mechanical proxy,
+        # so the ABSOLUTE gap is noise. Baseline each name's gap when first seen
+        # and alert only on DRIFT from that baseline - a widening gap means the
+        # mechanical picture deteriorated since your deep-dive.
+        drift = None
+        if div is not None:
+            if e["symbol"] not in dstate:
+                dstate[e["symbol"]] = {"baseline_div": div,
+                                       "set_on": datetime.now(IST).strftime("%Y-%m-%d")}
+            drift = round(div - dstate[e["symbol"]]["baseline_div"], 2)
         entries.append({**e,
             "cmp": r["cmp"] if r else None,
             "chg_pct": r["chg_pct"] if r else None,
             "mech_composite": r["composite"] if r else None,
             "mech_grade": r["grade"] if r else None,
-            "divergence": (round(e["ace_score"] - r["composite"], 2)
-                           if r and r["composite"] is not None and e.get("ace_score")
-                           else None),
+            "divergence": div,
+            "divergence_baseline": dstate.get(e["symbol"], {}).get("baseline_div"),
+            "divergence_drift": drift,
+            "re_review": bool(drift is not None and drift >= DIVERGENCE_DRIFT_ALERT),
             "vetoes_now": r["vetoes_triggered"] if r else [],
-            "in_universe": r is not None,
+            "in_universe": r is not None and r.get("index") != "board-only",
         })
+    dstate = {s: v for s, v in dstate.items()
+              if s in {e["symbol"] for e in lb.get("entries", [])}}
+    DIVERGENCE_STATE.write_text(json.dumps(dstate, indent=0))
     return {"entries": entries[:LEADERBOARD_MAX],
             "cutoff": LEADERBOARD_CUTOFF, "max": LEADERBOARD_MAX,
             "todo": lb.get("todo"),
@@ -285,6 +307,18 @@ def main() -> int:
 
     now = datetime.now(IST)
     universe, uni_src = get_universe()
+    # fix #9: leaderboard names must be scored every run even if they fall out
+    # of the index or liquidity screen - the MOST alarming scenario (a board
+    # name disappearing) must produce the MOST alarm, not silence.
+    lb_all = (json.loads(LEADERBOARD_FILE.read_text()).get("entries", [])
+              if LEADERBOARD_FILE.exists() else [])
+    board_only = [e for e in lb_all if e["symbol"] not in universe]
+    for e in board_only:
+        universe[e["symbol"]] = {"name": e.get("name", e["symbol"]),
+                                 "index": "board-only"}
+    if board_only:
+        print(f"[main] force-following {len(board_only)} board-only names: "
+              f"{[e['symbol'] for e in board_only]}")
     syms = sorted(universe)
     print(f"[main] universe {len(syms)} symbols ({uni_src})")
 
@@ -307,9 +341,11 @@ def main() -> int:
     pes = sorted(f["pe"] for f in funds.values()
                  if f and f.get("pe") and 0 < f["pe"] < 300)
     regime = {"universe_pe_median": round(pes[len(pes) // 2], 1) if pes else None,
-              "note": "valuation components in Pabrai/Damani are scored vs this "
-                      "median; 'cheap' is regime-dependent"}
-    print(f"[main] regime: universe median PE {regime['universe_pe_median']}")
+              **market_regime(),
+              "note": "valuation scored vs universe median PE; Nifty trend + "
+                      "India VIX shown as orthogonal context (fix #10)"}
+    print(f"[main] regime: median PE {regime['universe_pe_median']} · "
+          f"Nifty>200DMA {regime['nifty_above_200dma']} · VIX {regime['india_vix']}")
 
     rows, excl_fund, excl_liquid, excl_coverage = [], 0, 0, 0
     for sym in syms:
@@ -319,7 +355,8 @@ def main() -> int:
             continue
         hist = hists.get(sym)
         tech = tech_context(hist)
-        if tech["turnover_cr"] is not None and tech["turnover_cr"] < LIQUIDITY_FLOOR_CR:
+        if (tech["turnover_cr"] is not None and tech["turnover_cr"] < LIQUIDITY_FLOOR_CR
+                and universe[sym]["index"] != "board-only"):
             excl_liquid += 1
             continue
         scored = score_all(f, tech, regime)
@@ -463,6 +500,15 @@ def main() -> int:
 
     # ---- exit engine (#4) after tab membership is known
     exits = run_exit_engine(tab_members, by_sym, trade_date)
+    for e in lb_all:                                   # fix #9: silence is the alarm
+        if e["symbol"] not in by_sym:
+            exits["names"].append({"symbol": e["symbol"], "name": e.get("name"),
+                "entered": e.get("added"), "entry_composite": None,
+                "current_composite": None, "grade": "-",
+                "reasons": ["BOARD NAME NOT SCOREABLE THIS RUN - no price/fundamental "
+                            "data retrievable. Verify listing status, corporate "
+                            "actions, and liquidity IMMEDIATELY."]})
+            exits["count"] += 1
     print(f"[main] exit review: {exits['count']} names flagged")
     exit_payload = {**meta, "exit_review": exits}
     (DOCS_DATA / "system_latest.json").write_text(json.dumps(exit_payload, indent=0))

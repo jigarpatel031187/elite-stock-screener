@@ -81,15 +81,33 @@ def buffett(f, tech):
 
 
 def jhunjhunwala(f, tech):
-    """Growth at a reasonable price with earnings momentum."""
+    """Growth at a reasonable price with earnings momentum.
+
+    Fix #8 - one good quarter must not game this. Two dampers:
+    (a) if PAT growth wildly outruns revenue growth (exceptional-item
+        signature: asset sale, writeback), the input is blended toward
+        revenue growth instead of taking the PAT spike at face value;
+    (b) if operating cash flow is DECLINING while reported PAT momentum is
+        high, the growth score is capped - paper earnings without cash are
+        not momentum.
+    """
     rev_y, pat_y = _yoy_quarter(f)
-    growth = _scale(pat_y, 0, 40)
+    g_in = pat_y
+    note_extra = ""
+    if pat_y is not None and rev_y is not None and pat_y > 2 * max(rev_y, 0) + 20:
+        g_in = (pat_y + rev_y) / 2          # exceptional-item damper
+        note_extra = " (PAT spike vs revenue - damped)"
+    growth = _scale(g_in, 0, 40)
+    cfo = [v for v in (f.get("cfo") or []) if v is not None]
+    if growth is not None and len(cfo) >= 2 and cfo[0] < cfo[1] and (g_in or 0) > 15:
+        growth = min(growth, 5.0)           # cash cross-check cap
+        note_extra = " (high PAT growth but declining CFO - capped)"
     pe = f.get("pe")
-    peg = (pe / pat_y) if (pe and pat_y and pat_y > 0) else None
-    peg_s = _scale(3.0 - peg, 0, 3.0) if peg is not None else None  # PEG 0 -> 10, 3 -> 0
+    peg = (pe / g_in) if (pe and g_in and g_in > 0) else None
+    peg_s = _scale(3.0 - peg, 0, 3.0) if peg is not None else None
     trend = 10.0 if tech.get("above_200dma") else 4.0
     s = _mean([growth, peg_s, trend])
-    return s, "earnings momentum vs valuation"
+    return s, "earnings momentum vs valuation" + note_extra
 
 
 def pabrai(f, tech, regime=None):

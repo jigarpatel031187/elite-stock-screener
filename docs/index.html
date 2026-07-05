@@ -191,9 +191,12 @@ async function load(tab){
 }
 
 function render(d){
+  const rg = d.regime||{};
+  const rtxt = (rg.nifty_above_200dma!==null&&rg.nifty_above_200dma!==undefined)
+    ? ` · Nifty ${rg.nifty_above_200dma?"▲ above":"▼ below"} 200DMA (3m ${rg.nifty_3m_pct>=0?"+":""}${rg.nifty_3m_pct}%) · VIX ${rg.india_vix}` : "";
   document.getElementById("meta").innerHTML =
     `Trade date <b>${d.trade_date}</b> · Universe ${d.universe_size} · Scored <b>${d.scored}</b> · ` +
-    `Excluded: ${d.excluded_no_fundamentals} (no fundamentals), ${d.excluded_illiquid} (illiquid)`;
+    `Excluded: ${d.excluded_no_fundamentals} (no fundamentals), ${d.excluded_illiquid} (illiquid)` + rtxt;
   const stale = (d.fundamentals_source||"").includes("cached");
   document.getElementById("prov").innerHTML =
     `universe: ${d.universe_source} · fundamentals: <span class="${stale?"":"amber"}">${d.fundamentals_source}</span>` +
@@ -360,7 +363,7 @@ function renderLeaderboard(d){
         <span style="font-size:12.5px">${e.verdict||""}</span><br>
         <span style="font-size:11px;color:var(--dim)">theme: ${e.theme||"—"} · added ${e.added||"—"} · ₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span></span><br>
         ${e.vetoes_now&&e.vetoes_now.length?`<span class="flag bad">⛔ veto now active: ${e.vetoes_now.join(",")}</span>`:""}
-        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.divergence>1.5?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} (Δ${e.divergence}) ${e.divergence>1.5?"— re-review prompt":""}</span>`:""}
+        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.re_review?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} · drift ${e.divergence_drift>=0?"+":""}${e.divergence_drift} vs entry baseline ${e.re_review?"— mechanical picture deteriorated since your deep-dive: RE-REVIEW":""}</span>`:""}
       </div>
       <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}</div></div>
     </div>`).join("");
@@ -472,7 +475,7 @@ function renderLeaderboard(d){
         <span style="font-size:12.5px">${e.verdict||""}</span><br>
         <span style="font-size:11px;color:var(--dim)">theme: ${e.theme||"—"} · added ${e.added||"—"} · ₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span></span><br>
         ${e.vetoes_now&&e.vetoes_now.length?`<span class="flag bad">⛔ veto now active: ${e.vetoes_now.join(",")}</span>`:""}
-        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.divergence>1.5?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} (Δ${e.divergence}) ${e.divergence>1.5?"— re-review prompt":""}</span>`:""}
+        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.re_review?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} · drift ${e.divergence_drift>=0?"+":""}${e.divergence_drift} vs entry baseline ${e.re_review?"— mechanical picture deteriorated since your deep-dive: RE-REVIEW":""}</span>`:""}
       </div>
       <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}</div></div>
     </div>`).join("");
