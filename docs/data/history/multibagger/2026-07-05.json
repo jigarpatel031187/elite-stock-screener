@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-07-05T07:28:11.262284+05:30",
+"generated_at": "2026-07-05T07:29:02.978734+05:30",
 "trade_date": "2026-07-05",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
@@ -36,14 +36,14 @@
 "data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
-"universe_size": 4,
-"scored": 4,
-"excluded_no_fundamentals": 0,
-"excluded_illiquid": 0,
-"excluded_low_coverage": 0,
+"universe_size": 652,
+"scored": 644,
+"excluded_no_fundamentals": 3,
+"excluded_illiquid": 4,
+"excluded_low_coverage": 1,
 "min_coverage": 0.6,
-"universe_source": "SAMPLE",
-"fundamentals_source": "SAMPLE",
+"universe_source": "cache (2026-07-04)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-07-04)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -55,24 +55,24 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 28.4,
-"nifty_above_200dma": true,
-"nifty_3m_pct": 6.2,
-"india_vix": 13.4,
+"universe_pe_median": 35.0,
+"nifty_above_200dma": false,
+"nifty_3m_pct": 7.0,
+"india_vix": 11.8,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 2,
+"sessions_logged": 1,
 "horizons": {
 "1m": {
-"status": "insufficient history (2/22 sessions)"
+"status": "insufficient history (1/22 sessions)"
 },
 "3m": {
-"status": "insufficient history (2/64 sessions)"
+"status": "insufficient history (1/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (2/127 sessions)"
+"status": "insufficient history (1/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -96,96 +96,13 @@
 "near_misses": [],
 "portfolio": {
 "sector_concentration": {
-"counts": {
-"Industrials": 1
-},
+"counts": {},
 "warnings": []
 },
 "correlation_flags": [],
 "sizing_note": "inverse-volatility, capped 8%"
 },
 "tab": "multibagger",
-"count": 1,
-"stocks": [
-{
-"symbol": "SYRMA",
-"name": "Syrma",
-"index": "smallcap250",
-"cmp": 142.18,
-"chg_pct": 0.77,
-"composite": 6.8,
-"grade": "B-",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 8.68,
-"jhunjhunwala": 5.0,
-"pabrai": 8.51,
-"kacholia": 7.6,
-"kedia": 2.72,
-"blackrock": 7.22,
-"vanguard": 7.14,
-"damani": 6.69
-},
-"framework_notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-},
-"vetoes_triggered": [],
-"veto_details": {
-"de_ratio": 0.06,
-"cfo_trend": "stable/rising"
-},
-"manual_veto_checklist": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"integrity": {
-"flags": [],
-"sessions": 251,
-"top3_vol_share": 0.26,
-"radar_ok": true
-},
-"fundamentals": {
-"mcap_cr": 9000,
-"pe": 29.6,
-"roe_pct": 22.0,
-"op_margin_pct": 18.0,
-"de": 0.06,
-"rev_cagr3y_pct": 30.0,
-"pat_cagr3y_pct": 30.0,
-"promoter_pct": 55.0,
-"sector": "Industrials",
-"latest_quarter": "2026-03-31"
-},
-"technical": {
-"above_200dma": true,
-"above_50dma": true,
-"dma200_dist_pct": 15.7,
-"dd_from_52wk": -1.3,
-"ret_6m_pct": 19.6,
-"turnover_cr": 22.06,
-"ann_vol_pct": 19.5
-},
-"bear_case": [
-"Weakest lens: Kedia scores just 2.7/10 (size + growth runway (promoter % display-only, verify NSE SHP))"
-],
-"suggested_weight_pct": 8.0,
-"radar_age": {
-"first_seen": "2026-07-05",
-"runs": 2,
-"stale": false
-}
-}
-]
+"count": 0,
+"stocks": []
 }

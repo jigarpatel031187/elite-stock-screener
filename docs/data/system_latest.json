@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-07-04T22:31:45.376098+05:30",
-"trade_date": "2026-07-04",
+"generated_at": "2026-07-05T07:29:02.978734+05:30",
+"trade_date": "2026-07-05",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -32,17 +32,18 @@
 ],
 "valuation_regime": "PE scored relative to live universe median, not absolute",
 "queue_rules": "composite >= 7.0, no vetoes, not on leaderboard; Lane 1 = RVol >= 1.5x on an up day",
-"radar_gates": "universe: Smallcap 250 + Microcap 250 \u00b7 mcap <= 25000cr \u00b7 rev CAGR >= 15.0% \u00b7 PAT CAGR >= 18.0% \u00b7 D/E <= 0.6 \u00b7 ROE >= 15.0% \u00b7 above 200DMA \u00b7 volume integrity (200+ sessions, no volume concentration, no zero-volume days) \u00b7 no vetoes",
+"radar_gates": "universe: Smallcap 250 + Microcap 250 \u00b7 mcap <= 25000cr \u00b7 rev CAGR >= 15.0% \u00b7 PAT CAGR >= 18.0% \u00b7 D/E <= 0.6 \u00b7 ROE >= 15.0% \u00b7 above 200DMA \u00b7 NOT over-extended (<= 35% above 200DMA, <= 80% 6m return) \u00b7 framework coverage >= 85% \u00b7 volume integrity (200+ sessions, no volume concentration, no zero-volume days) \u00b7 no vetoes \u00b7 signal age tracked, stale after 30 sessions",
+"data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
-"universe_size": 651,
+"universe_size": 652,
 "scored": 644,
 "excluded_no_fundamentals": 3,
 "excluded_illiquid": 4,
-"excluded_low_coverage": 0,
+"excluded_low_coverage": 1,
 "min_coverage": 0.6,
-"universe_source": "NSE index CSVs (fresh)",
-"fundamentals_source": "yfinance statements (fresh)",
+"universe_source": "cache (2026-07-04)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-07-04)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -55,7 +56,10 @@
 },
 "regime": {
 "universe_pe_median": 35.0,
-"note": "valuation components in Pabrai/Damani are scored vs this median; 'cheap' is regime-dependent"
+"nifty_above_200dma": false,
+"nifty_3m_pct": 7.0,
+"india_vix": 11.8,
+"note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
@@ -70,13 +74,27 @@
 "6m": {
 "status": "insufficient history (1/127 sessions)"
 }
-}
+},
+"method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
 },
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 0,
-"names": [],
+"count": 1,
+"names": [
+{
+"symbol": "CUMMINSIND",
+"name": "Cummins India",
+"entered": "2026-06-01",
+"entry_composite": 8.6,
+"current_composite": 6.61,
+"grade": "B-",
+"reasons": [
+"composite 8.6 -> 6.61 since entry 2026-06-01",
+"grade A -> B- (4 bands)"
+]
+}
+],
 "rule": "review when composite decays >= 1.5 vs entry, grade falls 2+ bands, or any veto fires"
 }
 }
