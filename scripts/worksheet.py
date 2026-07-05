@@ -132,7 +132,12 @@ def draft_worksheet(row: dict, universe_rows: list[dict], lane: str = "lane2") -
             {"n": 9, "title": "Qualitative judgment", "status": "MANUAL", "data": {
                 "moat_narrative": None, "management_candor": None,
                 "scuttlebutt_notes": None, "governance_read": None,
-                "instruction": "This is the layer ACE exists for. Do not auto-fill."}},
+                "ai_draft": None,
+                "instruction": "This is the layer ACE exists for - the fields "
+                               "above stay None until YOU fill them. If an "
+                               "ai_draft is present below, it's an unreviewed "
+                               "starting point from web search, not a "
+                               "conclusion - confirm, edit, or reject it."}},
             {"n": 10, "title": "Trade plan / scenario",
              "status": "PARTIAL-AUTO" if lane == "lane1" else "MANUAL", "data": {
                 "technical_reference": (technical_structure(te, row.get("cmp"))

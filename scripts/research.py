@@ -38,10 +38,25 @@ SYSTEM = (
     "verbatim beyond a few words. If you find nothing reliable on a topic, "
     "say exactly that - do not infer, guess, or fill the gap with general "
     "knowledge about the company or sector. Every claim needs a source name "
-    "and URL. Output ONLY valid JSON, no preamble, in this exact shape: "
+    "and URL.\n\n"
+    "SEPARATELY, using only what your searches actually turned up (never "
+    "prior knowledge about the company), draft a qualitative synthesis "
+    "covering: moat narrative, management candor/track record, and "
+    "governance red flags. This is an UNREVIEWED DRAFT for a human analyst "
+    "to confirm, edit, or reject - not a final judgment. If your searches "
+    "did not surface enough to say anything substantive on a point, say "
+    "'insufficient public information found' rather than reasoning from "
+    "general sector knowledge or the company's own promotional material "
+    "uncritically. Flag if a source appears to be company-controlled "
+    "(investor deck, PR) versus independent.\n\n"
+    "Output ONLY valid JSON, no preamble, in this exact shape: "
     '{"findings": [{"topic": "...", "summary": "...", '
     '"sources": [{"title": "...", "url": "..."}], '
-    '"status": "found" | "nothing_reliable_found"}]}'
+    '"status": "found" | "nothing_reliable_found"}], '
+    '"qualitative_draft": {"moat_narrative": "...", '
+    '"management_read": "...", "governance_notes": "...", '
+    '"confidence": "low" | "medium" | "high", '
+    '"caution": "one sentence on what this draft cannot tell you"}}'
 )
 
 
@@ -115,24 +130,43 @@ STATUS_MESSAGES = {
 
 
 def enrich_section8(worksheet: dict, sym: str, name: str) -> None:
-    """Mutates worksheet's section 8 in place, ADDING grounded findings
-    alongside the original query list - never replacing the honest fallback."""
+    """Mutates worksheet sections 8 AND 9 in place. Section 8 gets compiled,
+    cited findings (as before). Section 9 gets an explicitly-labeled DRAFT
+    qualitative synthesis from the same call - it stays status MANUAL
+    regardless, because a draft is not a review. The final ace_score/grade/
+    verdict that goes into leaderboard.json is never touched here or
+    anywhere in this pipeline - that confirmation step stays yours."""
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     sec8 = next(s for s in worksheet["sections"] if s["n"] == 8)
+    sec9 = next(s for s in worksheet["sections"] if s["n"] == 9)
     if not api_key:
         sec8["data"]["ai_research"] = {
             "status": "not_configured",
             "note": "Set the ANTHROPIC_API_KEY repository secret to enable "
                     "auto-compiled, cited research here. Manual queries above "
                     "still work without it."}
+        sec9["data"]["ai_draft"] = {"status": "not_configured"}
         return
     result, status = _call_claude(sym, name, sec8["data"]["queries"], api_key)
     if status != "ok" or result is None:
-        sec8["data"]["ai_research"] = {"status": status,
-                                       "note": STATUS_MESSAGES.get(status, STATUS_MESSAGES["other_error"])}
+        note = STATUS_MESSAGES.get(status, STATUS_MESSAGES["other_error"])
+        sec8["data"]["ai_research"] = {"status": status, "note": note}
+        sec9["data"]["ai_draft"] = {"status": status, "note": note}
         return
     sec8["data"]["ai_research"] = {"status": "ok", "findings": result["findings"]}
     sec8["status"] = "PARTIAL-AUTO"
+
+    qd = result.get("qualitative_draft")
+    if qd:
+        sec9["data"]["ai_draft"] = {"status": "ok", **qd,
+            "banner": "⚠ AI DRAFT — UNREVIEWED. This is a starting point built "
+                      "only from what web search surfaced, not a judgment. "
+                      "Confirm, edit, or reject before it informs any score."}
+    else:
+        sec9["data"]["ai_draft"] = {"status": "bad_response",
+            "note": "Model did not return a qualitative_draft section."}
+    # Section 9's status is intentionally left MANUAL always - a draft
+    # existing does not mean the qualitative layer has been reviewed.
 
 
 def enrich_queue(queue: dict) -> None:

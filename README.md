@@ -239,6 +239,27 @@ the manual-only vetoes V1/V2/V4/V6/V7). Built the middle path instead:
   their auto-drafted worksheet remains one click away when you're ready to
   convert a provisional slot into a real, reviewed entry.
 
+## v2.1 - Section 9 AI-drafted synthesis + a real dashboard bug fixed
+
+**Section 9 upgrade (same API call as Section 8, no extra cost/secret):**
+the research call now also drafts a qualitative synthesis - moat narrative,
+management read, governance notes, confidence, and an explicit caution -
+built ONLY from what web search actually surfaced. Rendered with a bold red
+"AI DRAFT — UNREVIEWED" banner. Section 9's status stays MANUAL always: a
+draft is a starting point, not a review, and the final ace_score/grade/
+verdict that goes into leaderboard.json is never touched by this pipeline -
+that confirmation step is yours alone, which is what keeps the
+divergence-drift alarm and the manual vetoes meaningful.
+
+**Dashboard bug fixed:** found and removed real corruption from earlier
+edits - `worksheetHtml`, `renderQueue`, `renderLeaderboard`, and several
+render functions had been accidentally duplicated, with the duplicate block
+containing a `renderCriteria` nested inside a click handler (making it
+inaccessible where it was called from - a ReferenceError waiting to happen)
+and a broken/orphaned tail with mismatched braces. Rebuilt the script section
+clean from the last known-good line, verified with `node --check` and a
+function-count audit (each render function now defined exactly once).
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it
