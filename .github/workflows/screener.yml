@@ -47,6 +47,10 @@ jobs:
           fi
 
       - name: Run screener
+        env:
+          # Optional. If unset, Section 8 gracefully falls back to the
+          # manual query list - the run never fails for its absence.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/build_screener.py ${{ steps.mode.outputs.flag }}
 
       - name: Update Deep-Dive Queue digest issue

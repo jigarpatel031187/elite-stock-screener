@@ -155,6 +155,31 @@ divergence-drift alarm's whole purpose.
    provision. GitHub's own notification system (mobile app, email) then
    delivers it to you like any other issue update.
 
+## v1.7 - Section 8 upgraded: grounded, cited research (server-side only)
+
+**Why this is NOT an API-key field in the HTML:** the dashboard is a public
+GitHub Pages site with no backend. Any client-side key would sit in plain
+JavaScript, visible to every visitor via browser dev tools - a real leak of
+your Anthropic billing key to the entire internet, not a theoretical risk.
+
+**What was built instead:** `research.py` runs inside the GitHub Actions
+pipeline (server-side) and calls the Claude API with the web_search tool for
+Lane 1 candidates only (capped at 5/run for cost control), compiling the same
+6 mandatory-search topics into cited findings. Uses a GitHub encrypted
+secret - never a file, never this chat, never the public site.
+
+**Setup (do this yourself, not in chat):**
+1. Get a key at console.anthropic.com (separate API billing from claude.ai)
+2. Repo -> Settings -> Secrets and variables -> Actions -> New repository
+   secret -> name `ANTHROPIC_API_KEY`, paste the key there
+
+**Failure behavior, by design:** no key set -> Section 8 shows the manual
+query list only (unchanged from before, explicitly marked "not configured").
+API call fails or returns unparseable output -> falls back to the manual
+list with an "unavailable this run" note. NEVER fabricates a finding -
+verified in testing that a bad/garbage model response is discarded rather
+than surfaced as if it were real research.
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it

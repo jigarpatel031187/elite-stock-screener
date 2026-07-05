@@ -343,8 +343,23 @@ function worksheetHtml(ws){
                   `<span class="manual">PARTIAL-AUTO</span>`;
       let body = "";
       if(s.n===8){
+        const ar = s.data.ai_research;
         body = s.data.queries.map(q=>`<span class="ws-q">${q}</span>`).join("");
         body += `<div class="ws-kv" style="margin-top:4px">${s.data.instruction}</div>`;
+        if(ar){
+          if(ar.status==="ok"){
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--green)">🔎 AI-compiled research (cited, server-side):</div>`;
+            body += ar.findings.map(f=>`<div style="margin:6px 0;padding:6px 8px;background:#141b2e;border-radius:6px">
+              <div style="color:#e8ecf6">${f.topic}</div>
+              <div class="ws-kv" style="margin:3px 0">${f.status==="found"?f.summary:"<i>nothing reliable found</i>"}</div>
+              ${(f.sources||[]).map(src=>`<a href="${src.url}" target="_blank" style="color:var(--blue);font-size:10.5px;display:block">${src.title||src.url}</a>`).join("")}
+            </div>`).join("");
+          } else if(ar.status==="not_configured"){
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">🔒 ${ar.note}</div>`;
+          } else {
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">⚠ ${ar.note}</div>`;
+          }
+        }
       } else if(s.n===6){
         body = (s.data.peers||[]).map(p=>`<div class="ws-kv">${p.symbol}: ${p.grade} ${p.composite} (PE ${fmt(p.pe)}, ROE ${fmt(p.roe_pct,"%")})</div>`).join("") || `<div class="ws-kv">no sector peers found</div>`;
       } else if(s.n===7){
@@ -481,8 +496,23 @@ function worksheetHtml(ws){
                   `<span class="manual">PARTIAL-AUTO</span>`;
       let body = "";
       if(s.n===8){
+        const ar = s.data.ai_research;
         body = s.data.queries.map(q=>`<span class="ws-q">${q}</span>`).join("");
         body += `<div class="ws-kv" style="margin-top:4px">${s.data.instruction}</div>`;
+        if(ar){
+          if(ar.status==="ok"){
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--green)">🔎 AI-compiled research (cited, server-side):</div>`;
+            body += ar.findings.map(f=>`<div style="margin:6px 0;padding:6px 8px;background:#141b2e;border-radius:6px">
+              <div style="color:#e8ecf6">${f.topic}</div>
+              <div class="ws-kv" style="margin:3px 0">${f.status==="found"?f.summary:"<i>nothing reliable found</i>"}</div>
+              ${(f.sources||[]).map(src=>`<a href="${src.url}" target="_blank" style="color:var(--blue);font-size:10.5px;display:block">${src.title||src.url}</a>`).join("")}
+            </div>`).join("");
+          } else if(ar.status==="not_configured"){
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">🔒 ${ar.note}</div>`;
+          } else {
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">⚠ ${ar.note}</div>`;
+          }
+        }
       } else if(s.n===6){
         body = (s.data.peers||[]).map(p=>`<div class="ws-kv">${p.symbol}: ${p.grade} ${p.composite} (PE ${fmt(p.pe)}, ROE ${fmt(p.roe_pct,"%")})</div>`).join("") || `<div class="ws-kv">no sector peers found</div>`;
       } else if(s.n===7){

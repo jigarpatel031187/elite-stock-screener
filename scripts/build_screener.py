@@ -31,6 +31,7 @@ from portfolio import sector_concentration, correlation_flags, suggested_weights
 from bear_case import bear_case
 from worksheet import draft_worksheet
 from digest import build_digest, save_state
+from research import enrich_queue
 
 IST = timezone(timedelta(hours=5, minutes=30))
 WATCH_STATE = DATA / "watch_state.json"
@@ -471,6 +472,9 @@ def main() -> int:
             r = by_sym.get(entry["symbol"])
             if r:
                 entry["ace_worksheet"] = draft_worksheet(r, rows)
+    enrich_queue(queue)   # Section 8 upgrade: grounded, cited research for
+                          # Lane 1 only, server-side, degrades gracefully if
+                          # ANTHROPIC_API_KEY secret is not set
     (DOCS_DATA / "queue_latest.json").write_text(
         json.dumps({**meta, "tab": "queue", **queue}, indent=0))
     print(f"[main] queue: lane1 {len(queue['lane1_volume_confirmed'])}, "
