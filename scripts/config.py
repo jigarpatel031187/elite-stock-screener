@@ -159,4 +159,12 @@ QUEUE = {
 # when you complete a deep-dive and edit the JSON - by design, never on a timer.
 LEADERBOARD_FILE = DATA / "leaderboard.json"
 LEADERBOARD_CUTOFF = 7.48      # your standing entry bar (ACE scale)
-LEADERBOARD_MAX = 17
+LEADERBOARD_MAX = 17           # hard ceiling on CONFIRMED (human-reviewed) entries
+# Provisional slots (v2.0): if confirmed entries fall short of this target,
+# top Deep-Dive Queue candidates fill the remainder as clearly-marked
+# AUTO/PROVISIONAL entries - never written to leaderboard.json, never given
+# an independent ACE score (ace_score = mechanical composite, labeled as
+# such), and never tracked by the divergence-drift alarm, which only means
+# something when a genuinely independent human judgment exists to drift
+# against.
+LEADERBOARD_PROVISIONAL_TARGET = 15

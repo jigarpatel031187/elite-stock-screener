@@ -16,7 +16,8 @@ from datetime import datetime, timezone, timedelta
 from config import (DATA, DOCS_DATA, HISTORY, FRAMEWORK_WEIGHTS, MULTIBAGGER,
                     LIQUIDITY_FLOOR_CR, TOP_N_PER_TAB, VETO_SCORE_CAP,
                     MIN_COVERAGE, EXIT_RULES, QUEUE, LEADERBOARD_FILE,
-                    LEADERBOARD_CUTOFF, LEADERBOARD_MAX, PRIMARY_INDICES,
+                    LEADERBOARD_CUTOFF, LEADERBOARD_MAX,
+                    LEADERBOARD_PROVISIONAL_TARGET, PRIMARY_INDICES,
                     INTEGRITY, V3_DE_LIMIT, MANUAL_VETOES, RUN_GUARD,
                     COVERAGE_PENALTY, RADAR_EXTENSION,
                     grade_for, GRADE_BANDS)
@@ -251,7 +252,25 @@ DIVERGENCE_STATE = DATA / "divergence_state.json"
 DIVERGENCE_DRIFT_ALERT = 1.0
 
 
-def build_leaderboard(by_sym: dict) -> dict:
+def _why_for(r: dict) -> dict:
+    """Shared rationale builder for both confirmed and provisional entries."""
+    fw = {k: v for k, v in r["frameworks"].items() if v is not None}
+    top3 = sorted(fw.items(), key=lambda kv: -kv[1])[:3]
+    corroborated = (r["composite"] or 0) >= 7.0 and not r["vetoes_triggered"]
+    return {
+        "top_frameworks": [{"name": k, "score": v} for k, v in top3],
+        "mechanical_corroboration": ("Mechanical screen currently agrees "
+            f"(composite {r['composite']}, {r['grade']}) - your deep-dive "
+            "call and the automated read are aligned." if corroborated else
+            "Mechanical screen currently does NOT corroborate as strongly "
+            f"(composite {r['composite']}, {r['grade']}) - your ACE score "
+            "rests more on the qualitative layer than on the current numbers."),
+        "bear_case": r.get("bear_case", []),
+        "vetoes_now": r["vetoes_triggered"],
+    }
+
+
+def build_confirmed_leaderboard(by_sym: dict) -> dict:
     """Elite Leaderboard: manual ACE results, machine-refreshed prices.
 
     ace_score / grade / verdict / theme come ONLY from data/leaderboard.json
@@ -279,25 +298,9 @@ def build_leaderboard(by_sym: dict) -> dict:
                 dstate[e["symbol"]] = {"baseline_div": div,
                                        "set_on": datetime.now(IST).strftime("%Y-%m-%d")}
             drift = round(div - dstate[e["symbol"]]["baseline_div"], 2)
-        why = None
-        if r:
-            fw = {k: v for k, v in r["frameworks"].items() if v is not None}
-            top3 = sorted(fw.items(), key=lambda kv: -kv[1])[:3]
-            corroborated = (r["composite"] or 0) >= 7.0 and not r["vetoes_triggered"]
-            why = {
-                "verdict": e.get("verdict"),
-                "theme": e.get("theme"),
-                "top_frameworks": [{"name": k, "score": v} for k, v in top3],
-                "mechanical_corroboration": ("Mechanical screen currently agrees "
-                    f"(composite {r['composite']}, {r['grade']}) - your deep-dive "
-                    "call and the automated read are aligned." if corroborated else
-                    "Mechanical screen currently does NOT corroborate as strongly "
-                    f"(composite {r['composite']}, {r['grade']}) - your ACE score "
-                    "rests more on the qualitative layer than on the current numbers."),
-                "bear_case": r.get("bear_case", []),
-                "vetoes_now": r["vetoes_triggered"],
-            }
+        why = {**_why_for(r), "verdict": e.get("verdict"), "theme": e.get("theme")} if r else None
         entries.append({**e,
+            "provisional": False,
             "cmp": r["cmp"] if r else None,
             "chg_pct": r["chg_pct"] if r else None,
             "mech_composite": r["composite"] if r else None,
@@ -313,7 +316,8 @@ def build_leaderboard(by_sym: dict) -> dict:
     dstate = {s: v for s, v in dstate.items()
               if s in {e["symbol"] for e in lb.get("entries", [])}}
     DIVERGENCE_STATE.write_text(json.dumps(dstate, indent=0))
-    return {"entries": entries[:LEADERBOARD_MAX],
+    lb_syms_out = {e["symbol"] for e in entries}
+    return {"entries": entries[:LEADERBOARD_MAX], "syms": lb_syms_out,
             "cutoff": LEADERBOARD_CUTOFF, "max": LEADERBOARD_MAX,
             "todo": lb.get("todo"),
             "note": ("ACE scores are manual deep-dive results; CMP refreshes "
@@ -321,6 +325,53 @@ def build_leaderboard(by_sym: dict) -> dict:
                      "composite - a widening gap is a re-review prompt, exactly "
                      "the 'nobody re-ran Cummins' failure the exit engine exists "
                      "to prevent.")}
+
+
+def fill_provisional(confirmed: list, queue: dict, by_sym: dict) -> list:
+    """Fill remaining slots (up to LEADERBOARD_PROVISIONAL_TARGET total) with
+    top Deep-Dive Queue candidates as CLEARLY MARKED provisional entries.
+
+    These are NOT a replacement for ACE curation - see the design discussion:
+    a top-N-by-composite auto-list has no defense against the manual-only
+    vetoes (V1/V2/V4/V6/V7) and no independent judgment for the
+    divergence-drift alarm to check against. So a provisional entry's
+    ace_score literally equals its mechanical composite (labeled as such,
+    never disguised as a real ACE score), never gets a divergence baseline,
+    and is never written back to leaderboard.json - it exists only in this
+    run's published output, regenerated fresh each time from whatever
+    currently tops the queue.
+    """
+    need = max(0, LEADERBOARD_PROVISIONAL_TARGET - len(confirmed))
+    if need == 0:
+        return []
+    confirmed_syms = {e["symbol"] for e in confirmed}
+    pool = []
+    for lane_key, lane_label in (("lane1_volume_confirmed", "Lane 1 - volume confirmed"),
+                                 ("lane2_watching", "Lane 2 - watching")):
+        for entry in queue.get(lane_key, []):
+            if entry["symbol"] in confirmed_syms:
+                continue
+            r = by_sym.get(entry["symbol"])
+            if r:
+                pool.append((r, lane_label))
+    pool.sort(key=lambda t: -(t[0]["composite"] or 0))
+
+    out = []
+    for r, lane_label in pool[:need]:
+        out.append({
+            "symbol": r["symbol"], "name": r["name"], "provisional": True,
+            "ace_score": r["composite"], "grade": r["grade"],
+            "verdict": f"Mechanically qualified ({lane_label}) - no ACE deep-dive "
+                       "done yet. Worksheet available in the Deep-Dive Queue tab.",
+            "theme": None, "added": None, "pending_add": False,
+            "cmp": r["cmp"], "chg_pct": r["chg_pct"],
+            "mech_composite": r["composite"], "mech_grade": r["grade"],
+            "divergence": None, "divergence_baseline": None,
+            "divergence_drift": None, "re_review": False,
+            "vetoes_now": r["vetoes_triggered"], "in_universe": True,
+            "why": _why_for(r),
+        })
+    return out
 
 
 # ---------------------------------------------------------------- main
@@ -477,13 +528,12 @@ def main() -> int:
           f"leader {primary_rows[0]['symbol'] if primary_rows else '-'}, "
           f"{len(conc['warnings'])} concentration warnings")
 
-    # ---- TAB 3: Elite Leaderboard (manual ACE + live CMP) - built before the
-    #      queue so queue can exclude board names
-    leaderboard = build_leaderboard(by_sym)
-    (DOCS_DATA / "leaderboard_latest.json").write_text(
-        json.dumps({**meta, "tab": "leaderboard", **leaderboard}, indent=0))
-    lb_syms = {e["symbol"] for e in leaderboard["entries"]}
-    print(f"[main] leaderboard: {len(leaderboard['entries'])} names (manual ACE)")
+    # ---- TAB 3 (part 1): confirmed Elite Leaderboard entries (manual ACE +
+    #      live CMP) - built in-memory first so queue can exclude them; the
+    #      file itself is written LATER, after provisional fill is computed
+    confirmed_lb = build_confirmed_leaderboard(by_sym)
+    lb_syms = confirmed_lb["syms"]
+    print(f"[main] leaderboard: {len(confirmed_lb['entries'])} confirmed (manual ACE)")
 
     # ---- TAB 2: Deep-Dive Queue
     queue = build_queue(rows, lb_syms)
@@ -502,6 +552,20 @@ def main() -> int:
         json.dumps({**meta, "tab": "queue", **queue}, indent=0))
     print(f"[main] queue: lane1 {len(queue['lane1_volume_confirmed'])}, "
           f"lane2 {len(queue['lane2_watching'])} (worksheets attached)")
+
+    # ---- TAB 3 (part 2): fill remaining leaderboard slots with clearly
+    # marked provisional entries from the queue, then write the final file
+    provisional = fill_provisional(confirmed_lb["entries"], queue, by_sym)
+    combined = sorted(confirmed_lb["entries"] + provisional,
+                      key=lambda e: -(e.get("ace_score") or 0))
+    leaderboard = {k: v for k, v in confirmed_lb.items() if k != "syms"}
+    leaderboard.update({"entries": combined,
+                        "confirmed_count": len(confirmed_lb["entries"]),
+                        "provisional_count": len(provisional)})
+    (DOCS_DATA / "leaderboard_latest.json").write_text(
+        json.dumps({**meta, "tab": "leaderboard", **leaderboard}, indent=0))
+    print(f"[main] leaderboard finalized: {len(confirmed_lb['entries'])} confirmed + "
+          f"{len(provisional)} provisional = {len(combined)} shown")
 
     # automation #2: digest of what's NEW in the queue since last run
     digest_md, digest_state = build_digest(queue, trade_date)

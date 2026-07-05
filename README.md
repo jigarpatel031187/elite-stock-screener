@@ -220,6 +220,25 @@ every visitor via browser dev tools.
    directional call. Your actual entry/stop/target/sizing still goes in
    the fields below it. Lane 2 stays fully manual (not yet volume-confirmed).
 
+## v2.0 - Leaderboard provisional-slot compromise
+
+Rejected a straight "auto top-15 by composite" replacement (it would collapse
+the divergence-drift alarm to always-zero and remove the only defense against
+the manual-only vetoes V1/V2/V4/V6/V7). Built the middle path instead:
+
+- **Confirmed entries**: unchanged - your ACE work in `data/leaderboard.json`,
+  never touched by the pipeline.
+- **Provisional entries**: if confirmed entries fall short of a 15-name
+  target, top Deep-Dive Queue candidates (Lane 1 then Lane 2, ranked by
+  mechanical composite) fill the remainder. Rendered with a distinct grey
+  border and "🤖 AUTO · AWAITING REVIEW" tag - `ace_score` is explicitly the
+  mechanical composite, not a disguised judgment call. No divergence
+  tracking (nothing to drift against yet), never written back to
+  `leaderboard.json`, regenerated fresh every run from whatever currently
+  tops the queue. Stocks stay visible in the Deep-Dive Queue tab too, so
+  their auto-drafted worksheet remains one click away when you're ready to
+  convert a provisional slot into a real, reviewed entry.
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it

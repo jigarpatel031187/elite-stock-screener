@@ -52,6 +52,9 @@
   .lb-card .div{font-size:11px;font-family:var(--mono)}
   .lb-card .div.neg{color:var(--red)} .lb-card .div.pos{color:var(--green)}
   .lb-card.pending{border-style:dashed;opacity:.85}
+  .lb-card.provisional{border-color:#4a4a5a;background:#12141f}
+  .lb-card.provisional .ace{color:var(--dim)}
+  .prov-tag{font:600 10px var(--mono);background:#2a2d3a;color:#9aa0b5;padding:2px 8px;border-radius:5px;margin-left:6px}
   .tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
   .provenance{font-size:12px;color:var(--dim);font-family:var(--mono);
@@ -419,14 +422,14 @@ function renderLeaderboard(d){
   renderCriteria(d); renderExit(d); document.getElementById("attribution").innerHTML="";
   document.getElementById("portfolio").innerHTML="";
   document.getElementById("meta").innerHTML =
-    `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — manual ACE deep-dives, entry bar ${d.cutoff}, max ${d.max}`;
+    `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — ${d.confirmed_count} confirmed (manual ACE) + ${d.provisional_count} provisional (auto, awaiting review) · entry bar ${d.cutoff}, max ${d.max} confirmed`;
   document.getElementById("prov").innerHTML = d.note;
   const cards = d.entries.map((e,i)=>{
     const w = e.why;
     const whyHtml = w ? `<div class="ws" style="margin-top:8px">
-        <div class="ws-sec"><div class="ws-h">Why this stock <span class="auto">from your deep-dive + current mechanical read</span></div>
+        <div class="ws-sec"><div class="ws-h">${e.provisional?"Why mechanically shortlisted":"Why this stock"} <span class="auto">${e.provisional?"from the mechanical screen only - no human review yet":"from your deep-dive + current mechanical read"}</span></div>
           <div class="ws-kv">${w.verdict||"(no verdict recorded)"}</div>
-          <div class="ws-kv">Theme: ${w.theme||"—"}</div>
+          ${e.provisional?"":`<div class="ws-kv">Theme: ${w.theme||"—"}</div>`}
         </div>
         <div class="ws-sec"><div class="ws-h">Strongest frameworks driving the mechanical score</div>
           ${w.top_frameworks.map(f=>`<div class="ws-kv">${f.name}: ${f.score.toFixed(1)}/10</div>`).join("")}
@@ -436,18 +439,19 @@ function renderLeaderboard(d){
         </div>
         ${w.bear_case&&w.bear_case.length?`<div class="ws-sec"><div class="ws-h">Standing bear case</div>${w.bear_case.map(b=>`<div class="ws-kv">· ${b}</div>`).join("")}</div>`:""}
       </div>` : `<div class="ws" style="margin-top:8px"><div class="ws-kv">Not currently in the scored universe - no mechanical rationale available this run.</div></div>`;
-    return `<details class="lb-card ${e.pending_add?"pending":""}" style="display:block">
+    return `<details class="lb-card ${e.pending_add?"pending":""} ${e.provisional?"provisional":""}" style="display:block">
       <summary style="cursor:pointer;list-style:none;display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center">
       <div class="rk">#${i+1}</div>
       <div>
-        <span class="sym" style="font:700 16px var(--mono);color:var(--gold)">${e.symbol}</span>
-        <span class="nm" style="color:var(--dim);font-size:12px"> ${e.name}${e.pending_add?" · PENDING FORMAL ADD":""}</span><br>
+        <span class="sym" style="font:700 16px var(--mono);color:${e.provisional?"var(--dim)":"var(--gold)"}">${e.symbol}</span>
+        <span class="nm" style="color:var(--dim);font-size:12px"> ${e.name}${e.pending_add?" · PENDING FORMAL ADD":""}</span>
+        ${e.provisional?`<span class="prov-tag">🤖 AUTO · AWAITING REVIEW</span>`:""}<br>
         <span style="font-size:12.5px">${e.verdict||""}</span><br>
-        <span style="font-size:11px;color:var(--dim)">theme: ${e.theme||"—"} · added ${e.added||"—"} · ₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span> · <span style="color:var(--blue)">▸ click for rationale</span></span><br>
+        <span style="font-size:11px;color:var(--dim)">${e.provisional?"":`theme: ${e.theme||"—"} · added ${e.added||"—"} · `}₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span> · <span style="color:var(--blue)">▸ click for rationale</span></span><br>
         ${e.vetoes_now&&e.vetoes_now.length?`<span class="flag bad">⛔ veto now active: ${e.vetoes_now.join(",")}</span>`:""}
-        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.re_review?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} · drift ${e.divergence_drift>=0?"+":""}${e.divergence_drift} vs entry baseline ${e.re_review?"— mechanical picture deteriorated since your deep-dive: RE-REVIEW":""}</span>`:""}
+        ${!e.provisional&&e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.re_review?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} · drift ${e.divergence_drift>=0?"+":""}${e.divergence_drift} vs entry baseline ${e.re_review?"— mechanical picture deteriorated since your deep-dive: RE-REVIEW":""}</span>`:""}
       </div>
-      <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}</div></div>
+      <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}${e.provisional?" (mech)":""}</div></div>
       </summary>
       ${whyHtml}
     </details>`;
@@ -606,14 +610,14 @@ function renderLeaderboard(d){
   renderCriteria(d); renderExit(d); document.getElementById("attribution").innerHTML="";
   document.getElementById("portfolio").innerHTML="";
   document.getElementById("meta").innerHTML =
-    `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — manual ACE deep-dives, entry bar ${d.cutoff}, max ${d.max}`;
+    `Trade date <b>${d.trade_date}</b> · Elite Leaderboard — ${d.confirmed_count} confirmed (manual ACE) + ${d.provisional_count} provisional (auto, awaiting review) · entry bar ${d.cutoff}, max ${d.max} confirmed`;
   document.getElementById("prov").innerHTML = d.note;
   const cards = d.entries.map((e,i)=>{
     const w = e.why;
     const whyHtml = w ? `<div class="ws" style="margin-top:8px">
-        <div class="ws-sec"><div class="ws-h">Why this stock <span class="auto">from your deep-dive + current mechanical read</span></div>
+        <div class="ws-sec"><div class="ws-h">${e.provisional?"Why mechanically shortlisted":"Why this stock"} <span class="auto">${e.provisional?"from the mechanical screen only - no human review yet":"from your deep-dive + current mechanical read"}</span></div>
           <div class="ws-kv">${w.verdict||"(no verdict recorded)"}</div>
-          <div class="ws-kv">Theme: ${w.theme||"—"}</div>
+          ${e.provisional?"":`<div class="ws-kv">Theme: ${w.theme||"—"}</div>`}
         </div>
         <div class="ws-sec"><div class="ws-h">Strongest frameworks driving the mechanical score</div>
           ${w.top_frameworks.map(f=>`<div class="ws-kv">${f.name}: ${f.score.toFixed(1)}/10</div>`).join("")}
@@ -623,18 +627,19 @@ function renderLeaderboard(d){
         </div>
         ${w.bear_case&&w.bear_case.length?`<div class="ws-sec"><div class="ws-h">Standing bear case</div>${w.bear_case.map(b=>`<div class="ws-kv">· ${b}</div>`).join("")}</div>`:""}
       </div>` : `<div class="ws" style="margin-top:8px"><div class="ws-kv">Not currently in the scored universe - no mechanical rationale available this run.</div></div>`;
-    return `<details class="lb-card ${e.pending_add?"pending":""}" style="display:block">
+    return `<details class="lb-card ${e.pending_add?"pending":""} ${e.provisional?"provisional":""}" style="display:block">
       <summary style="cursor:pointer;list-style:none;display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center">
       <div class="rk">#${i+1}</div>
       <div>
-        <span class="sym" style="font:700 16px var(--mono);color:var(--gold)">${e.symbol}</span>
-        <span class="nm" style="color:var(--dim);font-size:12px"> ${e.name}${e.pending_add?" · PENDING FORMAL ADD":""}</span><br>
+        <span class="sym" style="font:700 16px var(--mono);color:${e.provisional?"var(--dim)":"var(--gold)"}">${e.symbol}</span>
+        <span class="nm" style="color:var(--dim);font-size:12px"> ${e.name}${e.pending_add?" · PENDING FORMAL ADD":""}</span>
+        ${e.provisional?`<span class="prov-tag">🤖 AUTO · AWAITING REVIEW</span>`:""}<br>
         <span style="font-size:12.5px">${e.verdict||""}</span><br>
-        <span style="font-size:11px;color:var(--dim)">theme: ${e.theme||"—"} · added ${e.added||"—"} · ₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span> · <span style="color:var(--blue)">▸ click for rationale</span></span><br>
+        <span style="font-size:11px;color:var(--dim)">${e.provisional?"":`theme: ${e.theme||"—"} · added ${e.added||"—"} · `}₹${fmt(e.cmp)} <span class="${(e.chg_pct||0)>=0?"pos":"neg"}">${(e.chg_pct||0)>=0?"+":""}${fmt(e.chg_pct,"%")}</span> · <span style="color:var(--blue)">▸ click for rationale</span></span><br>
         ${e.vetoes_now&&e.vetoes_now.length?`<span class="flag bad">⛔ veto now active: ${e.vetoes_now.join(",")}</span>`:""}
-        ${e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.re_review?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} · drift ${e.divergence_drift>=0?"+":""}${e.divergence_drift} vs entry baseline ${e.re_review?"— mechanical picture deteriorated since your deep-dive: RE-REVIEW":""}</span>`:""}
+        ${!e.provisional&&e.divergence!==null&&e.divergence!==undefined?`<span class="div ${e.re_review?"neg":"pos"}">ACE ${e.ace_score} vs mech ${e.mech_composite} · drift ${e.divergence_drift>=0?"+":""}${e.divergence_drift} vs entry baseline ${e.re_review?"— mechanical picture deteriorated since your deep-dive: RE-REVIEW":""}</span>`:""}
       </div>
-      <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}</div></div>
+      <div class="ace">${e.ace_score}<div style="font:600 11px var(--mono);color:var(--dim)">${e.grade}${e.provisional?" (mech)":""}</div></div>
       </summary>
       ${whyHtml}
     </details>`;
