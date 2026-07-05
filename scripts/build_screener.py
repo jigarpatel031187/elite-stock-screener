@@ -93,6 +93,7 @@ def build_row(sym, meta, f, tech, scored, integ):
             "ret_6m_pct": tech["ret_6m_pct"],
             "turnover_cr": tech["turnover_cr"],
             "ann_vol_pct": tech["ann_vol_pct"],
+            "rvol20": tech["rvol20"],
         },
         "_ann_vol_pct": tech["ann_vol_pct"],       # sizing input (stripped later)
     }
