@@ -356,8 +356,10 @@ function worksheetHtml(ws){
             </div>`).join("");
           } else if(ar.status==="not_configured"){
             body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">🔒 ${ar.note}</div>`;
+          } else if(ar.status==="insufficient_credit"){
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--red);font-weight:600">${ar.note}</div>`;
           } else {
-            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">⚠ ${ar.note}</div>`;
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber);font-weight:600">${ar.note}</div>`;
           }
         }
       } else if(s.n===6){
@@ -509,8 +511,10 @@ function worksheetHtml(ws){
             </div>`).join("");
           } else if(ar.status==="not_configured"){
             body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">🔒 ${ar.note}</div>`;
+          } else if(ar.status==="insufficient_credit"){
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--red);font-weight:600">${ar.note}</div>`;
           } else {
-            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber)">⚠ ${ar.note}</div>`;
+            body += `<div class="ws-kv" style="margin-top:8px;color:var(--amber);font-weight:600">${ar.note}</div>`;
           }
         }
       } else if(s.n===6){

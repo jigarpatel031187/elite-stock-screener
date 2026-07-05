@@ -45,7 +45,11 @@ SYSTEM = (
 )
 
 
-def _call_claude(sym: str, name: str, queries: list[str], api_key: str) -> dict | None:
+def _call_claude(sym: str, name: str, queries: list[str], api_key: str) -> tuple[dict | None, str]:
+    """Returns (result_or_None, status). status is one of:
+    'ok', 'insufficient_credit', 'auth_error', 'rate_limited', 'other_error',
+    'bad_response' - classified from what the API actually returned, never
+    guessed."""
     prompt = (f"Company: {name} (NSE: {sym}). Research these 6 topics using web "
               f"search, one finding object per topic in the same order:\n" +
               "\n".join(f"{i+1}. {q}" for i, q in enumerate(queries)))
@@ -57,11 +61,26 @@ def _call_claude(sym: str, name: str, queries: list[str], api_key: str) -> dict 
                  "messages": [{"role": "user", "content": prompt}],
                  "tools": [{"type": "web_search_20250305", "name": "web_search"}]},
             timeout=90)
-        r.raise_for_status()
+        if r.status_code != 200:
+            body = ""
+            try:
+                body = json.dumps(r.json())
+            except Exception:
+                body = r.text[:300]
+            low = body.lower()
+            print(f"[research] {sym}: HTTP {r.status_code}: {body[:300]}")
+            if r.status_code == 401:
+                return None, "auth_error"
+            if r.status_code == 429:
+                return None, "rate_limited"
+            if r.status_code == 400 and ("credit balance" in low or "billing" in low
+                                         or "quota" in low or "insufficient" in low):
+                return None, "insufficient_credit"
+            return None, "other_error"
         data = r.json()
     except Exception as e:
-        print(f"[research] {sym}: API call failed: {e}")
-        return None
+        print(f"[research] {sym}: request failed: {e}")
+        return None, "other_error"
 
     text_blocks = [b["text"] for b in data.get("content", []) if b.get("type") == "text"]
     raw = "".join(text_blocks).strip()
@@ -69,12 +88,30 @@ def _call_claude(sym: str, name: str, queries: list[str], api_key: str) -> dict 
     try:
         parsed = json.loads(raw)
         if "findings" in parsed and isinstance(parsed["findings"], list):
-            return parsed
+            return parsed, "ok"
     except json.JSONDecodeError:
         pass
     print(f"[research] {sym}: response was not valid JSON, discarding "
           f"(no fabricated fallback)")
-    return None
+    return None, "bad_response"
+
+
+# Display copy per status - exact, distinct messages as requested. Never
+# invents specifics beyond what the API told us.
+STATUS_MESSAGES = {
+    "insufficient_credit": "⚠ API TOKEN RECHARGE FIRST — your Anthropic API "
+        "credit balance is too low. Add credits at console.anthropic.com → "
+        "Plans & Billing. Manual queries above still work meanwhile.",
+    "auth_error": "⚠ API NOT WORKING — the ANTHROPIC_API_KEY secret was "
+        "rejected (invalid or revoked). Check it in repo Settings → Secrets "
+        "and variables → Actions.",
+    "rate_limited": "⚠ API NOT WORKING — rate-limited by Anthropic this run. "
+        "Will retry automatically next run.",
+    "other_error": "⚠ API NOT WORKING — the research call failed this run "
+        "(network or server error). Manual queries above still work.",
+    "bad_response": "⚠ API NOT WORKING — the response could not be parsed "
+        "as valid research output, so it was discarded rather than shown.",
+}
 
 
 def enrich_section8(worksheet: dict, sym: str, name: str) -> None:
@@ -89,12 +126,10 @@ def enrich_section8(worksheet: dict, sym: str, name: str) -> None:
                     "auto-compiled, cited research here. Manual queries above "
                     "still work without it."}
         return
-    result = _call_claude(sym, name, sec8["data"]["queries"], api_key)
-    if result is None:
-        sec8["data"]["ai_research"] = {
-            "status": "unavailable_this_run",
-            "note": "Search/compile failed or returned unusable output - "
-                    "use the manual queries above."}
+    result, status = _call_claude(sym, name, sec8["data"]["queries"], api_key)
+    if status != "ok" or result is None:
+        sec8["data"]["ai_research"] = {"status": status,
+                                       "note": STATUS_MESSAGES.get(status, STATUS_MESSAGES["other_error"])}
         return
     sec8["data"]["ai_research"] = {"status": "ok", "findings": result["findings"]}
     sec8["status"] = "PARTIAL-AUTO"

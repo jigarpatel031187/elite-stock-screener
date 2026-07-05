@@ -180,6 +180,28 @@ list with an "unavailable this run" note. NEVER fabricates a finding -
 verified in testing that a bad/garbage model response is discarded rather
 than surfaced as if it were real research.
 
+## v1.8 - distinct, honest API failure messages
+
+Section 8's research call now classifies failures from what Anthropic's API
+actually returns, never a guess:
+- **No secret set**: "Set the ANTHROPIC_API_KEY repository secret..." (amber)
+- **Credit balance too low** (HTTP 400 mentioning credit/billing/quota):
+  "⚠ API TOKEN RECHARGE FIRST" (red) - add credits at console.anthropic.com
+- **Invalid/revoked key** (401): "⚠ API NOT WORKING" - key was rejected
+- **Rate limited** (429): "⚠ API NOT WORKING" - will retry next run
+- **Other failures** (network, 5xx, unparseable output): "⚠ API NOT WORKING"
+  with the specific cause noted
+
+Every path falls back to the manual query list, which always works
+regardless of API state.
+
+### Where to put the API key
+Repo -> **Settings** -> **Secrets and variables** -> **Actions** ->
+**New repository secret** -> name `ANTHROPIC_API_KEY` -> paste key from
+console.anthropic.com. Never in a file, never in chat - a public GitHub
+Pages site has no backend, so a client-side key field would be visible to
+every visitor via browser dev tools.
+
 ## One-time setup (~10 minutes)
 
 1. **Create the repo.** github.com → **+ → New repository** → name it
