@@ -256,7 +256,8 @@ def main() -> int:
 
     out = DOCS_DATA / f"backtest_{asof}.json"
     out.write_text(json.dumps(report, indent=1))
-    (DOCS_DATA / "backtest_latest.json").write_text(json.dumps(report, indent=1))
+    # no shared "latest" file: dated filenames mean concurrent backtest runs
+    # can never collide on commit
     print(json.dumps({k: v for k, v in report.items()
                       if k in ("scored", "exclusions", "horizons")}, indent=1)[:2000])
     print(f"[bt] written: {out.name}")

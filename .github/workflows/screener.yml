@@ -56,7 +56,8 @@ jobs:
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "Screener update $(date -u +'%Y-%m-%d %H:%M UTC')"
           for i in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
+            git pull --rebase origin main || { git rebase --abort 2>/dev/null || true; git pull --no-rebase -s recursive -X ours origin main; }
+            git push && exit 0
             echo "push attempt $i failed, retrying..." && sleep 10
           done
           exit 1
