@@ -1,13 +1,12 @@
-### Deep-Dive Queue — 2026-07-08
+### Deep-Dive Queue — 2026-07-09
 
 **🟢 NEW in Lane 1 (volume-confirmed today)** — run these deep-dives first:
-- **CEMPRO** (Cemindia Projects Ltd.) — B+ 7.77, RVol 2.08x, ₹1521.4 (+5.0%) [worksheet ready in queue_latest.json]
-- **CEATLTD** (Ceat Ltd.) — B+ 7.55, RVol 3.21x, ₹3803.8 (+0.1%) [worksheet ready in queue_latest.json]
-- **RADICO** (Radico Khaitan Ltd) — B 7.34, RVol 1.79x, ₹4106.7 (+5.5%) [worksheet ready in queue_latest.json]
+- **PREMIERENE** (Premier Energies Ltd.) — B 7.29, RVol 2.29x, ₹1024.5 (+0.2%) [worksheet ready in queue_latest.json]
+- **APLAPOLLO** (APL Apollo Tubes Ltd.) — B 7.02, RVol 1.52x, ₹1819.8 (+0.8%) [worksheet ready in queue_latest.json]
 
-**🟡 New to Lane 2 (watching for volume):** ANTHEM
+**🟡 New to Lane 2 (watching for volume):** CEMPRO
 
-**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): AUBANK, IPCALAB
+**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): CEMPRO, RADICO
 
 Current queue: Lane 1 = 3, Lane 2 = 20.
 A queue entry is an invitation to run the ACE deep-dive, never a buy signal.
