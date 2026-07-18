@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-07-17T20:31:43.919342+05:30",
-"trade_date": "2026-07-17",
+"generated_at": "2026-07-18T14:41:59.940277+05:30",
+"trade_date": "2026-07-18",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,13 +37,13 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 652,
-"scored": 641,
-"excluded_no_fundamentals": 5,
+"scored": 625,
+"excluded_no_fundamentals": 21,
 "excluded_illiquid": 6,
 "excluded_low_coverage": 0,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-07-04)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-07-11)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -55,7 +55,7 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 34.7,
+"universe_pe_median": 35.0,
 "nifty_above_200dma": false,
 "nifty_3m_pct": -0.1,
 "india_vix": 13.1,
@@ -63,16 +63,16 @@
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 10,
+"sessions_logged": 11,
 "horizons": {
 "1m": {
-"status": "insufficient history (10/22 sessions)"
+"status": "insufficient history (11/22 sessions)"
 },
 "3m": {
-"status": "insufficient history (10/64 sessions)"
+"status": "insufficient history (11/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (10/127 sessions)"
+"status": "insufficient history (11/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -81,6 +81,49 @@
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "tab": "leaderboard",
 "entries": [
+{
+"symbol": "MCX",
+"name": "Multi Commodity Exchange of India Ltd.",
+"provisional": true,
+"ace_score": 9.11,
+"grade": "A+",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 2747.5,
+"chg_pct": -2.42,
+"mech_composite": 9.11,
+"mech_grade": "A+",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "buffett",
+"score": 10.0
+},
+{
+"name": "kacholia",
+"score": 10.0
+},
+{
+"name": "kedia",
+"score": 10.0
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 9.11, A+) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
+"PE 54.1 is 1.5x the current universe median (35) - priced for perfection in this regime",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"vetoes_now": []
+}
+},
 {
 "symbol": "CUMMINSIND",
 "name": "Cummins India",
@@ -92,20 +135,16 @@
 "provisional": false,
 "cmp": 5448.0,
 "chg_pct": -1.77,
-"mech_composite": 6.61,
-"mech_grade": "B-",
-"divergence": 2.19,
+"mech_composite": 6.34,
+"mech_grade": "C",
+"divergence": 2.46,
 "divergence_baseline": 2.19,
-"divergence_drift": 0.0,
+"divergence_drift": 0.27,
 "re_review": false,
 "vetoes_now": [],
 "in_universe": false,
 "why": {
 "top_frameworks": [
-{
-"name": "buffett",
-"score": 9.92
-},
 {
 "name": "blackrock",
 "score": 9.88
@@ -113,12 +152,16 @@
 {
 "name": "vanguard",
 "score": 8.73
+},
+{
+"name": "buffett",
+"score": 8.55
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently does NOT corroborate as strongly (composite 6.61, B-) - your ACE score rests more on the qualitative layer than on the current numbers.",
+"mechanical_corroboration": "Mechanical screen currently does NOT corroborate as strongly (composite 6.34, C) - your ACE score rests more on the qualitative layer than on the current numbers.",
 "bear_case": [
 "Weakest lens: Kedia scores just 1.4/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
-"PE 64.9 is 1.9x the current universe median (35) - priced for perfection in this regime",
+"PE 64.1 is 1.8x the current universe median (35) - priced for perfection in this regime",
 "Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": [],
@@ -127,95 +170,10 @@
 }
 },
 {
-"symbol": "MCX",
-"name": "Multi Commodity Exchange of India Ltd.",
-"provisional": true,
-"ace_score": 8.42,
-"grade": "A-",
-"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 2747.5,
-"chg_pct": -2.42,
-"mech_composite": 8.42,
-"mech_grade": "A-",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "buffett",
-"score": 10.0
-},
-{
-"name": "blackrock",
-"score": 9.84
-},
-{
-"name": "jhunjhunwala",
-"score": 9.8
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.42, A-) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
-"PE 53.5 is 1.5x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"vetoes_now": []
-}
-},
-{
-"symbol": "CHALET",
-"name": "Chalet Hotels Ltd.",
-"provisional": true,
-"ace_score": 8.41,
-"grade": "A-",
-"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 862.6,
-"chg_pct": -1.07,
-"mech_composite": 8.41,
-"mech_grade": "A-",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "kacholia",
-"score": 10.0
-},
-{
-"name": "jhunjhunwala",
-"score": 9.3
-},
-{
-"name": "vanguard",
-"score": 9.03
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.41, A-) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
-"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"vetoes_now": []
-}
-},
-{
 "symbol": "GESHIP",
 "name": "Great Eastern Shipping Co. Ltd.",
 "provisional": true,
-"ace_score": 8.3,
+"ace_score": 8.31,
 "grade": "A-",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
@@ -223,7 +181,7 @@
 "pending_add": false,
 "cmp": 1345.4,
 "chg_pct": -2.32,
-"mech_composite": 8.3,
+"mech_composite": 8.31,
 "mech_grade": "A-",
 "divergence": null,
 "divergence_baseline": null,
@@ -246,52 +204,9 @@
 "score": 9.04
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.3, A-) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.31, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Weakest lens: Kacholia scores just 4.3/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"vetoes_now": []
-}
-},
-{
-"symbol": "BSE",
-"name": "BSE Ltd.",
-"provisional": true,
-"ace_score": 8.24,
-"grade": "A-",
-"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 3581.8,
-"chg_pct": -2.8,
-"mech_composite": 8.24,
-"mech_grade": "A-",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "buffett",
-"score": 10.0
-},
-{
-"name": "blackrock",
-"score": 10.0
-},
-{
-"name": "jhunjhunwala",
-"score": 8.85
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.24, A-) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
-"PE 63.3 is 1.8x the current universe median (35) - priced for perfection in this regime",
 "Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": []
@@ -325,7 +240,7 @@
 },
 {
 "name": "jhunjhunwala",
-"score": 9.48
+"score": 9.47
 },
 {
 "name": "kedia",
@@ -335,6 +250,48 @@
 "mechanical_corroboration": "Mechanical screen currently agrees (composite 8.23, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "PAT compounding slower than revenue - margins are being given up to buy growth",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"vetoes_now": []
+}
+},
+{
+"symbol": "CHALET",
+"name": "Chalet Hotels Ltd.",
+"provisional": true,
+"ace_score": 8.17,
+"grade": "A-",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 862.6,
+"chg_pct": -1.07,
+"mech_composite": 8.17,
+"mech_grade": "A-",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "kacholia",
+"score": 9.37
+},
+{
+"name": "jhunjhunwala",
+"score": 9.28
+},
+{
+"name": "vanguard",
+"score": 9.03
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.17, A-) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
 "Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": []
@@ -377,6 +334,93 @@
 ],
 "mechanical_corroboration": "Mechanical screen currently agrees (composite 8.16, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"vetoes_now": []
+}
+},
+{
+"symbol": "ANANDRATHI",
+"name": "Anand Rathi Wealth Ltd.",
+"provisional": true,
+"ace_score": 8.09,
+"grade": "A-",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 2072.7,
+"chg_pct": -0.33,
+"mech_composite": 8.09,
+"mech_grade": "A-",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "blackrock",
+"score": 10.0
+},
+{
+"name": "buffett",
+"score": 9.86
+},
+{
+"name": "vanguard",
+"score": 9.44
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.09, A-) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
+"Weakest lens: Damani scores just 4.6/10 (CFO/PAT conversion + margin + valuation)",
+"PE 74.9 is 2.1x the current universe median (35) - priced for perfection in this regime",
+"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"vetoes_now": []
+}
+},
+{
+"symbol": "IKS",
+"name": "Inventurus Knowledge Solutions Ltd.",
+"provisional": true,
+"ace_score": 8.08,
+"grade": "A-",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 1897.1,
+"chg_pct": 1.82,
+"mech_composite": 8.08,
+"mech_grade": "A-",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "blackrock",
+"score": 10.0
+},
+{
+"name": "buffett",
+"score": 9.66
+},
+{
+"name": "jhunjhunwala",
+"score": 9.17
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.08, A-) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
+"PAT compounding slower than revenue - margins are being given up to buy growth",
 "Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": []
@@ -427,18 +471,18 @@
 }
 },
 {
-"symbol": "IKS",
-"name": "Inventurus Knowledge Solutions Ltd.",
+"symbol": "HBLENGINE",
+"name": "HBL Engineering Ltd.",
 "provisional": true,
-"ace_score": 8.06,
+"ace_score": 8.04,
 "grade": "A-",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 1897.1,
-"chg_pct": 1.82,
-"mech_composite": 8.06,
+"cmp": 741.9,
+"chg_pct": 0.08,
+"mech_composite": 8.04,
 "mech_grade": "A-",
 "divergence": null,
 "divergence_baseline": null,
@@ -449,65 +493,20 @@
 "why": {
 "top_frameworks": [
 {
+"name": "kacholia",
+"score": 9.29
+},
+{
 "name": "blackrock",
-"score": 10.0
+"score": 9.19
 },
 {
 "name": "buffett",
-"score": 9.66
-},
-{
-"name": "jhunjhunwala",
-"score": 9.17
+"score": 8.08
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.06, A-) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.04, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
-"PAT compounding slower than revenue - margins are being given up to buy growth",
-"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"vetoes_now": []
-}
-},
-{
-"symbol": "ANANDRATHI",
-"name": "Anand Rathi Wealth Ltd.",
-"provisional": true,
-"ace_score": 8.05,
-"grade": "A-",
-"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 2072.7,
-"chg_pct": -0.33,
-"mech_composite": 8.05,
-"mech_grade": "A-",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "blackrock",
-"score": 10.0
-},
-{
-"name": "buffett",
-"score": 9.86
-},
-{
-"name": "vanguard",
-"score": 9.26
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.05, A-) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
-"Weakest lens: Damani scores just 4.6/10 (CFO/PAT conversion + margin + valuation)",
-"PE 75.8 is 2.2x the current universe median (35) - priced for perfection in this regime",
 "Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": []
@@ -545,7 +544,7 @@
 },
 {
 "name": "blackrock",
-"score": 8.93
+"score": 8.96
 }
 ],
 "mechanical_corroboration": "Mechanical screen currently agrees (composite 8.03, A-) - your deep-dive call and the automated read are aligned.",
@@ -568,11 +567,11 @@
 "provisional": false,
 "cmp": 2449.0,
 "chg_pct": -3.18,
-"mech_composite": 7.46,
+"mech_composite": 7.47,
 "mech_grade": "B",
-"divergence": 0.56,
+"divergence": 0.55,
 "divergence_baseline": 0.54,
-"divergence_drift": 0.02,
+"divergence_drift": 0.01,
 "re_review": false,
 "vetoes_now": [],
 "in_universe": true,
@@ -580,7 +579,7 @@
 "top_frameworks": [
 {
 "name": "jhunjhunwala",
-"score": 9.16
+"score": 9.17
 },
 {
 "name": "vanguard",
@@ -588,12 +587,12 @@
 },
 {
 "name": "pabrai",
-"score": 8.23
+"score": 8.26
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.46, B) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.47, B) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
-"Weakest lens: Kacholia scores just 3.8/10 (3y growth + operating leverage + size runway)",
+"Weakest lens: Kacholia scores just 3.9/10 (3y growth + operating leverage + size runway)",
 "PAT compounding slower than revenue - margins are being given up to buy growth",
 "Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -606,7 +605,7 @@
 "symbol": "NAVINFLUOR",
 "name": "Navin Fluorine International Ltd.",
 "provisional": true,
-"ace_score": 7.9,
+"ace_score": 7.92,
 "grade": "B+",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
@@ -614,7 +613,7 @@
 "pending_add": false,
 "cmp": 7579.0,
 "chg_pct": -0.93,
-"mech_composite": 7.9,
+"mech_composite": 7.92,
 "mech_grade": "B+",
 "divergence": null,
 "divergence_baseline": null,
@@ -630,34 +629,34 @@
 },
 {
 "name": "jhunjhunwala",
-"score": 9.37
+"score": 9.38
 },
 {
 "name": "buffett",
 "score": 8.99
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.9, B+) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.92, B+) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
-"PE 58.8 is 1.7x the current universe median (35) - priced for perfection in this regime",
+"PE 57.9 is 1.7x the current universe median (35) - priced for perfection in this regime",
 "Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": []
 }
 },
 {
-"symbol": "KARURVYSYA",
-"name": "Karur Vysya Bank Ltd.",
+"symbol": "CAPLIPOINT",
+"name": "Caplin Point Laboratories Ltd.",
 "provisional": true,
-"ace_score": 7.85,
+"ace_score": 7.87,
 "grade": "B+",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 309.8,
-"chg_pct": 1.86,
-"mech_composite": 7.85,
+"cmp": 2614.2,
+"chg_pct": -2.14,
+"mech_composite": 7.87,
 "mech_grade": "B+",
 "divergence": null,
 "divergence_baseline": null,
@@ -668,22 +667,21 @@
 "why": {
 "top_frameworks": [
 {
-"name": "blackrock",
-"score": 9.48
+"name": "buffett",
+"score": 9.37
 },
 {
 "name": "pabrai",
-"score": 8.97
+"score": 8.79
 },
 {
-"name": "vanguard",
-"score": 8.65
+"name": "blackrock",
+"score": 8.76
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.85, B+) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.87, B+) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
-"Volume integrity: 3 zero-volume day(s) in 60 sessions - too thin to trust"
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": []
 }
