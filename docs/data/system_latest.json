@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-07-24T20:46:57.510748+05:30",
-"trade_date": "2026-07-24",
+"generated_at": "2026-07-25T11:44:28.727431+05:30",
+"trade_date": "2026-07-25",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,13 +37,13 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 652,
-"scored": 646,
+"scored": 645,
 "excluded_no_fundamentals": 3,
-"excluded_illiquid": 3,
+"excluded_illiquid": 4,
 "excluded_low_coverage": 0,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-07-04)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-07-18)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -55,24 +55,24 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 35.0,
+"universe_pe_median": 34.5,
 "nifty_above_200dma": false,
-"nifty_3m_pct": -0.5,
-"india_vix": 14.0,
+"nifty_3m_pct": -1.3,
+"india_vix": 13.5,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 16,
+"sessions_logged": 17,
 "horizons": {
 "1m": {
-"status": "insufficient history (16/22 sessions)"
+"status": "insufficient history (17/22 sessions)"
 },
 "3m": {
-"status": "insufficient history (16/64 sessions)"
+"status": "insufficient history (17/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (16/127 sessions)"
+"status": "insufficient history (17/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -80,17 +80,28 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 2,
+"count": 3,
 "names": [
+{
+"symbol": "ANTHEM",
+"name": "Anthem Biosciences Ltd.",
+"entered": "2026-07-05",
+"entry_composite": 7.7,
+"current_composite": 6.57,
+"grade": "B-",
+"reasons": [
+"grade B+ -> B- (2 bands)"
+]
+},
 {
 "symbol": "CEATLTD",
 "name": "Ceat Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.55,
-"current_composite": 5.66,
+"current_composite": 5.83,
 "grade": "C",
 "reasons": [
-"composite 7.55 -> 5.66 since entry 2026-07-05",
+"composite 7.55 -> 5.83 since entry 2026-07-05",
 "grade B+ -> C (3 bands)"
 ]
 },
@@ -99,7 +110,7 @@
 "name": "Polycab India Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.56,
-"current_composite": 6.16,
+"current_composite": 6.32,
 "grade": "C",
 "reasons": [
 "grade B+ -> C (3 bands)"
