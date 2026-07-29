@@ -1,19 +1,21 @@
-### Deep-Dive Queue — 2026-07-28
+### Deep-Dive Queue — 2026-07-29
 
 **🟢 NEW in Lane 1 (volume-confirmed today)** — run these deep-dives first:
-- **COFORGE** (Coforge Ltd.) — B+ 7.94, RVol 5.31x, ₹1686.0 (+10.3%) [worksheet ready in queue_latest.json]
-- **USHAMART** (Usha Martin Ltd.) — B+ 7.72, RVol 9.32x, ₹512.3 (+2.0%) [worksheet ready in queue_latest.json]
-- **CCL** (CCL Products (I) Ltd.) — B+ 7.52, RVol 3.16x, ₹1188.2 (+1.2%) [worksheet ready in queue_latest.json]
-- **CUB** (City Union Bank Ltd.) — B 7.46, RVol 8.5x, ₹238.14 (+7.5%) [worksheet ready in queue_latest.json]
-- **RADICO** (Radico Khaitan Ltd) — B 7.31, RVol 4.21x, ₹4289.7 (+3.4%) [worksheet ready in queue_latest.json]
-- **KFINTECH** (Kfin Technologies Ltd.) — B 7.2, RVol 2.3x, ₹973.75 (+2.6%) [worksheet ready in queue_latest.json]
-- **HEXT** (Hexaware Technologies Ltd.) — B 7.09, RVol 8.52x, ₹593.15 (+5.4%) [worksheet ready in queue_latest.json]
+- **ATUL** (Atul Ltd.) — B+ 7.62, RVol 1.69x, ₹6798.5 (+2.2%) [worksheet ready in queue_latest.json]
+- **LALPATHLAB** (Dr. Lal Path Labs Ltd.) — B+ 7.61, RVol 2.34x, ₹1882.5 (+4.3%) [worksheet ready in queue_latest.json]
+- **GODFRYPHLP** (Godfrey Phillips India Ltd.) — B+ 7.55, RVol 2.25x, ₹2076.0 (+2.2%) [worksheet ready in queue_latest.json]
+- **IGIL** (International Gemological Institute Ltd.) — B+ 7.51, RVol 2.39x, ₹347.0 (+5.5%) [worksheet ready in queue_latest.json]
+- **SAGILITY** (Sagility Ltd.) — B 7.39, RVol 1.84x, ₹44.87 (+4.0%) [worksheet ready in queue_latest.json]
+- **TENNIND** (Tenneco Clean Air India Ltd.) — B 7.35, RVol 1.74x, ₹538.6 (+2.2%) [worksheet ready in queue_latest.json]
+- **SARDAEN** (Sarda Energy and Minerals Ltd.) — B 7.34, RVol 2.07x, ₹523.6 (+2.6%) [worksheet ready in queue_latest.json]
+- **LLOYDSME** (Lloyds Metals And Energy Ltd.) — B 7.23, RVol 1.54x, ₹2051.3 (+3.6%) [worksheet ready in queue_latest.json]
+- **NMDC** (NMDC Ltd.) — B 7.13, RVol 1.51x, ₹85.85 (+2.3%) [worksheet ready in queue_latest.json]
 
-**🟡 New to Lane 2 (watching for volume):** CAPLIPOINT, ECLERX, LALPATHLAB
+**🟡 New to Lane 2 (watching for volume):** PERSISTENT, USHAMART
 
-**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): ATUL, AUBANK, CAPLIPOINT, CARTRADE, EMCURE, GODFRYPHLP, LALPATHLAB, LLOYDSME, SAGILITY, TENNIND
+**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): CCL, CUB, HEXT, IEX, KFINTECH, USHAMART
 
-Current queue: Lane 1 = 8, Lane 2 = 20.
+Current queue: Lane 1 = 11, Lane 2 = 20.
 A queue entry is an invitation to run the ACE deep-dive, never a buy signal.
 
 _Auto-updated by the Elite Screener pipeline. Full worksheets: `docs/data/queue_latest.json` -> each candidate's `ace_worksheet`._
