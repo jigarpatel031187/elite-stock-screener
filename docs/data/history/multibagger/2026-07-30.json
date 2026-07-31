@@ -1,0 +1,108 @@
+{
+"generated_at": "2026-07-30T21:05:26.286707+05:30",
+"trade_date": "2026-07-30",
+"criteria": {
+"universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
+"hard_filters": [
+"NSE EQ series \u00b7 20d avg turnover >= Rs 3.0cr",
+"5+ quarters of reported financials (missing data = excluded, never guessed)",
+"framework coverage >= 60% or excluded"
+],
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"grade_bands": "A+ >=9.0 \u00b7 A 8.5 \u00b7 A- 8.0 \u00b7 B+ 7.5 \u00b7 B 7.0 \u00b7 B- 6.5 \u00b7 below -> C/D/F",
+"vetoes_automated": [
+"V3: D/E > 3.0 with declining CFO (caps grade at C)"
+],
+"vetoes_manual": [
+"V1",
+"V2",
+"V4",
+"V5",
+"V6",
+"V7"
+],
+"valuation_regime": "PE scored relative to live universe median, not absolute",
+"queue_rules": "composite >= 7.0, no vetoes, not on leaderboard; Lane 1 = RVol >= 1.5x on an up day",
+"radar_gates": "universe: Smallcap 250 + Microcap 250 \u00b7 mcap <= 25000cr \u00b7 rev CAGR >= 15.0% \u00b7 PAT CAGR >= 18.0% \u00b7 D/E <= 0.6 \u00b7 ROE >= 15.0% \u00b7 above 200DMA \u00b7 NOT over-extended (<= 35% above 200DMA, <= 80% 6m return) \u00b7 framework coverage >= 85% \u00b7 volume integrity (200+ sessions, no volume concentration, no zero-volume days) \u00b7 no vetoes \u00b7 signal age tracked, stale after 30 sessions",
+"data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
+"leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
+},
+"universe_size": 652,
+"scored": 646,
+"excluded_no_fundamentals": 3,
+"excluded_illiquid": 3,
+"excluded_low_coverage": 0,
+"min_coverage": 0.6,
+"universe_source": "cache (2026-07-04)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-07-25)",
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"regime": {
+"universe_pe_median": 34.5,
+"nifty_above_200dma": false,
+"nifty_3m_pct": 1.3,
+"india_vix": 12.2,
+"note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
+},
+"attribution": {
+"status": "ok",
+"sessions_logged": 21,
+"horizons": {
+"1m": {
+"status": "insufficient history (21/22 sessions)"
+},
+"3m": {
+"status": "insufficient history (21/64 sessions)"
+},
+"6m": {
+"status": "insufficient history (21/127 sessions)"
+}
+},
+"method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
+},
+"grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
+"disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
+"rules": {
+"max_mcap_cr": 25000,
+"min_rev_cagr3y_pct": 15.0,
+"min_pat_cagr3y_pct": 18.0,
+"max_de": 0.6,
+"min_roe_pct": 15.0,
+"min_promoter_pct": 40.0,
+"require_above_200dma": true,
+"max_names": 25,
+"eligible_indices": [
+"smallcap250",
+"microcap250"
+]
+},
+"near_misses": [],
+"portfolio": {
+"sector_concentration": {
+"counts": {},
+"warnings": []
+},
+"correlation_flags": [],
+"sizing_note": "inverse-volatility, capped 8%"
+},
+"tab": "multibagger",
+"count": 0,
+"stocks": []
+}
