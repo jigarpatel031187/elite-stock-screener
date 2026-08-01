@@ -1,0 +1,67 @@
+name: CI - secrets + tests
+
+on:
+  push:
+    branches: [ main, '**' ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  actions: read
+  issues: read
+
+jobs:
+  test:
+    name: Validate secrets, import-check, run tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate required secrets
+        run: |
+          if [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            echo "Missing ANTHROPIC_API_KEY secret"; exit 1;
+          fi
+          echo "Required secrets present"
+
+      - name: Import / compile check for scripts/
+        run: |
+          python - <<'PY'
+import sys, pathlib, importlib.util, traceback
+root = pathlib.Path('.').resolve()
+scripts = root / 'scripts'
+if str(scripts) not in sys.path:
+    sys.path.insert(0, str(scripts))
+failures = []
+for p in sorted(scripts.glob('*.py')):
+    try:
+        spec = importlib.util.spec_from_file_location(p.stem, str(p))
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+    except Exception:
+        failures.append((str(p), traceback.format_exc()))
+if failures:
+    for f, tb in failures[:10]:
+        print('--- FAILED import:', f)
+        print(tb)
+    print('Total import failures:', len(failures))
+    sys.exit(2)
+print('All script imports OK')
+PY
+
+      - name: Run unit tests
+        run: |
+          python -m unittest discover -v

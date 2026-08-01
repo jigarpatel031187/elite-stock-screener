@@ -160,7 +160,7 @@ def run_exit_engine(tab_members: dict[str, list], all_rows_by_sym: dict,
                                 "current_composite": r["composite"],
                                 "grade": r["grade"], "reasons": reasons})
 
-    WATCH_STATE.write_text(json.dumps(state, indent=0))
+    WATCH_STATE.write_text(json.dumps(state, indent=0), encoding='utf-8')
     return {"count": len(exit_review), "names": exit_review,
             "rule": (f"review when composite decays >= {EXIT_RULES['composite_decay']} "
                      f"vs entry, grade falls {EXIT_RULES['grade_floor_bands']}+ bands, "
@@ -205,10 +205,10 @@ def multibagger_pass(row) -> tuple[bool, list[str]]:
 def write_tab(tab: str, rows: list, meta: dict):
     clean = [{k: v for k, v in r.items() if not k.startswith("_")} for r in rows]
     payload = {**meta, "tab": tab, "count": len(clean), "stocks": clean}
-    (DOCS_DATA / f"{tab}_latest.json").write_text(json.dumps(payload, indent=0))
+    (DOCS_DATA / f"{tab}_latest.json").write_text(json.dumps(payload, indent=0), encoding='utf-8')
     hdir = HISTORY / tab
     hdir.mkdir(parents=True, exist_ok=True)
-    (hdir / f"{meta['trade_date']}.json").write_text(json.dumps(payload, indent=0))
+    (hdir / f"{meta['trade_date']}.json").write_text(json.dumps(payload, indent=0), encoding='utf-8')
 
 
 # ---------------------------------------------------------------- queue (v1.2)
@@ -315,7 +315,7 @@ def build_confirmed_leaderboard(by_sym: dict) -> dict:
         })
     dstate = {s: v for s, v in dstate.items()
               if s in {e["symbol"] for e in lb.get("entries", [])}}
-    DIVERGENCE_STATE.write_text(json.dumps(dstate, indent=0))
+    DIVERGENCE_STATE.write_text(json.dumps(dstate, indent=0), encoding='utf-8')
     lb_syms_out = {e["symbol"] for e in entries}
     return {"entries": entries[:LEADERBOARD_MAX], "syms": lb_syms_out,
             "cutoff": LEADERBOARD_CUTOFF, "max": LEADERBOARD_MAX,
@@ -549,7 +549,7 @@ def main() -> int:
                           # Lane 1 only, server-side, degrades gracefully if
                           # ANTHROPIC_API_KEY secret is not set
     (DOCS_DATA / "queue_latest.json").write_text(
-        json.dumps({**meta, "tab": "queue", **queue}, indent=0))
+            json.dumps({**meta, "tab": "queue", **queue}, indent=0), encoding='utf-8')
     print(f"[main] queue: lane1 {len(queue['lane1_volume_confirmed'])}, "
           f"lane2 {len(queue['lane2_watching'])} (worksheets attached)")
 
@@ -563,13 +563,13 @@ def main() -> int:
                         "confirmed_count": len(confirmed_lb["entries"]),
                         "provisional_count": len(provisional)})
     (DOCS_DATA / "leaderboard_latest.json").write_text(
-        json.dumps({**meta, "tab": "leaderboard", **leaderboard}, indent=0))
+            json.dumps({**meta, "tab": "leaderboard", **leaderboard}, indent=0), encoding='utf-8')
     print(f"[main] leaderboard finalized: {len(confirmed_lb['entries'])} confirmed + "
           f"{len(provisional)} provisional = {len(combined)} shown")
 
     # automation #2: digest of what's NEW in the queue since last run
     digest_md, digest_state = build_digest(queue, trade_date)
-    (DOCS_DATA / "digest_latest.md").write_text(digest_md)
+    (DOCS_DATA / "digest_latest.md").write_text(digest_md, encoding='utf-8')
     save_state(digest_state)
     print("[main] digest written")
 
@@ -595,7 +595,7 @@ def main() -> int:
         r["radar_age"] = {"first_seen": st["first_seen"], "runs": st["runs"],
                           "stale": st["runs"] > RADAR_EXTENSION["stale_after_runs"]}
     rstate = {s: v for s, v in rstate.items() if s in {r["symbol"] for r in radar}}
-    radar_state_file.write_text(json.dumps(rstate, indent=0))
+    radar_state_file.write_text(json.dumps(rstate, indent=0), encoding='utf-8')
     suggested_weights(radar)
     tab_members["multibagger"] = [r["symbol"] for r in radar]
     write_tab("multibagger", radar, {**meta, "rules": MULTIBAGGER,
@@ -618,7 +618,7 @@ def main() -> int:
             exits["count"] += 1
     print(f"[main] exit review: {exits['count']} names flagged")
     exit_payload = {**meta, "exit_review": exits}
-    (DOCS_DATA / "system_latest.json").write_text(json.dumps(exit_payload, indent=0))
+    (DOCS_DATA / "system_latest.json").write_text(json.dumps(exit_payload, indent=0), encoding='utf-8')
 
     # ---- log today for future attribution (#1)
     log_run(rows, trade_date)
