@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-08-04T21:31:25.307460+05:30",
-"trade_date": "2026-08-04",
+"generated_at": "2026-08-05T21:20:19.255382+05:30",
+"trade_date": "2026-08-05",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,12 +37,12 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 653,
-"scored": 643,
+"scored": 644,
 "excluded_no_fundamentals": 4,
-"excluded_illiquid": 5,
+"excluded_illiquid": 4,
 "excluded_low_coverage": 1,
 "min_coverage": 0.6,
-"universe_source": "NSE index CSVs (fresh)",
+"universe_source": "cache (2026-08-04)",
 "fundamentals_source": "yfinance statements (cached, oldest 2026-08-01)",
 "framework_weights": {
 "buffett": 0.2,
@@ -58,66 +58,66 @@
 "universe_pe_median": 34.7,
 "nifty_above_200dma": false,
 "nifty_3m_pct": 1.2,
-"india_vix": 12.2,
+"india_vix": 12.1,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 24,
+"sessions_logged": 25,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 645,
-"asof": "2026-07-07",
-"universe_median_ret_pct": 0.5,
+"n": 646,
+"asof": "2026-07-08",
+"universe_median_ret_pct": 3.1,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 21,
-"median_ret_pct": 0.9
+"n": 22,
+"median_ret_pct": 3.1
 },
 "B": {
-"n": 74,
-"median_ret_pct": 2.8
+"n": 77,
+"median_ret_pct": 4.5
 },
 "B+": {
-"n": 42,
-"median_ret_pct": 0.6
+"n": 40,
+"median_ret_pct": 4.0
 },
 "B-": {
-"n": 90,
-"median_ret_pct": 0.9
+"n": 89,
+"median_ret_pct": 4.0
 },
 "C": {
-"n": 206,
-"median_ret_pct": 0.2
+"n": 207,
+"median_ret_pct": 2.3
 },
 "D": {
 "n": 143,
-"median_ret_pct": -0.1
+"median_ret_pct": 3.1
 },
 "F": {
-"n": 67,
-"median_ret_pct": -0.1
+"n": 66,
+"median_ret_pct": 1.9
 }
 },
 "framework_ic": {
-"buffett": 0.063,
-"jhunjhunwala": -0.005,
-"pabrai": 0.009,
-"kacholia": -0.007,
-"kedia": 0.068,
-"blackrock": -0.001,
-"vanguard": 0.073,
-"damani": 0.045
+"buffett": 0.042,
+"jhunjhunwala": -0.002,
+"pabrai": 0.0,
+"kacholia": 0.006,
+"kedia": 0.066,
+"blackrock": -0.005,
+"vanguard": 0.034,
+"damani": 0.031
 }
 },
 "3m": {
-"status": "insufficient history (24/64 sessions)"
+"status": "insufficient history (25/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (24/127 sessions)"
+"status": "insufficient history (25/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -125,14 +125,14 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 8,
+"count": 6,
 "names": [
 {
 "symbol": "CCL",
 "name": "CCL Products (I) Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.56,
-"current_composite": 6.72,
+"current_composite": 6.74,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"
@@ -143,7 +143,7 @@
 "name": "Cemindia Projects Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.77,
-"current_composite": 6.48,
+"current_composite": 6.46,
 "grade": "C",
 "reasons": [
 "grade B+ -> C (3 bands)"
@@ -154,7 +154,7 @@
 "name": "Anthem Biosciences Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.7,
-"current_composite": 6.6,
+"current_composite": 6.61,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"
@@ -177,34 +177,10 @@
 "name": "Chalet Hotels Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 8.16,
-"current_composite": 6.2,
-"grade": "C",
+"current_composite": 6.67,
+"grade": "B-",
 "reasons": [
-"composite 8.16 -> 6.2 since entry 2026-07-05",
-"grade A- -> C (4 bands)"
-]
-},
-{
-"symbol": "CEATLTD",
-"name": "Ceat Ltd.",
-"entered": "2026-07-05",
-"entry_composite": 7.55,
-"current_composite": 5.9,
-"grade": "C",
-"reasons": [
-"composite 7.55 -> 5.9 since entry 2026-07-05",
-"grade B+ -> C (3 bands)"
-]
-},
-{
-"symbol": "POLYCAB",
-"name": "Polycab India Ltd.",
-"entered": "2026-07-05",
-"entry_composite": 7.56,
-"current_composite": 6.34,
-"grade": "C",
-"reasons": [
-"grade B+ -> C (3 bands)"
+"grade A- -> B- (3 bands)"
 ]
 },
 {
