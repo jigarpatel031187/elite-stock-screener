@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-08-05T21:20:19.255382+05:30",
-"trade_date": "2026-08-05",
+"generated_at": "2026-08-07T20:10:20.360169+05:30",
+"trade_date": "2026-08-07",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,9 +37,9 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 653,
-"scored": 644,
+"scored": 646,
 "excluded_no_fundamentals": 4,
-"excluded_illiquid": 4,
+"excluded_illiquid": 2,
 "excluded_low_coverage": 1,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-08-04)",
@@ -57,67 +57,67 @@
 "regime": {
 "universe_pe_median": 34.7,
 "nifty_above_200dma": false,
-"nifty_3m_pct": 1.2,
-"india_vix": 12.1,
+"nifty_3m_pct": 3.2,
+"india_vix": 12.2,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 25,
+"sessions_logged": 26,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 646,
-"asof": "2026-07-08",
-"universe_median_ret_pct": 3.1,
+"n": 645,
+"asof": "2026-07-09",
+"universe_median_ret_pct": 1.3,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 22,
-"median_ret_pct": 3.1
+"n": 21,
+"median_ret_pct": 0.9
 },
 "B": {
 "n": 77,
-"median_ret_pct": 4.5
+"median_ret_pct": 2.0
 },
 "B+": {
-"n": 40,
-"median_ret_pct": 4.0
+"n": 41,
+"median_ret_pct": 1.6
 },
 "B-": {
-"n": 89,
-"median_ret_pct": 4.0
+"n": 87,
+"median_ret_pct": 2.5
 },
 "C": {
-"n": 207,
-"median_ret_pct": 2.3
+"n": 209,
+"median_ret_pct": 0.5
 },
 "D": {
-"n": 143,
-"median_ret_pct": 3.1
+"n": 144,
+"median_ret_pct": 1.1
 },
 "F": {
-"n": 66,
-"median_ret_pct": 1.9
+"n": 64,
+"median_ret_pct": 1.2
 }
 },
 "framework_ic": {
-"buffett": 0.042,
-"jhunjhunwala": -0.002,
-"pabrai": 0.0,
-"kacholia": 0.006,
-"kedia": 0.066,
-"blackrock": -0.005,
-"vanguard": 0.034,
-"damani": 0.031
+"buffett": 0.039,
+"jhunjhunwala": -0.019,
+"pabrai": 0.006,
+"kacholia": -0.032,
+"kedia": 0.022,
+"blackrock": 0.0,
+"vanguard": 0.044,
+"damani": 0.026
 }
 },
 "3m": {
-"status": "insufficient history (25/64 sessions)"
+"status": "insufficient history (26/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (25/127 sessions)"
+"status": "insufficient history (26/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -127,24 +127,25 @@
 "tab": "queue",
 "lane1_volume_confirmed": [
 {
-"symbol": "NAM-INDIA",
-"name": "Nippon Life India Asset Management Ltd.",
+"symbol": "HEROMOTOCO",
+"name": "Hero MotoCorp Ltd.",
 "index": "midcap150",
-"composite": 8.25,
-"grade": "A-",
-"cmp": 1215.0,
-"chg_pct": 1.08,
-"rvol20": 2.33,
+"composite": 7.79,
+"grade": "B+",
+"cmp": 5725.0,
+"chg_pct": 3.14,
+"rvol20": 2.67,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "bear_case": [
+"Weakest lens: Kacholia scores just 4.7/10 (3y growth + operating leverage + size runway)",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
-"sector": "Financial Services",
+"sector": "Consumer Cyclical",
 "ace_worksheet": {
-"generated_for": "NAM-INDIA",
-"name": "Nippon Life India Asset Management Ltd.",
+"generated_for": "HEROMOTOCO",
+"name": "Hero MotoCorp Ltd.",
 "mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
 "sections": [
 {
@@ -152,250 +153,9 @@
 "title": "Company overview",
 "status": "AUTO",
 "data": {
-"sector": "Financial Services",
+"sector": "Consumer Cyclical",
 "index": "midcap150",
-"mcap_cr": 74248,
-"latest_quarter": "2026-06-30"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 46.0,
-"roe_pct": null,
-"op_margin_pct": 71.1,
-"de": 0.02,
-"rev_cagr3y_pct": 26.1,
-"pat_cagr3y_pct": 28.3
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 8.25,
-"grade": "A-",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 9.97,
-"jhunjhunwala": 9.26,
-"pabrai": 7.59,
-"kacholia": 6.28,
-"kedia": 6.67,
-"blackrock": 9.81,
-"vanguard": 7.93,
-"damani": 6.91
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.02,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 1215.0,
-"above_200dma": true,
-"dma200_dist_pct": 25.9,
-"dd_from_52wk": -0.3,
-"ret_6m_pct": 32.6,
-"rvol20": 2.33,
-"turnover_cr": 118.13,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "MCX",
-"grade": "A+",
-"composite": 9.1,
-"pe": 51.5,
-"roe_pct": 37.9
-},
-{
-"symbol": "BSE",
-"grade": "A-",
-"composite": 8.27,
-"pe": 60.6,
-"roe_pct": 36.0
-},
-{
-"symbol": "ABSLAMC",
-"grade": "A-",
-"composite": 8.11,
-"pe": 29.1,
-"roe_pct": null
-},
-{
-"symbol": "ANANDRATHI",
-"grade": "A-",
-"composite": 8.07,
-"pe": 75.3,
-"roe_pct": null
-},
-{
-"symbol": "UJJIVANSFB",
-"grade": "A-",
-"composite": 8.0,
-"pe": 15.7,
-"roe_pct": null
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Nippon Life India Asset Management Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Nippon Life India Asset Management Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Nippon Life India Asset Management Ltd.\" related party transactions annual report",
-"\"Nippon Life India Asset Management Ltd.\" auditor resignation qualified opinion",
-"\"Nippon Life India Asset Management Ltd.\" management commentary concall latest quarter",
-"\"NAM-INDIA\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
-"ai_research": {
-"status": "auth_error",
-"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
-}
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": {
-"status": "auth_error",
-"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
-},
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "PARTIAL-AUTO",
-"data": {
-"technical_reference": {
-"cmp": 1215.0,
-"recent_swing_low_20d": 1079.4,
-"recent_swing_high_20d": 1232.8,
-"atr14": 34.42,
-"illustrative_stop_ref": 1044.98,
-"illustrative_target_ref": 1232.8,
-"illustrative_rr": 0.1,
-"note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
-},
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Reference levels above are illustrative only (see note) - set your actual entry/stop/target/sizing here."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "BLS",
-"name": "BLS International Services Ltd.",
-"index": "smallcap250",
-"composite": 8.19,
-"grade": "A-",
-"cmp": 255.63,
-"chg_pct": 3.1,
-"rvol20": 2.26,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Industrials",
-"ace_worksheet": {
-"generated_for": "BLS",
-"name": "BLS International Services Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Industrials",
-"index": "smallcap250",
-"mcap_cr": 9852,
+"mcap_cr": 107770,
 "latest_quarter": "2026-03-31"
 }
 },
@@ -404,12 +164,12 @@
 "title": "Financial snapshot",
 "status": "AUTO",
 "data": {
-"pe": 14.4,
-"roe_pct": 30.1,
-"op_margin_pct": 22.0,
-"de": 0.17,
-"rev_cagr3y_pct": 25.5,
-"pat_cagr3y_pct": 50.7
+"pe": 18.8,
+"roe_pct": 28.0,
+"op_margin_pct": 13.2,
+"de": 0.04,
+"rev_cagr3y_pct": 11.7,
+"pat_cagr3y_pct": 26.9
 }
 },
 {
@@ -417,19 +177,19 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.19,
-"grade": "A-",
+"composite": 7.79,
+"grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
-"buffett": 9.4,
-"jhunjhunwala": 6.79,
-"pabrai": 7.14,
-"kacholia": 9.33,
-"kedia": 7.23,
-"blackrock": 8.26,
-"vanguard": 7.78,
-"damani": 9.6
+"buffett": 8.48,
+"jhunjhunwala": 8.0,
+"pabrai": 8.65,
+"kacholia": 4.74,
+"kedia": 5.48,
+"blackrock": 9.99,
+"vanguard": 8.96,
+"damani": 8.06
 },
 "notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -449,7 +209,7 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "V3_automated": {
-"de_ratio": 0.17,
+"de_ratio": 0.04,
 "cfo_trend": "stable/rising"
 },
 "triggered": [],
@@ -469,255 +229,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 255.63,
-"above_200dma": false,
-"dma200_dist_pct": -8.8,
-"dd_from_52wk": -35.8,
-"ret_6m_pct": -11.0,
-"rvol20": 2.26,
-"turnover_cr": 38.49,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "GESHIP",
-"grade": "A-",
-"composite": 8.33,
-"pe": 6.6,
-"roe_pct": 18.8
-},
-{
-"symbol": "GPPL",
-"grade": "A-",
-"composite": 8.15,
-"pe": 14.1,
-"roe_pct": 21.8
-},
-{
-"symbol": "HBLENGINE",
-"grade": "A-",
-"composite": 8.05,
-"pe": 24.5,
-"roe_pct": 44.1
-},
-{
-"symbol": "TDPOWERSYS",
-"grade": "B+",
-"composite": 7.88,
-"pe": 73.8,
-"roe_pct": 24.7
-},
-{
-"symbol": "GVT&D",
-"grade": "B+",
-"composite": 7.83,
-"pe": 90.1,
-"roe_pct": 55.3
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"BLS International Services Ltd.\" promoter pledge shareholding pattern 2026",
-"\"BLS International Services Ltd.\" SEBI NSE BSE surveillance action order",
-"\"BLS International Services Ltd.\" related party transactions annual report",
-"\"BLS International Services Ltd.\" auditor resignation qualified opinion",
-"\"BLS International Services Ltd.\" management commentary concall latest quarter",
-"\"BLS\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
-"ai_research": {
-"status": "auth_error",
-"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
-}
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": {
-"status": "auth_error",
-"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
-},
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "PARTIAL-AUTO",
-"data": {
-"technical_reference": {
-"cmp": 255.63,
-"recent_swing_low_20d": 226.55,
-"recent_swing_high_20d": 260.99,
-"atr14": 6.9,
-"illustrative_stop_ref": 219.65,
-"illustrative_target_ref": 260.99,
-"illustrative_rr": 0.15,
-"note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
-},
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Reference levels above are illustrative only (see note) - set your actual entry/stop/target/sizing here."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "USHAMART",
-"name": "Usha Martin Ltd.",
-"index": "smallcap250",
-"composite": 8.02,
-"grade": "A-",
-"cmp": 520.25,
-"chg_pct": 3.31,
-"rvol20": 1.75,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Weakest lens: Kacholia scores just 4.9/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Basic Materials",
-"ace_worksheet": {
-"generated_for": "USHAMART",
-"name": "Usha Martin Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Basic Materials",
-"index": "smallcap250",
-"mcap_cr": 15097,
-"latest_quarter": "2026-06-30"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 28.4,
-"roe_pct": null,
-"op_margin_pct": 16.9,
-"de": 0.07,
-"rev_cagr3y_pct": 4.1,
-"pat_cagr3y_pct": 10.0
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 8.02,
-"grade": "A-",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 8.53,
-"jhunjhunwala": 9.22,
-"pabrai": 8.92,
-"kacholia": 4.9,
-"kedia": 7.22,
-"blackrock": 8.29,
-"vanguard": 8.64,
-"damani": 7.79
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.07,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 520.25,
+"cmp": 5725.0,
 "above_200dma": true,
-"dma200_dist_pct": 14.9,
-"dd_from_52wk": 0.0,
-"ret_6m_pct": 23.4,
-"rvol20": 1.75,
-"turnover_cr": 28.44,
+"dma200_dist_pct": 8.4,
+"dd_from_52wk": -6.7,
+"ret_6m_pct": 2.9,
+"rvol20": 2.67,
+"turnover_cr": 407.91,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -730,39 +248,39 @@
 "data": {
 "peers": [
 {
-"symbol": "ATUL",
+"symbol": "JAMNAAUTO",
 "grade": "A-",
-"composite": 8.23,
-"pe": 24.9,
-"roe_pct": null
+"composite": 8.25,
+"pe": 22.7,
+"roe_pct": 21.6
 },
 {
-"symbol": "SANDUMA",
-"grade": "A-",
-"composite": 8.12,
-"pe": 15.7,
-"roe_pct": 22.3
-},
-{
-"symbol": "NAVINFLUOR",
+"symbol": "PRICOLLTD",
 "grade": "B+",
-"composite": 7.89,
-"pe": 57.9,
-"roe_pct": 20.1
+"composite": 7.81,
+"pe": 31.7,
+"roe_pct": 22.1
 },
 {
-"symbol": "HINDCOPPER",
+"symbol": "SAMHI",
 "grade": "B+",
-"composite": 7.87,
-"pe": 51.8,
-"roe_pct": 30.6
+"composite": 7.68,
+"pe": 7.0,
+"roe_pct": 33.4
 },
 {
-"symbol": "ADVENZYMES",
+"symbol": "LUMAXTECH",
 "grade": "B+",
-"composite": 7.82,
-"pe": 20.9,
-"roe_pct": 11.0
+"composite": 7.65,
+"pe": 38.3,
+"roe_pct": 24.4
+},
+{
+"symbol": "REDTAPE",
+"grade": "B+",
+"composite": 7.58,
+"pe": 30.5,
+"roe_pct": 26.6
 }
 ]
 }
@@ -773,7 +291,7 @@
 "status": "AUTO",
 "data": {
 "bullets": [
-"Weakest lens: Kacholia scores just 4.9/10 (3y growth + operating leverage + size runway)",
+"Weakest lens: Kacholia scores just 4.7/10 (3y growth + operating leverage + size runway)",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -784,12 +302,12 @@
 "status": "MANUAL",
 "data": {
 "queries": [
-"\"Usha Martin Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Usha Martin Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Usha Martin Ltd.\" related party transactions annual report",
-"\"Usha Martin Ltd.\" auditor resignation qualified opinion",
-"\"Usha Martin Ltd.\" management commentary concall latest quarter",
-"\"USHAMART\" NSE stock news multibagger analysis 2026"
+"\"Hero MotoCorp Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Hero MotoCorp Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Hero MotoCorp Ltd.\" related party transactions annual report",
+"\"Hero MotoCorp Ltd.\" auditor resignation qualified opinion",
+"\"Hero MotoCorp Ltd.\" management commentary concall latest quarter",
+"\"HEROMOTOCO\" NSE stock news multibagger analysis 2026"
 ],
 "instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
 "ai_research": {
@@ -820,253 +338,12 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "technical_reference": {
-"cmp": 520.25,
-"recent_swing_low_20d": 485.0,
-"recent_swing_high_20d": 527.0,
-"atr14": 14.46,
-"illustrative_stop_ref": 470.54,
-"illustrative_target_ref": 527.0,
-"illustrative_rr": 0.14,
-"note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
-},
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Reference levels above are illustrative only (see note) - set your actual entry/stop/target/sizing here."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "HINDCOPPER",
-"name": "Hindustan Copper Ltd.",
-"index": "smallcap250",
-"composite": 7.87,
-"grade": "B+",
-"cmp": 533.8,
-"chg_pct": 8.42,
-"rvol20": 7.18,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Basic Materials",
-"ace_worksheet": {
-"generated_for": "HINDCOPPER",
-"name": "Hindustan Copper Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Basic Materials",
-"index": "smallcap250",
-"mcap_cr": 47539,
-"latest_quarter": "2026-03-31"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 51.8,
-"roe_pct": 30.6,
-"op_margin_pct": 48.5,
-"de": 0.03,
-"rev_cagr3y_pct": 22.7,
-"pat_cagr3y_pct": 45.9
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.87,
-"grade": "B+",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 9.96,
-"jhunjhunwala": 9.41,
-"pabrai": 6.07,
-"kacholia": 7.34,
-"kedia": 6.67,
-"blackrock": 8.47,
-"vanguard": 5.38,
-"damani": 7.61
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.03,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 533.8,
-"above_200dma": true,
-"dma200_dist_pct": 8.6,
-"dd_from_52wk": -29.7,
-"ret_6m_pct": -12.9,
-"rvol20": 7.18,
-"turnover_cr": 207.63,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "ATUL",
-"grade": "A-",
-"composite": 8.23,
-"pe": 24.9,
-"roe_pct": null
-},
-{
-"symbol": "SANDUMA",
-"grade": "A-",
-"composite": 8.12,
-"pe": 15.7,
-"roe_pct": 22.3
-},
-{
-"symbol": "USHAMART",
-"grade": "A-",
-"composite": 8.02,
-"pe": 28.4,
-"roe_pct": null
-},
-{
-"symbol": "NAVINFLUOR",
-"grade": "B+",
-"composite": 7.89,
-"pe": 57.9,
-"roe_pct": 20.1
-},
-{
-"symbol": "ADVENZYMES",
-"grade": "B+",
-"composite": 7.82,
-"pe": 20.9,
-"roe_pct": 11.0
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Hindustan Copper Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Hindustan Copper Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Hindustan Copper Ltd.\" related party transactions annual report",
-"\"Hindustan Copper Ltd.\" auditor resignation qualified opinion",
-"\"Hindustan Copper Ltd.\" management commentary concall latest quarter",
-"\"HINDCOPPER\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
-"ai_research": {
-"status": "auth_error",
-"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
-}
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": {
-"status": "auth_error",
-"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
-},
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "PARTIAL-AUTO",
-"data": {
-"technical_reference": {
-"cmp": 533.8,
-"recent_swing_low_20d": 469.0,
-"recent_swing_high_20d": 539.6,
-"atr14": 14.91,
-"illustrative_stop_ref": 454.09,
-"illustrative_target_ref": 539.6,
+"cmp": 5725.0,
+"recent_swing_low_20d": 4794.67,
+"recent_swing_high_20d": 5800.0,
+"atr14": 144.82,
+"illustrative_stop_ref": 4649.85,
+"illustrative_target_ref": 5800.0,
 "illustrative_rr": 0.07,
 "note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
 },
@@ -1096,18 +373,19 @@
 "symbol": "NEULANDLAB",
 "name": "Neuland Laboratories Ltd.",
 "index": "smallcap250",
-"composite": 7.51,
+"composite": 7.5,
 "grade": "B+",
-"cmp": 19956.0,
-"chg_pct": 3.54,
-"rvol20": 1.79,
+"cmp": 22855.0,
+"chg_pct": 6.09,
+"rvol20": 4.13,
 "integrity_flags": [
+"72% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "bear_case": [
 "Weakest lens: Damani scores just 2.4/10 (CFO/PAT conversion + margin + valuation)",
 "PE 67.0 is 1.9x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+"45% above its 200 DMA - buying here is paying for a move that already happened"
 ],
 "sector": "Healthcare",
 "ace_worksheet": {
@@ -1144,7 +422,7 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.51,
+"composite": 7.5,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
@@ -1155,7 +433,7 @@
 "kacholia": 7.29,
 "kedia": 8.03,
 "blackrock": 9.36,
-"vanguard": 8.34,
+"vanguard": 8.25,
 "damani": 2.43
 },
 "notes": {
@@ -1196,14 +474,15 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 19956.0,
+"cmp": 22855.0,
 "above_200dma": true,
-"dma200_dist_pct": 26.9,
+"dma200_dist_pct": 44.8,
 "dd_from_52wk": 0.0,
-"ret_6m_pct": 47.7,
-"rvol20": 1.79,
-"turnover_cr": 66.12,
+"ret_6m_pct": 75.7,
+"rvol20": 4.13,
+"turnover_cr": 190.2,
 "volume_integrity_flags": [
+"72% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -1217,14 +496,14 @@
 {
 "symbol": "LUPIN",
 "grade": "A",
-"composite": 8.68,
+"composite": 8.67,
 "pe": 20.7,
 "roe_pct": 26.9
 },
 {
 "symbol": "SUPRIYA",
 "grade": "A-",
-"composite": 8.41,
+"composite": 8.42,
 "pe": 33.4,
 "roe_pct": 19.1
 },
@@ -1238,14 +517,14 @@
 {
 "symbol": "JSLL",
 "grade": "A-",
-"composite": 8.06,
+"composite": 8.09,
 "pe": 32.9,
 "roe_pct": 59.9
 },
 {
 "symbol": "IKS",
-"grade": "A-",
-"composite": 8.04,
+"grade": "B+",
+"composite": 7.99,
 "pe": 43.8,
 "roe_pct": 31.4
 }
@@ -1260,6 +539,8 @@
 "bullets": [
 "Weakest lens: Damani scores just 2.4/10 (CFO/PAT conversion + margin + valuation)",
 "PE 67.0 is 1.9x the current universe median (35) - priced for perfection in this regime",
+"45% above its 200 DMA - buying here is paying for a move that already happened",
+"Volume integrity: 72% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -1306,13 +587,13 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "technical_reference": {
-"cmp": 19956.0,
+"cmp": 22855.0,
 "recent_swing_low_20d": 18021.69,
-"recent_swing_high_20d": 20099.0,
-"atr14": 644.05,
-"illustrative_stop_ref": 17377.64,
-"illustrative_target_ref": 20099.0,
-"illustrative_rr": 0.06,
+"recent_swing_high_20d": 23500.0,
+"atr14": 848.48,
+"illustrative_stop_ref": 17173.21,
+"illustrative_target_ref": 23500.0,
+"illustrative_rr": 0.11,
 "note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
 },
 "entry_zone": null,
@@ -1338,27 +619,25 @@
 }
 },
 {
-"symbol": "TENNIND",
-"name": "Tenneco Clean Air India Ltd.",
-"index": "smallcap250",
-"composite": 7.41,
+"symbol": "PREMIERENE",
+"name": "Premier Energies Ltd.",
+"index": "midcap150",
+"composite": 7.32,
 "grade": "B",
-"cmp": 580.7,
-"chg_pct": 5.48,
-"rvol20": 4.06,
+"cmp": 1047.2,
+"chg_pct": 0.53,
+"rvol20": 2.21,
 "integrity_flags": [
-"only 179 sessions of history (< 200) - recently listed, pre-run signals unreliable",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "bear_case": [
-"Weakest lens: Kacholia scores just 4.4/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: only 179 sessions of history (< 200) - recently listed, pre-run signals unreliable",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
-"sector": "Consumer Cyclical",
+"sector": "Technology",
 "ace_worksheet": {
-"generated_for": "TENNIND",
-"name": "Tenneco Clean Air India Ltd.",
+"generated_for": "PREMIERENE",
+"name": "Premier Energies Ltd.",
 "mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
 "sections": [
 {
@@ -1366,9 +645,9 @@
 "title": "Company overview",
 "status": "AUTO",
 "data": {
-"sector": "Consumer Cyclical",
-"index": "smallcap250",
-"mcap_cr": null,
+"sector": "Technology",
+"index": "midcap150",
+"mcap_cr": 46132,
 "latest_quarter": "2026-03-31"
 }
 },
@@ -1377,12 +656,12 @@
 "title": "Financial snapshot",
 "status": "AUTO",
 "data": {
-"pe": 36.0,
-"roe_pct": 43.0,
-"op_margin_pct": 14.7,
-"de": 0.07,
-"rev_cagr3y_pct": 4.0,
-"pat_cagr3y_pct": 16.6
+"pe": 30.4,
+"roe_pct": 42.3,
+"op_margin_pct": 26.7,
+"de": 0.86,
+"rev_cagr3y_pct": 76.3,
+"pat_cagr3y_pct": null
 }
 },
 {
@@ -1390,19 +669,262 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.41,
+"composite": 7.32,
 "grade": "B",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
-"buffett": 8.63,
-"jhunjhunwala": 6.21,
-"pabrai": 7.9,
-"kacholia": 4.43,
-"kedia": 9.13,
+"buffett": 6.92,
+"jhunjhunwala": 7.91,
+"pabrai": 6.15,
+"kacholia": 6.26,
+"kedia": 6.67,
 "blackrock": 10.0,
-"vanguard": 5.43,
-"damani": 6.93
+"vanguard": 8.24,
+"damani": 7.23
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.86,
+"cfo_trend": "declining"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 1047.2,
+"above_200dma": true,
+"dma200_dist_pct": 11.6,
+"dd_from_52wk": -6.3,
+"ret_6m_pct": 33.2,
+"rvol20": 2.21,
+"turnover_cr": 126.79,
+"volume_integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "OFSS",
+"grade": "A-",
+"composite": 8.38,
+"pe": 28.6,
+"roe_pct": null
+},
+{
+"symbol": "WEBELSOLAR",
+"grade": "A-",
+"composite": 8.36,
+"pe": 13.9,
+"roe_pct": 66.7
+},
+{
+"symbol": "COFORGE",
+"grade": "A-",
+"composite": 8.09,
+"pe": 35.2,
+"roe_pct": null
+},
+{
+"symbol": "PERSISTENT",
+"grade": "B+",
+"composite": 7.79,
+"pe": 46.6,
+"roe_pct": 26.3
+},
+{
+"symbol": "STYL",
+"grade": "B+",
+"composite": 7.72,
+"pe": 20.5,
+"roe_pct": null
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Premier Energies Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Premier Energies Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Premier Energies Ltd.\" related party transactions annual report",
+"\"Premier Energies Ltd.\" auditor resignation qualified opinion",
+"\"Premier Energies Ltd.\" management commentary concall latest quarter",
+"\"PREMIERENE\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
+"ai_research": {
+"status": "auth_error",
+"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
+}
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": {
+"status": "auth_error",
+"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
+},
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "PARTIAL-AUTO",
+"data": {
+"technical_reference": {
+"cmp": 1047.2,
+"recent_swing_low_20d": 977.4,
+"recent_swing_high_20d": 1134.0,
+"atr14": 36.33,
+"illustrative_stop_ref": 941.07,
+"illustrative_target_ref": 1134.0,
+"illustrative_rr": 0.82,
+"note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
+},
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Reference levels above are illustrative only (see note) - set your actual entry/stop/target/sizing here."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
+"symbol": "INDIANB",
+"name": "Indian Bank",
+"index": "midcap150",
+"composite": 7.22,
+"grade": "B",
+"cmp": 889.5,
+"chg_pct": 1.32,
+"rvol20": 1.5,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 2.3/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Financial Services",
+"ace_worksheet": {
+"generated_for": "INDIANB",
+"name": "Indian Bank",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Financial Services",
+"index": "midcap150",
+"mcap_cr": 112674,
+"latest_quarter": "2026-06-30"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 8.8,
+"roe_pct": 16.2,
+"op_margin_pct": 48.0,
+"de": 0.46,
+"rev_cagr3y_pct": 10.4,
+"pat_cagr3y_pct": 28.1
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 7.22,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.32,
+"jhunjhunwala": 6.94,
+"pabrai": 8.62,
+"kacholia": 4.69,
+"kedia": 2.26,
+"blackrock": 8.96,
+"vanguard": 8.74,
+"damani": 9.9
 },
 "notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -1422,7 +944,7 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "V3_automated": {
-"de_ratio": 0.07,
+"de_ratio": 0.46,
 "cfo_trend": "stable/rising"
 },
 "triggered": [],
@@ -1442,15 +964,14 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 580.7,
-"above_200dma": false,
-"dma200_dist_pct": null,
-"dd_from_52wk": -10.8,
-"ret_6m_pct": 3.7,
-"rvol20": 4.06,
-"turnover_cr": 35.31,
+"cmp": 889.5,
+"above_200dma": true,
+"dma200_dist_pct": 5.2,
+"dd_from_52wk": -8.4,
+"ret_6m_pct": 4.3,
+"rvol20": 1.5,
+"turnover_cr": 168.86,
 "volume_integrity_flags": [
-"only 179 sessions of history (< 200) - recently listed, pre-run signals unreliable",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -1462,39 +983,39 @@
 "data": {
 "peers": [
 {
-"symbol": "JAMNAAUTO",
+"symbol": "MCX",
+"grade": "A+",
+"composite": 9.1,
+"pe": 51.5,
+"roe_pct": 37.9
+},
+{
+"symbol": "BSE",
 "grade": "A-",
-"composite": 8.24,
-"pe": 22.7,
-"roe_pct": 21.6
+"composite": 8.25,
+"pe": 60.6,
+"roe_pct": 36.0
 },
 {
-"symbol": "PRICOLLTD",
-"grade": "B+",
-"composite": 7.85,
-"pe": 31.7,
-"roe_pct": 22.1
+"symbol": "NAM-INDIA",
+"grade": "A-",
+"composite": 8.22,
+"pe": 46.0,
+"roe_pct": null
 },
 {
-"symbol": "HEROMOTOCO",
-"grade": "B+",
-"composite": 7.78,
-"pe": 18.8,
-"roe_pct": 28.0
+"symbol": "ABSLAMC",
+"grade": "A-",
+"composite": 8.12,
+"pe": 29.1,
+"roe_pct": null
 },
 {
-"symbol": "SAMHI",
-"grade": "B+",
-"composite": 7.68,
-"pe": 7.0,
-"roe_pct": 33.4
-},
-{
-"symbol": "LUMAXTECH",
-"grade": "B+",
-"composite": 7.62,
-"pe": 38.3,
-"roe_pct": 24.4
+"symbol": "ANANDRATHI",
+"grade": "A-",
+"composite": 8.1,
+"pe": 75.3,
+"roe_pct": null
 }
 ]
 }
@@ -1505,8 +1026,7 @@
 "status": "AUTO",
 "data": {
 "bullets": [
-"Weakest lens: Kacholia scores just 4.4/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: only 179 sessions of history (< 200) - recently listed, pre-run signals unreliable",
+"Weakest lens: Kedia scores just 2.3/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -1517,17 +1037,17 @@
 "status": "MANUAL",
 "data": {
 "queries": [
-"\"Tenneco Clean Air India Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Tenneco Clean Air India Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Tenneco Clean Air India Ltd.\" related party transactions annual report",
-"\"Tenneco Clean Air India Ltd.\" auditor resignation qualified opinion",
-"\"Tenneco Clean Air India Ltd.\" management commentary concall latest quarter",
-"\"TENNIND\" NSE stock news multibagger analysis 2026"
+"\"Indian Bank\" promoter pledge shareholding pattern 2026",
+"\"Indian Bank\" SEBI NSE BSE surveillance action order",
+"\"Indian Bank\" related party transactions annual report",
+"\"Indian Bank\" auditor resignation qualified opinion",
+"\"Indian Bank\" management commentary concall latest quarter",
+"\"INDIANB\" NSE stock news multibagger analysis 2026"
 ],
 "instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
 "ai_research": {
-"status": "budget_capped",
-"note": "Fresh-research budget (5/run) spent on other Lane 1 names this run - picked up automatically next run."
+"status": "auth_error",
+"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
 }
 }
 },
@@ -1541,8 +1061,8 @@
 "scuttlebutt_notes": null,
 "governance_read": null,
 "ai_draft": {
-"status": "budget_capped",
-"note": "Fresh-research budget (5/run) spent on other Lane 1 names this run - picked up automatically next run."
+"status": "auth_error",
+"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
 },
 "instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
 }
@@ -1553,13 +1073,13 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "technical_reference": {
-"cmp": 580.7,
-"recent_swing_low_20d": 525.95,
-"recent_swing_high_20d": 595.0,
-"atr14": 15.74,
-"illustrative_stop_ref": 510.21,
-"illustrative_target_ref": 595.0,
-"illustrative_rr": 0.2,
+"cmp": 889.5,
+"recent_swing_low_20d": 814.55,
+"recent_swing_high_20d": 899.0,
+"atr14": 18.31,
+"illustrative_stop_ref": 796.24,
+"illustrative_target_ref": 899.0,
+"illustrative_rr": 0.1,
 "note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
 },
 "entry_zone": null,
@@ -1585,25 +1105,27 @@
 }
 },
 {
-"symbol": "THELEELA",
-"name": "Leela Palaces Hotels & Resorts Ltd.",
+"symbol": "TRAVELFOOD",
+"name": "Travel Food Services Ltd.",
 "index": "smallcap250",
-"composite": 7.41,
+"composite": 7.21,
 "grade": "B",
-"cmp": 502.25,
-"chg_pct": 0.43,
-"rvol20": 1.82,
+"cmp": 1428.6,
+"chg_pct": 6.84,
+"rvol20": 55.64,
 "integrity_flags": [
+"82% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "bear_case": [
-"Weakest lens: Vanguard scores just 3.9/10 (profit consistency / low volatility)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Volume integrity: 82% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "sector": "Consumer Cyclical",
 "ace_worksheet": {
-"generated_for": "THELEELA",
-"name": "Leela Palaces Hotels & Resorts Ltd.",
+"generated_for": "TRAVELFOOD",
+"name": "Travel Food Services Ltd.",
 "mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
 "sections": [
 {
@@ -1613,7 +1135,7 @@
 "data": {
 "sector": "Consumer Cyclical",
 "index": "smallcap250",
-"mcap_cr": 16518,
+"mcap_cr": 17157,
 "latest_quarter": "2026-03-31"
 }
 },
@@ -1622,12 +1144,12 @@
 "title": "Financial snapshot",
 "status": "AUTO",
 "data": {
-"pe": 36.4,
-"roe_pct": 8.0,
-"op_margin_pct": 48.7,
-"de": 0.28,
-"rev_cagr3y_pct": 21.1,
-"pat_cagr3y_pct": null
+"pe": 39.0,
+"roe_pct": 35.7,
+"op_margin_pct": 31.8,
+"de": 0.17,
+"rev_cagr3y_pct": 15.6,
+"pat_cagr3y_pct": 21.8
 }
 },
 {
@@ -1635,23 +1157,23 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.41,
+"composite": 7.21,
 "grade": "B",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
-"buffett": 7.52,
-"jhunjhunwala": 9.66,
-"pabrai": 7.6,
-"kacholia": 7.17,
-"kedia": 8.73,
-"blackrock": 4.94,
-"vanguard": 3.88,
-"damani": 8.43
+"buffett": 9.79,
+"jhunjhunwala": 6.5,
+"pabrai": 7.7,
+"kacholia": 6.71,
+"kedia": 5.32,
+"blackrock": 6.72,
+"vanguard": 6.01,
+"damani": 7.0
 },
 "notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
 "pabrai": "margin-of-safety / downside protection",
 "kacholia": "3y growth + operating leverage + size runway",
 "kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
@@ -1667,7 +1189,253 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "V3_automated": {
-"de_ratio": 0.28,
+"de_ratio": 0.17,
+"cfo_trend": "declining"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 1428.6,
+"above_200dma": true,
+"dma200_dist_pct": 15.1,
+"dd_from_52wk": 0.0,
+"ret_6m_pct": 28.6,
+"rvol20": 55.64,
+"turnover_cr": 11.98,
+"volume_integrity_flags": [
+"82% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "JAMNAAUTO",
+"grade": "A-",
+"composite": 8.25,
+"pe": 22.7,
+"roe_pct": 21.6
+},
+{
+"symbol": "PRICOLLTD",
+"grade": "B+",
+"composite": 7.81,
+"pe": 31.7,
+"roe_pct": 22.1
+},
+{
+"symbol": "HEROMOTOCO",
+"grade": "B+",
+"composite": 7.79,
+"pe": 18.8,
+"roe_pct": 28.0
+},
+{
+"symbol": "SAMHI",
+"grade": "B+",
+"composite": 7.68,
+"pe": 7.0,
+"roe_pct": 33.4
+},
+{
+"symbol": "LUMAXTECH",
+"grade": "B+",
+"composite": 7.65,
+"pe": 38.3,
+"roe_pct": 24.4
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Volume integrity: 82% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Travel Food Services Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Travel Food Services Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Travel Food Services Ltd.\" related party transactions annual report",
+"\"Travel Food Services Ltd.\" auditor resignation qualified opinion",
+"\"Travel Food Services Ltd.\" management commentary concall latest quarter",
+"\"TRAVELFOOD\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
+"ai_research": {
+"status": "auth_error",
+"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
+}
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": {
+"status": "auth_error",
+"note": "\u26a0 API NOT WORKING \u2014 the ANTHROPIC_API_KEY secret was rejected (invalid or revoked). Check it in repo Settings \u2192 Secrets and variables \u2192 Actions."
+},
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "PARTIAL-AUTO",
+"data": {
+"technical_reference": {
+"cmp": 1428.6,
+"recent_swing_low_20d": 1255.5,
+"recent_swing_high_20d": 1470.9,
+"atr14": 47.09,
+"illustrative_stop_ref": 1208.41,
+"illustrative_target_ref": 1470.9,
+"illustrative_rr": 0.19,
+"note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
+},
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Reference levels above are illustrative only (see note) - set your actual entry/stop/target/sizing here."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
+"symbol": "AIIL",
+"name": "Authum Investment & Infrastructure Ltd.",
+"index": "midcap150",
+"composite": 7.19,
+"grade": "B",
+"cmp": 596.6,
+"chg_pct": 0.07,
+"rvol20": 1.71,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kedia scores just 3.8/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
+"PAT compounding slower than revenue - margins are being given up to buy growth",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Financial Services",
+"ace_worksheet": {
+"generated_for": "AIIL",
+"name": "Authum Investment & Infrastructure Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Financial Services",
+"index": "midcap150",
+"mcap_cr": 45799,
+"latest_quarter": "2026-06-30"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 28.1,
+"roe_pct": null,
+"op_margin_pct": 92.4,
+"de": 0.1,
+"rev_cagr3y_pct": 82.2,
+"pat_cagr3y_pct": -23.4
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 7.19,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.83,
+"jhunjhunwala": 6.39,
+"pabrai": 7.61,
+"kacholia": 4.15,
+"kedia": 3.81,
+"blackrock": 10.0,
+"vanguard": 7.51,
+"damani": 7.16
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.1,
 "cfo_trend": "stable/rising"
 },
 "triggered": [],
@@ -1687,13 +1455,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 502.25,
+"cmp": 596.6,
 "above_200dma": true,
-"dma200_dist_pct": 15.4,
-"dd_from_52wk": 0.0,
-"ret_6m_pct": 12.2,
-"rvol20": 1.82,
-"turnover_cr": 23.73,
+"dma200_dist_pct": 14.2,
+"dd_from_52wk": -10.7,
+"ret_6m_pct": 19.5,
+"rvol20": 1.71,
+"turnover_cr": 38.36,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -1706,39 +1474,39 @@
 "data": {
 "peers": [
 {
-"symbol": "JAMNAAUTO",
+"symbol": "MCX",
+"grade": "A+",
+"composite": 9.1,
+"pe": 51.5,
+"roe_pct": 37.9
+},
+{
+"symbol": "BSE",
 "grade": "A-",
-"composite": 8.24,
-"pe": 22.7,
-"roe_pct": 21.6
+"composite": 8.25,
+"pe": 60.6,
+"roe_pct": 36.0
 },
 {
-"symbol": "PRICOLLTD",
-"grade": "B+",
-"composite": 7.85,
-"pe": 31.7,
-"roe_pct": 22.1
+"symbol": "NAM-INDIA",
+"grade": "A-",
+"composite": 8.22,
+"pe": 46.0,
+"roe_pct": null
 },
 {
-"symbol": "HEROMOTOCO",
-"grade": "B+",
-"composite": 7.78,
-"pe": 18.8,
-"roe_pct": 28.0
+"symbol": "ABSLAMC",
+"grade": "A-",
+"composite": 8.12,
+"pe": 29.1,
+"roe_pct": null
 },
 {
-"symbol": "SAMHI",
-"grade": "B+",
-"composite": 7.68,
-"pe": 7.0,
-"roe_pct": 33.4
-},
-{
-"symbol": "LUMAXTECH",
-"grade": "B+",
-"composite": 7.62,
-"pe": 38.3,
-"roe_pct": 24.4
+"symbol": "ANANDRATHI",
+"grade": "A-",
+"composite": 8.1,
+"pe": 75.3,
+"roe_pct": null
 }
 ]
 }
@@ -1749,7 +1517,8 @@
 "status": "AUTO",
 "data": {
 "bullets": [
-"Weakest lens: Vanguard scores just 3.9/10 (profit consistency / low volatility)",
+"Weakest lens: Kedia scores just 3.8/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
+"PAT compounding slower than revenue - margins are being given up to buy growth",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -1760,12 +1529,12 @@
 "status": "MANUAL",
 "data": {
 "queries": [
-"\"Leela Palaces Hotels & Resorts Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Leela Palaces Hotels & Resorts Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Leela Palaces Hotels & Resorts Ltd.\" related party transactions annual report",
-"\"Leela Palaces Hotels & Resorts Ltd.\" auditor resignation qualified opinion",
-"\"Leela Palaces Hotels & Resorts Ltd.\" management commentary concall latest quarter",
-"\"THELEELA\" NSE stock news multibagger analysis 2026"
+"\"Authum Investment & Infrastructure Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Authum Investment & Infrastructure Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Authum Investment & Infrastructure Ltd.\" related party transactions annual report",
+"\"Authum Investment & Infrastructure Ltd.\" auditor resignation qualified opinion",
+"\"Authum Investment & Infrastructure Ltd.\" management commentary concall latest quarter",
+"\"AIIL\" NSE stock news multibagger analysis 2026"
 ],
 "instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
 "ai_research": {
@@ -1796,13 +1565,13 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "technical_reference": {
-"cmp": 502.25,
-"recent_swing_low_20d": 461.05,
-"recent_swing_high_20d": 517.95,
-"atr14": 16.55,
-"illustrative_stop_ref": 444.5,
-"illustrative_target_ref": 517.95,
-"illustrative_rr": 0.27,
+"cmp": 596.6,
+"recent_swing_low_20d": 498.55,
+"recent_swing_high_20d": 607.7,
+"atr14": 23.25,
+"illustrative_stop_ref": 475.3,
+"illustrative_target_ref": 607.7,
+"illustrative_rr": 0.09,
 "note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
 },
 "entry_zone": null,
@@ -1828,26 +1597,27 @@
 }
 },
 {
-"symbol": "TIMKEN",
-"name": "Timken India Ltd.",
-"index": "smallcap250",
-"composite": 7.33,
+"symbol": "TATAINVEST",
+"name": "Tata Investment Corporation Ltd.",
+"index": "midcap150",
+"composite": 7.13,
 "grade": "B",
-"cmp": 3309.4,
-"chg_pct": 2.4,
-"rvol20": 1.91,
+"cmp": 693.65,
+"chg_pct": 3.98,
+"rvol20": 16.31,
 "integrity_flags": [
+"62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "bear_case": [
-"Weakest lens: Kacholia scores just 2.9/10 (3y growth + operating leverage + size runway)",
-"PE 57.0 is 1.6x the current universe median (35) - priced for perfection in this regime",
-"PAT compounding slower than revenue - margins are being given up to buy growth"
+"Weakest lens: Damani scores just 4.3/10 (CFO/PAT conversion + margin + valuation)",
+"PE 79.4 is 2.3x the current universe median (35) - priced for perfection in this regime",
+"Volume integrity: 62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
 ],
-"sector": "Industrials",
+"sector": "Financial Services",
 "ace_worksheet": {
-"generated_for": "TIMKEN",
-"name": "Timken India Ltd.",
+"generated_for": "TATAINVEST",
+"name": "Tata Investment Corporation Ltd.",
 "mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
 "sections": [
 {
@@ -1855,9 +1625,9 @@
 "title": "Company overview",
 "status": "AUTO",
 "data": {
-"sector": "Industrials",
-"index": "smallcap250",
-"mcap_cr": 23659,
+"sector": "Financial Services",
+"index": "midcap150",
+"mcap_cr": 34377,
 "latest_quarter": "2026-03-31"
 }
 },
@@ -1866,12 +1636,12 @@
 "title": "Financial snapshot",
 "status": "AUTO",
 "data": {
-"pe": 57.0,
-"roe_pct": 14.3,
-"op_margin_pct": 20.2,
+"pe": 79.4,
+"roe_pct": 1.4,
+"op_margin_pct": 73.1,
 "de": 0.0,
-"rev_cagr3y_pct": 7.5,
-"pat_cagr3y_pct": 2.0
+"rev_cagr3y_pct": 19.5,
+"pat_cagr3y_pct": 19.9
 }
 },
 {
@@ -1879,19 +1649,19 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.33,
+"composite": 7.13,
 "grade": "B",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
-"buffett": 8.06,
-"jhunjhunwala": 9.38,
-"pabrai": 6.98,
-"kacholia": 2.9,
-"kedia": 8.1,
-"blackrock": 7.37,
-"vanguard": 9.12,
-"damani": 5.45
+"buffett": 7.5,
+"jhunjhunwala": 9.61,
+"pabrai": 5.37,
+"kacholia": 6.17,
+"kedia": 7.16,
+"blackrock": 7.5,
+"vanguard": 7.96,
+"damani": 4.35
 },
 "notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -1931,14 +1701,15 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 3309.4,
+"cmp": 693.65,
 "above_200dma": true,
-"dma200_dist_pct": 1.5,
-"dd_from_52wk": -12.1,
-"ret_6m_pct": 1.9,
-"rvol20": 1.91,
-"turnover_cr": 18.27,
+"dma200_dist_pct": 1.8,
+"dd_from_52wk": -34.1,
+"ret_6m_pct": 12.0,
+"rvol20": 16.31,
+"turnover_cr": 26.32,
 "volume_integrity_flags": [
+"62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -1950,285 +1721,39 @@
 "data": {
 "peers": [
 {
-"symbol": "GESHIP",
+"symbol": "MCX",
+"grade": "A+",
+"composite": 9.1,
+"pe": 51.5,
+"roe_pct": 37.9
+},
+{
+"symbol": "BSE",
 "grade": "A-",
-"composite": 8.33,
-"pe": 6.6,
-"roe_pct": 18.8
+"composite": 8.25,
+"pe": 60.6,
+"roe_pct": 36.0
 },
 {
-"symbol": "BLS",
+"symbol": "NAM-INDIA",
 "grade": "A-",
-"composite": 8.19,
-"pe": 14.4,
-"roe_pct": 30.1
-},
-{
-"symbol": "GPPL",
-"grade": "A-",
-"composite": 8.15,
-"pe": 14.1,
-"roe_pct": 21.8
-},
-{
-"symbol": "HBLENGINE",
-"grade": "A-",
-"composite": 8.05,
-"pe": 24.5,
-"roe_pct": 44.1
-},
-{
-"symbol": "TDPOWERSYS",
-"grade": "B+",
-"composite": 7.88,
-"pe": 73.8,
-"roe_pct": 24.7
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Weakest lens: Kacholia scores just 2.9/10 (3y growth + operating leverage + size runway)",
-"PE 57.0 is 1.6x the current universe median (35) - priced for perfection in this regime",
-"PAT compounding slower than revenue - margins are being given up to buy growth",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Timken India Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Timken India Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Timken India Ltd.\" related party transactions annual report",
-"\"Timken India Ltd.\" auditor resignation qualified opinion",
-"\"Timken India Ltd.\" management commentary concall latest quarter",
-"\"TIMKEN\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
-"ai_research": {
-"status": "budget_capped",
-"note": "Fresh-research budget (5/run) spent on other Lane 1 names this run - picked up automatically next run."
-}
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": {
-"status": "budget_capped",
-"note": "Fresh-research budget (5/run) spent on other Lane 1 names this run - picked up automatically next run."
-},
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "PARTIAL-AUTO",
-"data": {
-"technical_reference": {
-"cmp": 3309.4,
-"recent_swing_low_20d": 3032.65,
-"recent_swing_high_20d": 3333.3,
-"atr14": 79.85,
-"illustrative_stop_ref": 2952.8,
-"illustrative_target_ref": 3333.3,
-"illustrative_rr": 0.07,
-"note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
-},
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Reference levels above are illustrative only (see note) - set your actual entry/stop/target/sizing here."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "CHAMBLFERT",
-"name": "Chambal Fertilizers & Chemicals Ltd.",
-"index": "smallcap250",
-"composite": 7.08,
-"grade": "B",
-"cmp": 458.65,
-"chg_pct": 0.89,
-"rvol20": 1.82,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Weakest lens: Damani scores just 4.7/10 (CFO/PAT conversion + margin + valuation)",
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Basic Materials",
-"ace_worksheet": {
-"generated_for": "CHAMBLFERT",
-"name": "Chambal Fertilizers & Chemicals Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Basic Materials",
-"index": "smallcap250",
-"mcap_cr": 17585,
-"latest_quarter": "2026-06-30"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 9.1,
-"roe_pct": null,
-"op_margin_pct": 15.6,
-"de": 0.1,
-"rev_cagr3y_pct": -9.2,
-"pat_cagr3y_pct": 23.6
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.08,
-"grade": "B",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 5.6,
-"jhunjhunwala": 8.28,
-"pabrai": 8.09,
-"kacholia": 5.76,
-"kedia": 8.63,
-"blackrock": 6.89,
-"vanguard": 8.8,
-"damani": 4.68
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.1,
-"cfo_trend": "declining"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 458.65,
-"above_200dma": true,
-"dma200_dist_pct": 1.2,
-"dd_from_52wk": -18.6,
-"ret_6m_pct": 4.7,
-"rvol20": 1.82,
-"turnover_cr": 20.36,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "ATUL",
-"grade": "A-",
-"composite": 8.23,
-"pe": 24.9,
+"composite": 8.22,
+"pe": 46.0,
 "roe_pct": null
 },
 {
-"symbol": "SANDUMA",
+"symbol": "ABSLAMC",
 "grade": "A-",
 "composite": 8.12,
-"pe": 15.7,
-"roe_pct": 22.3
-},
-{
-"symbol": "USHAMART",
-"grade": "A-",
-"composite": 8.02,
-"pe": 28.4,
+"pe": 29.1,
 "roe_pct": null
 },
 {
-"symbol": "NAVINFLUOR",
-"grade": "B+",
-"composite": 7.89,
-"pe": 57.9,
-"roe_pct": 20.1
-},
-{
-"symbol": "HINDCOPPER",
-"grade": "B+",
-"composite": 7.87,
-"pe": 51.8,
-"roe_pct": 30.6
+"symbol": "ANANDRATHI",
+"grade": "A-",
+"composite": 8.1,
+"pe": 75.3,
+"roe_pct": null
 }
 ]
 }
@@ -2239,8 +1764,9 @@
 "status": "AUTO",
 "data": {
 "bullets": [
-"Weakest lens: Damani scores just 4.7/10 (CFO/PAT conversion + margin + valuation)",
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Weakest lens: Damani scores just 4.3/10 (CFO/PAT conversion + margin + valuation)",
+"PE 79.4 is 2.3x the current universe median (35) - priced for perfection in this regime",
+"Volume integrity: 62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -2251,12 +1777,12 @@
 "status": "MANUAL",
 "data": {
 "queries": [
-"\"Chambal Fertilizers & Chemicals Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Chambal Fertilizers & Chemicals Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Chambal Fertilizers & Chemicals Ltd.\" related party transactions annual report",
-"\"Chambal Fertilizers & Chemicals Ltd.\" auditor resignation qualified opinion",
-"\"Chambal Fertilizers & Chemicals Ltd.\" management commentary concall latest quarter",
-"\"CHAMBLFERT\" NSE stock news multibagger analysis 2026"
+"\"Tata Investment Corporation Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Tata Investment Corporation Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Tata Investment Corporation Ltd.\" related party transactions annual report",
+"\"Tata Investment Corporation Ltd.\" auditor resignation qualified opinion",
+"\"Tata Investment Corporation Ltd.\" management commentary concall latest quarter",
+"\"TATAINVEST\" NSE stock news multibagger analysis 2026"
 ],
 "instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
 "ai_research": {
@@ -2287,13 +1813,13 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "technical_reference": {
-"cmp": 458.65,
-"recent_swing_low_20d": 425.1,
-"recent_swing_high_20d": 466.0,
-"atr14": 10.15,
-"illustrative_stop_ref": 414.95,
-"illustrative_target_ref": 466.0,
-"illustrative_rr": 0.17,
+"cmp": 693.65,
+"recent_swing_low_20d": 621.15,
+"recent_swing_high_20d": 713.45,
+"atr14": 17.43,
+"illustrative_stop_ref": 603.72,
+"illustrative_target_ref": 713.45,
+"illustrative_rr": 0.22,
 "note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
 },
 "entry_zone": null,
@@ -2319,26 +1845,25 @@
 }
 },
 {
-"symbol": "NETWEB",
-"name": "Netweb Technologies India Ltd.",
+"symbol": "BBTC",
+"name": "Bombay Burmah Trading Corporation Ltd.",
 "index": "smallcap250",
-"composite": 7.07,
+"composite": 7.01,
 "grade": "B",
-"cmp": 4893.8,
-"chg_pct": 2.76,
-"rvol20": 1.69,
+"cmp": 1504.1,
+"chg_pct": 0.41,
+"rvol20": 1.63,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "bear_case": [
-"Weakest lens: Damani scores just 3.3/10 (CFO/PAT conversion + margin + valuation)",
-"PE 99.0 is 2.9x the current universe median (35) - priced for perfection in this regime",
-"PAT compounding slower than revenue - margins are being given up to buy growth"
+"Weakest lens: Kacholia scores just 4.6/10 (3y growth + operating leverage + size runway)",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
-"sector": "Technology",
+"sector": "Consumer Defensive",
 "ace_worksheet": {
-"generated_for": "NETWEB",
-"name": "Netweb Technologies India Ltd.",
+"generated_for": "BBTC",
+"name": "Bombay Burmah Trading Corporation Ltd.",
 "mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
 "sections": [
 {
@@ -2346,254 +1871,9 @@
 "title": "Company overview",
 "status": "AUTO",
 "data": {
-"sector": "Technology",
+"sector": "Consumer Defensive",
 "index": "smallcap250",
-"mcap_cr": 25760,
-"latest_quarter": "2026-06-30"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 99.0,
-"roe_pct": null,
-"op_margin_pct": 14.3,
-"de": 0.39,
-"rev_cagr3y_pct": 70.4,
-"pat_cagr3y_pct": 63.7
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.07,
-"grade": "B",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 7.57,
-"jhunjhunwala": 9.39,
-"pabrai": 6.58,
-"kacholia": 7.56,
-"kedia": 7.92,
-"blackrock": 6.77,
-"vanguard": 5.0,
-"damani": 3.28
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.39,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 4893.8,
-"above_200dma": true,
-"dma200_dist_pct": 31.4,
-"dd_from_52wk": -4.3,
-"ret_6m_pct": 51.9,
-"rvol20": 1.69,
-"turnover_cr": 525.97,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "OFSS",
-"grade": "A-",
-"composite": 8.38,
-"pe": 28.6,
-"roe_pct": null
-},
-{
-"symbol": "WEBELSOLAR",
-"grade": "A-",
-"composite": 8.36,
-"pe": 13.9,
-"roe_pct": 66.7
-},
-{
-"symbol": "COFORGE",
-"grade": "A-",
-"composite": 8.08,
-"pe": 35.2,
-"roe_pct": null
-},
-{
-"symbol": "PERSISTENT",
-"grade": "B+",
-"composite": 7.8,
-"pe": 46.6,
-"roe_pct": 26.3
-},
-{
-"symbol": "ECLERX",
-"grade": "B+",
-"composite": 7.7,
-"pe": 24.8,
-"roe_pct": 29.0
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Weakest lens: Damani scores just 3.3/10 (CFO/PAT conversion + margin + valuation)",
-"PE 99.0 is 2.9x the current universe median (35) - priced for perfection in this regime",
-"PAT compounding slower than revenue - margins are being given up to buy growth",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Netweb Technologies India Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Netweb Technologies India Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Netweb Technologies India Ltd.\" related party transactions annual report",
-"\"Netweb Technologies India Ltd.\" auditor resignation qualified opinion",
-"\"Netweb Technologies India Ltd.\" management commentary concall latest quarter",
-"\"NETWEB\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
-"ai_research": {
-"status": "budget_capped",
-"note": "Fresh-research budget (5/run) spent on other Lane 1 names this run - picked up automatically next run."
-}
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": {
-"status": "budget_capped",
-"note": "Fresh-research budget (5/run) spent on other Lane 1 names this run - picked up automatically next run."
-},
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "PARTIAL-AUTO",
-"data": {
-"technical_reference": {
-"cmp": 4893.8,
-"recent_swing_low_20d": 4115.0,
-"recent_swing_high_20d": 4933.0,
-"atr14": 187.29,
-"illustrative_stop_ref": 3927.71,
-"illustrative_target_ref": 4933.0,
-"illustrative_rr": 0.04,
-"note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
-},
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Reference levels above are illustrative only (see note) - set your actual entry/stop/target/sizing here."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "CASTROLIND",
-"name": "Castrol India Ltd.",
-"index": "smallcap250",
-"composite": 7.04,
-"grade": "B",
-"cmp": 191.54,
-"chg_pct": 2.39,
-"rvol20": 11.59,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Weakest lens: Kacholia scores just 3.0/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Energy",
-"ace_worksheet": {
-"generated_for": "CASTROLIND",
-"name": "Castrol India Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Energy",
-"index": "smallcap250",
-"mcap_cr": 18320,
+"mcap_cr": 10446,
 "latest_quarter": "2026-03-31"
 }
 },
@@ -2602,12 +1882,12 @@
 "title": "Financial snapshot",
 "status": "AUTO",
 "data": {
-"pe": 19.1,
-"roe_pct": null,
-"op_margin_pct": 19.5,
-"de": 0.03,
-"rev_cagr3y_pct": 6.2,
-"pat_cagr3y_pct": 5.2
+"pe": 8.4,
+"roe_pct": 28.7,
+"op_margin_pct": 16.7,
+"de": 0.23,
+"rev_cagr3y_pct": 5.7,
+"pat_cagr3y_pct": null
 }
 },
 {
@@ -2615,23 +1895,23 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.04,
+"composite": 7.01,
 "grade": "B",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
-"buffett": 9.03,
-"jhunjhunwala": 5.0,
-"pabrai": 8.78,
-"kacholia": 3.03,
-"kedia": 3.47,
-"blackrock": 8.66,
-"vanguard": 10.0,
-"damani": 8.77
+"buffett": 8.68,
+"jhunjhunwala": 6.43,
+"pabrai": 7.09,
+"kacholia": 4.64,
+"kedia": 6.73,
+"blackrock": 5.95,
+"vanguard": 8.46,
+"damani": 7.31
 },
 "notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
 "pabrai": "margin-of-safety / downside protection",
 "kacholia": "3y growth + operating leverage + size runway",
 "kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
@@ -2647,7 +1927,7 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "V3_automated": {
-"de_ratio": 0.03,
+"de_ratio": 0.23,
 "cfo_trend": "stable/rising"
 },
 "triggered": [],
@@ -2667,13 +1947,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 191.54,
-"above_200dma": true,
-"dma200_dist_pct": 4.4,
-"dd_from_52wk": -9.8,
-"ret_6m_pct": 5.2,
-"rvol20": 11.59,
-"turnover_cr": 36.03,
+"cmp": 1504.1,
+"above_200dma": false,
+"dma200_dist_pct": -9.2,
+"dd_from_52wk": -27.8,
+"ret_6m_pct": -14.6,
+"rvol20": 1.63,
+"turnover_cr": 4.11,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -2686,39 +1966,39 @@
 "data": {
 "peers": [
 {
-"symbol": "CHENNPETRO",
+"symbol": "MANORAMA",
+"grade": "A-",
+"composite": 8.42,
+"pe": 44.6,
+"roe_pct": 39.4
+},
+{
+"symbol": "CUPID",
 "grade": "B+",
-"composite": 7.68,
-"pe": 4.5,
+"composite": 7.99,
+"pe": 288.3,
+"roe_pct": 27.3
+},
+{
+"symbol": "CRIZAC",
+"grade": "B+",
+"composite": 7.59,
+"pe": 15.6,
+"roe_pct": 40.0
+},
+{
+"symbol": "RADICO",
+"grade": "B+",
+"composite": 7.59,
+"pe": 82.8,
 "roe_pct": null
 },
 {
-"symbol": "AEGISLOG",
+"symbol": "GOKULAGRO",
 "grade": "B",
-"composite": 7.07,
-"pe": 50.0,
-"roe_pct": 15.3
-},
-{
-"symbol": "MRPL",
-"grade": "B-",
-"composite": 6.72,
-"pe": 9.5,
+"composite": 7.04,
+"pe": 15.8,
 "roe_pct": null
-},
-{
-"symbol": "REFEX",
-"grade": "C",
-"composite": 6.36,
-"pe": 14.4,
-"roe_pct": null
-},
-{
-"symbol": "PETRONET",
-"grade": "C",
-"composite": 6.35,
-"pe": 10.8,
-"roe_pct": 18.6
 }
 ]
 }
@@ -2729,7 +2009,7 @@
 "status": "AUTO",
 "data": {
 "bullets": [
-"Weakest lens: Kacholia scores just 3.0/10 (3y growth + operating leverage + size runway)",
+"Weakest lens: Kacholia scores just 4.6/10 (3y growth + operating leverage + size runway)",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -2740,12 +2020,12 @@
 "status": "MANUAL",
 "data": {
 "queries": [
-"\"Castrol India Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Castrol India Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Castrol India Ltd.\" related party transactions annual report",
-"\"Castrol India Ltd.\" auditor resignation qualified opinion",
-"\"Castrol India Ltd.\" management commentary concall latest quarter",
-"\"CASTROLIND\" NSE stock news multibagger analysis 2026"
+"\"Bombay Burmah Trading Corporation Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Bombay Burmah Trading Corporation Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Bombay Burmah Trading Corporation Ltd.\" related party transactions annual report",
+"\"Bombay Burmah Trading Corporation Ltd.\" auditor resignation qualified opinion",
+"\"Bombay Burmah Trading Corporation Ltd.\" management commentary concall latest quarter",
+"\"BBTC\" NSE stock news multibagger analysis 2026"
 ],
 "instruction": "Run these 6 searches; log findings before scoring moat/management/governance below.",
 "ai_research": {
@@ -2776,13 +2056,13 @@
 "status": "PARTIAL-AUTO",
 "data": {
 "technical_reference": {
-"cmp": 191.54,
-"recent_swing_low_20d": 182.9,
-"recent_swing_high_20d": 194.98,
-"atr14": 2.25,
-"illustrative_stop_ref": 180.65,
-"illustrative_target_ref": 194.98,
-"illustrative_rr": 0.32,
+"cmp": 1504.1,
+"recent_swing_low_20d": 1434.4,
+"recent_swing_high_20d": 1558.0,
+"atr14": 28.97,
+"illustrative_stop_ref": 1405.43,
+"illustrative_target_ref": 1558.0,
+"illustrative_rr": 0.55,
 "note": "Reference levels from price structure only (20-session swing low/high, ATR). NOT a recommendation - no position size, no entry timing, no directional call. Your own trade plan (entry zone, actual stop, target, theme tag) still goes in the fields below."
 },
 "entry_zone": null,
@@ -2815,9 +2095,9 @@
 "index": "midcap150",
 "composite": 9.1,
 "grade": "A+",
-"cmp": 2598.6,
-"chg_pct": -3.04,
-"rvol20": 3.1,
+"cmp": 2638.0,
+"chg_pct": -0.08,
+"rvol20": 0.8,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -2866,7 +2146,7 @@
 "frameworks": {
 "buffett": 10.0,
 "jhunjhunwala": 9.8,
-"pabrai": 6.46,
+"pabrai": 6.53,
 "kacholia": 10.0,
 "kedia": 10.0,
 "blackrock": 9.78,
@@ -2911,13 +2191,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 2598.6,
+"cmp": 2638.0,
 "above_200dma": true,
-"dma200_dist_pct": 3.5,
-"dd_from_52wk": -24.5,
-"ret_6m_pct": 2.2,
-"rvol20": 3.1,
-"turnover_cr": 500.44,
+"dma200_dist_pct": 4.7,
+"dd_from_52wk": -23.4,
+"ret_6m_pct": 10.8,
+"rvol20": 0.8,
+"turnover_cr": 476.88,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -2932,28 +2212,28 @@
 {
 "symbol": "BSE",
 "grade": "A-",
-"composite": 8.27,
+"composite": 8.25,
 "pe": 60.6,
 "roe_pct": 36.0
 },
 {
 "symbol": "NAM-INDIA",
 "grade": "A-",
-"composite": 8.25,
+"composite": 8.22,
 "pe": 46.0,
 "roe_pct": null
 },
 {
 "symbol": "ABSLAMC",
 "grade": "A-",
-"composite": 8.11,
+"composite": 8.12,
 "pe": 29.1,
 "roe_pct": null
 },
 {
 "symbol": "ANANDRATHI",
 "grade": "A-",
-"composite": 8.07,
+"composite": 8.1,
 "pe": 75.3,
 "roe_pct": null
 },
@@ -3040,9 +2320,9 @@
 "index": "midcap150",
 "composite": 8.38,
 "grade": "A-",
-"cmp": 11759.0,
-"chg_pct": 1.37,
-"rvol20": 0.5,
+"cmp": 11805.0,
+"chg_pct": 0.6,
+"rvol20": 0.39,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -3092,7 +2372,7 @@
 "frameworks": {
 "buffett": 9.99,
 "jhunjhunwala": 9.74,
-"pabrai": 9.01,
+"pabrai": 9.02,
 "kacholia": 3.65,
 "kedia": 6.67,
 "blackrock": 10.0,
@@ -3137,13 +2417,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 11759.0,
+"cmp": 11805.0,
 "above_200dma": true,
-"dma200_dist_pct": 39.2,
-"dd_from_52wk": -0.1,
-"ret_6m_pct": 60.9,
-"rvol20": 0.5,
-"turnover_cr": 533.76,
+"dma200_dist_pct": 39.1,
+"dd_from_52wk": 0.0,
+"ret_6m_pct": 67.2,
+"rvol20": 0.39,
+"turnover_cr": 516.19,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -3165,29 +2445,29 @@
 {
 "symbol": "COFORGE",
 "grade": "A-",
-"composite": 8.08,
+"composite": 8.09,
 "pe": 35.2,
 "roe_pct": null
 },
 {
 "symbol": "PERSISTENT",
 "grade": "B+",
-"composite": 7.8,
+"composite": 7.79,
 "pe": 46.6,
 "roe_pct": 26.3
 },
 {
-"symbol": "ECLERX",
-"grade": "B+",
-"composite": 7.7,
-"pe": 24.8,
-"roe_pct": 29.0
-},
-{
 "symbol": "STYL",
 "grade": "B+",
-"composite": 7.62,
+"composite": 7.72,
 "pe": 20.5,
+"roe_pct": null
+},
+{
+"symbol": "SYRMA",
+"grade": "B+",
+"composite": 7.61,
+"pe": 70.9,
 "roe_pct": null
 }
 ]
@@ -3265,18 +2545,18 @@
 "symbol": "GESHIP",
 "name": "Great Eastern Shipping Co. Ltd.",
 "index": "smallcap250",
-"composite": 8.33,
+"composite": 8.31,
 "grade": "A-",
-"cmp": 1404.7,
-"chg_pct": -2.1,
-"rvol20": 1.23,
+"cmp": 1341.8,
+"chg_pct": 0.25,
+"rvol20": 0.84,
 "integrity_flags": [
-"62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"60% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "bear_case": [
 "Weakest lens: Kacholia scores just 4.3/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: 62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"Volume integrity: 60% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "sector": "Industrials",
@@ -3314,18 +2594,18 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.33,
+"composite": 8.31,
 "grade": "A-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.15,
 "jhunjhunwala": 9.93,
-"pabrai": 8.75,
+"pabrai": 8.57,
 "kacholia": 4.35,
 "kedia": 7.77,
 "blackrock": 8.51,
-"vanguard": 8.47,
+"vanguard": 8.46,
 "damani": 9.04
 },
 "notes": {
@@ -3366,15 +2646,15 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 1404.7,
+"cmp": 1341.8,
 "above_200dma": true,
-"dma200_dist_pct": 8.0,
-"dd_from_52wk": -18.3,
-"ret_6m_pct": 14.2,
-"rvol20": 1.23,
-"turnover_cr": 120.38,
+"dma200_dist_pct": 4.0,
+"dd_from_52wk": -21.1,
+"ret_6m_pct": 7.2,
+"rvol20": 0.84,
+"turnover_cr": 132.87,
 "volume_integrity_flags": [
-"62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"60% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -3402,21 +2682,21 @@
 {
 "symbol": "HBLENGINE",
 "grade": "A-",
-"composite": 8.05,
+"composite": 8.04,
 "pe": 24.5,
 "roe_pct": 44.1
 },
 {
 "symbol": "TDPOWERSYS",
 "grade": "B+",
-"composite": 7.88,
+"composite": 7.91,
 "pe": 73.8,
 "roe_pct": 24.7
 },
 {
 "symbol": "GVT&D",
 "grade": "B+",
-"composite": 7.83,
+"composite": 7.82,
 "pe": 90.1,
 "roe_pct": 55.3
 }
@@ -3430,7 +2710,7 @@
 "data": {
 "bullets": [
 "Weakest lens: Kacholia scores just 4.3/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: 62% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"Volume integrity: 60% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
 "Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
 }
@@ -3496,11 +2776,11 @@
 "symbol": "BSE",
 "name": "BSE Ltd.",
 "index": "midcap150",
-"composite": 8.27,
+"composite": 8.25,
 "grade": "A-",
-"cmp": 3534.6,
-"chg_pct": -2.31,
-"rvol20": 2.81,
+"cmp": 3457.1,
+"chg_pct": 0.64,
+"rvol20": 1.39,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -3543,14 +2823,14 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.27,
+"composite": 8.25,
 "grade": "A-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 10.0,
 "jhunjhunwala": 8.9,
-"pabrai": 6.36,
+"pabrai": 6.25,
 "kacholia": 7.5,
 "kedia": 6.67,
 "blackrock": 10.0,
@@ -3595,13 +2875,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 3534.6,
+"cmp": 3457.1,
 "above_200dma": true,
-"dma200_dist_pct": 10.8,
-"dd_from_52wk": -19.5,
-"ret_6m_pct": 22.4,
-"rvol20": 2.81,
-"turnover_cr": 939.58,
+"dma200_dist_pct": 8.1,
+"dd_from_52wk": -21.3,
+"ret_6m_pct": 19.6,
+"rvol20": 1.39,
+"turnover_cr": 982.42,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -3623,21 +2903,21 @@
 {
 "symbol": "NAM-INDIA",
 "grade": "A-",
-"composite": 8.25,
+"composite": 8.22,
 "pe": 46.0,
 "roe_pct": null
 },
 {
 "symbol": "ABSLAMC",
 "grade": "A-",
-"composite": 8.11,
+"composite": 8.12,
 "pe": 29.1,
 "roe_pct": null
 },
 {
 "symbol": "ANANDRATHI",
 "grade": "A-",
-"composite": 8.07,
+"composite": 8.1,
 "pe": 75.3,
 "roe_pct": null
 },
@@ -3723,11 +3003,11 @@
 "symbol": "ATUL",
 "name": "Atul Ltd.",
 "index": "smallcap250",
-"composite": 8.23,
+"composite": 8.22,
 "grade": "A-",
-"cmp": 6794.0,
-"chg_pct": 0.01,
-"rvol20": 0.42,
+"cmp": 6774.0,
+"chg_pct": -0.33,
+"rvol20": 1.58,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -3770,14 +3050,14 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.23,
+"composite": 8.22,
 "grade": "A-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 8.63,
 "jhunjhunwala": 9.54,
-"pabrai": 8.53,
+"pabrai": 8.5,
 "kacholia": 4.66,
 "kedia": 8.14,
 "blackrock": 8.83,
@@ -3822,13 +3102,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 6794.0,
+"cmp": 6774.0,
 "above_200dma": true,
-"dma200_dist_pct": 7.7,
-"dd_from_52wk": -3.9,
-"ret_6m_pct": 8.1,
-"rvol20": 0.42,
-"turnover_cr": 52.06,
+"dma200_dist_pct": 7.3,
+"dd_from_52wk": -4.2,
+"ret_6m_pct": 5.4,
+"rvol20": 1.58,
+"turnover_cr": 56.09,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -3841,25 +3121,11 @@
 "data": {
 "peers": [
 {
-"symbol": "SANDUMA",
-"grade": "A-",
-"composite": 8.12,
-"pe": 15.7,
-"roe_pct": 22.3
-},
-{
 "symbol": "USHAMART",
 "grade": "A-",
-"composite": 8.02,
+"composite": 8.01,
 "pe": 28.4,
 "roe_pct": null
-},
-{
-"symbol": "NAVINFLUOR",
-"grade": "B+",
-"composite": 7.89,
-"pe": 57.9,
-"roe_pct": 20.1
 },
 {
 "symbol": "HINDCOPPER",
@@ -3869,11 +3135,25 @@
 "roe_pct": 30.6
 },
 {
+"symbol": "NAVINFLUOR",
+"grade": "B+",
+"composite": 7.86,
+"pe": 57.9,
+"roe_pct": 20.1
+},
+{
 "symbol": "ADVENZYMES",
 "grade": "B+",
-"composite": 7.82,
+"composite": 7.81,
 "pe": 20.9,
 "roe_pct": 11.0
+},
+{
+"symbol": "SANDUMA",
+"grade": "B+",
+"composite": 7.8,
+"pe": 15.7,
+"roe_pct": 22.3
 }
 ]
 }
@@ -3947,14 +3227,464 @@
 }
 },
 {
+"symbol": "NAM-INDIA",
+"name": "Nippon Life India Asset Management Ltd.",
+"index": "midcap150",
+"composite": 8.22,
+"grade": "A-",
+"cmp": 1176.0,
+"chg_pct": -2.0,
+"rvol20": 0.69,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Financial Services",
+"ace_worksheet": {
+"generated_for": "NAM-INDIA",
+"name": "Nippon Life India Asset Management Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Financial Services",
+"index": "midcap150",
+"mcap_cr": 74248,
+"latest_quarter": "2026-06-30"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 46.0,
+"roe_pct": null,
+"op_margin_pct": 71.1,
+"de": 0.02,
+"rev_cagr3y_pct": 26.1,
+"pat_cagr3y_pct": 28.3
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 8.22,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.97,
+"jhunjhunwala": 9.26,
+"pabrai": 7.33,
+"kacholia": 6.28,
+"kedia": 6.67,
+"blackrock": 9.81,
+"vanguard": 7.92,
+"damani": 6.91
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.02,
+"cfo_trend": "stable/rising"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 1176.0,
+"above_200dma": true,
+"dma200_dist_pct": 21.5,
+"dd_from_52wk": -3.5,
+"ret_6m_pct": 29.2,
+"rvol20": 0.69,
+"turnover_cr": 118.13,
+"volume_integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "MCX",
+"grade": "A+",
+"composite": 9.1,
+"pe": 51.5,
+"roe_pct": 37.9
+},
+{
+"symbol": "BSE",
+"grade": "A-",
+"composite": 8.25,
+"pe": 60.6,
+"roe_pct": 36.0
+},
+{
+"symbol": "ABSLAMC",
+"grade": "A-",
+"composite": 8.12,
+"pe": 29.1,
+"roe_pct": null
+},
+{
+"symbol": "ANANDRATHI",
+"grade": "A-",
+"composite": 8.1,
+"pe": 75.3,
+"roe_pct": null
+},
+{
+"symbol": "UJJIVANSFB",
+"grade": "A-",
+"composite": 8.0,
+"pe": 15.7,
+"roe_pct": null
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Nippon Life India Asset Management Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Nippon Life India Asset Management Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Nippon Life India Asset Management Ltd.\" related party transactions annual report",
+"\"Nippon Life India Asset Management Ltd.\" auditor resignation qualified opinion",
+"\"Nippon Life India Asset Management Ltd.\" management commentary concall latest quarter",
+"\"NAM-INDIA\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": null,
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "MANUAL",
+"data": {
+"technical_reference": null,
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Fill this in during your deep-dive."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
+"symbol": "BLS",
+"name": "BLS International Services Ltd.",
+"index": "smallcap250",
+"composite": 8.19,
+"grade": "A-",
+"cmp": 254.33,
+"chg_pct": 0.14,
+"rvol20": 1.01,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Industrials",
+"ace_worksheet": {
+"generated_for": "BLS",
+"name": "BLS International Services Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Industrials",
+"index": "smallcap250",
+"mcap_cr": 9852,
+"latest_quarter": "2026-03-31"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 14.4,
+"roe_pct": 30.1,
+"op_margin_pct": 22.0,
+"de": 0.17,
+"rev_cagr3y_pct": 25.5,
+"pat_cagr3y_pct": 50.7
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 8.19,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.4,
+"jhunjhunwala": 6.79,
+"pabrai": 7.16,
+"kacholia": 9.33,
+"kedia": 7.23,
+"blackrock": 8.26,
+"vanguard": 7.78,
+"damani": 9.6
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.17,
+"cfo_trend": "stable/rising"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 254.33,
+"above_200dma": false,
+"dma200_dist_pct": -9.0,
+"dd_from_52wk": -35.4,
+"ret_6m_pct": -12.4,
+"rvol20": 1.01,
+"turnover_cr": 28.64,
+"volume_integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "GESHIP",
+"grade": "A-",
+"composite": 8.31,
+"pe": 6.6,
+"roe_pct": 18.8
+},
+{
+"symbol": "GPPL",
+"grade": "A-",
+"composite": 8.15,
+"pe": 14.1,
+"roe_pct": 21.8
+},
+{
+"symbol": "HBLENGINE",
+"grade": "A-",
+"composite": 8.04,
+"pe": 24.5,
+"roe_pct": 44.1
+},
+{
+"symbol": "TDPOWERSYS",
+"grade": "B+",
+"composite": 7.91,
+"pe": 73.8,
+"roe_pct": 24.7
+},
+{
+"symbol": "GVT&D",
+"grade": "B+",
+"composite": 7.82,
+"pe": 90.1,
+"roe_pct": 55.3
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"BLS International Services Ltd.\" promoter pledge shareholding pattern 2026",
+"\"BLS International Services Ltd.\" SEBI NSE BSE surveillance action order",
+"\"BLS International Services Ltd.\" related party transactions annual report",
+"\"BLS International Services Ltd.\" auditor resignation qualified opinion",
+"\"BLS International Services Ltd.\" management commentary concall latest quarter",
+"\"BLS\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": null,
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "MANUAL",
+"data": {
+"technical_reference": null,
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Fill this in during your deep-dive."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
 "symbol": "ABSLAMC",
 "name": "Aditya Birla Sun Life AMC Ltd.",
 "index": "smallcap250",
-"composite": 8.11,
+"composite": 8.12,
 "grade": "A-",
-"cmp": 1017.1,
-"chg_pct": 2.16,
-"rvol20": 0.5,
+"cmp": 1025.3,
+"chg_pct": 0.12,
+"rvol20": 0.55,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -3996,14 +3726,14 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.11,
+"composite": 8.12,
 "grade": "A-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.97,
 "jhunjhunwala": 8.74,
-"pabrai": 7.55,
+"pabrai": 7.61,
 "kacholia": 5.83,
 "kedia": 5.79,
 "blackrock": 10.0,
@@ -4048,13 +3778,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 1017.1,
+"cmp": 1025.3,
 "above_200dma": true,
-"dma200_dist_pct": 12.2,
-"dd_from_52wk": -13.0,
-"ret_6m_pct": 26.6,
-"rvol20": 0.5,
-"turnover_cr": 38.18,
+"dma200_dist_pct": 12.8,
+"dd_from_52wk": -12.3,
+"ret_6m_pct": 29.3,
+"rvol20": 0.55,
+"turnover_cr": 37.71,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -4076,21 +3806,21 @@
 {
 "symbol": "BSE",
 "grade": "A-",
-"composite": 8.27,
+"composite": 8.25,
 "pe": 60.6,
 "roe_pct": 36.0
 },
 {
 "symbol": "NAM-INDIA",
 "grade": "A-",
-"composite": 8.25,
+"composite": 8.22,
 "pe": 46.0,
 "roe_pct": null
 },
 {
 "symbol": "ANANDRATHI",
 "grade": "A-",
-"composite": 8.07,
+"composite": 8.1,
 "pe": 75.3,
 "roe_pct": null
 },
@@ -4172,239 +3902,14 @@
 }
 },
 {
-"symbol": "COFORGE",
-"name": "Coforge Ltd.",
-"index": "midcap150",
-"composite": 8.08,
-"grade": "A-",
-"cmp": 1777.0,
-"chg_pct": 1.55,
-"rvol20": 0.65,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Technology",
-"ace_worksheet": {
-"generated_for": "COFORGE",
-"name": "Coforge Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Technology",
-"index": "midcap150",
-"mcap_cr": 76187,
-"latest_quarter": "2026-06-30"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 35.2,
-"roe_pct": null,
-"op_margin_pct": 16.0,
-"de": 0.08,
-"rev_cagr3y_pct": 27.0,
-"pat_cagr3y_pct": 30.9
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 8.08,
-"grade": "A-",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 8.37,
-"jhunjhunwala": 9.6,
-"pabrai": 8.01,
-"kacholia": 6.55,
-"kedia": 6.67,
-"blackrock": 10.0,
-"vanguard": 8.28,
-"damani": 6.43
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.08,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 1777.0,
-"above_200dma": true,
-"dma200_dist_pct": 18.1,
-"dd_from_52wk": -9.5,
-"ret_6m_pct": 10.6,
-"rvol20": 0.65,
-"turnover_cr": 572.09,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "OFSS",
-"grade": "A-",
-"composite": 8.38,
-"pe": 28.6,
-"roe_pct": null
-},
-{
-"symbol": "WEBELSOLAR",
-"grade": "A-",
-"composite": 8.36,
-"pe": 13.9,
-"roe_pct": 66.7
-},
-{
-"symbol": "PERSISTENT",
-"grade": "B+",
-"composite": 7.8,
-"pe": 46.6,
-"roe_pct": 26.3
-},
-{
-"symbol": "ECLERX",
-"grade": "B+",
-"composite": 7.7,
-"pe": 24.8,
-"roe_pct": 29.0
-},
-{
-"symbol": "STYL",
-"grade": "B+",
-"composite": 7.62,
-"pe": 20.5,
-"roe_pct": null
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Coforge Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Coforge Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Coforge Ltd.\" related party transactions annual report",
-"\"Coforge Ltd.\" auditor resignation qualified opinion",
-"\"Coforge Ltd.\" management commentary concall latest quarter",
-"\"COFORGE\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": null,
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "MANUAL",
-"data": {
-"technical_reference": null,
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Fill this in during your deep-dive."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
 "symbol": "ANANDRATHI",
 "name": "Anand Rathi Wealth Ltd.",
 "index": "smallcap250",
-"composite": 8.07,
+"composite": 8.1,
 "grade": "A-",
-"cmp": 2037.6,
-"chg_pct": 0.18,
-"rvol20": 0.85,
+"cmp": 2101.5,
+"chg_pct": 1.45,
+"rvol20": 0.71,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -4448,14 +3953,14 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.07,
+"composite": 8.1,
 "grade": "A-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.86,
 "jhunjhunwala": 8.17,
-"pabrai": 7.04,
+"pabrai": 7.23,
 "kacholia": 7.95,
 "kedia": 5.77,
 "blackrock": 10.0,
@@ -4500,13 +4005,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 2037.6,
+"cmp": 2101.5,
 "above_200dma": true,
-"dma200_dist_pct": 21.9,
-"dd_from_52wk": -5.1,
-"ret_6m_pct": 38.1,
-"rvol20": 0.85,
-"turnover_cr": 58.93,
+"dma200_dist_pct": 25.4,
+"dd_from_52wk": -2.1,
+"ret_6m_pct": 42.7,
+"rvol20": 0.71,
+"turnover_cr": 43.12,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -4528,21 +4033,21 @@
 {
 "symbol": "BSE",
 "grade": "A-",
-"composite": 8.27,
+"composite": 8.25,
 "pe": 60.6,
 "roe_pct": 36.0
 },
 {
 "symbol": "NAM-INDIA",
 "grade": "A-",
-"composite": 8.25,
+"composite": 8.22,
 "pe": 46.0,
 "roe_pct": null
 },
 {
 "symbol": "ABSLAMC",
 "grade": "A-",
-"composite": 8.11,
+"composite": 8.12,
 "pe": 29.1,
 "roe_pct": null
 },
@@ -4626,14 +4131,239 @@
 }
 },
 {
+"symbol": "COFORGE",
+"name": "Coforge Ltd.",
+"index": "midcap150",
+"composite": 8.09,
+"grade": "A-",
+"cmp": 1776.0,
+"chg_pct": 0.18,
+"rvol20": 0.75,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Technology",
+"ace_worksheet": {
+"generated_for": "COFORGE",
+"name": "Coforge Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Technology",
+"index": "midcap150",
+"mcap_cr": 76187,
+"latest_quarter": "2026-06-30"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 35.2,
+"roe_pct": null,
+"op_margin_pct": 16.0,
+"de": 0.08,
+"rev_cagr3y_pct": 27.0,
+"pat_cagr3y_pct": 30.9
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 8.09,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.37,
+"jhunjhunwala": 9.6,
+"pabrai": 8.0,
+"kacholia": 6.55,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 8.31,
+"damani": 6.43
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.08,
+"cfo_trend": "stable/rising"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 1776.0,
+"above_200dma": true,
+"dma200_dist_pct": 18.0,
+"dd_from_52wk": -9.6,
+"ret_6m_pct": 15.4,
+"rvol20": 0.75,
+"turnover_cr": 577.39,
+"volume_integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "OFSS",
+"grade": "A-",
+"composite": 8.38,
+"pe": 28.6,
+"roe_pct": null
+},
+{
+"symbol": "WEBELSOLAR",
+"grade": "A-",
+"composite": 8.36,
+"pe": 13.9,
+"roe_pct": 66.7
+},
+{
+"symbol": "PERSISTENT",
+"grade": "B+",
+"composite": 7.79,
+"pe": 46.6,
+"roe_pct": 26.3
+},
+{
+"symbol": "STYL",
+"grade": "B+",
+"composite": 7.72,
+"pe": 20.5,
+"roe_pct": null
+},
+{
+"symbol": "SYRMA",
+"grade": "B+",
+"composite": 7.61,
+"pe": 70.9,
+"roe_pct": null
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Coforge Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Coforge Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Coforge Ltd.\" related party transactions annual report",
+"\"Coforge Ltd.\" auditor resignation qualified opinion",
+"\"Coforge Ltd.\" management commentary concall latest quarter",
+"\"COFORGE\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": null,
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "MANUAL",
+"data": {
+"technical_reference": null,
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Fill this in during your deep-dive."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
 "symbol": "HBLENGINE",
 "name": "HBL Engineering Ltd.",
 "index": "smallcap250",
-"composite": 8.05,
+"composite": 8.04,
 "grade": "A-",
-"cmp": 736.5,
-"chg_pct": 1.0,
-"rvol20": 0.83,
+"cmp": 727.1,
+"chg_pct": -1.23,
+"rvol20": 0.69,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -4675,14 +4405,14 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.05,
+"composite": 8.04,
 "grade": "A-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 8.08,
 "jhunjhunwala": 7.35,
-"pabrai": 7.11,
+"pabrai": 7.05,
 "kacholia": 9.32,
 "kedia": 8.1,
 "blackrock": 9.13,
@@ -4727,13 +4457,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 736.5,
+"cmp": 727.1,
 "above_200dma": false,
-"dma200_dist_pct": -7.9,
-"dd_from_52wk": -32.8,
-"ret_6m_pct": -7.6,
-"rvol20": 0.83,
-"turnover_cr": 59.11,
+"dma200_dist_pct": -8.9,
+"dd_from_52wk": -33.7,
+"ret_6m_pct": -7.1,
+"rvol20": 0.69,
+"turnover_cr": 56.86,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -4748,7 +4478,7 @@
 {
 "symbol": "GESHIP",
 "grade": "A-",
-"composite": 8.33,
+"composite": 8.31,
 "pe": 6.6,
 "roe_pct": 18.8
 },
@@ -4769,14 +4499,14 @@
 {
 "symbol": "TDPOWERSYS",
 "grade": "B+",
-"composite": 7.88,
+"composite": 7.91,
 "pe": 73.8,
 "roe_pct": 24.7
 },
 {
 "symbol": "GVT&D",
 "grade": "B+",
-"composite": 7.83,
+"composite": 7.82,
 "pe": 90.1,
 "roe_pct": 55.3
 }
@@ -4851,14 +4581,241 @@
 }
 },
 {
+"symbol": "USHAMART",
+"name": "Usha Martin Ltd.",
+"index": "smallcap250",
+"composite": 8.01,
+"grade": "A-",
+"cmp": 515.05,
+"chg_pct": -0.12,
+"rvol20": 0.36,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.9/10 (3y growth + operating leverage + size runway)",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Basic Materials",
+"ace_worksheet": {
+"generated_for": "USHAMART",
+"name": "Usha Martin Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Basic Materials",
+"index": "smallcap250",
+"mcap_cr": 15097,
+"latest_quarter": "2026-06-30"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 28.4,
+"roe_pct": null,
+"op_margin_pct": 16.9,
+"de": 0.07,
+"rev_cagr3y_pct": 4.1,
+"pat_cagr3y_pct": 10.0
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 8.01,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.53,
+"jhunjhunwala": 9.22,
+"pabrai": 8.86,
+"kacholia": 4.9,
+"kedia": 7.22,
+"blackrock": 8.29,
+"vanguard": 8.64,
+"damani": 7.79
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.07,
+"cfo_trend": "stable/rising"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 515.05,
+"above_200dma": true,
+"dma200_dist_pct": 13.6,
+"dd_from_52wk": -1.0,
+"ret_6m_pct": 23.6,
+"rvol20": 0.36,
+"turnover_cr": 28.58,
+"volume_integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "ATUL",
+"grade": "A-",
+"composite": 8.22,
+"pe": 24.9,
+"roe_pct": null
+},
+{
+"symbol": "HINDCOPPER",
+"grade": "B+",
+"composite": 7.87,
+"pe": 51.8,
+"roe_pct": 30.6
+},
+{
+"symbol": "NAVINFLUOR",
+"grade": "B+",
+"composite": 7.86,
+"pe": 57.9,
+"roe_pct": 20.1
+},
+{
+"symbol": "ADVENZYMES",
+"grade": "B+",
+"composite": 7.81,
+"pe": 20.9,
+"roe_pct": 11.0
+},
+{
+"symbol": "SANDUMA",
+"grade": "B+",
+"composite": 7.8,
+"pe": 15.7,
+"roe_pct": 22.3
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Weakest lens: Kacholia scores just 4.9/10 (3y growth + operating leverage + size runway)",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Usha Martin Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Usha Martin Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Usha Martin Ltd.\" related party transactions annual report",
+"\"Usha Martin Ltd.\" auditor resignation qualified opinion",
+"\"Usha Martin Ltd.\" management commentary concall latest quarter",
+"\"USHAMART\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": null,
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "MANUAL",
+"data": {
+"technical_reference": null,
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Fill this in during your deep-dive."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
 "symbol": "IKS",
 "name": "Inventurus Knowledge Solutions Ltd.",
 "index": "smallcap250",
-"composite": 8.04,
-"grade": "A-",
-"cmp": 1877.7,
-"chg_pct": 1.72,
-"rvol20": 0.6,
+"composite": 7.99,
+"grade": "B+",
+"cmp": 1737.7,
+"chg_pct": -1.44,
+"rvol20": 2.17,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -4901,18 +4858,18 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 8.04,
-"grade": "A-",
+"composite": 7.99,
+"grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.66,
 "jhunjhunwala": 9.17,
-"pabrai": 6.97,
+"pabrai": 6.37,
 "kacholia": 6.83,
 "kedia": 7.45,
-"blackrock": 9.72,
-"vanguard": 5.89,
+"blackrock": 10.0,
+"vanguard": 5.84,
 "damani": 6.92
 },
 "notes": {
@@ -4953,13 +4910,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 1877.7,
+"cmp": 1737.7,
 "above_200dma": true,
-"dma200_dist_pct": 15.6,
-"dd_from_52wk": -2.6,
-"ret_6m_pct": 16.7,
-"rvol20": 0.6,
-"turnover_cr": 23.0,
+"dma200_dist_pct": 6.9,
+"dd_from_52wk": -9.9,
+"ret_6m_pct": 3.5,
+"rvol20": 2.17,
+"turnover_cr": 25.58,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -4974,14 +4931,14 @@
 {
 "symbol": "LUPIN",
 "grade": "A",
-"composite": 8.68,
+"composite": 8.67,
 "pe": 20.7,
 "roe_pct": 26.9
 },
 {
 "symbol": "SUPRIYA",
 "grade": "A-",
-"composite": 8.41,
+"composite": 8.42,
 "pe": 33.4,
 "roe_pct": 19.1
 },
@@ -4995,14 +4952,14 @@
 {
 "symbol": "JSLL",
 "grade": "A-",
-"composite": 8.06,
+"composite": 8.09,
 "pe": 32.9,
 "roe_pct": 59.9
 },
 {
 "symbol": "AJANTPHARM",
 "grade": "B+",
-"composite": 7.87,
+"composite": 7.89,
 "pe": 38.2,
 "roe_pct": null
 }
@@ -5081,11 +5038,11 @@
 "symbol": "CRISIL",
 "name": "CRISIL Ltd.",
 "index": "midcap150",
-"composite": 7.94,
+"composite": 7.96,
 "grade": "B+",
-"cmp": 4475.6,
-"chg_pct": 2.72,
-"rvol20": 1.03,
+"cmp": 4607.0,
+"chg_pct": 1.24,
+"rvol20": 1.04,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -5129,14 +5086,14 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.94,
+"composite": 7.96,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.84,
 "jhunjhunwala": 7.2,
-"pabrai": 7.5,
+"pabrai": 7.65,
 "kacholia": 4.65,
 "kedia": 7.0,
 "blackrock": 10.0,
@@ -5181,13 +5138,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 4475.6,
+"cmp": 4607.0,
 "above_200dma": true,
-"dma200_dist_pct": 3.9,
-"dd_from_52wk": -16.3,
-"ret_6m_pct": -3.4,
-"rvol20": 1.03,
-"turnover_cr": 36.7,
+"dma200_dist_pct": 7.0,
+"dd_from_52wk": -13.9,
+"ret_6m_pct": -2.0,
+"rvol20": 1.04,
+"turnover_cr": 36.44,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -5209,28 +5166,28 @@
 {
 "symbol": "BSE",
 "grade": "A-",
-"composite": 8.27,
+"composite": 8.25,
 "pe": 60.6,
 "roe_pct": 36.0
 },
 {
 "symbol": "NAM-INDIA",
 "grade": "A-",
-"composite": 8.25,
+"composite": 8.22,
 "pe": 46.0,
 "roe_pct": null
 },
 {
 "symbol": "ABSLAMC",
 "grade": "A-",
-"composite": 8.11,
+"composite": 8.12,
 "pe": 29.1,
 "roe_pct": null
 },
 {
 "symbol": "ANANDRATHI",
 "grade": "A-",
-"composite": 8.07,
+"composite": 8.1,
 "pe": 75.3,
 "roe_pct": null
 }
@@ -5307,468 +5264,14 @@
 }
 },
 {
-"symbol": "JPPOWER",
-"name": "Jaiprakash Power Ventures Ltd.",
-"index": "smallcap250",
-"composite": 7.9,
-"grade": "B+",
-"cmp": 18.32,
-"chg_pct": -2.76,
-"rvol20": 1.06,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Utilities",
-"ace_worksheet": {
-"generated_for": "JPPOWER",
-"name": "Jaiprakash Power Ventures Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Utilities",
-"index": "smallcap250",
-"mcap_cr": 12535,
-"latest_quarter": "2026-06-30"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 26.1,
-"roe_pct": null,
-"op_margin_pct": 36.1,
-"de": 0.27,
-"rev_cagr3y_pct": -1.3,
-"pat_cagr3y_pct": 101.1
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.9,
-"grade": "B+",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 9.56,
-"jhunjhunwala": 8.08,
-"pabrai": 6.6,
-"kacholia": 7.16,
-"kedia": 9.08,
-"blackrock": 7.99,
-"vanguard": 5.75,
-"damani": 7.45
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.27,
-"cfo_trend": "declining"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 18.32,
-"above_200dma": true,
-"dma200_dist_pct": 5.6,
-"dd_from_52wk": -19.9,
-"ret_6m_pct": 13.7,
-"rvol20": 1.06,
-"turnover_cr": 131.34,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "KPIGREEN",
-"grade": "B",
-"composite": 7.04,
-"pe": 15.6,
-"roe_pct": 17.3
-},
-{
-"symbol": "NLCINDIA",
-"grade": "B-",
-"composite": 6.72,
-"pe": 11.7,
-"roe_pct": 16.0
-},
-{
-"symbol": "ACMESOLAR",
-"grade": "C",
-"composite": 6.4,
-"pe": 37.4,
-"roe_pct": null
-},
-{
-"symbol": "PTC",
-"grade": "C",
-"composite": 6.19,
-"pe": 8.6,
-"roe_pct": 10.4
-},
-{
-"symbol": "CESC",
-"grade": "C",
-"composite": 6.05,
-"pe": 14.2,
-"roe_pct": 12.5
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Jaiprakash Power Ventures Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Jaiprakash Power Ventures Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Jaiprakash Power Ventures Ltd.\" related party transactions annual report",
-"\"Jaiprakash Power Ventures Ltd.\" auditor resignation qualified opinion",
-"\"Jaiprakash Power Ventures Ltd.\" management commentary concall latest quarter",
-"\"JPPOWER\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": null,
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "MANUAL",
-"data": {
-"technical_reference": null,
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Fill this in during your deep-dive."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "NAVINFLUOR",
-"name": "Navin Fluorine International Ltd.",
-"index": "smallcap250",
-"composite": 7.89,
-"grade": "B+",
-"cmp": 7609.5,
-"chg_pct": -0.26,
-"rvol20": 1.11,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"PE 57.9 is 1.7x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Basic Materials",
-"ace_worksheet": {
-"generated_for": "NAVINFLUOR",
-"name": "Navin Fluorine International Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Basic Materials",
-"index": "smallcap250",
-"mcap_cr": 38821,
-"latest_quarter": "2026-03-31"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 57.9,
-"roe_pct": 20.1,
-"op_margin_pct": 31.1,
-"de": 0.32,
-"rev_cagr3y_pct": 16.5,
-"pat_cagr3y_pct": 20.9
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.89,
-"grade": "B+",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 8.99,
-"jhunjhunwala": 9.38,
-"pabrai": 5.94,
-"kacholia": 5.75,
-"kedia": 6.77,
-"blackrock": 9.66,
-"vanguard": 8.65,
-"damani": 7.28
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.32,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 7609.5,
-"above_200dma": true,
-"dma200_dist_pct": 17.5,
-"dd_from_52wk": -3.5,
-"ret_6m_pct": 20.3,
-"rvol20": 1.11,
-"turnover_cr": 96.12,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "ATUL",
-"grade": "A-",
-"composite": 8.23,
-"pe": 24.9,
-"roe_pct": null
-},
-{
-"symbol": "SANDUMA",
-"grade": "A-",
-"composite": 8.12,
-"pe": 15.7,
-"roe_pct": 22.3
-},
-{
-"symbol": "USHAMART",
-"grade": "A-",
-"composite": 8.02,
-"pe": 28.4,
-"roe_pct": null
-},
-{
-"symbol": "HINDCOPPER",
-"grade": "B+",
-"composite": 7.87,
-"pe": 51.8,
-"roe_pct": 30.6
-},
-{
-"symbol": "ADVENZYMES",
-"grade": "B+",
-"composite": 7.82,
-"pe": 20.9,
-"roe_pct": 11.0
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"PE 57.9 is 1.7x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Navin Fluorine International Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Navin Fluorine International Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Navin Fluorine International Ltd.\" related party transactions annual report",
-"\"Navin Fluorine International Ltd.\" auditor resignation qualified opinion",
-"\"Navin Fluorine International Ltd.\" management commentary concall latest quarter",
-"\"NAVINFLUOR\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": null,
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "MANUAL",
-"data": {
-"technical_reference": null,
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Fill this in during your deep-dive."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
 "symbol": "AJANTPHARM",
 "name": "Ajanta Pharmaceuticals Ltd.",
 "index": "midcap150",
-"composite": 7.87,
+"composite": 7.89,
 "grade": "B+",
-"cmp": 3437.5,
-"chg_pct": -1.59,
-"rvol20": 1.11,
+"cmp": 3489.2,
+"chg_pct": 0.54,
+"rvol20": 0.31,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -5811,18 +5314,18 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.87,
+"composite": 7.89,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.9,
 "jhunjhunwala": 7.46,
-"pabrai": 7.75,
+"pabrai": 7.87,
 "kacholia": 5.28,
 "kedia": 6.67,
 "blackrock": 10.0,
-"vanguard": 8.96,
+"vanguard": 9.0,
 "damani": 5.42
 },
 "notes": {
@@ -5863,13 +5366,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 3437.5,
+"cmp": 3489.2,
 "above_200dma": true,
-"dma200_dist_pct": 19.7,
-"dd_from_52wk": -3.0,
-"ret_6m_pct": 23.0,
-"rvol20": 1.11,
-"turnover_cr": 38.92,
+"dma200_dist_pct": 21.0,
+"dd_from_52wk": -1.5,
+"ret_6m_pct": 23.4,
+"rvol20": 0.31,
+"turnover_cr": 38.55,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -5884,14 +5387,14 @@
 {
 "symbol": "LUPIN",
 "grade": "A",
-"composite": 8.68,
+"composite": 8.67,
 "pe": 20.7,
 "roe_pct": 26.9
 },
 {
 "symbol": "SUPRIYA",
 "grade": "A-",
-"composite": 8.41,
+"composite": 8.42,
 "pe": 33.4,
 "roe_pct": 19.1
 },
@@ -5905,14 +5408,14 @@
 {
 "symbol": "JSLL",
 "grade": "A-",
-"composite": 8.06,
+"composite": 8.09,
 "pe": 32.9,
 "roe_pct": 59.9
 },
 {
 "symbol": "IKS",
-"grade": "A-",
-"composite": 8.04,
+"grade": "B+",
+"composite": 7.99,
 "pe": 43.8,
 "roe_pct": 31.4
 }
@@ -5991,11 +5494,11 @@
 "symbol": "CAPLIPOINT",
 "name": "Caplin Point Laboratories Ltd.",
 "index": "smallcap250",
-"composite": 7.87,
+"composite": 7.88,
 "grade": "B+",
-"cmp": 2541.8,
-"chg_pct": -1.17,
-"rvol20": 0.41,
+"cmp": 2574.1,
+"chg_pct": -0.45,
+"rvol20": 0.45,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -6037,18 +5540,18 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.87,
+"composite": 7.88,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.37,
 "jhunjhunwala": 7.05,
-"pabrai": 8.66,
+"pabrai": 8.74,
 "kacholia": 6.35,
 "kedia": 6.11,
-"blackrock": 8.69,
-"vanguard": 8.71,
+"blackrock": 8.64,
+"vanguard": 8.76,
 "damani": 7.17
 },
 "notes": {
@@ -6089,13 +5592,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 2541.8,
+"cmp": 2574.1,
 "above_200dma": true,
-"dma200_dist_pct": 28.5,
-"dd_from_52wk": -4.9,
-"ret_6m_pct": 36.4,
-"rvol20": 0.41,
-"turnover_cr": 26.58,
+"dma200_dist_pct": 29.7,
+"dd_from_52wk": -3.6,
+"ret_6m_pct": 35.5,
+"rvol20": 0.45,
+"turnover_cr": 24.5,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -6110,14 +5613,14 @@
 {
 "symbol": "LUPIN",
 "grade": "A",
-"composite": 8.68,
+"composite": 8.67,
 "pe": 20.7,
 "roe_pct": 26.9
 },
 {
 "symbol": "SUPRIYA",
 "grade": "A-",
-"composite": 8.41,
+"composite": 8.42,
 "pe": 33.4,
 "roe_pct": 19.1
 },
@@ -6131,14 +5634,14 @@
 {
 "symbol": "JSLL",
 "grade": "A-",
-"composite": 8.06,
+"composite": 8.09,
 "pe": 32.9,
 "roe_pct": 59.9
 },
 {
 "symbol": "IKS",
-"grade": "A-",
-"composite": 8.04,
+"grade": "B+",
+"composite": 7.99,
 "pe": 43.8,
 "roe_pct": 31.4
 }
@@ -6213,14 +5716,697 @@
 }
 },
 {
+"symbol": "JPPOWER",
+"name": "Jaiprakash Power Ventures Ltd.",
+"index": "smallcap250",
+"composite": 7.88,
+"grade": "B+",
+"cmp": 17.94,
+"chg_pct": -0.88,
+"rvol20": 0.54,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Utilities",
+"ace_worksheet": {
+"generated_for": "JPPOWER",
+"name": "Jaiprakash Power Ventures Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Utilities",
+"index": "smallcap250",
+"mcap_cr": 12535,
+"latest_quarter": "2026-06-30"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 26.1,
+"roe_pct": null,
+"op_margin_pct": 36.1,
+"de": 0.27,
+"rev_cagr3y_pct": -1.3,
+"pat_cagr3y_pct": 101.1
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 7.88,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.56,
+"jhunjhunwala": 8.08,
+"pabrai": 6.46,
+"kacholia": 7.16,
+"kedia": 9.08,
+"blackrock": 7.99,
+"vanguard": 5.75,
+"damani": 7.45
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.27,
+"cfo_trend": "declining"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 17.94,
+"above_200dma": true,
+"dma200_dist_pct": 3.4,
+"dd_from_52wk": -21.6,
+"ret_6m_pct": 18.6,
+"rvol20": 0.54,
+"turnover_cr": 133.58,
+"volume_integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "KPIGREEN",
+"grade": "B",
+"composite": 7.03,
+"pe": 15.6,
+"roe_pct": 17.3
+},
+{
+"symbol": "NLCINDIA",
+"grade": "B-",
+"composite": 6.72,
+"pe": 11.7,
+"roe_pct": 16.0
+},
+{
+"symbol": "MGL",
+"grade": "C",
+"composite": 6.45,
+"pe": 15.5,
+"roe_pct": null
+},
+{
+"symbol": "ACMESOLAR",
+"grade": "C",
+"composite": 6.4,
+"pe": 37.4,
+"roe_pct": null
+},
+{
+"symbol": "PTC",
+"grade": "C",
+"composite": 6.21,
+"pe": 8.6,
+"roe_pct": 10.4
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Jaiprakash Power Ventures Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Jaiprakash Power Ventures Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Jaiprakash Power Ventures Ltd.\" related party transactions annual report",
+"\"Jaiprakash Power Ventures Ltd.\" auditor resignation qualified opinion",
+"\"Jaiprakash Power Ventures Ltd.\" management commentary concall latest quarter",
+"\"JPPOWER\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": null,
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "MANUAL",
+"data": {
+"technical_reference": null,
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Fill this in during your deep-dive."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
+"symbol": "HINDCOPPER",
+"name": "Hindustan Copper Ltd.",
+"index": "smallcap250",
+"composite": 7.87,
+"grade": "B+",
+"cmp": 536.1,
+"chg_pct": -1.8,
+"rvol20": 1.87,
+"integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Basic Materials",
+"ace_worksheet": {
+"generated_for": "HINDCOPPER",
+"name": "Hindustan Copper Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Basic Materials",
+"index": "smallcap250",
+"mcap_cr": 47539,
+"latest_quarter": "2026-03-31"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 51.8,
+"roe_pct": 30.6,
+"op_margin_pct": 48.5,
+"de": 0.03,
+"rev_cagr3y_pct": 22.7,
+"pat_cagr3y_pct": 45.9
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 7.87,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.96,
+"jhunjhunwala": 9.41,
+"pabrai": 6.09,
+"kacholia": 7.34,
+"kedia": 6.67,
+"blackrock": 8.47,
+"vanguard": 5.38,
+"damani": 7.61
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.03,
+"cfo_trend": "stable/rising"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 536.1,
+"above_200dma": true,
+"dma200_dist_pct": 8.7,
+"dd_from_52wk": -29.4,
+"ret_6m_pct": -7.4,
+"rvol20": 1.87,
+"turnover_cr": 265.89,
+"volume_integrity_flags": [
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "ATUL",
+"grade": "A-",
+"composite": 8.22,
+"pe": 24.9,
+"roe_pct": null
+},
+{
+"symbol": "USHAMART",
+"grade": "A-",
+"composite": 8.01,
+"pe": 28.4,
+"roe_pct": null
+},
+{
+"symbol": "NAVINFLUOR",
+"grade": "B+",
+"composite": 7.86,
+"pe": 57.9,
+"roe_pct": 20.1
+},
+{
+"symbol": "ADVENZYMES",
+"grade": "B+",
+"composite": 7.81,
+"pe": 20.9,
+"roe_pct": 11.0
+},
+{
+"symbol": "SANDUMA",
+"grade": "B+",
+"composite": 7.8,
+"pe": 15.7,
+"roe_pct": 22.3
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Hindustan Copper Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Hindustan Copper Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Hindustan Copper Ltd.\" related party transactions annual report",
+"\"Hindustan Copper Ltd.\" auditor resignation qualified opinion",
+"\"Hindustan Copper Ltd.\" management commentary concall latest quarter",
+"\"HINDCOPPER\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": null,
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "MANUAL",
+"data": {
+"technical_reference": null,
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Fill this in during your deep-dive."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
+"symbol": "NAVINFLUOR",
+"name": "Navin Fluorine International Ltd.",
+"index": "smallcap250",
+"composite": 7.86,
+"grade": "B+",
+"cmp": 8271.0,
+"chg_pct": -4.38,
+"rvol20": 1.91,
+"integrity_flags": [
+"71% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"bear_case": [
+"PE 57.9 is 1.7x the current universe median (35) - priced for perfection in this regime",
+"Volume integrity: 71% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"sector": "Basic Materials",
+"ace_worksheet": {
+"generated_for": "NAVINFLUOR",
+"name": "Navin Fluorine International Ltd.",
+"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
+"sections": [
+{
+"n": 1,
+"title": "Company overview",
+"status": "AUTO",
+"data": {
+"sector": "Basic Materials",
+"index": "smallcap250",
+"mcap_cr": 38821,
+"latest_quarter": "2026-03-31"
+}
+},
+{
+"n": 2,
+"title": "Financial snapshot",
+"status": "AUTO",
+"data": {
+"pe": 57.9,
+"roe_pct": 20.1,
+"op_margin_pct": 31.1,
+"de": 0.32,
+"rev_cagr3y_pct": 16.5,
+"pat_cagr3y_pct": 20.9
+}
+},
+{
+"n": 3,
+"title": "8-framework ACE scorecard",
+"status": "AUTO",
+"data": {
+"composite": 7.86,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.99,
+"jhunjhunwala": 9.38,
+"pabrai": 5.86,
+"kacholia": 5.75,
+"kedia": 6.77,
+"blackrock": 9.66,
+"vanguard": 8.44,
+"damani": 7.28
+},
+"notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+}
+}
+},
+{
+"n": 4,
+"title": "Veto checklist",
+"status": "PARTIAL-AUTO",
+"data": {
+"V3_automated": {
+"de_ratio": 0.32,
+"cfo_trend": "stable/rising"
+},
+"triggered": [],
+"manual_verify": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
+}
+},
+{
+"n": 5,
+"title": "Technical structure",
+"status": "AUTO",
+"data": {
+"cmp": 8271.0,
+"above_200dma": true,
+"dma200_dist_pct": 27.3,
+"dd_from_52wk": -4.4,
+"ret_6m_pct": 32.0,
+"rvol20": 1.91,
+"turnover_cr": 274.53,
+"volume_integrity_flags": [
+"71% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 6,
+"title": "Sector peer comparison",
+"status": "AUTO",
+"data": {
+"peers": [
+{
+"symbol": "ATUL",
+"grade": "A-",
+"composite": 8.22,
+"pe": 24.9,
+"roe_pct": null
+},
+{
+"symbol": "USHAMART",
+"grade": "A-",
+"composite": 8.01,
+"pe": 28.4,
+"roe_pct": null
+},
+{
+"symbol": "HINDCOPPER",
+"grade": "B+",
+"composite": 7.87,
+"pe": 51.8,
+"roe_pct": 30.6
+},
+{
+"symbol": "ADVENZYMES",
+"grade": "B+",
+"composite": 7.81,
+"pe": 20.9,
+"roe_pct": 11.0
+},
+{
+"symbol": "SANDUMA",
+"grade": "B+",
+"composite": 7.8,
+"pe": 15.7,
+"roe_pct": 22.3
+}
+]
+}
+},
+{
+"n": 7,
+"title": "Auto-generated bear case",
+"status": "AUTO",
+"data": {
+"bullets": [
+"PE 57.9 is 1.7x the current universe median (35) - priced for perfection in this regime",
+"Volume integrity: 71% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
+]
+}
+},
+{
+"n": 8,
+"title": "Mandatory web searches (6)",
+"status": "MANUAL",
+"data": {
+"queries": [
+"\"Navin Fluorine International Ltd.\" promoter pledge shareholding pattern 2026",
+"\"Navin Fluorine International Ltd.\" SEBI NSE BSE surveillance action order",
+"\"Navin Fluorine International Ltd.\" related party transactions annual report",
+"\"Navin Fluorine International Ltd.\" auditor resignation qualified opinion",
+"\"Navin Fluorine International Ltd.\" management commentary concall latest quarter",
+"\"NAVINFLUOR\" NSE stock news multibagger analysis 2026"
+],
+"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
+}
+},
+{
+"n": 9,
+"title": "Qualitative judgment",
+"status": "MANUAL",
+"data": {
+"moat_narrative": null,
+"management_candor": null,
+"scuttlebutt_notes": null,
+"governance_read": null,
+"ai_draft": null,
+"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
+}
+},
+{
+"n": 10,
+"title": "Trade plan / scenario",
+"status": "MANUAL",
+"data": {
+"technical_reference": null,
+"entry_zone": null,
+"stop": null,
+"target": null,
+"rr": null,
+"theme_tag": null,
+"instruction": "Fill this in during your deep-dive."
+}
+},
+{
+"n": 11,
+"title": "Verdict",
+"status": "MANUAL",
+"data": {
+"ace_score": null,
+"grade": null,
+"verdict": null,
+"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
+}
+}
+]
+}
+},
+{
 "symbol": "GVT&D",
 "name": "GE Vernova T&D India Ltd.",
 "index": "midcap150",
-"composite": 7.83,
+"composite": 7.82,
 "grade": "B+",
-"cmp": 4410.0,
-"chg_pct": 1.77,
-"rvol20": 0.69,
+"cmp": 4299.0,
+"chg_pct": -1.55,
+"rvol20": 0.77,
 "integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
@@ -6263,18 +6449,18 @@
 "title": "8-framework ACE scorecard",
 "status": "AUTO",
 "data": {
-"composite": 7.83,
+"composite": 7.82,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.99,
 "jhunjhunwala": 8.99,
-"pabrai": 6.22,
+"pabrai": 6.09,
 "kacholia": 5.0,
 "kedia": 6.67,
 "blackrock": 9.86,
-"vanguard": 7.58,
+"vanguard": 7.57,
 "damani": 6.67
 },
 "notes": {
@@ -6315,13 +6501,13 @@
 "title": "Technical structure",
 "status": "AUTO",
 "data": {
-"cmp": 4410.0,
+"cmp": 4299.0,
 "above_200dma": true,
-"dma200_dist_pct": 15.7,
-"dd_from_52wk": -20.3,
-"ret_6m_pct": 25.6,
-"rvol20": 0.69,
-"turnover_cr": 390.8,
+"dma200_dist_pct": 12.4,
+"dd_from_52wk": -22.3,
+"ret_6m_pct": 21.0,
+"rvol20": 0.77,
+"turnover_cr": 434.69,
 "volume_integrity_flags": [
 "2 zero-volume day(s) in 60 sessions - too thin to trust"
 ]
@@ -6336,7 +6522,7 @@
 {
 "symbol": "GESHIP",
 "grade": "A-",
-"composite": 8.33,
+"composite": 8.31,
 "pe": 6.6,
 "roe_pct": 18.8
 },
@@ -6357,14 +6543,14 @@
 {
 "symbol": "HBLENGINE",
 "grade": "A-",
-"composite": 8.05,
+"composite": 8.04,
 "pe": 24.5,
 "roe_pct": 44.1
 },
 {
 "symbol": "TDPOWERSYS",
 "grade": "B+",
-"composite": 7.88,
+"composite": 7.91,
 "pe": 73.8,
 "roe_pct": 24.7
 }
@@ -6394,912 +6580,6 @@
 "\"GE Vernova T&D India Ltd.\" auditor resignation qualified opinion",
 "\"GE Vernova T&D India Ltd.\" management commentary concall latest quarter",
 "\"GVT&D\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": null,
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "MANUAL",
-"data": {
-"technical_reference": null,
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Fill this in during your deep-dive."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "PERSISTENT",
-"name": "Persistent Systems Ltd.",
-"index": "midcap150",
-"composite": 7.8,
-"grade": "B+",
-"cmp": 5520.0,
-"chg_pct": 0.38,
-"rvol20": 0.51,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Technology",
-"ace_worksheet": {
-"generated_for": "PERSISTENT",
-"name": "Persistent Systems Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Technology",
-"index": "midcap150",
-"mcap_cr": 86693,
-"latest_quarter": "2026-03-31"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 46.6,
-"roe_pct": 26.3,
-"op_margin_pct": 16.3,
-"de": 0.06,
-"rev_cagr3y_pct": 20.9,
-"pat_cagr3y_pct": 26.5
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.8,
-"grade": "B+",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 8.83,
-"jhunjhunwala": 8.76,
-"pabrai": 7.16,
-"kacholia": 5.62,
-"kedia": 6.67,
-"blackrock": 10.0,
-"vanguard": 8.59,
-"damani": 5.64
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.06,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 5520.0,
-"above_200dma": true,
-"dma200_dist_pct": 1.2,
-"dd_from_52wk": -15.3,
-"ret_6m_pct": -7.5,
-"rvol20": 0.51,
-"turnover_cr": 374.41,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "OFSS",
-"grade": "A-",
-"composite": 8.38,
-"pe": 28.6,
-"roe_pct": null
-},
-{
-"symbol": "WEBELSOLAR",
-"grade": "A-",
-"composite": 8.36,
-"pe": 13.9,
-"roe_pct": 66.7
-},
-{
-"symbol": "COFORGE",
-"grade": "A-",
-"composite": 8.08,
-"pe": 35.2,
-"roe_pct": null
-},
-{
-"symbol": "ECLERX",
-"grade": "B+",
-"composite": 7.7,
-"pe": 24.8,
-"roe_pct": 29.0
-},
-{
-"symbol": "STYL",
-"grade": "B+",
-"composite": 7.62,
-"pe": 20.5,
-"roe_pct": null
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Persistent Systems Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Persistent Systems Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Persistent Systems Ltd.\" related party transactions annual report",
-"\"Persistent Systems Ltd.\" auditor resignation qualified opinion",
-"\"Persistent Systems Ltd.\" management commentary concall latest quarter",
-"\"PERSISTENT\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": null,
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "MANUAL",
-"data": {
-"technical_reference": null,
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Fill this in during your deep-dive."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "HEROMOTOCO",
-"name": "Hero MotoCorp Ltd.",
-"index": "midcap150",
-"composite": 7.78,
-"grade": "B+",
-"cmp": 5690.0,
-"chg_pct": 2.56,
-"rvol20": 1.25,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"Weakest lens: Kacholia scores just 4.7/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Consumer Cyclical",
-"ace_worksheet": {
-"generated_for": "HEROMOTOCO",
-"name": "Hero MotoCorp Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Consumer Cyclical",
-"index": "midcap150",
-"mcap_cr": 107770,
-"latest_quarter": "2026-03-31"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 18.8,
-"roe_pct": 28.0,
-"op_margin_pct": 13.2,
-"de": 0.04,
-"rev_cagr3y_pct": 11.7,
-"pat_cagr3y_pct": 26.9
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.78,
-"grade": "B+",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 8.48,
-"jhunjhunwala": 8.0,
-"pabrai": 8.6,
-"kacholia": 4.74,
-"kedia": 5.48,
-"blackrock": 9.99,
-"vanguard": 8.96,
-"damani": 8.06
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.04,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 5690.0,
-"above_200dma": true,
-"dma200_dist_pct": 7.8,
-"dd_from_52wk": -7.3,
-"ret_6m_pct": 0.6,
-"rvol20": 1.25,
-"turnover_cr": 367.95,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "JAMNAAUTO",
-"grade": "A-",
-"composite": 8.24,
-"pe": 22.7,
-"roe_pct": 21.6
-},
-{
-"symbol": "PRICOLLTD",
-"grade": "B+",
-"composite": 7.85,
-"pe": 31.7,
-"roe_pct": 22.1
-},
-{
-"symbol": "SAMHI",
-"grade": "B+",
-"composite": 7.68,
-"pe": 7.0,
-"roe_pct": 33.4
-},
-{
-"symbol": "LUMAXTECH",
-"grade": "B+",
-"composite": 7.62,
-"pe": 38.3,
-"roe_pct": 24.4
-},
-{
-"symbol": "REDTAPE",
-"grade": "B+",
-"composite": 7.53,
-"pe": 30.5,
-"roe_pct": 26.6
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"Weakest lens: Kacholia scores just 4.7/10 (3y growth + operating leverage + size runway)",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Hero MotoCorp Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Hero MotoCorp Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Hero MotoCorp Ltd.\" related party transactions annual report",
-"\"Hero MotoCorp Ltd.\" auditor resignation qualified opinion",
-"\"Hero MotoCorp Ltd.\" management commentary concall latest quarter",
-"\"HEROMOTOCO\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": null,
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "MANUAL",
-"data": {
-"technical_reference": null,
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Fill this in during your deep-dive."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "LALPATHLAB",
-"name": "Dr. Lal Path Labs Ltd.",
-"index": "smallcap250",
-"composite": 7.76,
-"grade": "B+",
-"cmp": 1887.1,
-"chg_pct": -0.12,
-"rvol20": 0.65,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"PE 58.9 is 1.7x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Healthcare",
-"ace_worksheet": {
-"generated_for": "LALPATHLAB",
-"name": "Dr. Lal Path Labs Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Healthcare",
-"index": "smallcap250",
-"mcap_cr": 31813,
-"latest_quarter": "2026-06-30"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 58.9,
-"roe_pct": null,
-"op_margin_pct": 25.5,
-"de": 0.08,
-"rev_cagr3y_pct": 11.1,
-"pat_cagr3y_pct": 28.3
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.76,
-"grade": "B+",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 9.87,
-"jhunjhunwala": 6.66,
-"pabrai": 7.46,
-"kacholia": 6.05,
-"kedia": 5.17,
-"blackrock": 10.0,
-"vanguard": 8.94,
-"damani": 7.22
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.08,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 1887.1,
-"above_200dma": true,
-"dma200_dist_pct": 25.0,
-"dd_from_52wk": -1.0,
-"ret_6m_pct": 35.2,
-"rvol20": 0.65,
-"turnover_cr": 89.98,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "LUPIN",
-"grade": "A",
-"composite": 8.68,
-"pe": 20.7,
-"roe_pct": 26.9
-},
-{
-"symbol": "SUPRIYA",
-"grade": "A-",
-"composite": 8.41,
-"pe": 33.4,
-"roe_pct": 19.1
-},
-{
-"symbol": "THYROCARE",
-"grade": "A-",
-"composite": 8.21,
-"pe": 52.4,
-"roe_pct": null
-},
-{
-"symbol": "JSLL",
-"grade": "A-",
-"composite": 8.06,
-"pe": 32.9,
-"roe_pct": 59.9
-},
-{
-"symbol": "IKS",
-"grade": "A-",
-"composite": 8.04,
-"pe": 43.8,
-"roe_pct": 31.4
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"PE 58.9 is 1.7x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Dr. Lal Path Labs Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Dr. Lal Path Labs Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Dr. Lal Path Labs Ltd.\" related party transactions annual report",
-"\"Dr. Lal Path Labs Ltd.\" auditor resignation qualified opinion",
-"\"Dr. Lal Path Labs Ltd.\" management commentary concall latest quarter",
-"\"LALPATHLAB\" NSE stock news multibagger analysis 2026"
-],
-"instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
-}
-},
-{
-"n": 9,
-"title": "Qualitative judgment",
-"status": "MANUAL",
-"data": {
-"moat_narrative": null,
-"management_candor": null,
-"scuttlebutt_notes": null,
-"governance_read": null,
-"ai_draft": null,
-"instruction": "This is the layer ACE exists for - the fields above stay None until YOU fill them. If an ai_draft is present below, it's an unreviewed starting point from web search, not a conclusion - confirm, edit, or reject it."
-}
-},
-{
-"n": 10,
-"title": "Trade plan / scenario",
-"status": "MANUAL",
-"data": {
-"technical_reference": null,
-"entry_zone": null,
-"stop": null,
-"target": null,
-"rr": null,
-"theme_tag": null,
-"instruction": "Fill this in during your deep-dive."
-}
-},
-{
-"n": 11,
-"title": "Verdict",
-"status": "MANUAL",
-"data": {
-"ace_score": null,
-"grade": null,
-"verdict": null,
-"instruction": "Once decided, add/update this stock in data/leaderboard.json (or ask Claude to)."
-}
-}
-]
-}
-},
-{
-"symbol": "VIJAYA",
-"name": "Vijaya Diagnostic Centre Ltd.",
-"index": "smallcap250",
-"composite": 7.75,
-"grade": "B+",
-"cmp": 1389.6,
-"chg_pct": 0.32,
-"rvol20": 0.43,
-"integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"bear_case": [
-"PE 80.4 is 2.3x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"sector": "Healthcare",
-"ace_worksheet": {
-"generated_for": "VIJAYA",
-"name": "Vijaya Diagnostic Centre Ltd.",
-"mode": "AUTO-DRAFTED PREP - not a decision. Fill MANUAL fields, then set your own ace_score/grade/verdict in leaderboard.json.",
-"sections": [
-{
-"n": 1,
-"title": "Company overview",
-"status": "AUTO",
-"data": {
-"sector": "Healthcare",
-"index": "smallcap250",
-"mcap_cr": 13847,
-"latest_quarter": "2026-03-31"
-}
-},
-{
-"n": 2,
-"title": "Financial snapshot",
-"status": "AUTO",
-"data": {
-"pe": 80.4,
-"roe_pct": 19.7,
-"op_margin_pct": 32.5,
-"de": 0.44,
-"rev_cagr3y_pct": 21.1,
-"pat_cagr3y_pct": 26.9
-}
-},
-{
-"n": 3,
-"title": "8-framework ACE scorecard",
-"status": "AUTO",
-"data": {
-"composite": 7.75,
-"grade": "B+",
-"coverage": 1.0,
-"coverage_penalty": 0.0,
-"frameworks": {
-"buffett": 8.79,
-"jhunjhunwala": 7.15,
-"pabrai": 5.55,
-"kacholia": 7.77,
-"kedia": 8.59,
-"blackrock": 8.12,
-"vanguard": 8.88,
-"damani": 6.67
-},
-"notes": {
-"buffett": "ROE/margin/leverage/FCF quality",
-"jhunjhunwala": "earnings momentum vs valuation",
-"pabrai": "margin-of-safety / downside protection",
-"kacholia": "3y growth + operating leverage + size runway",
-"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
-"blackrock": "liquidity / scale / quality stability",
-"vanguard": "profit consistency / low volatility",
-"damani": "CFO/PAT conversion + margin + valuation"
-}
-}
-},
-{
-"n": 4,
-"title": "Veto checklist",
-"status": "PARTIAL-AUTO",
-"data": {
-"V3_automated": {
-"de_ratio": 0.44,
-"cfo_trend": "stable/rising"
-},
-"triggered": [],
-"manual_verify": {
-"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
-"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
-"V4": "Qualified audit opinion - verify latest annual report",
-"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
-"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
-"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
-},
-"instruction": "V1/V2/V4-V7 need your read of NSE/BSE/SEBI filings - use the search queries in section 8."
-}
-},
-{
-"n": 5,
-"title": "Technical structure",
-"status": "AUTO",
-"data": {
-"cmp": 1389.6,
-"above_200dma": true,
-"dma200_dist_pct": 25.8,
-"dd_from_52wk": -1.6,
-"ret_6m_pct": 41.8,
-"rvol20": 0.43,
-"turnover_cr": 24.24,
-"volume_integrity_flags": [
-"2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 6,
-"title": "Sector peer comparison",
-"status": "AUTO",
-"data": {
-"peers": [
-{
-"symbol": "LUPIN",
-"grade": "A",
-"composite": 8.68,
-"pe": 20.7,
-"roe_pct": 26.9
-},
-{
-"symbol": "SUPRIYA",
-"grade": "A-",
-"composite": 8.41,
-"pe": 33.4,
-"roe_pct": 19.1
-},
-{
-"symbol": "THYROCARE",
-"grade": "A-",
-"composite": 8.21,
-"pe": 52.4,
-"roe_pct": null
-},
-{
-"symbol": "JSLL",
-"grade": "A-",
-"composite": 8.06,
-"pe": 32.9,
-"roe_pct": 59.9
-},
-{
-"symbol": "IKS",
-"grade": "A-",
-"composite": 8.04,
-"pe": 43.8,
-"roe_pct": 31.4
-}
-]
-}
-},
-{
-"n": 7,
-"title": "Auto-generated bear case",
-"status": "AUTO",
-"data": {
-"bullets": [
-"PE 80.4 is 2.3x the current universe median (35) - priced for perfection in this regime",
-"Volume integrity: 2 zero-volume day(s) in 60 sessions - too thin to trust"
-]
-}
-},
-{
-"n": 8,
-"title": "Mandatory web searches (6)",
-"status": "MANUAL",
-"data": {
-"queries": [
-"\"Vijaya Diagnostic Centre Ltd.\" promoter pledge shareholding pattern 2026",
-"\"Vijaya Diagnostic Centre Ltd.\" SEBI NSE BSE surveillance action order",
-"\"Vijaya Diagnostic Centre Ltd.\" related party transactions annual report",
-"\"Vijaya Diagnostic Centre Ltd.\" auditor resignation qualified opinion",
-"\"Vijaya Diagnostic Centre Ltd.\" management commentary concall latest quarter",
-"\"VIJAYA\" NSE stock news multibagger analysis 2026"
 ],
 "instruction": "Run these 6 searches; log findings before scoring moat/management/governance below."
 }
