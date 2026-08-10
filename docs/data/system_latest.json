@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-08-08T10:22:50.709693+05:30",
-"trade_date": "2026-08-08",
+"generated_at": "2026-08-10T20:13:41.777411+05:30",
+"trade_date": "2026-08-10",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,13 +37,13 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 653,
-"scored": 646,
+"scored": 645,
 "excluded_no_fundamentals": 4,
-"excluded_illiquid": 2,
+"excluded_illiquid": 3,
 "excluded_low_coverage": 1,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-08-04)",
-"fundamentals_source": "yfinance statements (fresh)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-08-08)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -57,67 +57,67 @@
 "regime": {
 "universe_pe_median": 35.1,
 "nifty_above_200dma": false,
-"nifty_3m_pct": 3.2,
+"nifty_3m_pct": 5.2,
 "india_vix": 12.2,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 27,
+"sessions_logged": 28,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 645,
-"asof": "2026-07-10",
-"universe_median_ret_pct": 0.2,
+"n": 641,
+"asof": "2026-07-11",
+"universe_median_ret_pct": -0.3,
 "terminated_n": 1,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
 "n": 20,
-"median_ret_pct": 0.2
-},
-"B": {
-"n": 77,
-"median_ret_pct": 0.6
-},
-"B+": {
-"n": 39,
-"median_ret_pct": 1.0
-},
-"B-": {
-"n": 85,
-"median_ret_pct": 1.7
-},
-"C": {
-"n": 202,
 "median_ret_pct": 0.0
 },
+"B": {
+"n": 82,
+"median_ret_pct": 1.4
+},
+"B+": {
+"n": 37,
+"median_ret_pct": 0.3
+},
+"B-": {
+"n": 89,
+"median_ret_pct": -0.3
+},
+"C": {
+"n": 198,
+"median_ret_pct": -0.4
+},
 "D": {
-"n": 154,
-"median_ret_pct": -0.1
+"n": 149,
+"median_ret_pct": -0.5
 },
 "F": {
-"n": 66,
-"median_ret_pct": 0.3
+"n": 64,
+"median_ret_pct": -1.4
 }
 },
 "framework_ic": {
-"buffett": 0.045,
-"jhunjhunwala": -0.032,
-"pabrai": 0.024,
-"kacholia": -0.044,
-"kedia": 0.011,
-"blackrock": 0.007,
-"vanguard": 0.075,
-"damani": 0.024
+"buffett": 0.047,
+"jhunjhunwala": -0.009,
+"pabrai": 0.057,
+"kacholia": -0.076,
+"kedia": -0.016,
+"blackrock": 0.059,
+"vanguard": 0.109,
+"damani": -0.013
 }
 },
 "3m": {
-"status": "insufficient history (27/64 sessions)"
+"status": "insufficient history (28/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (27/127 sessions)"
+"status": "insufficient history (28/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -132,7 +132,7 @@
 "name": "CCL Products (I) Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.56,
-"current_composite": 6.74,
+"current_composite": 6.71,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"
@@ -143,10 +143,10 @@
 "name": "Cemindia Projects Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.77,
-"current_composite": 6.46,
-"grade": "C",
+"current_composite": 6.5,
+"grade": "B-",
 "reasons": [
-"grade B+ -> C (3 bands)"
+"grade B+ -> B- (2 bands)"
 ]
 },
 {
@@ -154,7 +154,7 @@
 "name": "Anthem Biosciences Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.7,
-"current_composite": 6.61,
+"current_composite": 6.63,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"
@@ -177,9 +177,10 @@
 "name": "Chalet Hotels Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 8.16,
-"current_composite": 6.68,
+"current_composite": 6.65,
 "grade": "B-",
 "reasons": [
+"composite 8.16 -> 6.65 since entry 2026-07-05",
 "grade A- -> B- (3 bands)"
 ]
 },
