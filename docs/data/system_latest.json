@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-08-15T09:55:58.066776+05:30",
-"trade_date": "2026-08-15",
+"generated_at": "2026-08-17T19:35:11.971528+05:30",
+"trade_date": "2026-08-17",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -43,7 +43,7 @@
 "excluded_low_coverage": 1,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-08-04)",
-"fundamentals_source": "yfinance statements (fresh)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-08-15)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -57,67 +57,67 @@
 "regime": {
 "universe_pe_median": 34.9,
 "nifty_above_200dma": false,
-"nifty_3m_pct": 3.0,
+"nifty_3m_pct": 2.8,
 "india_vix": 11.3,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 33,
+"sessions_logged": 34,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 625,
-"asof": "2026-07-18",
-"universe_median_ret_pct": -0.1,
+"n": 645,
+"asof": "2026-07-20",
+"universe_median_ret_pct": 0.1,
 "terminated_n": 1,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
 "n": 19,
-"median_ret_pct": -2.8
+"median_ret_pct": -3.8
 },
 "B": {
-"n": 79,
-"median_ret_pct": 0.5
+"n": 80,
+"median_ret_pct": 1.8
 },
 "B+": {
-"n": 37,
-"median_ret_pct": 1.0
+"n": 39,
+"median_ret_pct": 0.8
 },
 "B-": {
-"n": 86,
-"median_ret_pct": -0.5
+"n": 89,
+"median_ret_pct": -0.7
 },
 "C": {
-"n": 188,
-"median_ret_pct": 0.1
+"n": 201,
+"median_ret_pct": -0.1
 },
 "D": {
 "n": 146,
 "median_ret_pct": 0.4
 },
 "F": {
-"n": 67,
-"median_ret_pct": -1.8
+"n": 68,
+"median_ret_pct": -1.0
 }
 },
 "framework_ic": {
-"buffett": 0.082,
-"jhunjhunwala": -0.009,
-"pabrai": 0.083,
-"kacholia": -0.065,
-"kedia": 0.007,
-"blackrock": 0.072,
-"vanguard": 0.021,
-"damani": -0.027
+"buffett": 0.056,
+"jhunjhunwala": -0.026,
+"pabrai": 0.058,
+"kacholia": -0.069,
+"kedia": -0.01,
+"blackrock": 0.078,
+"vanguard": 0.038,
+"damani": -0.019
 }
 },
 "3m": {
-"status": "insufficient history (33/64 sessions)"
+"status": "insufficient history (34/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (33/127 sessions)"
+"status": "insufficient history (34/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -125,17 +125,17 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 7,
+"count": 6,
 "names": [
 {
 "symbol": "HBLENGINE",
 "name": "HBL Engineering Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 8.35,
-"current_composite": 6.78,
+"current_composite": 6.76,
 "grade": "B-",
 "reasons": [
-"composite 8.35 -> 6.78 since entry 2026-07-05",
+"composite 8.35 -> 6.76 since entry 2026-07-05",
 "grade A- -> B- (3 bands)"
 ]
 },
@@ -144,22 +144,10 @@
 "name": "Cemindia Projects Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.77,
-"current_composite": 6.44,
-"grade": "C",
+"current_composite": 6.5,
+"grade": "B-",
 "reasons": [
-"grade B+ -> C (3 bands)"
-]
-},
-{
-"symbol": "SUZLON",
-"name": "Suzlon Energy Ltd.",
-"entered": "2026-07-05",
-"entry_composite": 7.6,
-"current_composite": 5.55,
-"grade": "C",
-"reasons": [
-"composite 7.6 -> 5.55 since entry 2026-07-05",
-"grade B+ -> C (3 bands)"
+"grade B+ -> B- (2 bands)"
 ]
 },
 {
@@ -167,11 +155,11 @@
 "name": "Chalet Hotels Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 8.16,
-"current_composite": 6.19,
-"grade": "C",
+"current_composite": 6.66,
+"grade": "B-",
 "reasons": [
-"composite 8.16 -> 6.19 since entry 2026-07-05",
-"grade A- -> C (4 bands)"
+"composite 8.16 -> 6.66 since entry 2026-07-05",
+"grade A- -> B- (3 bands)"
 ]
 },
 {
@@ -202,10 +190,10 @@
 "name": "Leela Palaces Hotels & Resorts Ltd.",
 "entered": "2026-08-08",
 "entry_composite": 8.07,
-"current_composite": 6.55,
+"current_composite": 6.53,
 "grade": "B-",
 "reasons": [
-"composite 8.07 -> 6.55 since entry 2026-08-08",
+"composite 8.07 -> 6.53 since entry 2026-08-08",
 "grade A- -> B- (3 bands)"
 ]
 }
