@@ -1,18 +1,15 @@
-### Deep-Dive Queue — 2026-08-26
+### Deep-Dive Queue — 2026-08-28
 
 **🟢 NEW in Lane 1 (volume-confirmed today)** — run these deep-dives first:
-- **ABSLAMC** (Aditya Birla Sun Life AMC Ltd.) — B+ 7.91, RVol 2.38x, ₹1033.5 (+3.2%) [worksheet ready in queue_latest.json]
-- **HINDCOPPER** (Hindustan Copper Ltd.) — B+ 7.79, RVol 4.03x, ₹556.05 (+4.4%) [worksheet ready in queue_latest.json]
-- **IGIL** (International Gemological Institute Ltd.) — B+ 7.66, RVol 2.41x, ₹347.85 (+1.1%) [worksheet ready in queue_latest.json]
-- **SAGILITY** (Sagility Ltd.) — B 7.39, RVol 4.69x, ₹44.0 (+2.3%) [worksheet ready in queue_latest.json]
-- **CDSL** (Central Depository Services (India) Ltd.) — B 7.31, RVol 3.18x, ₹1434.0 (+2.8%) [worksheet ready in queue_latest.json]
-- **ECLERX** (eClerx Services Ltd.) — B 7.3, RVol 1.91x, ₹1944.0 (+3.4%) [worksheet ready in queue_latest.json]
+- **CRISIL** (CRISIL Ltd.) — B+ 7.89, RVol 4.26x, ₹4513.4 (+0.8%) [worksheet ready in queue_latest.json]
+- **GVT&D** (GE Vernova T&D India Ltd.) — B+ 7.79, RVol 1.81x, ₹4340.0 (+3.7%) [worksheet ready in queue_latest.json]
+- **EIHOTEL** (EIH Ltd.) — B+ 7.66, RVol 1.93x, ₹303.5 (+0.2%) [worksheet ready in queue_latest.json]
 
-**🟡 New to Lane 2 (watching for volume):** GESHIP, GVT&D
+**🟡 New to Lane 2 (watching for volume):** CUB, HINDCOPPER
 
-**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): AUBANK, BLS, GESHIP
+**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): CDSL, ECLERX, HINDCOPPER, IGIL, KARURVYSYA
 
-Current queue: Lane 1 = 7, Lane 2 = 20.
+Current queue: Lane 1 = 5, Lane 2 = 20.
 A queue entry is an invitation to run the ACE deep-dive, never a buy signal.
 
 _Auto-updated by the Elite Screener pipeline. Full worksheets: `docs/data/queue_latest.json` -> each candidate's `ace_worksheet`._
