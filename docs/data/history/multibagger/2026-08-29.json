@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-08-29T04:42:45.456928+05:30",
+"generated_at": "2026-08-29T16:13:52.705150+05:30",
 "trade_date": "2026-08-29",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
@@ -37,13 +37,13 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 653,
-"scored": 645,
+"scored": 623,
 "excluded_no_fundamentals": 4,
 "excluded_illiquid": 3,
-"excluded_low_coverage": 1,
+"excluded_low_coverage": 23,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-08-04)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-08-22)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -55,7 +55,7 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 34.9,
+"universe_pe_median": 36.8,
 "nifty_above_200dma": false,
 "nifty_3m_pct": 3.0,
 "india_vix": 11.1,
@@ -63,62 +63,62 @@
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 44,
+"sessions_logged": 45,
 "horizons": {
 "1m": {
 "status": "ok",
 "n": 644,
-"asof": "2026-08-01",
-"universe_median_ret_pct": -1.0,
+"asof": "2026-08-03",
+"universe_median_ret_pct": -1.1,
 "terminated_n": 0,
-"unmatched_n": 2,
+"unmatched_n": 1,
 "by_grade": {
 "A-": {
-"n": 20,
-"median_ret_pct": -2.2
+"n": 19,
+"median_ret_pct": -3.6
 },
 "B": {
-"n": 80,
-"median_ret_pct": -0.6
+"n": 83,
+"median_ret_pct": -1.0
 },
 "B+": {
-"n": 42,
-"median_ret_pct": 1.4
+"n": 44,
+"median_ret_pct": 1.9
 },
 "B-": {
-"n": 91,
-"median_ret_pct": -1.4
+"n": 96,
+"median_ret_pct": -0.7
 },
 "C": {
-"n": 200,
-"median_ret_pct": -0.8
+"n": 216,
+"median_ret_pct": -1.1
 },
 "D": {
-"n": 142,
-"median_ret_pct": -1.2
+"n": 121,
+"median_ret_pct": -1.1
 },
 "F": {
-"n": 67,
-"median_ret_pct": -2.0
+"n": 62,
+"median_ret_pct": -2.6
 }
 },
 "framework_ic": {
-"buffett": -0.0,
-"jhunjhunwala": 0.109,
-"pabrai": 0.036,
-"kacholia": 0.001,
-"kedia": 0.066,
-"blackrock": 0.048,
-"vanguard": -0.055,
-"damani": -0.077
+"buffett": 0.019,
+"jhunjhunwala": 0.106,
+"pabrai": 0.045,
+"kacholia": 0.006,
+"kedia": 0.064,
+"blackrock": 0.084,
+"vanguard": -0.049,
+"damani": -0.069
 },
-"bias_warning": "2 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
 },
 "3m": {
-"status": "insufficient history (44/64 sessions)"
+"status": "insufficient history (45/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (44/127 sessions)"
+"status": "insufficient history (45/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
