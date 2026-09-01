@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-09-01T01:11:36.949589+05:30",
+"generated_at": "2026-09-01T22:57:02.054361+05:30",
 "trade_date": "2026-09-01",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
@@ -37,9 +37,9 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 653,
-"scored": 624,
+"scored": 623,
 "excluded_no_fundamentals": 4,
-"excluded_illiquid": 2,
+"excluded_illiquid": 3,
 "excluded_low_coverage": 23,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-08-04)",
@@ -57,68 +57,67 @@
 "regime": {
 "universe_pe_median": 36.8,
 "nifty_above_200dma": false,
-"nifty_3m_pct": 3.0,
-"india_vix": 11.1,
+"nifty_3m_pct": 2.7,
+"india_vix": 11.2,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 45,
+"sessions_logged": 46,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 644,
-"asof": "2026-08-03",
-"universe_median_ret_pct": -1.0,
+"n": 643,
+"asof": "2026-08-04",
+"universe_median_ret_pct": -1.5,
 "terminated_n": 0,
-"unmatched_n": 1,
+"unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 19,
-"median_ret_pct": -4.6
+"n": 20,
+"median_ret_pct": -3.9
 },
 "B": {
 "n": 83,
-"median_ret_pct": -0.8
+"median_ret_pct": -1.0
 },
 "B+": {
-"n": 44,
-"median_ret_pct": 2.6
+"n": 43,
+"median_ret_pct": 1.8
 },
 "B-": {
 "n": 96,
-"median_ret_pct": -1.2
+"median_ret_pct": -1.7
 },
 "C": {
-"n": 216,
-"median_ret_pct": -0.8
+"n": 213,
+"median_ret_pct": -1.5
 },
 "D": {
-"n": 121,
-"median_ret_pct": -0.9
+"n": 124,
+"median_ret_pct": -1.2
 },
 "F": {
-"n": 62,
-"median_ret_pct": -3.1
+"n": 61,
+"median_ret_pct": -4.7
 }
 },
 "framework_ic": {
-"buffett": 0.043,
-"jhunjhunwala": 0.11,
-"pabrai": 0.07,
-"kacholia": 0.003,
-"kedia": 0.067,
-"blackrock": 0.078,
-"vanguard": -0.056,
-"damani": -0.047
-},
-"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+"buffett": 0.052,
+"jhunjhunwala": 0.106,
+"pabrai": 0.108,
+"kacholia": -0.029,
+"kedia": 0.051,
+"blackrock": 0.087,
+"vanguard": -0.0,
+"damani": -0.029
+}
 },
 "3m": {
-"status": "insufficient history (45/64 sessions)"
+"status": "insufficient history (46/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (45/127 sessions)"
+"status": "insufficient history (46/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
