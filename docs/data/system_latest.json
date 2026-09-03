@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-09-02T22:53:29.611076+05:30",
-"trade_date": "2026-09-02",
+"generated_at": "2026-09-03T22:46:00.216254+05:30",
+"trade_date": "2026-09-03",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -36,13 +36,13 @@
 "data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
-"universe_size": 653,
+"universe_size": 655,
 "scored": 623,
-"excluded_no_fundamentals": 4,
+"excluded_no_fundamentals": 6,
 "excluded_illiquid": 3,
 "excluded_low_coverage": 23,
 "min_coverage": 0.6,
-"universe_source": "cache (2026-08-04)",
+"universe_source": "NSE index CSVs (fresh)",
 "fundamentals_source": "yfinance statements (cached, oldest 2026-08-29)",
 "framework_weights": {
 "buffett": 0.2,
@@ -57,67 +57,67 @@
 "regime": {
 "universe_pe_median": 36.8,
 "nifty_above_200dma": false,
-"nifty_3m_pct": 2.3,
-"india_vix": 11.6,
+"nifty_3m_pct": 3.2,
+"india_vix": 11.3,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 46,
+"sessions_logged": 47,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 643,
-"asof": "2026-08-04",
-"universe_median_ret_pct": -2.3,
+"n": 644,
+"asof": "2026-08-05",
+"universe_median_ret_pct": -2.1,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 20,
-"median_ret_pct": -4.6
+"n": 22,
+"median_ret_pct": -4.1
 },
 "B": {
 "n": 83,
-"median_ret_pct": -1.4
+"median_ret_pct": -1.1
 },
 "B+": {
-"n": 43,
-"median_ret_pct": 1.0
+"n": 41,
+"median_ret_pct": 2.4
 },
 "B-": {
-"n": 96,
-"median_ret_pct": -2.4
+"n": 99,
+"median_ret_pct": -2.5
 },
 "C": {
-"n": 213,
-"median_ret_pct": -2.4
+"n": 212,
+"median_ret_pct": -1.8
 },
 "D": {
 "n": 124,
-"median_ret_pct": -2.1
+"median_ret_pct": -1.8
 },
 "F": {
-"n": 61,
-"median_ret_pct": -5.3
+"n": 60,
+"median_ret_pct": -4.7
 }
 },
 "framework_ic": {
-"buffett": 0.043,
-"jhunjhunwala": 0.114,
-"pabrai": 0.09,
-"kacholia": -0.038,
-"kedia": 0.049,
-"blackrock": 0.091,
-"vanguard": -0.005,
-"damani": -0.021
+"buffett": 0.05,
+"jhunjhunwala": 0.132,
+"pabrai": 0.086,
+"kacholia": -0.045,
+"kedia": 0.037,
+"blackrock": 0.088,
+"vanguard": -0.006,
+"damani": -0.015
 }
 },
 "3m": {
-"status": "insufficient history (46/64 sessions)"
+"status": "insufficient history (47/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (46/127 sessions)"
+"status": "insufficient history (47/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -125,25 +125,14 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 4,
+"count": 3,
 "names": [
-{
-"symbol": "GESHIP",
-"name": "Great Eastern Shipping Co. Ltd.",
-"entered": "2026-07-05",
-"entry_composite": 8.34,
-"current_composite": 7.23,
-"grade": "B",
-"reasons": [
-"grade A- -> B (2 bands)"
-]
-},
 {
 "symbol": "LUPIN",
 "name": "Lupin Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 8.73,
-"current_composite": 7.92,
+"current_composite": 7.9,
 "grade": "B+",
 "reasons": [
 "grade A -> B+ (2 bands)"
@@ -154,7 +143,7 @@
 "name": "Karur Vysya Bank Ltd.",
 "entered": "2026-07-05",
 "entry_composite": 7.82,
-"current_composite": 6.81,
+"current_composite": 6.82,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"
@@ -165,7 +154,7 @@
 "name": "Jaiprakash Power Ventures Ltd.",
 "entered": "2026-07-25",
 "entry_composite": 7.57,
-"current_composite": 6.59,
+"current_composite": 6.57,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"

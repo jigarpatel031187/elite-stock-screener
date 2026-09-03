@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-09-02T22:53:29.611076+05:30",
-"trade_date": "2026-09-02",
+"generated_at": "2026-09-03T22:46:00.216254+05:30",
+"trade_date": "2026-09-03",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -36,13 +36,13 @@
 "data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
-"universe_size": 653,
+"universe_size": 655,
 "scored": 623,
-"excluded_no_fundamentals": 4,
+"excluded_no_fundamentals": 6,
 "excluded_illiquid": 3,
 "excluded_low_coverage": 23,
 "min_coverage": 0.6,
-"universe_source": "cache (2026-08-04)",
+"universe_source": "NSE index CSVs (fresh)",
 "fundamentals_source": "yfinance statements (cached, oldest 2026-08-29)",
 "framework_weights": {
 "buffett": 0.2,
@@ -57,67 +57,67 @@
 "regime": {
 "universe_pe_median": 36.8,
 "nifty_above_200dma": false,
-"nifty_3m_pct": 2.3,
-"india_vix": 11.6,
+"nifty_3m_pct": 3.2,
+"india_vix": 11.3,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 46,
+"sessions_logged": 47,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 643,
-"asof": "2026-08-04",
-"universe_median_ret_pct": -2.3,
+"n": 644,
+"asof": "2026-08-05",
+"universe_median_ret_pct": -2.1,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 20,
-"median_ret_pct": -4.6
+"n": 22,
+"median_ret_pct": -4.1
 },
 "B": {
 "n": 83,
-"median_ret_pct": -1.4
+"median_ret_pct": -1.1
 },
 "B+": {
-"n": 43,
-"median_ret_pct": 1.0
+"n": 41,
+"median_ret_pct": 2.4
 },
 "B-": {
-"n": 96,
-"median_ret_pct": -2.4
+"n": 99,
+"median_ret_pct": -2.5
 },
 "C": {
-"n": 213,
-"median_ret_pct": -2.4
+"n": 212,
+"median_ret_pct": -1.8
 },
 "D": {
 "n": 124,
-"median_ret_pct": -2.1
+"median_ret_pct": -1.8
 },
 "F": {
-"n": 61,
-"median_ret_pct": -5.3
+"n": 60,
+"median_ret_pct": -4.7
 }
 },
 "framework_ic": {
-"buffett": 0.043,
-"jhunjhunwala": 0.114,
-"pabrai": 0.09,
-"kacholia": -0.038,
-"kedia": 0.049,
-"blackrock": 0.091,
-"vanguard": -0.005,
-"damani": -0.021
+"buffett": 0.05,
+"jhunjhunwala": 0.132,
+"pabrai": 0.086,
+"kacholia": -0.045,
+"kedia": 0.037,
+"blackrock": 0.088,
+"vanguard": -0.006,
+"damani": -0.015
 }
 },
 "3m": {
-"status": "insufficient history (46/64 sessions)"
+"status": "insufficient history (47/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (46/127 sessions)"
+"status": "insufficient history (47/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -130,16 +130,16 @@
 "symbol": "MCX",
 "name": "Multi Commodity Exchange of India Ltd.",
 "provisional": true,
-"ace_score": 9.04,
-"grade": "A+",
+"ace_score": 8.99,
+"grade": "A",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 3286.0,
-"chg_pct": -0.51,
-"mech_composite": 9.04,
-"mech_grade": "A+",
+"cmp": 3170.2,
+"chg_pct": -3.52,
+"mech_composite": 8.99,
+"mech_grade": "A",
 "divergence": null,
 "divergence_baseline": null,
 "divergence_drift": null,
@@ -161,7 +161,7 @@
 "score": 10.0
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 9.04, A+) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.99, A) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Only 82% framework coverage - blackrock, damani could not be scored; the composite flatters what the data cannot see",
 "Promoter holding unavailable - skin-in-the-game unverified",
@@ -179,13 +179,13 @@
 "theme": "energy transition / data-centre capex",
 "added": "2026-05-01",
 "provisional": false,
-"cmp": 5088.5,
-"chg_pct": -0.32,
-"mech_composite": 6.87,
+"cmp": 5071.0,
+"chg_pct": -0.34,
+"mech_composite": 6.86,
 "mech_grade": "B-",
-"divergence": 1.93,
+"divergence": 1.94,
 "divergence_baseline": 2.19,
-"divergence_drift": -0.26,
+"divergence_drift": -0.25,
 "re_review": false,
 "vetoes_now": [],
 "in_universe": false,
@@ -204,7 +204,7 @@
 "score": 8.77
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently does NOT corroborate as strongly (composite 6.87, B-) - your ACE score rests more on the qualitative layer than on the current numbers.",
+"mechanical_corroboration": "Mechanical screen currently does NOT corroborate as strongly (composite 6.86, B-) - your ACE score rests more on the qualitative layer than on the current numbers.",
 "bear_case": [
 "Weakest lens: Jhunjhunwala scores just 4.6/10 (earnings momentum vs valuation)",
 "PE 60.6 is 1.6x the current universe median (37) - priced for perfection in this regime",
@@ -219,15 +219,15 @@
 "symbol": "NAM-INDIA",
 "name": "Nippon Life India Asset Management Ltd.",
 "provisional": true,
-"ace_score": 8.7,
+"ace_score": 8.69,
 "grade": "A",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 1171.5,
-"chg_pct": -0.63,
-"mech_composite": 8.7,
+"cmp": 1164.9,
+"chg_pct": -0.56,
+"mech_composite": 8.69,
 "mech_grade": "A",
 "divergence": null,
 "divergence_baseline": null,
@@ -250,7 +250,7 @@
 "score": 9.96
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.7, A) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.69, A) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Only 82% framework coverage - blackrock, damani could not be scored; the composite flatters what the data cannot see",
 "Promoter holding unavailable - skin-in-the-game unverified",
@@ -269,8 +269,8 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 186.08,
-"chg_pct": 0.03,
+"cmp": 186.42,
+"chg_pct": 0.18,
 "mech_composite": 8.66,
 "mech_grade": "A",
 "divergence": null,
@@ -312,8 +312,8 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 2460.0,
-"chg_pct": -0.42,
+"cmp": 2459.0,
+"chg_pct": -0.04,
 "mech_composite": 8.49,
 "mech_grade": "A-",
 "divergence": null,
@@ -351,15 +351,15 @@
 "symbol": "HONASA",
 "name": "Honasa Consumer Ltd.",
 "provisional": true,
-"ace_score": 8.39,
+"ace_score": 8.42,
 "grade": "A-",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 469.95,
-"chg_pct": -0.75,
-"mech_composite": 8.39,
+"cmp": 477.05,
+"chg_pct": 1.51,
+"mech_composite": 8.42,
 "mech_grade": "A-",
 "divergence": null,
 "divergence_baseline": null,
@@ -379,14 +379,56 @@
 },
 {
 "name": "pabrai",
-"score": 8.93
+"score": 9.12
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.39, A-) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.42, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Only 70% framework coverage - kacholia, blackrock, damani could not be scored; the composite flatters what the data cannot see",
 "Promoter holding unavailable - skin-in-the-game unverified",
 "Volume integrity: 64% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
+"Volume integrity: 1 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"vetoes_now": []
+}
+},
+{
+"symbol": "BSE",
+"name": "BSE Ltd.",
+"provisional": true,
+"ace_score": 8.39,
+"grade": "A-",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 3306.1,
+"chg_pct": 4.36,
+"mech_composite": 8.39,
+"mech_grade": "A-",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "buffett",
+"score": 10.0
+},
+{
+"name": "blackrock",
+"score": 10.0
+},
+{
+"name": "jhunjhunwala",
+"score": 9.11
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.39, A-) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
 "Volume integrity: 1 zero-volume day(s) in 60 sessions - too thin to trust"
 ],
 "vetoes_now": []
@@ -402,8 +444,8 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 520.95,
-"chg_pct": -1.08,
+"cmp": 518.5,
+"chg_pct": -0.47,
 "mech_composite": 8.36,
 "mech_grade": "A-",
 "divergence": null,
@@ -447,8 +489,8 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 12158.0,
-"chg_pct": -0.24,
+"cmp": 12149.0,
+"chg_pct": -0.07,
 "mech_composite": 8.35,
 "mech_grade": "A-",
 "divergence": null,
@@ -483,18 +525,63 @@
 }
 },
 {
-"symbol": "KPIL",
-"name": "Kalpataru Projects International Ltd.",
+"symbol": "GVT&D",
+"name": "GE Vernova T&D India Ltd.",
 "provisional": true,
-"ace_score": 8.33,
+"ace_score": 8.34,
 "grade": "A-",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 1410.5,
-"chg_pct": 0.15,
-"mech_composite": 8.33,
+"cmp": 4362.0,
+"chg_pct": 2.88,
+"mech_composite": 8.34,
+"mech_grade": "A-",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "jhunjhunwala",
+"score": 10.0
+},
+{
+"name": "kedia",
+"score": 10.0
+},
+{
+"name": "buffett",
+"score": 9.98
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.34, A-) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
+"Weakest lens: Vanguard scores just 4.9/10 (profit consistency / low volatility)",
+"Only 70% framework coverage - kacholia, blackrock, damani could not be scored; the composite flatters what the data cannot see",
+"Promoter holding unavailable - skin-in-the-game unverified",
+"Volume integrity: 1 zero-volume day(s) in 60 sessions - too thin to trust"
+],
+"vetoes_now": []
+}
+},
+{
+"symbol": "KPIL",
+"name": "Kalpataru Projects International Ltd.",
+"provisional": true,
+"ace_score": 8.34,
+"grade": "A-",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 1417.7,
+"chg_pct": 0.51,
+"mech_composite": 8.34,
 "mech_grade": "A-",
 "divergence": null,
 "divergence_baseline": null,
@@ -517,7 +604,7 @@
 "score": 8.86
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.33, A-) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.34, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Only 82% framework coverage - blackrock, damani could not be scored; the composite flatters what the data cannot see",
 "Promoter holding unavailable - skin-in-the-game unverified",
@@ -528,8 +615,8 @@
 }
 },
 {
-"symbol": "GVT&D",
-"name": "GE Vernova T&D India Ltd.",
+"symbol": "NATIONALUM",
+"name": "National Aluminium Co. Ltd.",
 "provisional": true,
 "ace_score": 8.31,
 "grade": "A-",
@@ -537,8 +624,8 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 4240.0,
-"chg_pct": -1.94,
+"cmp": 374.0,
+"chg_pct": 1.08,
 "mech_composite": 8.31,
 "mech_grade": "A-",
 "divergence": null,
@@ -564,51 +651,6 @@
 ],
 "mechanical_corroboration": "Mechanical screen currently agrees (composite 8.31, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
-"Weakest lens: Vanguard scores just 5.0/10 (profit consistency / low volatility)",
-"Only 70% framework coverage - kacholia, blackrock, damani could not be scored; the composite flatters what the data cannot see",
-"Promoter holding unavailable - skin-in-the-game unverified",
-"Volume integrity: 1 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"vetoes_now": []
-}
-},
-{
-"symbol": "NATIONALUM",
-"name": "National Aluminium Co. Ltd.",
-"provisional": true,
-"ace_score": 8.3,
-"grade": "A-",
-"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 370.0,
-"chg_pct": -0.54,
-"mech_composite": 8.3,
-"mech_grade": "A-",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "jhunjhunwala",
-"score": 10.0
-},
-{
-"name": "kedia",
-"score": 10.0
-},
-{
-"name": "buffett",
-"score": 9.98
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.3, A-) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
 "Only 82% framework coverage - blackrock, damani could not be scored; the composite flatters what the data cannot see",
 "Promoter holding unavailable - skin-in-the-game unverified",
 "Volume integrity: 1 zero-volume day(s) in 60 sessions - too thin to trust"
@@ -626,8 +668,8 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 6485.5,
-"chg_pct": 0.52,
+"cmp": 6469.0,
+"chg_pct": -0.25,
 "mech_composite": 8.22,
 "mech_grade": "A-",
 "divergence": null,
@@ -660,51 +702,6 @@
 }
 },
 {
-"symbol": "NAVINFLUOR",
-"name": "Navin Fluorine International Ltd.",
-"provisional": true,
-"ace_score": 8.18,
-"grade": "A-",
-"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 8542.5,
-"chg_pct": -1.08,
-"mech_composite": 8.18,
-"mech_grade": "A-",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "jhunjhunwala",
-"score": 10.0
-},
-{
-"name": "kedia",
-"score": 10.0
-},
-{
-"name": "buffett",
-"score": 9.2
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.18, A-) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
-"Only 82% framework coverage - blackrock, damani could not be scored; the composite flatters what the data cannot see",
-"Promoter holding unavailable - skin-in-the-game unverified",
-"Volume integrity: 67% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity",
-"Volume integrity: 1 zero-volume day(s) in 60 sessions - too thin to trust"
-],
-"vetoes_now": []
-}
-},
-{
 "symbol": "GLAND",
 "name": "Gland Pharma",
 "ace_score": 8.02,
@@ -714,13 +711,13 @@
 "added": "2026-07-01",
 "pending_add": true,
 "provisional": false,
-"cmp": 2868.4,
-"chg_pct": -0.23,
-"mech_composite": 8.09,
+"cmp": 2907.9,
+"chg_pct": 1.38,
+"mech_composite": 8.1,
 "mech_grade": "A-",
-"divergence": -0.07,
+"divergence": -0.08,
 "divergence_baseline": 0.54,
-"divergence_drift": -0.61,
+"divergence_drift": -0.62,
 "re_review": false,
 "vetoes_now": [],
 "in_universe": true,
@@ -736,13 +733,13 @@
 },
 {
 "name": "pabrai",
-"score": 9.66
+"score": 9.76
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.09, A-) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.1, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Weakest lens: Kacholia scores just 3.9/10 (3y growth + operating leverage + size runway)",
-"42% above its 200 DMA - buying here is paying for a move that already happened",
+"43% above its 200 DMA - buying here is paying for a move that already happened",
 "PAT compounding slower than revenue - margins are being given up to buy growth",
 "Only 82% framework coverage - blackrock, damani could not be scored; the composite flatters what the data cannot see",
 "Promoter holding unavailable - skin-in-the-game unverified"
@@ -762,13 +759,13 @@
 "added": "2026-07-01",
 "pending_add": true,
 "provisional": false,
-"cmp": 2155.2,
-"chg_pct": 0.1,
-"mech_composite": 7.92,
+"cmp": 2132.0,
+"chg_pct": -1.08,
+"mech_composite": 7.9,
 "mech_grade": "B+",
-"divergence": -0.33,
+"divergence": -0.31,
 "divergence_baseline": -1.14,
-"divergence_drift": 0.81,
+"divergence_drift": 0.83,
 "re_review": false,
 "vetoes_now": [],
 "in_universe": true,
@@ -787,7 +784,7 @@
 "score": 8.55
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.92, B+) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.9, B+) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Only 82% framework coverage - blackrock, damani could not be scored; the composite flatters what the data cannot see",
 "Promoter holding unavailable - skin-in-the-game unverified",
