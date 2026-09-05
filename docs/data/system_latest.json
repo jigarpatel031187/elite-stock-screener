@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-09-04T22:36:23.086412+05:30",
-"trade_date": "2026-09-04",
+"generated_at": "2026-09-05T13:31:19.169523+05:30",
+"trade_date": "2026-09-05",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,13 +37,13 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 655,
-"scored": 623,
+"scored": 645,
 "excluded_no_fundamentals": 6,
 "excluded_illiquid": 3,
-"excluded_low_coverage": 23,
+"excluded_low_coverage": 1,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-09-03)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-08-29)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -55,7 +55,7 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 36.8,
+"universe_pe_median": 34.9,
 "nifty_above_200dma": false,
 "nifty_3m_pct": 2.8,
 "india_vix": 10.7,
@@ -63,61 +63,61 @@
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 48,
+"sessions_logged": 49,
 "horizons": {
 "1m": {
 "status": "ok",
 "n": 646,
-"asof": "2026-08-07",
-"universe_median_ret_pct": -2.0,
+"asof": "2026-08-08",
+"universe_median_ret_pct": -1.7,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 19,
-"median_ret_pct": -1.4
+"n": 22,
+"median_ret_pct": 0.2
 },
 "B": {
-"n": 85,
-"median_ret_pct": -0.5
+"n": 83,
+"median_ret_pct": -0.9
 },
 "B+": {
-"n": 42,
-"median_ret_pct": 1.3
+"n": 39,
+"median_ret_pct": 1.0
 },
 "B-": {
-"n": 101,
-"median_ret_pct": -2.1
+"n": 109,
+"median_ret_pct": -2.0
 },
 "C": {
-"n": 211,
-"median_ret_pct": -2.3
+"n": 205,
+"median_ret_pct": -1.9
 },
 "D": {
-"n": 125,
-"median_ret_pct": -1.7
+"n": 122,
+"median_ret_pct": -2.0
 },
 "F": {
-"n": 60,
-"median_ret_pct": -2.9
+"n": 61,
+"median_ret_pct": -3.0
 }
 },
 "framework_ic": {
-"buffett": 0.007,
-"jhunjhunwala": 0.121,
-"pabrai": 0.07,
-"kacholia": -0.031,
-"kedia": 0.066,
-"blackrock": 0.051,
-"vanguard": -0.045,
-"damani": -0.029
+"buffett": 0.019,
+"jhunjhunwala": 0.13,
+"pabrai": 0.064,
+"kacholia": -0.016,
+"kedia": 0.071,
+"blackrock": 0.055,
+"vanguard": -0.072,
+"damani": 0.003
 }
 },
 "3m": {
-"status": "insufficient history (48/64 sessions)"
+"status": "insufficient history (49/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (48/127 sessions)"
+"status": "insufficient history (49/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -125,28 +125,40 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 2,
+"count": 3,
 "names": [
 {
-"symbol": "LUPIN",
-"name": "Lupin Ltd.",
-"entered": "2026-07-05",
-"entry_composite": 8.73,
-"current_composite": 7.89,
-"grade": "B+",
+"symbol": "NETWEB",
+"name": "Netweb Technologies India Ltd.",
+"entered": "2026-08-29",
+"entry_composite": 8.2,
+"current_composite": 7.0,
+"grade": "B",
 "reasons": [
-"grade A -> B+ (2 bands)"
+"grade A- -> B (2 bands)"
 ]
 },
 {
-"symbol": "KARURVYSYA",
-"name": "Karur Vysya Bank Ltd.",
-"entered": "2026-07-05",
-"entry_composite": 7.82,
-"current_composite": 6.81,
-"grade": "B-",
+"symbol": "HONASA",
+"name": "Honasa Consumer Ltd.",
+"entered": "2026-08-29",
+"entry_composite": 8.44,
+"current_composite": 7.42,
+"grade": "B",
 "reasons": [
-"grade B+ -> B- (2 bands)"
+"grade A- -> B (2 bands)"
+]
+},
+{
+"symbol": "NYKAA",
+"name": "FSN E-Commerce Ventures Ltd.",
+"entered": "2026-08-29",
+"entry_composite": 8.07,
+"current_composite": 6.3,
+"grade": "C",
+"reasons": [
+"composite 8.07 -> 6.3 since entry 2026-08-29",
+"grade A- -> C (4 bands)"
 ]
 }
 ],
