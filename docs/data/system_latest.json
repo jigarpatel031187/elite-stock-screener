@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-09-11T22:45:29.607325+05:30",
-"trade_date": "2026-09-11",
+"generated_at": "2026-09-12T13:50:25.936451+05:30",
+"trade_date": "2026-09-12",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,13 +37,13 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 655,
-"scored": 644,
-"excluded_no_fundamentals": 6,
+"scored": 647,
+"excluded_no_fundamentals": 4,
 "excluded_illiquid": 4,
-"excluded_low_coverage": 1,
+"excluded_low_coverage": 0,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-09-03)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-09-05)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -55,7 +55,7 @@
 "damani": 0.08
 },
 "regime": {
-"universe_pe_median": 34.9,
+"universe_pe_median": 34.2,
 "nifty_above_200dma": false,
 "nifty_3m_pct": -2.5,
 "india_vix": 12.3,
@@ -63,61 +63,61 @@
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 54,
+"sessions_logged": 55,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 647,
-"asof": "2026-08-14",
-"universe_median_ret_pct": -2.4,
+"n": 646,
+"asof": "2026-08-15",
+"universe_median_ret_pct": -2.0,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 21,
-"median_ret_pct": 1.9
+"n": 23,
+"median_ret_pct": 1.2
 },
 "B": {
-"n": 85,
-"median_ret_pct": -2.3
+"n": 81,
+"median_ret_pct": -2.7
 },
 "B+": {
-"n": 38,
-"median_ret_pct": 0.6
+"n": 46,
+"median_ret_pct": -0.6
 },
 "B-": {
-"n": 109,
-"median_ret_pct": -1.9
+"n": 106,
+"median_ret_pct": -1.4
 },
 "C": {
 "n": 209,
-"median_ret_pct": -2.9
+"median_ret_pct": -2.1
 },
 "D": {
-"n": 119,
-"median_ret_pct": -2.6
+"n": 125,
+"median_ret_pct": -2.2
 },
 "F": {
-"n": 62,
-"median_ret_pct": -3.3
+"n": 52,
+"median_ret_pct": -2.8
 }
 },
 "framework_ic": {
-"buffett": 0.017,
-"jhunjhunwala": 0.175,
-"pabrai": 0.035,
-"kacholia": 0.082,
-"kedia": 0.165,
-"blackrock": 0.0,
-"vanguard": -0.149,
-"damani": -0.019
+"buffett": 0.009,
+"jhunjhunwala": 0.166,
+"pabrai": 0.046,
+"kacholia": 0.073,
+"kedia": 0.132,
+"blackrock": -0.031,
+"vanguard": -0.16,
+"damani": -0.027
 }
 },
 "3m": {
-"status": "insufficient history (54/64 sessions)"
+"status": "insufficient history (55/64 sessions)"
 },
 "6m": {
-"status": "insufficient history (54/127 sessions)"
+"status": "insufficient history (55/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -125,17 +125,28 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 3,
+"count": 4,
 "names": [
+{
+"symbol": "KPIL",
+"name": "Kalpataru Projects International Ltd.",
+"entered": "2026-07-05",
+"entry_composite": 7.71,
+"current_composite": 6.95,
+"grade": "B-",
+"reasons": [
+"grade B+ -> B- (2 bands)"
+]
+},
 {
 "symbol": "NETWEB",
 "name": "Netweb Technologies India Ltd.",
 "entered": "2026-08-29",
 "entry_composite": 8.2,
-"current_composite": 6.98,
-"grade": "B-",
+"current_composite": 7.0,
+"grade": "B",
 "reasons": [
-"grade A- -> B- (3 bands)"
+"grade A- -> B (2 bands)"
 ]
 },
 {
@@ -154,10 +165,10 @@
 "name": "FSN E-Commerce Ventures Ltd.",
 "entered": "2026-08-29",
 "entry_composite": 8.07,
-"current_composite": 6.33,
+"current_composite": 6.3,
 "grade": "C",
 "reasons": [
-"composite 8.07 -> 6.33 since entry 2026-08-29",
+"composite 8.07 -> 6.3 since entry 2026-08-29",
 "grade A- -> C (4 bands)"
 ]
 }
