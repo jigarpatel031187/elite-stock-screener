@@ -1,10 +1,6 @@
-### Deep-Dive Queue — 2026-09-12
+### Deep-Dive Queue — 2026-09-15
 
 No new Lane 1 confirmations today.
-
-**🟡 New to Lane 2 (watching for volume):** CUB
-
-**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): AIIL
 
 Current queue: Lane 1 = 6, Lane 2 = 20.
 A queue entry is an invitation to run the ACE deep-dive, never a buy signal.
