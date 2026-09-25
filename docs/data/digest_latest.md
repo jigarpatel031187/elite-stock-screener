@@ -1,15 +1,15 @@
-### Deep-Dive Queue — 2026-09-24
+### Deep-Dive Queue — 2026-09-25
 
 **🟢 NEW in Lane 1 (volume-confirmed today)** — run these deep-dives first:
-- **MCX** (Multi Commodity Exchange of India Ltd.) — A+ 9.14, RVol 2.32x, ₹3427.7 (+1.6%) [worksheet ready in queue_latest.json]
-- **CAPLIPOINT** (Caplin Point Laboratories Ltd.) — A- 8.04, RVol 4.61x, ₹2867.4 (+2.6%) [worksheet ready in queue_latest.json]
-- **LALPATHLAB** (Dr. Lal Path Labs Ltd.) — B+ 7.76, RVol 1.54x, ₹1961.3 (+1.9%) [worksheet ready in queue_latest.json]
-- **ITCHOTELS** (ITC Hotels Ltd.) — B 7.26, RVol 2.29x, ₹164.01 (+1.7%) [worksheet ready in queue_latest.json]
-- **ESCORTS** (Escorts Kubota Ltd.) — B 7.02, RVol 5.09x, ₹2822.9 (+0.9%) [worksheet ready in queue_latest.json]
+- **CASTROLIND** (Castrol India Ltd.) — A 8.65, RVol 5.12x, ₹201.67 (+3.5%) [worksheet ready in queue_latest.json]
+- **ENGINERSIN** (Engineers India Ltd.) — B+ 7.63, RVol 2.52x, ₹315.65 (+6.4%) [worksheet ready in queue_latest.json]
+- **AUBANK** (AU Small Finance Bank Ltd.) — B 7.34, RVol 2.38x, ₹1018.0 (+1.8%) [worksheet ready in queue_latest.json]
+- **HBLENGINE** (HBL Engineering Ltd.) — B 7.26, RVol 2.22x, ₹806.0 (+4.0%) [worksheet ready in queue_latest.json]
+- **POWERINDIA** (Hitachi Energy India Ltd.) — B 7.2, RVol 1.56x, ₹31035.0 (+1.0%) [worksheet ready in queue_latest.json]
 
-**🟡 New to Lane 2 (watching for volume):** ATUL, GVT&D, KAJARIACER
+**🟡 New to Lane 2 (watching for volume):** CAPLIPOINT, MCX
 
-**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): AUBANK, ENGINERSIN, IKS, RADICO, SUMICHEM
+**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): CAPLIPOINT, ESCORTS, ITCHOTELS, LALPATHLAB, MCX
 
 Current queue: Lane 1 = 5, Lane 2 = 20.
 A queue entry is an invitation to run the ACE deep-dive, never a buy signal.
