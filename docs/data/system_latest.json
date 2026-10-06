@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-10-06T02:44:24.627245+05:30",
-"trade_date": "2026-10-06",
+"generated_at": "2026-10-07T00:35:52.712050+05:30",
+"trade_date": "2026-10-07",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -42,7 +42,7 @@
 "excluded_illiquid": 1,
 "excluded_low_coverage": 1,
 "min_coverage": 0.6,
-"universe_source": "NSE index CSVs (fresh)",
+"universe_source": "cache (2026-10-05)",
 "fundamentals_source": "yfinance statements (cached, oldest 2026-10-03)",
 "framework_weights": {
 "buffett": 0.2,
@@ -57,118 +57,118 @@
 "regime": {
 "universe_pe_median": 33.5,
 "nifty_above_200dma": false,
-"nifty_3m_pct": -8.2,
-"india_vix": 14.5,
+"nifty_3m_pct": -7.6,
+"india_vix": 14.8,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 71,
+"sessions_logged": 72,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 644,
-"asof": "2026-09-05",
-"universe_median_ret_pct": -5.7,
+"n": 643,
+"asof": "2026-09-07",
+"universe_median_ret_pct": -5.5,
 "terminated_n": 0,
 "unmatched_n": 1,
 "by_grade": {
 "A": {
 "n": 5,
-"median_ret_pct": 3.0
+"median_ret_pct": 4.1
 },
 "A-": {
-"n": 16,
-"median_ret_pct": -5.4
+"n": 15,
+"median_ret_pct": -4.5
 },
 "B": {
-"n": 74,
-"median_ret_pct": -5.5
+"n": 77,
+"median_ret_pct": -5.2
 },
 "B+": {
 "n": 49,
-"median_ret_pct": -4.8
+"median_ret_pct": -3.2
 },
 "B-": {
-"n": 116,
-"median_ret_pct": -4.5
+"n": 113,
+"median_ret_pct": -4.3
 },
 "C": {
-"n": 205,
-"median_ret_pct": -5.6
+"n": 208,
+"median_ret_pct": -5.4
 },
 "D": {
-"n": 132,
-"median_ret_pct": -6.7
+"n": 128,
+"median_ret_pct": -6.6
 },
 "F": {
-"n": 46,
-"median_ret_pct": -8.3
+"n": 47,
+"median_ret_pct": -8.7
 }
 },
 "framework_ic": {
-"buffett": 0.099,
-"jhunjhunwala": 0.137,
-"pabrai": 0.091,
-"kacholia": 0.038,
-"kedia": 0.112,
-"blackrock": 0.013,
-"vanguard": 0.022,
-"damani": 0.013
+"buffett": 0.116,
+"jhunjhunwala": 0.186,
+"pabrai": 0.106,
+"kacholia": 0.024,
+"kedia": 0.132,
+"blackrock": 0.048,
+"vanguard": 0.018,
+"damani": 0.023
 },
 "bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
 },
 "3m": {
 "status": "ok",
-"n": 640,
-"asof": "2026-07-14",
+"n": 633,
+"asof": "2026-07-15",
 "universe_median_ret_pct": -6.8,
 "terminated_n": 0,
 "unmatched_n": 2,
 "by_grade": {
 "A-": {
-"n": 20,
-"median_ret_pct": -2.7
+"n": 21,
+"median_ret_pct": -2.1
 },
 "B": {
 "n": 80,
-"median_ret_pct": -2.5
+"median_ret_pct": -3.2
 },
 "B+": {
-"n": 38,
-"median_ret_pct": -4.8
+"n": 37,
+"median_ret_pct": -5.5
 },
 "B-": {
-"n": 87,
-"median_ret_pct": -8.0
+"n": 89,
+"median_ret_pct": -6.0
 },
 "C": {
-"n": 197,
-"median_ret_pct": -7.5
+"n": 192,
+"median_ret_pct": -7.6
 },
 "D": {
-"n": 153,
-"median_ret_pct": -7.6
+"n": 149,
+"median_ret_pct": -8.1
 },
 "F": {
 "n": 63,
-"median_ret_pct": -11.2
+"median_ret_pct": -11.1
 }
 },
 "framework_ic": {
-"buffett": 0.057,
-"jhunjhunwala": 0.065,
-"pabrai": 0.11,
-"kacholia": -0.005,
-"kedia": 0.059,
-"blackrock": 0.039,
-"vanguard": -0.006,
-"damani": 0.008
+"buffett": 0.07,
+"jhunjhunwala": 0.067,
+"pabrai": 0.119,
+"kacholia": -0.017,
+"kedia": 0.041,
+"blackrock": 0.056,
+"vanguard": -0.001,
+"damani": 0.02
 },
 "bias_warning": "2 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
 },
 "6m": {
-"status": "insufficient history (71/127 sessions)"
+"status": "insufficient history (72/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
