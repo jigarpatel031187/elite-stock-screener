@@ -1,0 +1,264 @@
+{
+"generated_at": "2026-10-14T01:27:30.462501+05:30",
+"trade_date": "2026-10-14",
+"criteria": {
+"universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
+"hard_filters": [
+"NSE EQ series \u00b7 20d avg turnover >= Rs 3.0cr",
+"5+ quarters of reported financials (missing data = excluded, never guessed)",
+"framework coverage >= 60% or excluded"
+],
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"grade_bands": "A+ >=9.0 \u00b7 A 8.5 \u00b7 A- 8.0 \u00b7 B+ 7.5 \u00b7 B 7.0 \u00b7 B- 6.5 \u00b7 below -> C/D/F",
+"vetoes_automated": [
+"V3: D/E > 3.0 with declining CFO (caps grade at C)"
+],
+"vetoes_manual": [
+"V1",
+"V2",
+"V4",
+"V5",
+"V6",
+"V7"
+],
+"valuation_regime": "PE scored relative to live universe median, not absolute",
+"queue_rules": "composite >= 7.0, no vetoes, not on leaderboard; Lane 1 = RVol >= 1.5x on an up day",
+"radar_gates": "universe: Smallcap 250 + Microcap 250 \u00b7 mcap <= 25000cr \u00b7 rev CAGR >= 15.0% \u00b7 PAT CAGR >= 18.0% \u00b7 D/E <= 0.6 \u00b7 ROE >= 15.0% \u00b7 above 200DMA \u00b7 NOT over-extended (<= 35% above 200DMA, <= 80% 6m return) \u00b7 framework coverage >= 85% \u00b7 volume integrity (200+ sessions, no volume concentration, no zero-volume days) \u00b7 no vetoes \u00b7 signal age tracked, stale after 30 sessions",
+"data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
+"leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
+},
+"universe_size": 656,
+"scored": 642,
+"excluded_no_fundamentals": 12,
+"excluded_illiquid": 1,
+"excluded_low_coverage": 1,
+"min_coverage": 0.6,
+"universe_source": "cache (2026-10-05)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-10-10)",
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"regime": {
+"universe_pe_median": 32.4,
+"nifty_above_200dma": false,
+"nifty_3m_pct": -7.0,
+"india_vix": 15.2,
+"note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
+},
+"attribution": {
+"status": "ok",
+"sessions_logged": 77,
+"horizons": {
+"1m": {
+"status": "ok",
+"n": 647,
+"asof": "2026-09-12",
+"universe_median_ret_pct": -2.9,
+"terminated_n": 0,
+"unmatched_n": 0,
+"by_grade": {
+"A": {
+"n": 5,
+"median_ret_pct": 6.9
+},
+"A-": {
+"n": 14,
+"median_ret_pct": -0.2
+},
+"B": {
+"n": 75,
+"median_ret_pct": -2.3
+},
+"B+": {
+"n": 44,
+"median_ret_pct": -1.9
+},
+"B-": {
+"n": 113,
+"median_ret_pct": -2.3
+},
+"C": {
+"n": 213,
+"median_ret_pct": -2.7
+},
+"D": {
+"n": 131,
+"median_ret_pct": -3.9
+},
+"F": {
+"n": 51,
+"median_ret_pct": -6.5
+}
+},
+"framework_ic": {
+"buffett": 0.065,
+"jhunjhunwala": 0.204,
+"pabrai": 0.144,
+"kacholia": 0.016,
+"kedia": 0.128,
+"blackrock": 0.061,
+"vanguard": -0.026,
+"damani": -0.014
+}
+},
+"3m": {
+"status": "ok",
+"n": 644,
+"asof": "2026-07-21",
+"universe_median_ret_pct": -6.6,
+"terminated_n": 0,
+"unmatched_n": 1,
+"by_grade": {
+"A-": {
+"n": 20,
+"median_ret_pct": -1.6
+},
+"B": {
+"n": 82,
+"median_ret_pct": -4.1
+},
+"B+": {
+"n": 38,
+"median_ret_pct": -4.2
+},
+"B-": {
+"n": 86,
+"median_ret_pct": -5.7
+},
+"C": {
+"n": 199,
+"median_ret_pct": -7.0
+},
+"D": {
+"n": 147,
+"median_ret_pct": -7.4
+},
+"F": {
+"n": 69,
+"median_ret_pct": -10.9
+}
+},
+"framework_ic": {
+"buffett": 0.07,
+"jhunjhunwala": 0.092,
+"pabrai": 0.106,
+"kacholia": 0.033,
+"kedia": 0.085,
+"blackrock": 0.051,
+"vanguard": -0.052,
+"damani": -0.009
+},
+"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+},
+"6m": {
+"status": "insufficient history (77/127 sessions)"
+}
+},
+"method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
+},
+"grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
+"disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
+"rules": {
+"max_mcap_cr": 25000,
+"min_rev_cagr3y_pct": 15.0,
+"min_pat_cagr3y_pct": 18.0,
+"max_de": 0.6,
+"min_roe_pct": 15.0,
+"min_promoter_pct": 40.0,
+"require_above_200dma": true,
+"max_names": 25,
+"eligible_indices": [
+"smallcap250",
+"microcap250"
+]
+},
+"near_misses": [
+{
+"symbol": "SJS",
+"name": "S.J.S. Enterprises Ltd.",
+"composite": 8.94,
+"near_miss": "ROE"
+},
+{
+"symbol": "TIPSMUSIC",
+"name": "Tips Music Ltd.",
+"composite": 8.75,
+"near_miss": "ROE"
+},
+{
+"symbol": "MANORAMA",
+"name": "Manorama Industries Ltd.",
+"composite": 8.34,
+"near_miss": "ROE"
+},
+{
+"symbol": "ANANDRATHI",
+"name": "Anand Rathi Wealth Ltd.",
+"composite": 8.08,
+"near_miss": "mcap > 25000cr"
+},
+{
+"symbol": "THYROCARE",
+"name": "Thyrocare Technologies Ltd.",
+"composite": 7.94,
+"near_miss": "ROE"
+},
+{
+"symbol": "VIJAYA",
+"name": "Vijaya Diagnostic Centre Ltd.",
+"composite": 7.9,
+"near_miss": "ROE"
+},
+{
+"symbol": "GOLDIAM",
+"name": "Goldiam International Ltd.",
+"composite": 7.87,
+"near_miss": "ROE"
+},
+{
+"symbol": "EMMVEE",
+"name": "Emmvee Photovoltaic Power Ltd.",
+"composite": 7.76,
+"near_miss": "ROE"
+},
+{
+"symbol": "ATLANTAELE",
+"name": "Atlanta Electricals Ltd.",
+"composite": 7.61,
+"near_miss": "ROE"
+},
+{
+"symbol": "POWERMECH",
+"name": "Power Mech Projects Ltd.",
+"composite": 7.5,
+"near_miss": "ROE"
+}
+],
+"portfolio": {
+"sector_concentration": {
+"counts": {},
+"warnings": []
+},
+"correlation_flags": [],
+"sizing_note": "inverse-volatility, capped 8%"
+},
+"tab": "multibagger",
+"count": 0,
+"stocks": []
+}
