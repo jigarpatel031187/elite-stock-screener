@@ -1,14 +1,14 @@
 ### Deep-Dive Queue — 2026-10-14
 
 **🟢 NEW in Lane 1 (volume-confirmed today)** — run these deep-dives first:
-- **GVT&D** (GE Vernova T&D India Ltd.) — B+ 7.78, RVol 1.91x, ₹4254.0 (+1.4%) [worksheet ready in queue_latest.json]
-- **KARURVYSYA** (Karur Vysya Bank Ltd.) — B+ 7.7, RVol 2.54x, ₹342.3 (+0.7%) [worksheet ready in queue_latest.json]
-- **PERSISTENT** (Persistent Systems Ltd.) — B 7.19, RVol 2.35x, ₹5787.0 (+0.3%) [worksheet ready in queue_latest.json]
-- **NETWEB** (Netweb Technologies India Ltd.) — B 7.0, RVol 2.14x, ₹5001.0 (+5.9%) [worksheet ready in queue_latest.json]
+- **AEGISLOG** (Aegis Logistics Ltd.) — B+ 7.72, RVol 4.64x, ₹1489.1 (+7.0%) [worksheet ready in queue_latest.json]
+- **SAGILITY** (Sagility Ltd.) — B+ 7.69, RVol 2.05x, ₹45.55 (+2.7%) [worksheet ready in queue_latest.json]
+- **CHENNPETRO** (Chennai Petroleum Corporation Ltd.) — B+ 7.61, RVol 1.76x, ₹1546.1 (+5.9%) [worksheet ready in queue_latest.json]
+- **ECLERX** (eClerx Services Ltd.) — B 7.26, RVol 2.07x, ₹1967.6 (+0.2%) [worksheet ready in queue_latest.json]
 
-**🟡 New to Lane 2 (watching for volume):** ATUL, KAJARIACER
+**🟡 New to Lane 2 (watching for volume):** EMMVEE
 
-**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): CARTRADE, SUMICHEM
+**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): GVT&D, KARURVYSYA, NETWEB, PERSISTENT
 
 Current queue: Lane 1 = 4, Lane 2 = 20.
 A queue entry is an invitation to run the ACE deep-dive, never a buy signal.
