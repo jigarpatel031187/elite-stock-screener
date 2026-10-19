@@ -1,0 +1,4965 @@
+{
+"generated_at": "2026-10-20T00:59:31.698271+05:30",
+"trade_date": "2026-10-20",
+"criteria": {
+"universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
+"hard_filters": [
+"NSE EQ series \u00b7 20d avg turnover >= Rs 3.0cr",
+"5+ quarters of reported financials (missing data = excluded, never guessed)",
+"framework coverage >= 60% or excluded"
+],
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"grade_bands": "A+ >=9.0 \u00b7 A 8.5 \u00b7 A- 8.0 \u00b7 B+ 7.5 \u00b7 B 7.0 \u00b7 B- 6.5 \u00b7 below -> C/D/F",
+"vetoes_automated": [
+"V3: D/E > 3.0 with declining CFO (caps grade at C)"
+],
+"vetoes_manual": [
+"V1",
+"V2",
+"V4",
+"V5",
+"V6",
+"V7"
+],
+"valuation_regime": "PE scored relative to live universe median, not absolute",
+"queue_rules": "composite >= 7.0, no vetoes, not on leaderboard; Lane 1 = RVol >= 1.5x on an up day",
+"radar_gates": "universe: Smallcap 250 + Microcap 250 \u00b7 mcap <= 25000cr \u00b7 rev CAGR >= 15.0% \u00b7 PAT CAGR >= 18.0% \u00b7 D/E <= 0.6 \u00b7 ROE >= 15.0% \u00b7 above 200DMA \u00b7 NOT over-extended (<= 35% above 200DMA, <= 80% 6m return) \u00b7 framework coverage >= 85% \u00b7 volume integrity (200+ sessions, no volume concentration, no zero-volume days) \u00b7 no vetoes \u00b7 signal age tracked, stale after 30 sessions",
+"data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
+"leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
+},
+"universe_size": 656,
+"scored": 641,
+"excluded_no_fundamentals": 12,
+"excluded_illiquid": 2,
+"excluded_low_coverage": 1,
+"min_coverage": 0.6,
+"universe_source": "cache (2026-10-05)",
+"fundamentals_source": "yfinance statements (cached, oldest 2026-10-17)",
+"framework_weights": {
+"buffett": 0.2,
+"jhunjhunwala": 0.15,
+"pabrai": 0.13,
+"kacholia": 0.12,
+"kedia": 0.12,
+"blackrock": 0.1,
+"vanguard": 0.1,
+"damani": 0.08
+},
+"regime": {
+"universe_pe_median": 33.7,
+"nifty_above_200dma": false,
+"nifty_3m_pct": -4.5,
+"india_vix": 14.1,
+"note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
+},
+"attribution": {
+"status": "ok",
+"sessions_logged": 81,
+"horizons": {
+"1m": {
+"status": "ok",
+"n": 647,
+"asof": "2026-09-18",
+"universe_median_ret_pct": -4.6,
+"terminated_n": 0,
+"unmatched_n": 0,
+"by_grade": {
+"A-": {
+"n": 15,
+"median_ret_pct": -4.2
+},
+"B": {
+"n": 78,
+"median_ret_pct": -4.0
+},
+"B+": {
+"n": 43,
+"median_ret_pct": -3.9
+},
+"B-": {
+"n": 106,
+"median_ret_pct": -3.7
+},
+"C": {
+"n": 223,
+"median_ret_pct": -4.4
+},
+"D": {
+"n": 127,
+"median_ret_pct": -6.3
+},
+"F": {
+"n": 50,
+"median_ret_pct": -5.0
+}
+},
+"framework_ic": {
+"buffett": 0.076,
+"jhunjhunwala": 0.007,
+"pabrai": 0.094,
+"kacholia": -0.034,
+"kedia": 0.041,
+"blackrock": -0.035,
+"vanguard": 0.029,
+"damani": 0.12
+}
+},
+"3m": {
+"status": "ok",
+"n": 644,
+"asof": "2026-07-25",
+"universe_median_ret_pct": -5.3,
+"terminated_n": 0,
+"unmatched_n": 1,
+"by_grade": {
+"A-": {
+"n": 18,
+"median_ret_pct": 5.0
+},
+"B": {
+"n": 87,
+"median_ret_pct": -2.5
+},
+"B+": {
+"n": 39,
+"median_ret_pct": -4.6
+},
+"B-": {
+"n": 86,
+"median_ret_pct": -5.6
+},
+"C": {
+"n": 197,
+"median_ret_pct": -5.4
+},
+"D": {
+"n": 144,
+"median_ret_pct": -5.3
+},
+"F": {
+"n": 71,
+"median_ret_pct": -9.2
+}
+},
+"framework_ic": {
+"buffett": 0.079,
+"jhunjhunwala": 0.072,
+"pabrai": 0.118,
+"kacholia": -0.019,
+"kedia": 0.075,
+"blackrock": 0.046,
+"vanguard": -0.032,
+"damani": 0.039
+},
+"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+},
+"6m": {
+"status": "insufficient history (81/127 sessions)"
+}
+},
+"method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
+},
+"grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
+"disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
+"portfolio": {
+"sector_concentration": {
+"counts": {
+"Healthcare": 9,
+"Financial Services": 7,
+"Industrials": 5,
+"Basic Materials": 4,
+"Technology": 3,
+"Energy": 1,
+"Consumer Cyclical": 1
+},
+"warnings": []
+},
+"correlation_flags": [],
+"sizing_note": "inverse-volatility weights, capped at 8% - risk illustration only"
+},
+"tab": "primary",
+"count": 60,
+"stocks": [
+{
+"symbol": "MCX",
+"name": "Multi Commodity Exchange of India Ltd.",
+"index": "midcap150",
+"cmp": 3162.0,
+"chg_pct": -1.69,
+"composite": 8.94,
+"grade": "A",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 10.0,
+"jhunjhunwala": 9.29,
+"pabrai": 7.0,
+"kacholia": 10.0,
+"kedia": 10.0,
+"blackrock": 9.29,
+"vanguard": 7.68,
+"damani": 6.74
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.0,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.24,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": null,
+"pe": 66.0,
+"roe_pct": null,
+"op_margin_pct": 69.6,
+"de": 0.0,
+"rev_cagr3y_pct": 67.9,
+"pat_cagr3y_pct": 107.5,
+"promoter_pct": 19.5,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 13.0,
+"dd_from_52wk": -7.9,
+"ret_6m_pct": 11.0,
+"turnover_cr": 626.36,
+"ann_vol_pct": 38.3,
+"rvol20": 0.6,
+"swing_low_20": 3122.7,
+"swing_high_20": 3481.4,
+"atr14": 109.88
+},
+"bear_case": [
+"PE 66.0 is 2.0x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.5
+},
+{
+"symbol": "GESHIP",
+"name": "Great Eastern Shipping Co. Ltd.",
+"index": "smallcap250",
+"cmp": 1507.4,
+"chg_pct": 1.57,
+"composite": 8.65,
+"grade": "A",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.89,
+"jhunjhunwala": 9.94,
+"pabrai": 9.18,
+"kacholia": 4.26,
+"kedia": 8.32,
+"blackrock": 8.99,
+"vanguard": 8.56,
+"damani": 9.04
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.06,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.37,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 21180,
+"pe": 5.8,
+"roe_pct": null,
+"op_margin_pct": 54.4,
+"de": 0.06,
+"rev_cagr3y_pct": -1.6,
+"pat_cagr3y_pct": 4.5,
+"promoter_pct": 30.8,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 10.2,
+"dd_from_52wk": -11.4,
+"ret_6m_pct": 7.7,
+"turnover_cr": 143.55,
+"ann_vol_pct": 34.9,
+"rvol20": 0.48,
+"swing_low_20": 1434.0,
+"swing_high_20": 1583.0,
+"atr14": 48.87
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.3/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "CASTROLIND",
+"name": "Castrol India Ltd.",
+"index": "smallcap250",
+"cmp": 197.74,
+"chg_pct": 0.77,
+"composite": 8.62,
+"grade": "A",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.93,
+"jhunjhunwala": 9.58,
+"pabrai": 9.28,
+"kacholia": 2.97,
+"kedia": 8.46,
+"blackrock": 9.1,
+"vanguard": 10.0,
+"damani": 8.92
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.03,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.38,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 19559,
+"pe": 18.6,
+"roe_pct": 57.0,
+"op_margin_pct": 24.8,
+"de": 0.03,
+"rev_cagr3y_pct": 6.2,
+"pat_cagr3y_pct": 5.2,
+"promoter_pct": 51.3,
+"sector": "Energy",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 9.6,
+"dd_from_52wk": -1.9,
+"ret_6m_pct": 12.1,
+"turnover_cr": 63.92,
+"ann_vol_pct": 13.1,
+"rvol20": 0.64,
+"swing_low_20": 190.1,
+"swing_high_20": 203.4,
+"atr14": 3.72
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.0/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 4.3
+},
+{
+"symbol": "LUPIN",
+"name": "Lupin Ltd.",
+"index": "midcap150",
+"cmp": 1961.6,
+"chg_pct": -0.97,
+"composite": 8.26,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.51,
+"jhunjhunwala": 7.78,
+"pabrai": 6.92,
+"kacholia": 6.41,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 9.68,
+"damani": 9.48
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.29,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.23,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 89702,
+"pe": 16.2,
+"roe_pct": null,
+"op_margin_pct": 25.4,
+"de": 0.29,
+"rev_cagr3y_pct": 19.1,
+"pat_cagr3y_pct": 131.5,
+"promoter_pct": 47.0,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -12.4,
+"dd_from_52wk": -22.0,
+"ret_6m_pct": -15.1,
+"turnover_cr": 136.03,
+"ann_vol_pct": 19.5,
+"rvol20": 0.86,
+"swing_low_20": 1925.7,
+"swing_high_20": 2135.0,
+"atr14": 39.44
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 2.9
+},
+{
+"symbol": "OFSS",
+"name": "Oracle Financial Services Software Ltd.",
+"index": "midcap150",
+"cmp": 10386.0,
+"chg_pct": 1.33,
+"composite": 8.23,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.99,
+"jhunjhunwala": 9.75,
+"pabrai": 7.98,
+"kacholia": 3.65,
+"kedia": 6.67,
+"blackrock": 9.98,
+"vanguard": 8.49,
+"damani": 8.06
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.0,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.31,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 90464,
+"pe": 26.9,
+"roe_pct": 49.9,
+"op_margin_pct": 59.6,
+"de": 0.0,
+"rev_cagr3y_pct": 10.4,
+"pat_cagr3y_pct": 13.5,
+"promoter_pct": 72.4,
+"sector": "Technology",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 12.1,
+"dd_from_52wk": -17.2,
+"ret_6m_pct": 33.7,
+"turnover_cr": 258.01,
+"ann_vol_pct": 32.9,
+"rvol20": 0.5,
+"swing_low_20": 10102.0,
+"swing_high_20": 11787.0,
+"atr14": 337.0
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.6/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 1.7
+},
+{
+"symbol": "NAM-INDIA",
+"name": "Nippon Life India Asset Management Ltd.",
+"index": "midcap150",
+"cmp": 1065.3,
+"chg_pct": -2.16,
+"composite": 8.11,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.97,
+"jhunjhunwala": 9.33,
+"pabrai": 6.59,
+"kacholia": 6.28,
+"kedia": 6.67,
+"blackrock": 9.68,
+"vanguard": 7.75,
+"damani": 7.09
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.02,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.22,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 68184,
+"pe": 41.3,
+"roe_pct": null,
+"op_margin_pct": 71.1,
+"de": 0.02,
+"rev_cagr3y_pct": 26.1,
+"pat_cagr3y_pct": 28.3,
+"promoter_pct": 0.6,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 3.1,
+"dd_from_52wk": -14.8,
+"ret_6m_pct": 6.1,
+"turnover_cr": 75.61,
+"ann_vol_pct": 39.4,
+"rvol20": 0.53,
+"swing_low_20": 1026.4,
+"swing_high_20": 1175.8,
+"atr14": 30.12
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.4
+},
+{
+"symbol": "ANANDRATHI",
+"name": "Anand Rathi Wealth Ltd.",
+"index": "smallcap250",
+"cmp": 2159.7,
+"chg_pct": 0.8,
+"composite": 8.08,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.9,
+"jhunjhunwala": 8.05,
+"pabrai": 7.18,
+"kacholia": 7.89,
+"kedia": 5.64,
+"blackrock": 10.0,
+"vanguard": 9.62,
+"damani": 4.62
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.08,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.38,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 35860,
+"pe": 80.2,
+"roe_pct": 43.0,
+"op_margin_pct": 33.7,
+"de": 0.08,
+"rev_cagr3y_pct": 27.9,
+"pat_cagr3y_pct": 33.0,
+"promoter_pct": 27.0,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 18.1,
+"dd_from_52wk": -2.9,
+"ret_6m_pct": 17.5,
+"turnover_cr": 106.46,
+"ann_vol_pct": 20.3,
+"rvol20": 0.45,
+"swing_low_20": 2003.21,
+"swing_high_20": 2230.48,
+"atr14": 56.12
+},
+"bear_case": [
+"Weakest lens: Damani scores just 4.6/10 (CFO/PAT conversion + margin + valuation)",
+"PE 80.2 is 2.4x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 2.8
+},
+{
+"symbol": "COFORGE",
+"name": "Coforge Ltd.",
+"index": "midcap150",
+"cmp": 1951.9,
+"chg_pct": 0.91,
+"composite": 8.07,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.37,
+"jhunjhunwala": 9.55,
+"pabrai": 8.14,
+"kacholia": 6.54,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 8.28,
+"damani": 6.11
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.08,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.27,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 86477,
+"pe": 40.0,
+"roe_pct": null,
+"op_margin_pct": 16.0,
+"de": 0.08,
+"rev_cagr3y_pct": 26.9,
+"pat_cagr3y_pct": 30.9,
+"promoter_pct": 21.3,
+"sector": "Technology",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 28.1,
+"dd_from_52wk": -3.1,
+"ret_6m_pct": 48.6,
+"turnover_cr": 382.83,
+"ann_vol_pct": 39.1,
+"rvol20": 0.63,
+"swing_low_20": 1722.0,
+"swing_high_20": 1970.0,
+"atr14": 67.82
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.4
+},
+{
+"symbol": "NATIONALUM",
+"name": "National Aluminium Co. Ltd.",
+"index": "midcap150",
+"cmp": 324.25,
+"chg_pct": 1.84,
+"composite": 8.06,
+"grade": "A-",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.98,
+"jhunjhunwala": 7.89,
+"pabrai": 7.68,
+"kacholia": 5.3,
+"kedia": 6.67,
+"blackrock": 9.48,
+"vanguard": 7.36,
+"damani": 9.51
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.01,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.25,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 59553,
+"pe": 8.8,
+"roe_pct": null,
+"op_margin_pct": 47.6,
+"de": 0.01,
+"rev_cagr3y_pct": 7.8,
+"pat_cagr3y_pct": 59.3,
+"promoter_pct": 51.3,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -12.6,
+"dd_from_52wk": -26.0,
+"ret_6m_pct": -25.5,
+"turnover_cr": 165.35,
+"ann_vol_pct": 42.1,
+"rvol20": 0.57,
+"swing_low_20": 309.9,
+"swing_high_20": 363.95,
+"atr14": 10.49
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.3
+},
+{
+"symbol": "NAVINFLUOR",
+"name": "Navin Fluorine International Ltd.",
+"index": "smallcap250",
+"cmp": 8167.0,
+"chg_pct": -0.98,
+"composite": 7.98,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.47,
+"jhunjhunwala": 9.43,
+"pabrai": 5.85,
+"kacholia": 5.61,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 8.44,
+"damani": 7.46
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.32,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.25,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 41903,
+"pe": 53.0,
+"roe_pct": null,
+"op_margin_pct": 30.2,
+"de": 0.32,
+"rev_cagr3y_pct": 16.5,
+"pat_cagr3y_pct": 20.9,
+"promoter_pct": 28.6,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 14.7,
+"dd_from_52wk": -6.9,
+"ret_6m_pct": 30.1,
+"turnover_cr": 81.99,
+"ann_vol_pct": 36.9,
+"rvol20": 0.37,
+"swing_low_20": 8035.0,
+"swing_high_20": 8650.0,
+"atr14": 230.88
+},
+"bear_case": [
+"PE 53.0 is 1.6x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.5
+},
+{
+"symbol": "CAPLIPOINT",
+"name": "Caplin Point Laboratories Ltd.",
+"index": "smallcap250",
+"cmp": 2301.3,
+"chg_pct": -0.02,
+"composite": 7.97,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 10.0,
+"jhunjhunwala": 7.46,
+"pabrai": 7.86,
+"kacholia": 6.39,
+"kedia": 6.37,
+"blackrock": 8.56,
+"vanguard": 8.59,
+"damani": 7.32
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.0,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.46,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 17493,
+"pe": 26.4,
+"roe_pct": null,
+"op_margin_pct": 31.4,
+"de": 0.0,
+"rev_cagr3y_pct": 14.3,
+"pat_cagr3y_pct": 19.4,
+"promoter_pct": 73.4,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 7.6,
+"dd_from_52wk": -19.7,
+"ret_6m_pct": 30.4,
+"turnover_cr": 50.06,
+"ann_vol_pct": 34.1,
+"rvol20": 0.37,
+"swing_low_20": 2248.1,
+"swing_high_20": 2990.0,
+"atr14": 109.1
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.7
+},
+{
+"symbol": "USHAMART",
+"name": "Usha Martin Ltd.",
+"index": "smallcap250",
+"cmp": 491.3,
+"chg_pct": 1.74,
+"composite": 7.96,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.53,
+"jhunjhunwala": 9.23,
+"pabrai": 8.38,
+"kacholia": 4.9,
+"kedia": 7.23,
+"blackrock": 8.27,
+"vanguard": 8.78,
+"damani": 7.76
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.07,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.43,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 14955,
+"pe": 28.1,
+"roe_pct": null,
+"op_margin_pct": 16.9,
+"de": 0.07,
+"rev_cagr3y_pct": 4.1,
+"pat_cagr3y_pct": 10.0,
+"promoter_pct": 40.2,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 6.1,
+"dd_from_52wk": -8.2,
+"ret_6m_pct": 10.3,
+"turnover_cr": 47.5,
+"ann_vol_pct": 32.1,
+"rvol20": 0.5,
+"swing_low_20": 477.15,
+"swing_high_20": 542.6,
+"atr14": 15.74
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.9/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 1.8
+},
+{
+"symbol": "EMMVEE",
+"name": "Emmvee Photovoltaic Power Ltd.",
+"index": "smallcap250",
+"cmp": 277.2,
+"chg_pct": -1.74,
+"composite": 7.95,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.88,
+"jhunjhunwala": 8.19,
+"pabrai": 7.38,
+"kacholia": 9.35,
+"kedia": 8.49,
+"blackrock": 8.76,
+"vanguard": 6.67,
+"damani": 6.3
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.1,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 228,
+"top3_vol_share": 0.44,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 19192,
+"pe": 13.3,
+"roe_pct": 53.1,
+"op_margin_pct": 30.0,
+"de": 0.1,
+"rev_cagr3y_pct": 102.7,
+"pat_cagr3y_pct": 394.6,
+"promoter_pct": 80.0,
+"sector": "Technology",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 1.3,
+"dd_from_52wk": -23.9,
+"ret_6m_pct": 4.7,
+"turnover_cr": 96.33,
+"ann_vol_pct": 51.7,
+"rvol20": 0.85,
+"swing_low_20": 268.25,
+"swing_high_20": 354.8,
+"atr14": 13.08
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.1
+},
+{
+"symbol": "GLENMARK",
+"name": "Glenmark Pharmaceuticals Ltd.",
+"index": "midcap150",
+"cmp": 2226.7,
+"chg_pct": -1.06,
+"composite": 7.94,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.36,
+"jhunjhunwala": 9.92,
+"pabrai": 7.88,
+"kacholia": 5.85,
+"kedia": 6.5,
+"blackrock": 10.0,
+"vanguard": 7.33,
+"damani": 6.7
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.06,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.28,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 62843,
+"pe": 35.0,
+"roe_pct": null,
+"op_margin_pct": 15.7,
+"de": 0.06,
+"rev_cagr3y_pct": 13.5,
+"pat_cagr3y_pct": 66.1,
+"promoter_pct": 49.0,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 0.6,
+"dd_from_52wk": -11.4,
+"ret_6m_pct": -0.9,
+"turnover_cr": 150.58,
+"ann_vol_pct": 27.9,
+"rvol20": 0.45,
+"swing_low_20": 2181.2,
+"swing_high_20": 2482.6,
+"atr14": 70.52
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 2.0
+},
+{
+"symbol": "SCI",
+"name": "Shipping Corporation of India Ltd.",
+"index": "smallcap250",
+"cmp": 284.9,
+"chg_pct": 0.32,
+"composite": 7.87,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 6.84,
+"jhunjhunwala": 9.88,
+"pabrai": 7.83,
+"kacholia": 5.4,
+"kedia": 9.01,
+"blackrock": 8.03,
+"vanguard": 7.49,
+"damani": 9.06
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.29,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.58,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 13271,
+"pe": 8.2,
+"roe_pct": null,
+"op_margin_pct": 32.5,
+"de": 0.29,
+"rev_cagr3y_pct": -0.1,
+"pat_cagr3y_pct": 15.8,
+"promoter_pct": 63.7,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 4.6,
+"dd_from_52wk": -17.1,
+"ret_6m_pct": -6.5,
+"turnover_cr": 85.96,
+"ann_vol_pct": 46.7,
+"rvol20": 0.46,
+"swing_low_20": 261.15,
+"swing_high_20": 293.8,
+"atr14": 9.37
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.2
+},
+{
+"symbol": "TDPOWERSYS",
+"name": "TD Power Systems Ltd.",
+"index": "smallcap250",
+"cmp": 735.15,
+"chg_pct": 0.05,
+"composite": 7.86,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.09,
+"jhunjhunwala": 8.52,
+"pabrai": 6.78,
+"kacholia": 8.73,
+"kedia": 8.1,
+"blackrock": 9.29,
+"vanguard": 7.09,
+"damani": 2.8
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.02,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.38,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 23631,
+"pe": 83.5,
+"roe_pct": 28.5,
+"op_margin_pct": 17.9,
+"de": 0.02,
+"rev_cagr3y_pct": 29.2,
+"pat_cagr3y_pct": 35.1,
+"promoter_pct": 26.6,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 31.4,
+"dd_from_52wk": -11.0,
+"ret_6m_pct": 47.6,
+"turnover_cr": 273.34,
+"ann_vol_pct": 55.5,
+"rvol20": 0.5,
+"swing_low_20": 711.15,
+"swing_high_20": 856.1,
+"atr14": 45.49
+},
+"bear_case": [
+"Weakest lens: Damani scores just 2.8/10 (CFO/PAT conversion + margin + valuation)",
+"PE 83.5 is 2.5x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.0
+},
+{
+"symbol": "CRISIL",
+"name": "CRISIL Ltd.",
+"index": "midcap150",
+"cmp": 4547.9,
+"chg_pct": 3.0,
+"composite": 7.85,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.84,
+"jhunjhunwala": 7.15,
+"pabrai": 7.87,
+"kacholia": 4.59,
+"kedia": 6.88,
+"blackrock": 9.03,
+"vanguard": 9.16,
+"damani": 7.41
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.1,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.43,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 33259,
+"pe": 37.6,
+"roe_pct": 29.1,
+"op_margin_pct": 24.7,
+"de": 0.1,
+"rev_cagr3y_pct": 9.6,
+"pat_cagr3y_pct": 10.7,
+"promoter_pct": 71.9,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 5.3,
+"dd_from_52wk": -8.5,
+"ret_6m_pct": 5.4,
+"turnover_cr": 15.7,
+"ann_vol_pct": 26.7,
+"rvol20": 0.34,
+"swing_low_20": 4345.0,
+"swing_high_20": 4706.2,
+"atr14": 122.35
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.6/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 2.1
+},
+{
+"symbol": "VIJAYA",
+"name": "Vijaya Diagnostic Centre Ltd.",
+"index": "smallcap250",
+"cmp": 1381.7,
+"chg_pct": -0.41,
+"composite": 7.85,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.26,
+"jhunjhunwala": 8.39,
+"pabrai": 4.69,
+"kacholia": 7.75,
+"kedia": 8.93,
+"blackrock": 7.24,
+"vanguard": 8.71,
+"damani": 6.67
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.44,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.31,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 14231,
+"pe": 75.6,
+"roe_pct": null,
+"op_margin_pct": 31.8,
+"de": 0.44,
+"rev_cagr3y_pct": 21.0,
+"pat_cagr3y_pct": 26.9,
+"promoter_pct": 53.5,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 13.7,
+"dd_from_52wk": -12.0,
+"ret_6m_pct": 35.3,
+"turnover_cr": 18.18,
+"ann_vol_pct": 33.0,
+"rvol20": 1.39,
+"swing_low_20": 1354.2,
+"swing_high_20": 1593.6,
+"atr14": 48.38
+},
+"bear_case": [
+"Weakest lens: Pabrai scores just 4.7/10 (margin-of-safety / downside protection)",
+"PE 75.6 is 2.2x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.7
+},
+{
+"symbol": "AJANTPHARM",
+"name": "Ajanta Pharmaceuticals Ltd.",
+"index": "midcap150",
+"cmp": 3329.0,
+"chg_pct": -0.9,
+"composite": 7.84,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.9,
+"jhunjhunwala": 7.5,
+"pabrai": 7.17,
+"kacholia": 5.36,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 9.21,
+"damani": 5.46
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.06,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.32,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 41599,
+"pe": 36.3,
+"roe_pct": null,
+"op_margin_pct": 25.2,
+"de": 0.06,
+"rev_cagr3y_pct": 13.4,
+"pat_cagr3y_pct": 21.6,
+"promoter_pct": 54.3,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 6.7,
+"dd_from_52wk": -10.5,
+"ret_6m_pct": 20.4,
+"turnover_cr": 33.84,
+"ann_vol_pct": 26.1,
+"rvol20": 0.36,
+"swing_low_20": 3269.9,
+"swing_high_20": 3758.9,
+"atr14": 109.79
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 2.2
+},
+{
+"symbol": "GLAND",
+"name": "Gland Pharma Ltd.",
+"index": "smallcap250",
+"cmp": 3043.4,
+"chg_pct": -0.75,
+"composite": 7.81,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.29,
+"jhunjhunwala": 9.3,
+"pabrai": 8.01,
+"kacholia": 3.4,
+"kedia": 6.26,
+"blackrock": 9.82,
+"vanguard": 8.24,
+"damani": 6.86
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.03,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.41,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 50219,
+"pe": 44.1,
+"roe_pct": null,
+"op_margin_pct": 21.0,
+"de": 0.03,
+"rev_cagr3y_pct": 21.3,
+"pat_cagr3y_pct": 9.6,
+"promoter_pct": 51.8,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 38.0,
+"dd_from_52wk": -3.4,
+"ret_6m_pct": 70.6,
+"turnover_cr": 103.57,
+"ann_vol_pct": 34.3,
+"rvol20": 0.48,
+"swing_low_20": 2841.1,
+"swing_high_20": 3171.0,
+"atr14": 99.92
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.4/10 (3y growth + operating leverage + size runway)",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "ATUL",
+"name": "Atul Ltd.",
+"index": "smallcap250",
+"cmp": 6196.5,
+"chg_pct": -0.01,
+"composite": 7.8,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.63,
+"jhunjhunwala": 7.58,
+"pabrai": 7.9,
+"kacholia": 4.73,
+"kedia": 8.28,
+"blackrock": 8.05,
+"vanguard": 9.25,
+"damani": 7.77
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.03,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.34,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 18244,
+"pe": 22.9,
+"roe_pct": null,
+"op_margin_pct": 17.1,
+"de": 0.03,
+"rev_cagr3y_pct": 4.9,
+"pat_cagr3y_pct": 9.7,
+"promoter_pct": 46.2,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -3.3,
+"dd_from_52wk": -12.4,
+"ret_6m_pct": -5.7,
+"turnover_cr": 20.71,
+"ann_vol_pct": 25.5,
+"rvol20": 0.33,
+"swing_low_20": 5798.0,
+"swing_high_20": 6302.5,
+"atr14": 142.58
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.7/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 2.2
+},
+{
+"symbol": "KAJARIACER",
+"name": "Kajaria Ceramics Ltd.",
+"index": "smallcap250",
+"cmp": 1211.0,
+"chg_pct": -0.33,
+"composite": 7.79,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.45,
+"jhunjhunwala": 9.75,
+"pabrai": 7.78,
+"kacholia": 4.87,
+"kedia": 6.14,
+"blackrock": 8.74,
+"vanguard": 8.83,
+"damani": 6.84
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.07,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.59,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 19030,
+"pe": 35.2,
+"roe_pct": null,
+"op_margin_pct": 16.4,
+"de": 0.07,
+"rev_cagr3y_pct": 3.3,
+"pat_cagr3y_pct": 12.1,
+"promoter_pct": 62.7,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 10.3,
+"dd_from_52wk": -3.5,
+"ret_6m_pct": 3.3,
+"turnover_cr": 68.54,
+"ann_vol_pct": 28.9,
+"rvol20": 0.28,
+"swing_low_20": 1167.0,
+"swing_high_20": 1265.9,
+"atr14": 36.85
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.9/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 2.0
+},
+{
+"symbol": "EIHOTEL",
+"name": "EIH Ltd.",
+"index": "smallcap250",
+"cmp": 302.25,
+"chg_pct": 2.65,
+"composite": 7.78,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.04,
+"jhunjhunwala": 7.77,
+"pabrai": 6.63,
+"kacholia": 6.7,
+"kedia": 6.8,
+"blackrock": 7.14,
+"vanguard": 8.97,
+"damani": 8.87
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.05,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [
+"74% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"sessions": 247,
+"top3_vol_share": 0.74,
+"radar_ok": false
+},
+"fundamentals": {
+"mcap_cr": 18902,
+"pe": 27.3,
+"roe_pct": null,
+"op_margin_pct": 19.7,
+"de": 0.05,
+"rev_cagr3y_pct": 13.3,
+"pat_cagr3y_pct": 25.9,
+"promoter_pct": 70.5,
+"sector": "Consumer Cyclical",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": true,
+"dma200_dist_pct": -4.4,
+"dd_from_52wk": -23.9,
+"ret_6m_pct": -5.7,
+"turnover_cr": 13.58,
+"ann_vol_pct": 29.4,
+"rvol20": 0.62,
+"swing_low_20": 285.1,
+"swing_high_20": 318.65,
+"atr14": 8.79
+},
+"bear_case": [
+"Volume integrity: 74% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"suggested_weight_pct": 1.9
+},
+{
+"symbol": "BLS",
+"name": "BLS International Services Ltd.",
+"index": "smallcap250",
+"cmp": 227.53,
+"chg_pct": -0.05,
+"composite": 7.77,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.67,
+"jhunjhunwala": 4.27,
+"pabrai": 7.42,
+"kacholia": 9.35,
+"kedia": 6.43,
+"blackrock": 7.63,
+"vanguard": 7.99,
+"damani": 9.64
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.17,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [
+"61% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"sessions": 247,
+"top3_vol_share": 0.61,
+"radar_ok": false
+},
+"fundamentals": {
+"mcap_cr": 9364,
+"pe": 13.3,
+"roe_pct": null,
+"op_margin_pct": 24.8,
+"de": 0.17,
+"rev_cagr3y_pct": 25.5,
+"pat_cagr3y_pct": 50.7,
+"promoter_pct": 70.6,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -12.6,
+"dd_from_52wk": -31.8,
+"ret_6m_pct": -23.2,
+"turnover_cr": 29.3,
+"ann_vol_pct": 43.1,
+"rvol20": 0.48,
+"swing_low_20": 212.0,
+"swing_high_20": 240.0,
+"atr14": 7.11
+},
+"bear_case": [
+"Weakest lens: Jhunjhunwala scores just 4.3/10 (earnings momentum vs valuation)",
+"Volume integrity: 61% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"suggested_weight_pct": 1.3
+},
+{
+"symbol": "CUB",
+"name": "City Union Bank Ltd.",
+"index": "smallcap250",
+"cmp": 227.38,
+"chg_pct": 1.5,
+"composite": 7.75,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.24,
+"jhunjhunwala": 7.62,
+"pabrai": 8.51,
+"kacholia": 5.14,
+"kedia": 6.11,
+"blackrock": 9.14,
+"vanguard": 8.24,
+"damani": 7.01
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.46,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.37,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 22529,
+"pe": 16.1,
+"roe_pct": null,
+"op_margin_pct": 51.0,
+"de": 0.46,
+"rev_cagr3y_pct": 9.1,
+"pat_cagr3y_pct": 12.3,
+"promoter_pct": 8.0,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 9.6,
+"dd_from_52wk": -4.7,
+"ret_6m_pct": 18.7,
+"turnover_cr": 55.75,
+"ann_vol_pct": 39.7,
+"rvol20": 0.45,
+"swing_low_20": 210.69,
+"swing_high_20": 237.74,
+"atr14": 8.04
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.4
+},
+{
+"symbol": "LALPATHLAB",
+"name": "Dr. Lal Path Labs Ltd.",
+"index": "smallcap250",
+"cmp": 1859.9,
+"chg_pct": -1.34,
+"composite": 7.75,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.87,
+"jhunjhunwala": 6.76,
+"pabrai": 7.1,
+"kacholia": 6.09,
+"kedia": 5.24,
+"blackrock": 10.0,
+"vanguard": 8.99,
+"damani": 7.26
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.08,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.27,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 31100,
+"pe": 56.7,
+"roe_pct": null,
+"op_margin_pct": 25.5,
+"de": 0.08,
+"rev_cagr3y_pct": 11.1,
+"pat_cagr3y_pct": 28.3,
+"promoter_pct": 54.7,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 15.3,
+"dd_from_52wk": -7.2,
+"ret_6m_pct": 33.3,
+"turnover_cr": 55.98,
+"ann_vol_pct": 29.1,
+"rvol20": 0.64,
+"swing_low_20": 1851.9,
+"swing_high_20": 2027.6,
+"atr14": 71.74
+},
+"bear_case": [
+"PE 56.7 is 1.7x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.9
+},
+{
+"symbol": "KARURVYSYA",
+"name": "Karur Vysya Bank Ltd.",
+"index": "smallcap250",
+"cmp": 355.65,
+"chg_pct": 2.89,
+"composite": 7.74,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.27,
+"jhunjhunwala": 8.05,
+"pabrai": 9.45,
+"kacholia": 6.92,
+"kedia": 5.67,
+"blackrock": 9.82,
+"vanguard": 8.51,
+"damani": 6.38
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.19,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.49,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 34380,
+"pe": 12.0,
+"roe_pct": 21.0,
+"op_margin_pct": 57.5,
+"de": 0.19,
+"rev_cagr3y_pct": 18.7,
+"pat_cagr3y_pct": 31.4,
+"promoter_pct": 0.5,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 16.9,
+"dd_from_52wk": 0.0,
+"ret_6m_pct": 29.1,
+"turnover_cr": 111.67,
+"ann_vol_pct": 35.8,
+"rvol20": 4.22,
+"swing_low_20": 311.4,
+"swing_high_20": 365.9,
+"atr14": 11.68
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "NEULANDLAB",
+"name": "Neuland Laboratories Ltd.",
+"index": "smallcap250",
+"cmp": 19675.0,
+"chg_pct": -1.4,
+"composite": 7.74,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.07,
+"jhunjhunwala": 9.9,
+"pabrai": 5.47,
+"kacholia": 7.26,
+"kedia": 7.96,
+"blackrock": 9.45,
+"vanguard": 8.36,
+"damani": 6.59
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.16,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.26,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 25243,
+"pe": 50.0,
+"roe_pct": null,
+"op_margin_pct": 30.6,
+"de": 0.16,
+"rev_cagr3y_pct": 18.5,
+"pat_cagr3y_pct": 30.6,
+"promoter_pct": 37.7,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 14.5,
+"dd_from_52wk": -18.0,
+"ret_6m_pct": 28.9,
+"turnover_cr": 99.5,
+"ann_vol_pct": 37.9,
+"rvol20": 0.66,
+"swing_low_20": 19600.0,
+"swing_high_20": 23050.0,
+"atr14": 685.77
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.5
+},
+{
+"symbol": "TATAINVEST",
+"name": "Tata Investment Corporation Ltd.",
+"index": "midcap150",
+"cmp": 613.55,
+"chg_pct": 0.43,
+"composite": 7.72,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 10.0,
+"jhunjhunwala": 7.59,
+"pabrai": 5.66,
+"kacholia": 6.32,
+"kedia": 7.45,
+"blackrock": 9.81,
+"vanguard": 8.6,
+"damani": 4.35
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.0,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.28,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 31043,
+"pe": 104.3,
+"roe_pct": null,
+"op_margin_pct": 91.7,
+"de": 0.0,
+"rev_cagr3y_pct": 19.5,
+"pat_cagr3y_pct": 19.9,
+"promoter_pct": 73.8,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -6.5,
+"dd_from_52wk": -29.5,
+"ret_6m_pct": -13.5,
+"turnover_cr": 23.64,
+"ann_vol_pct": 34.6,
+"rvol20": 0.43,
+"swing_low_20": 595.05,
+"swing_high_20": 700.95,
+"atr14": 16.02
+},
+"bear_case": [
+"Weakest lens: Damani scores just 4.3/10 (CFO/PAT conversion + margin + valuation)",
+"PE 104.3 is 3.1x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "IPCALAB",
+"name": "Ipca Laboratories Ltd.",
+"index": "midcap150",
+"cmp": 1832.6,
+"chg_pct": -4.21,
+"composite": 7.71,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.01,
+"jhunjhunwala": 7.49,
+"pabrai": 7.27,
+"kacholia": 6.25,
+"kedia": 5.64,
+"blackrock": 10.0,
+"vanguard": 8.93,
+"damani": 6.46
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.1,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.23,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 46494,
+"pe": 35.5,
+"roe_pct": null,
+"op_margin_pct": 20.0,
+"de": 0.1,
+"rev_cagr3y_pct": 15.5,
+"pat_cagr3y_pct": 34.3,
+"promoter_pct": 45.1,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 11.1,
+"dd_from_52wk": -8.8,
+"ret_6m_pct": 25.2,
+"turnover_cr": 42.66,
+"ann_vol_pct": 30.0,
+"rvol20": 0.71,
+"swing_low_20": 1813.2,
+"swing_high_20": 2037.0,
+"atr14": 58.67
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.9
+},
+{
+"symbol": "SAGILITY",
+"name": "Sagility Ltd.",
+"index": "smallcap250",
+"cmp": 45.3,
+"chg_pct": -0.66,
+"composite": 7.68,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.27,
+"jhunjhunwala": 6.96,
+"pabrai": 7.45,
+"kacholia": 8.21,
+"kedia": 6.01,
+"blackrock": 8.48,
+"vanguard": 8.09,
+"damani": 8.09
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.11,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.29,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 21206,
+"pe": 21.4,
+"roe_pct": null,
+"op_margin_pct": 15.8,
+"de": 0.11,
+"rev_cagr3y_pct": 19.5,
+"pat_cagr3y_pct": 86.1,
+"promoter_pct": 50.9,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 3.7,
+"dd_from_52wk": -16.7,
+"ret_6m_pct": 5.8,
+"turnover_cr": 55.66,
+"ann_vol_pct": 35.1,
+"rvol20": 0.56,
+"swing_low_20": 42.11,
+"swing_high_20": 46.7,
+"atr14": 1.3
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "AEGISLOG",
+"name": "Aegis Logistics Ltd.",
+"index": "smallcap250",
+"cmp": 1366.7,
+"chg_pct": -3.11,
+"composite": 7.66,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.86,
+"jhunjhunwala": 9.72,
+"pabrai": 5.84,
+"kacholia": 4.46,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 7.46,
+"damani": 7.36
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.69,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.39,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 47971,
+"pe": 38.3,
+"roe_pct": null,
+"op_margin_pct": 28.0,
+"de": 0.69,
+"rev_cagr3y_pct": -1.3,
+"pat_cagr3y_pct": 24.7,
+"promoter_pct": 67.5,
+"sector": "Energy",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 43.0,
+"dd_from_52wk": -8.2,
+"ret_6m_pct": 93.7,
+"turnover_cr": 157.12,
+"ann_vol_pct": 48.0,
+"rvol20": 0.49,
+"swing_low_20": 1279.8,
+"swing_high_20": 1528.7,
+"atr14": 81.28
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.5/10 (3y growth + operating leverage + size runway)",
+"43% above its 200 DMA - buying here is paying for a move that already happened"
+],
+"suggested_weight_pct": 1.2
+},
+{
+"symbol": "PRIVISCL",
+"name": "Privi Speciality Chemicals Ltd.",
+"index": "smallcap250",
+"cmp": 3349.0,
+"chg_pct": -0.48,
+"composite": 7.66,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.5,
+"jhunjhunwala": 8.51,
+"pabrai": 5.63,
+"kacholia": 8.29,
+"kedia": 7.49,
+"blackrock": 8.06,
+"vanguard": 8.71,
+"damani": 7.24
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.72,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.38,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 13082,
+"pe": 37.2,
+"roe_pct": null,
+"op_margin_pct": 17.2,
+"de": 0.72,
+"rev_cagr3y_pct": 16.6,
+"pat_cagr3y_pct": 145.2,
+"promoter_pct": 58.5,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 3.7,
+"dd_from_52wk": -10.5,
+"ret_6m_pct": 7.2,
+"turnover_cr": 42.01,
+"ann_vol_pct": 33.0,
+"rvol20": 0.47,
+"swing_low_20": 3301.5,
+"swing_high_20": 3705.0,
+"atr14": 102.88
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.7
+},
+{
+"symbol": "RADICO",
+"name": "Radico Khaitan Ltd",
+"index": "midcap150",
+"cmp": 4473.4,
+"chg_pct": 0.55,
+"composite": 7.66,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.48,
+"jhunjhunwala": 8.94,
+"pabrai": 5.67,
+"kacholia": 6.96,
+"kedia": 6.57,
+"blackrock": 10.0,
+"vanguard": 8.48,
+"damani": 5.18
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.24,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.27,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 59939,
+"pe": 85.3,
+"roe_pct": null,
+"op_margin_pct": 18.3,
+"de": 0.24,
+"rev_cagr3y_pct": 24.6,
+"pat_cagr3y_pct": 40.0,
+"promoter_pct": 43.0,
+"sector": "Consumer Defensive",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 24.7,
+"dd_from_52wk": -5.5,
+"ret_6m_pct": 40.7,
+"turnover_cr": 138.69,
+"ann_vol_pct": 33.4,
+"rvol20": 0.46,
+"swing_low_20": 4234.8,
+"swing_high_20": 4614.1,
+"atr14": 131.64
+},
+"bear_case": [
+"PE 85.3 is 2.5x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.7
+},
+{
+"symbol": "CMPDI",
+"name": "Central Mine Planning & Design Institute Ltd.",
+"index": "smallcap250",
+"cmp": 204.64,
+"chg_pct": 1.16,
+"composite": 7.65,
+"grade": "B+",
+"coverage": 0.63,
+"coverage_penalty": 0.74,
+"frameworks": {
+"buffett": 10.0,
+"jhunjhunwala": null,
+"pabrai": 7.66,
+"kacholia": 7.29,
+"kedia": null,
+"blackrock": null,
+"vanguard": 6.92,
+"damani": 9.0
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.0,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [
+"only 138 sessions of history (< 200) - recently listed, pre-run signals unreliable"
+],
+"sessions": 138,
+"top3_vol_share": 0.35,
+"radar_ok": false
+},
+"fundamentals": {
+"mcap_cr": null,
+"pe": 22.6,
+"roe_pct": null,
+"op_margin_pct": 28.6,
+"de": 0.0,
+"rev_cagr3y_pct": 18.7,
+"pat_cagr3y_pct": 27.4,
+"promoter_pct": 85.0,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": null,
+"dd_from_52wk": -25.6,
+"ret_6m_pct": 14.1,
+"turnover_cr": 21.88,
+"ann_vol_pct": 47.3,
+"rvol20": 0.51,
+"swing_low_20": 196.47,
+"swing_high_20": 218.76,
+"atr14": 7.25
+},
+"bear_case": [
+"Only 63% framework coverage - jhunjhunwala, kedia, blackrock could not be scored; the composite flatters what the data cannot see",
+"Volume integrity: only 138 sessions of history (< 200) - recently listed, pre-run signals unreliable"
+],
+"suggested_weight_pct": 1.2
+},
+{
+"symbol": "BIRET",
+"name": "Brookfield India Real Estate Trust",
+"index": "smallcap250",
+"cmp": 319.98,
+"chg_pct": -0.54,
+"composite": 7.62,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.63,
+"jhunjhunwala": 7.65,
+"pabrai": 5.26,
+"kacholia": 9.23,
+"kedia": 8.26,
+"blackrock": 7.96,
+"vanguard": 7.56,
+"damani": 7.63
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.95,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.51,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 21867,
+"pe": 35.5,
+"roe_pct": null,
+"op_margin_pct": null,
+"de": 0.95,
+"rev_cagr3y_pct": 35.4,
+"pat_cagr3y_pct": 54.2,
+"promoter_pct": null,
+"sector": null,
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -2.6,
+"dd_from_52wk": -10.3,
+"ret_6m_pct": 0.2,
+"turnover_cr": 21.93,
+"ann_vol_pct": 16.1,
+"rvol20": 0.68,
+"swing_low_20": 319.81,
+"swing_high_20": 340.8,
+"atr14": 5.04
+},
+"bear_case": [
+"Promoter holding unavailable - skin-in-the-game unverified"
+],
+"suggested_weight_pct": 3.5
+},
+{
+"symbol": "CUPID",
+"name": "Cupid Ltd.",
+"index": "smallcap250",
+"cmp": 353.7,
+"chg_pct": 0.34,
+"composite": 7.62,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.79,
+"jhunjhunwala": 7.98,
+"pabrai": 7.08,
+"kacholia": 8.07,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 5.0,
+"damani": 3.44
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.13,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.3,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 47561,
+"pe": 353.7,
+"roe_pct": null,
+"op_margin_pct": 38.0,
+"de": 0.13,
+"rev_cagr3y_pct": 31.2,
+"pat_cagr3y_pct": 50.8,
+"promoter_pct": 64.4,
+"sector": "Consumer Defensive",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 111.8,
+"dd_from_52wk": -3.4,
+"ret_6m_pct": 242.9,
+"turnover_cr": 894.4,
+"ann_vol_pct": 58.9,
+"rvol20": 0.77,
+"swing_low_20": 246.0,
+"swing_high_20": 368.95,
+"atr14": 17.35
+},
+"bear_case": [
+"Weakest lens: Damani scores just 3.4/10 (CFO/PAT conversion + margin + valuation)",
+"PE 353.7 is 10.5x the current universe median (34) - priced for perfection in this regime",
+"112% above its 200 DMA - buying here is paying for a move that already happened",
+"Already up 243% in 6 months - entry now is momentum confirmation, not discovery"
+],
+"suggested_weight_pct": 1.0
+},
+{
+"symbol": "EMCURE",
+"name": "Emcure Pharmaceuticals Ltd.",
+"index": "smallcap250",
+"cmp": 1820.6,
+"chg_pct": -0.84,
+"composite": 7.57,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.89,
+"jhunjhunwala": 9.11,
+"pabrai": 6.86,
+"kacholia": 5.78,
+"kedia": 6.35,
+"blackrock": 9.12,
+"vanguard": 8.81,
+"damani": 6.09
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.31,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.45,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 34539,
+"pe": 33.8,
+"roe_pct": null,
+"op_margin_pct": 15.4,
+"de": 0.31,
+"rev_cagr3y_pct": 15.4,
+"pat_cagr3y_pct": 20.2,
+"promoter_pct": 77.8,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 6.8,
+"dd_from_52wk": -9.4,
+"ret_6m_pct": 9.1,
+"turnover_cr": 18.65,
+"ann_vol_pct": 31.7,
+"rvol20": 0.6,
+"swing_low_20": 1816.1,
+"swing_high_20": 2045.0,
+"atr14": 57.16
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.8
+},
+{
+"symbol": "HINDCOPPER",
+"name": "Hindustan Copper Ltd.",
+"index": "midcap150",
+"cmp": 458.45,
+"chg_pct": 1.19,
+"composite": 7.57,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.94,
+"jhunjhunwala": 7.73,
+"pabrai": 5.98,
+"kacholia": 7.47,
+"kedia": 6.67,
+"blackrock": 7.75,
+"vanguard": 5.19,
+"damani": 8.22
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.03,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.25,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 44333,
+"pe": 39.1,
+"roe_pct": null,
+"op_margin_pct": 48.9,
+"de": 0.03,
+"rev_cagr3y_pct": 22.5,
+"pat_cagr3y_pct": 45.9,
+"promoter_pct": 60.1,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -13.1,
+"dd_from_52wk": -39.4,
+"ret_6m_pct": -19.2,
+"turnover_cr": 231.04,
+"ann_vol_pct": 54.1,
+"rvol20": 0.84,
+"swing_low_20": 450.0,
+"swing_high_20": 521.7,
+"atr14": 12.38
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.0
+},
+{
+"symbol": "CONCORDBIO",
+"name": "Concord Biotech Ltd.",
+"index": "smallcap250",
+"cmp": 1339.0,
+"chg_pct": -1.06,
+"composite": 7.54,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.99,
+"jhunjhunwala": 7.61,
+"pabrai": 7.21,
+"kacholia": 3.39,
+"kedia": 7.77,
+"blackrock": 7.4,
+"vanguard": 8.14,
+"damani": 7.12
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.0,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.4,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 14008,
+"pe": 45.6,
+"roe_pct": null,
+"op_margin_pct": 25.0,
+"de": 0.0,
+"rev_cagr3y_pct": 8.0,
+"pat_cagr3y_pct": 2.8,
+"promoter_pct": 72.5,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 5.7,
+"dd_from_52wk": -15.7,
+"ret_6m_pct": 24.5,
+"turnover_cr": 19.53,
+"ann_vol_pct": 41.0,
+"rvol20": 0.59,
+"swing_low_20": 1309.5,
+"swing_high_20": 1592.0,
+"atr14": 44.36
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 3.4/10 (3y growth + operating leverage + size runway)",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"suggested_weight_pct": 1.4
+},
+{
+"symbol": "IKS",
+"name": "Inventurus Knowledge Solutions Ltd.",
+"index": "smallcap250",
+"cmp": 1731.4,
+"chg_pct": 0.78,
+"composite": 7.54,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.55,
+"jhunjhunwala": 7.86,
+"pabrai": 6.51,
+"kacholia": 6.92,
+"kedia": 6.16,
+"blackrock": 9.84,
+"vanguard": 4.79,
+"damani": 7.11
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.27,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.44,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 29046,
+"pe": 39.0,
+"roe_pct": null,
+"op_margin_pct": 29.2,
+"de": 0.27,
+"rev_cagr3y_pct": 45.8,
+"pat_cagr3y_pct": 33.2,
+"promoter_pct": 71.0,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 4.3,
+"dd_from_52wk": -10.7,
+"ret_6m_pct": 15.5,
+"turnover_cr": 40.01,
+"ann_vol_pct": 34.7,
+"rvol20": 0.3,
+"swing_low_20": 1689.0,
+"swing_high_20": 1970.0,
+"atr14": 54.58
+},
+"bear_case": [
+"Weakest lens: Vanguard scores just 4.8/10 (profit consistency / low volatility)",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "ABSLAMC",
+"name": "Aditya Birla Sun Life AMC Ltd.",
+"index": "smallcap250",
+"cmp": 971.95,
+"chg_pct": -0.98,
+"composite": 7.53,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.97,
+"jhunjhunwala": 6.78,
+"pabrai": 7.26,
+"kacholia": 5.82,
+"kedia": 4.9,
+"blackrock": 8.6,
+"vanguard": 8.39,
+"damani": 7.32
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.02,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.26,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 28126,
+"pe": 27.7,
+"roe_pct": null,
+"op_margin_pct": 65.1,
+"de": 0.02,
+"rev_cagr3y_pct": 14.6,
+"pat_cagr3y_pct": 17.8,
+"promoter_pct": 44.8,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -0.0,
+"dd_from_52wk": -16.9,
+"ret_6m_pct": -6.7,
+"turnover_cr": 16.5,
+"ann_vol_pct": 37.6,
+"rvol20": 0.6,
+"swing_low_20": 942.5,
+"swing_high_20": 1068.9,
+"atr14": 41.23
+},
+"bear_case": [
+"Weakest lens: Kedia scores just 4.9/10 (size + growth runway (promoter % display-only, verify NSE SHP))"
+],
+"suggested_weight_pct": 1.5
+},
+{
+"symbol": "CHENNPETRO",
+"name": "Chennai Petroleum Corporation Ltd.",
+"index": "smallcap250",
+"cmp": 1406.6,
+"chg_pct": -2.59,
+"composite": 7.53,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 6.39,
+"jhunjhunwala": 9.95,
+"pabrai": 8.48,
+"kacholia": 4.28,
+"kedia": 8.34,
+"blackrock": 8.96,
+"vanguard": 7.5,
+"damani": 6.17
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.18,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.52,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 20946,
+"pe": 5.0,
+"roe_pct": null,
+"op_margin_pct": 5.1,
+"de": 0.18,
+"rev_cagr3y_pct": -6.0,
+"pat_cagr3y_pct": -4.2,
+"promoter_pct": 68.8,
+"sector": "Energy",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 29.6,
+"dd_from_52wk": -13.5,
+"ret_6m_pct": 40.9,
+"turnover_cr": 451.98,
+"ann_vol_pct": 55.3,
+"rvol20": 0.73,
+"swing_low_20": 1325.1,
+"swing_high_20": 1628.7,
+"atr14": 93.11
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.3/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 1.0
+},
+{
+"symbol": "ENGINERSIN",
+"name": "Engineers India Ltd.",
+"index": "smallcap250",
+"cmp": 273.45,
+"chg_pct": -1.3,
+"composite": 7.5,
+"grade": "B+",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.2,
+"jhunjhunwala": 9.68,
+"pabrai": 8.56,
+"kacholia": 6.09,
+"kedia": 5.49,
+"blackrock": 7.32,
+"vanguard": 6.72,
+"damani": 6.22
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.01,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.4,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 15369,
+"pe": 19.6,
+"roe_pct": null,
+"op_margin_pct": 14.2,
+"de": 0.01,
+"rev_cagr3y_pct": 5.7,
+"pat_cagr3y_pct": 25.9,
+"promoter_pct": 51.4,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 19.0,
+"dd_from_52wk": -13.4,
+"ret_6m_pct": 14.0,
+"turnover_cr": 225.25,
+"ann_vol_pct": 44.9,
+"rvol20": 0.32,
+"swing_low_20": 266.06,
+"swing_high_20": 321.4,
+"atr14": 12.68
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.3
+},
+{
+"symbol": "LODHA",
+"name": "Lodha Developers Ltd.",
+"index": "midcap150",
+"cmp": 1058.7,
+"chg_pct": -0.29,
+"composite": 7.46,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.29,
+"jhunjhunwala": 7.75,
+"pabrai": 6.28,
+"kacholia": 6.54,
+"kedia": 5.36,
+"blackrock": 9.67,
+"vanguard": 7.82,
+"damani": 5.63
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.42,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.38,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 105791,
+"pe": 25.6,
+"roe_pct": null,
+"op_margin_pct": 37.1,
+"de": 0.42,
+"rev_cagr3y_pct": 20.4,
+"pat_cagr3y_pct": 91.7,
+"promoter_pct": 70.3,
+"sector": "Real Estate",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 3.7,
+"dd_from_52wk": -19.3,
+"ret_6m_pct": 21.8,
+"turnover_cr": 181.77,
+"ann_vol_pct": 38.2,
+"rvol20": 0.45,
+"swing_low_20": 1037.5,
+"swing_high_20": 1177.5,
+"atr14": 33.42
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.5
+},
+{
+"symbol": "SYRMA",
+"name": "Syrma SGS Technology Ltd.",
+"index": "smallcap250",
+"cmp": 1604.6,
+"chg_pct": -4.9,
+"composite": 7.46,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.06,
+"jhunjhunwala": 9.08,
+"pabrai": 5.52,
+"kacholia": 8.72,
+"kedia": 7.46,
+"blackrock": 10.0,
+"vanguard": 7.87,
+"damani": 2.96
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.14,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.34,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 30909,
+"pe": 83.4,
+"roe_pct": null,
+"op_margin_pct": 8.8,
+"de": 0.14,
+"rev_cagr3y_pct": 32.8,
+"pat_cagr3y_pct": 38.6,
+"promoter_pct": 59.6,
+"sector": "Technology",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 39.9,
+"dd_from_52wk": -10.0,
+"ret_6m_pct": 64.2,
+"turnover_cr": 248.98,
+"ann_vol_pct": 44.8,
+"rvol20": 0.44,
+"swing_low_20": 1590.1,
+"swing_high_20": 1822.6,
+"atr14": 77.84
+},
+"bear_case": [
+"Weakest lens: Damani scores just 3.0/10 (CFO/PAT conversion + margin + valuation)",
+"PE 83.4 is 2.5x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.3
+},
+{
+"symbol": "GVT&D",
+"name": "GE Vernova T&D India Ltd.",
+"index": "midcap150",
+"cmp": 3959.1,
+"chg_pct": 0.26,
+"composite": 7.44,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.89,
+"jhunjhunwala": 7.09,
+"pabrai": 5.72,
+"kacholia": 5.0,
+"kedia": 6.67,
+"blackrock": 9.8,
+"vanguard": 7.43,
+"damani": 6.67
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.01,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.28,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 101371,
+"pe": 77.3,
+"roe_pct": null,
+"op_margin_pct": 24.4,
+"de": 0.01,
+"rev_cagr3y_pct": 31.1,
+"pat_cagr3y_pct": null,
+"promoter_pct": 51.7,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -3.5,
+"dd_from_52wk": -28.3,
+"ret_6m_pct": -4.1,
+"turnover_cr": 248.7,
+"ann_vol_pct": 45.4,
+"rvol20": 0.65,
+"swing_low_20": 3877.1,
+"swing_high_20": 4513.5,
+"atr14": 138.0
+},
+"bear_case": [
+"PE 77.3 is 2.3x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.2
+},
+{
+"symbol": "JPPOWER",
+"name": "Jaiprakash Power Ventures Ltd.",
+"index": "smallcap250",
+"cmp": 14.97,
+"chg_pct": 0.47,
+"composite": 7.44,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.56,
+"jhunjhunwala": 6.13,
+"pabrai": 5.65,
+"kacholia": 7.26,
+"kedia": 9.28,
+"blackrock": 7.73,
+"vanguard": 5.0,
+"damani": 7.69
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.27,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.53,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 10260,
+"pe": 21.1,
+"roe_pct": null,
+"op_margin_pct": 36.1,
+"de": 0.27,
+"rev_cagr3y_pct": -1.3,
+"pat_cagr3y_pct": 101.1,
+"promoter_pct": 33.0,
+"sector": "Utilities",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -10.8,
+"dd_from_52wk": -34.5,
+"ret_6m_pct": -22.0,
+"turnover_cr": 113.55,
+"ann_vol_pct": 50.7,
+"rvol20": 0.65,
+"swing_low_20": 14.12,
+"swing_high_20": 17.49,
+"atr14": 0.53
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.1
+},
+{
+"symbol": "IEX",
+"name": "Indian Energy Exchange Ltd.",
+"index": "smallcap250",
+"cmp": 107.55,
+"chg_pct": -0.05,
+"composite": 7.37,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.99,
+"jhunjhunwala": 4.53,
+"pabrai": 7.64,
+"kacholia": 6.7,
+"kedia": 5.15,
+"blackrock": 7.65,
+"vanguard": 8.71,
+"damani": 7.99
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.01,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.28,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 9564,
+"pe": 18.9,
+"roe_pct": null,
+"op_margin_pct": 83.7,
+"de": 0.01,
+"rev_cagr3y_pct": 15.4,
+"pat_cagr3y_pct": 17.2,
+"promoter_pct": 13.4,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -12.4,
+"dd_from_52wk": -28.6,
+"ret_6m_pct": -19.6,
+"turnover_cr": 39.0,
+"ann_vol_pct": 31.9,
+"rvol20": 0.53,
+"swing_low_20": 103.05,
+"swing_high_20": 115.56,
+"atr14": 2.67
+},
+"bear_case": [
+"Weakest lens: Jhunjhunwala scores just 4.5/10 (earnings momentum vs valuation)"
+],
+"suggested_weight_pct": 1.8
+},
+{
+"symbol": "DIXON",
+"name": "Dixon Technologies (India) Ltd.",
+"index": "midcap150",
+"cmp": 12340.0,
+"chg_pct": -2.57,
+"composite": 7.36,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 6.31,
+"jhunjhunwala": 9.39,
+"pabrai": 5.76,
+"kacholia": 7.5,
+"kedia": 6.67,
+"blackrock": 10.0,
+"vanguard": 8.29,
+"damani": 5.2
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.21,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.28,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 75485,
+"pe": 36.1,
+"roe_pct": null,
+"op_margin_pct": 2.3,
+"de": 0.21,
+"rev_cagr3y_pct": 58.6,
+"pat_cagr3y_pct": 77.9,
+"promoter_pct": 40.1,
+"sector": "Technology",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 2.1,
+"dd_from_52wk": -23.4,
+"ret_6m_pct": 8.6,
+"turnover_cr": 331.52,
+"ann_vol_pct": 38.9,
+"rvol20": 1.19,
+"swing_low_20": 12268.0,
+"swing_high_20": 13766.0,
+"atr14": 347.62
+},
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
+],
+"suggested_weight_pct": 1.5
+},
+{
+"symbol": "HONASA",
+"name": "Honasa Consumer Ltd.",
+"index": "smallcap250",
+"cmp": 452.25,
+"chg_pct": 0.97,
+"composite": 7.35,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.87,
+"jhunjhunwala": 9.08,
+"pabrai": 5.71,
+"kacholia": 6.52,
+"kedia": 8.55,
+"blackrock": 7.92,
+"vanguard": 8.18,
+"damani": 3.19
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (PAT spike vs revenue - damped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.1,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [
+"78% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"sessions": 246,
+"top3_vol_share": 0.78,
+"radar_ok": false
+},
+"fundamentals": {
+"mcap_cr": 14744,
+"pe": 59.9,
+"roe_pct": null,
+"op_margin_pct": 13.2,
+"de": 0.1,
+"rev_cagr3y_pct": 17.0,
+"pat_cagr3y_pct": null,
+"promoter_pct": 38.7,
+"sector": "Consumer Defensive",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 19.2,
+"dd_from_52wk": -9.5,
+"ret_6m_pct": 31.8,
+"turnover_cr": 145.19,
+"ann_vol_pct": 33.2,
+"rvol20": 0.3,
+"swing_low_20": 413.85,
+"swing_high_20": 493.0,
+"atr14": 19.32
+},
+"bear_case": [
+"Weakest lens: Damani scores just 3.2/10 (CFO/PAT conversion + margin + valuation)",
+"PE 59.9 is 1.8x the current universe median (34) - priced for perfection in this regime",
+"Volume integrity: 78% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"suggested_weight_pct": 1.7
+},
+{
+"symbol": "GRANULES",
+"name": "Granules India Ltd.",
+"index": "smallcap250",
+"cmp": 825.35,
+"chg_pct": 1.65,
+"composite": 7.33,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.26,
+"jhunjhunwala": 7.75,
+"pabrai": 7.06,
+"kacholia": 2.79,
+"kedia": 7.22,
+"blackrock": 9.14,
+"vanguard": 8.96,
+"damani": 7.27
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.3,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.24,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 22514,
+"pe": 31.2,
+"roe_pct": null,
+"op_margin_pct": 17.6,
+"de": 0.3,
+"rev_cagr3y_pct": 5.9,
+"pat_cagr3y_pct": 4.8,
+"promoter_pct": 39.6,
+"sector": "Healthcare",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 13.3,
+"dd_from_52wk": -9.2,
+"ret_6m_pct": 26.1,
+"turnover_cr": 56.14,
+"ann_vol_pct": 29.6,
+"rvol20": 1.25,
+"swing_low_20": 782.05,
+"swing_high_20": 890.3,
+"atr14": 28.98
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 2.8/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.9
+},
+{
+"symbol": "SUMICHEM",
+"name": "Sumitomo Chemical India Ltd.",
+"index": "smallcap250",
+"cmp": 404.75,
+"chg_pct": -0.02,
+"composite": 7.3,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.19,
+"jhunjhunwala": 6.0,
+"pabrai": 6.89,
+"kacholia": 4.31,
+"kedia": 8.4,
+"blackrock": 7.47,
+"vanguard": 8.51,
+"damani": 6.84
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.02,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.33,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 20203,
+"pe": 34.9,
+"roe_pct": null,
+"op_margin_pct": 20.3,
+"de": 0.02,
+"rev_cagr3y_pct": -2.6,
+"pat_cagr3y_pct": 2.6,
+"promoter_pct": 75.5,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -10.9,
+"dd_from_52wk": -28.4,
+"ret_6m_pct": -8.3,
+"turnover_cr": 14.89,
+"ann_vol_pct": 35.8,
+"rvol20": 0.44,
+"swing_low_20": 400.0,
+"swing_high_20": 468.0,
+"atr14": 15.72
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.3/10 (3y growth + operating leverage + size runway)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "JMFINANCIL",
+"name": "JM Financial Ltd.",
+"index": "smallcap250",
+"cmp": 121.38,
+"chg_pct": 1.25,
+"composite": 7.28,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.18,
+"jhunjhunwala": 6.01,
+"pabrai": 4.93,
+"kacholia": 7.63,
+"kedia": 9.01,
+"blackrock": 7.44,
+"vanguard": 8.22,
+"damani": 6.76
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 1.09,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.25,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 11616,
+"pe": 11.3,
+"roe_pct": null,
+"op_margin_pct": 47.2,
+"de": 1.09,
+"rev_cagr3y_pct": 19.1,
+"pat_cagr3y_pct": 26.3,
+"promoter_pct": 24.6,
+"sector": "Financial Services",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -5.1,
+"dd_from_52wk": -28.3,
+"ret_6m_pct": -10.3,
+"turnover_cr": 21.81,
+"ann_vol_pct": 39.6,
+"rvol20": 0.88,
+"swing_low_20": 116.9,
+"swing_high_20": 129.65,
+"atr14": 3.72
+},
+"bear_case": [
+"Weakest lens: Pabrai scores just 4.9/10 (margin-of-safety / downside protection)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"suggested_weight_pct": 1.4
+},
+{
+"symbol": "CARTRADE",
+"name": "Cartrade Tech Ltd.",
+"index": "smallcap250",
+"cmp": 3011.4,
+"chg_pct": 1.6,
+"composite": 7.27,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.91,
+"jhunjhunwala": 5.33,
+"pabrai": 5.88,
+"kacholia": 9.43,
+"kedia": 6.18,
+"blackrock": 8.23,
+"vanguard": 5.0,
+"damani": 6.59
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.06,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.35,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 14640,
+"pe": 65.1,
+"roe_pct": null,
+"op_margin_pct": 26.0,
+"de": 0.06,
+"rev_cagr3y_pct": 28.7,
+"pat_cagr3y_pct": 87.2,
+"promoter_pct": 6.4,
+"sector": "Consumer Cyclical",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 25.3,
+"dd_from_52wk": -7.9,
+"ret_6m_pct": 62.1,
+"turnover_cr": 94.43,
+"ann_vol_pct": 56.0,
+"rvol20": 0.76,
+"swing_low_20": 2739.8,
+"swing_high_20": 3253.2,
+"atr14": 138.52
+},
+"bear_case": [
+"PE 65.1 is 1.9x the current universe median (34) - priced for perfection in this regime"
+],
+"suggested_weight_pct": 1.0
+},
+{
+"symbol": "ECLERX",
+"name": "eClerx Services Ltd.",
+"index": "smallcap250",
+"cmp": 1957.0,
+"chg_pct": -2.06,
+"composite": 7.25,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 8.7,
+"jhunjhunwala": 6.26,
+"pabrai": 7.6,
+"kacholia": 4.57,
+"kedia": 5.85,
+"blackrock": 8.62,
+"vanguard": 7.75,
+"damani": 8.73
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.15,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.34,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 18009,
+"pe": 25.0,
+"roe_pct": null,
+"op_margin_pct": 18.7,
+"de": 0.15,
+"rev_cagr3y_pct": 15.8,
+"pat_cagr3y_pct": 13.0,
+"promoter_pct": 58.4,
+"sector": "Technology",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 10.8,
+"dd_from_52wk": -20.8,
+"ret_6m_pct": 20.0,
+"turnover_cr": 32.22,
+"ann_vol_pct": 46.5,
+"rvol20": 0.61,
+"swing_low_20": 1762.0,
+"swing_high_20": 2022.6,
+"atr14": 73.51
+},
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.6/10 (3y growth + operating leverage + size runway)"
+],
+"suggested_weight_pct": 1.2
+},
+{
+"symbol": "INDIAMART",
+"name": "Indiamart Intermesh Ltd.",
+"index": "smallcap250",
+"cmp": 1627.2,
+"chg_pct": -0.12,
+"composite": 7.25,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.76,
+"jhunjhunwala": 3.87,
+"pabrai": 7.3,
+"kacholia": 6.94,
+"kedia": 4.93,
+"blackrock": 6.6,
+"vanguard": 9.38,
+"damani": 9.28
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.01,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.24,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 9786,
+"pe": 19.9,
+"roe_pct": 23.1,
+"op_margin_pct": 33.8,
+"de": 0.01,
+"rev_cagr3y_pct": 16.8,
+"pat_cagr3y_pct": 18.7,
+"promoter_pct": 58.1,
+"sector": "Consumer Cyclical",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -15.9,
+"dd_from_52wk": -33.2,
+"ret_6m_pct": -22.9,
+"turnover_cr": 9.05,
+"ann_vol_pct": 23.7,
+"rvol20": 0.45,
+"swing_low_20": 1565.1,
+"swing_high_20": 1657.5,
+"atr14": 41.28
+},
+"bear_case": [
+"Weakest lens: Jhunjhunwala scores just 3.9/10 (earnings momentum vs valuation)"
+],
+"suggested_weight_pct": 2.4
+},
+{
+"symbol": "IGIL",
+"name": "International Gemological Institute Ltd.",
+"index": "smallcap250",
+"cmp": 326.7,
+"chg_pct": 1.52,
+"composite": 7.23,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.83,
+"jhunjhunwala": 4.65,
+"pabrai": 7.57,
+"kacholia": 6.68,
+"kedia": 6.16,
+"blackrock": 5.29,
+"vanguard": 7.99,
+"damani": 8.95
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.1,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.24,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 14119,
+"pe": 24.0,
+"roe_pct": null,
+"op_margin_pct": 56.6,
+"de": 0.1,
+"rev_cagr3y_pct": 29.6,
+"pat_cagr3y_pct": 20.9,
+"promoter_pct": 77.6,
+"sector": "Basic Materials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -2.3,
+"dd_from_52wk": -13.7,
+"ret_6m_pct": -11.7,
+"turnover_cr": 15.53,
+"ann_vol_pct": 36.1,
+"rvol20": 1.05,
+"swing_low_20": 304.1,
+"swing_high_20": 333.8,
+"atr14": 9.29
+},
+"bear_case": [
+"Weakest lens: Jhunjhunwala scores just 4.7/10 (earnings momentum vs valuation)",
+"PAT compounding slower than revenue - margins are being given up to buy growth"
+],
+"suggested_weight_pct": 1.6
+},
+{
+"symbol": "CAMS",
+"name": "Computer Age Management Services Ltd.",
+"index": "smallcap250",
+"cmp": 700.0,
+"chg_pct": -0.69,
+"composite": 7.22,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.92,
+"jhunjhunwala": 3.86,
+"pabrai": 6.83,
+"kacholia": 6.51,
+"kedia": 4.71,
+"blackrock": 8.55,
+"vanguard": 8.93,
+"damani": 8.44
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.05,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.24,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 17389,
+"pe": 35.2,
+"roe_pct": null,
+"op_margin_pct": 40.0,
+"de": 0.05,
+"rev_cagr3y_pct": 16.0,
+"pat_cagr3y_pct": 18.6,
+"promoter_pct": 3.1,
+"sector": "Technology",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": false,
+"above_50dma": false,
+"dma200_dist_pct": -4.4,
+"dd_from_52wk": -15.6,
+"ret_6m_pct": -5.9,
+"turnover_cr": 82.47,
+"ann_vol_pct": 30.0,
+"rvol20": 0.26,
+"swing_low_20": 660.8,
+"swing_high_20": 725.05,
+"atr14": 17.63
+},
+"bear_case": [
+"Weakest lens: Jhunjhunwala scores just 3.9/10 (earnings momentum vs valuation)"
+],
+"suggested_weight_pct": 1.9
+},
+{
+"symbol": "HBLENGINE",
+"name": "HBL Engineering Ltd.",
+"index": "smallcap250",
+"cmp": 833.15,
+"chg_pct": 17.27,
+"composite": 7.22,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 9.29,
+"jhunjhunwala": 5.0,
+"pabrai": 7.4,
+"kacholia": 9.18,
+"kedia": 2.15,
+"blackrock": 9.21,
+"vanguard": 7.64,
+"damani": 7.52
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.03,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [
+"69% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"sessions": 247,
+"top3_vol_share": 0.69,
+"radar_ok": false
+},
+"fundamentals": {
+"mcap_cr": 23094,
+"pe": 29.6,
+"roe_pct": null,
+"op_margin_pct": 21.1,
+"de": 0.03,
+"rev_cagr3y_pct": 34.2,
+"pat_cagr3y_pct": 102.1,
+"promoter_pct": 8.1,
+"sector": "Industrials",
+"latest_quarter": "2026-06-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 10.5,
+"dd_from_52wk": -23.9,
+"ret_6m_pct": 6.1,
+"turnover_cr": 283.82,
+"ann_vol_pct": 48.0,
+"rvol20": 1.6,
+"swing_low_20": 701.0,
+"swing_high_20": 842.0,
+"atr14": 33.23
+},
+"bear_case": [
+"Weakest lens: Kedia scores just 2.1/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
+"Volume integrity: 69% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"suggested_weight_pct": 1.2
+}
+]
+}
