@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-05T02:02:56.341112+05:30",
-"trade_date": "2026-11-05",
+"generated_at": "2026-11-06T02:20:01.052132+05:30",
+"trade_date": "2026-11-06",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -36,13 +36,13 @@
 "data_honesty": "prices split/bonus-adjusted \u00b7 coverage penalty -2.0 x missing share \u00b7 promoter % display-only (yfinance field is not SEBI promoter category - verify NSE SHP) \u00b7 degraded runs refuse to publish \u00b7 attribution follows exits and counts unmatched names",
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
-"universe_size": 656,
-"scored": 642,
-"excluded_no_fundamentals": 6,
-"excluded_illiquid": 6,
+"universe_size": 655,
+"scored": 644,
+"excluded_no_fundamentals": 5,
+"excluded_illiquid": 4,
 "excluded_low_coverage": 2,
 "min_coverage": 0.6,
-"universe_source": "cache (2026-10-05)",
+"universe_source": "NSE index CSVs (fresh)",
 "fundamentals_source": "yfinance statements (cached, oldest 2026-10-31)",
 "framework_weights": {
 "buffett": 0.2,
@@ -57,112 +57,112 @@
 "regime": {
 "universe_pe_median": 29.7,
 "nifty_above_200dma": false,
-"nifty_3m_pct": -3.3,
-"india_vix": 15.7,
+"nifty_3m_pct": -2.7,
+"india_vix": 15.2,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 93,
+"sessions_logged": 94,
 "horizons": {
 "1m": {
 "status": "ok",
 "n": 642,
-"asof": "2026-10-06",
-"universe_median_ret_pct": -5.7,
+"asof": "2026-10-07",
+"universe_median_ret_pct": -3.3,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 14,
-"median_ret_pct": -2.9
+"n": 13,
+"median_ret_pct": -3.5
 },
 "B": {
-"n": 70,
-"median_ret_pct": -5.9
+"n": 71,
+"median_ret_pct": -4.4
 },
 "B+": {
-"n": 44,
-"median_ret_pct": -7.5
+"n": 47,
+"median_ret_pct": -3.6
 },
 "B-": {
-"n": 106,
-"median_ret_pct": -5.5
+"n": 107,
+"median_ret_pct": -3.6
 },
 "C": {
-"n": 219,
-"median_ret_pct": -5.1
+"n": 214,
+"median_ret_pct": -2.0
 },
 "D": {
 "n": 138,
-"median_ret_pct": -6.3
+"median_ret_pct": -3.7
 },
 "F": {
-"n": 47,
-"median_ret_pct": -6.7
+"n": 48,
+"median_ret_pct": -2.9
 }
 },
 "framework_ic": {
-"buffett": 0.095,
-"jhunjhunwala": -0.082,
-"pabrai": 0.004,
-"kacholia": -0.077,
-"kedia": -0.164,
-"blackrock": 0.22,
-"vanguard": 0.228,
-"damani": 0.114
+"buffett": 0.082,
+"jhunjhunwala": -0.137,
+"pabrai": -0.029,
+"kacholia": -0.095,
+"kedia": -0.192,
+"blackrock": 0.215,
+"vanguard": 0.213,
+"damani": 0.109
 }
 },
 "3m": {
 "status": "ok",
 "n": 645,
-"asof": "2026-08-11",
-"universe_median_ret_pct": -10.5,
+"asof": "2026-08-12",
+"universe_median_ret_pct": -8.4,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 22,
-"median_ret_pct": -0.9
+"n": 20,
+"median_ret_pct": 2.1
 },
 "B": {
-"n": 86,
-"median_ret_pct": -9.7
+"n": 87,
+"median_ret_pct": -8.1
 },
 "B+": {
-"n": 37,
-"median_ret_pct": -5.3
+"n": 38,
+"median_ret_pct": -3.0
 },
 "B-": {
-"n": 105,
-"median_ret_pct": -10.3
+"n": 107,
+"median_ret_pct": -9.2
 },
 "C": {
-"n": 209,
-"median_ret_pct": -10.9
+"n": 208,
+"median_ret_pct": -8.8
 },
 "D": {
-"n": 122,
-"median_ret_pct": -10.5
+"n": 121,
+"median_ret_pct": -8.0
 },
 "F": {
 "n": 60,
-"median_ret_pct": -17.9
+"median_ret_pct": -13.8
 }
 },
 "framework_ic": {
-"buffett": 0.121,
-"jhunjhunwala": 0.084,
-"pabrai": 0.09,
-"kacholia": -0.028,
-"kedia": 0.023,
-"blackrock": 0.158,
-"vanguard": 0.043,
-"damani": 0.061
+"buffett": 0.105,
+"jhunjhunwala": 0.061,
+"pabrai": 0.079,
+"kacholia": -0.007,
+"kedia": 0.026,
+"blackrock": 0.144,
+"vanguard": 0.026,
+"damani": 0.053
 }
 },
 "6m": {
-"status": "insufficient history (93/127 sessions)"
+"status": "insufficient history (94/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -187,13 +187,13 @@
 {
 "symbol": "SJS",
 "name": "S.J.S. Enterprises Ltd.",
-"composite": 8.91,
+"composite": 8.9,
 "near_miss": "ROE"
 },
 {
 "symbol": "MANORAMA",
 "name": "Manorama Industries Ltd.",
-"composite": 8.31,
+"composite": 8.35,
 "near_miss": "ROE"
 },
 {
@@ -205,44 +205,44 @@
 {
 "symbol": "VIJAYA",
 "name": "Vijaya Diagnostic Centre Ltd.",
+"composite": 7.86,
+"near_miss": "ROE"
+},
+{
+"symbol": "GOLDIAM",
+"name": "Goldiam International Ltd.",
 "composite": 7.84,
 "near_miss": "ROE"
 },
 {
 "symbol": "KARURVYSYA",
 "name": "Karur Vysya Bank Ltd.",
-"composite": 7.79,
+"composite": 7.8,
 "near_miss": "mcap > 25000cr"
 },
 {
 "symbol": "AEROFLEX",
 "name": "Aeroflex Industries Ltd.",
-"composite": 7.69,
-"near_miss": "over-extended (35% above 200DMA)"
+"composite": 7.77,
+"near_miss": "over-extended (49% above 200DMA)"
 },
 {
 "symbol": "LUMAXTECH",
 "name": "Lumax Auto Technologies Ltd.",
-"composite": 7.69,
+"composite": 7.71,
 "near_miss": "leverage"
 },
 {
-"symbol": "GRWRHITECH",
-"name": "Garware Hi-Tech Films Ltd.",
-"composite": 7.58,
-"near_miss": "rev CAGR"
+"symbol": "ACUTAAS",
+"name": "Acutaas Chemicals Ltd.",
+"composite": 7.7,
+"near_miss": "mcap > 25000cr"
 },
 {
 "symbol": "EMMVEE",
 "name": "Emmvee Photovoltaic Power Ltd.",
-"composite": 7.53,
+"composite": 7.58,
 "near_miss": "below 200DMA"
-},
-{
-"symbol": "IIFLCAPS",
-"name": "IIFL Capital Services Ltd.",
-"composite": 7.38,
-"near_miss": "leverage"
 }
 ],
 "portfolio": {
@@ -265,16 +265,16 @@
 "symbol": "TDPOWERSYS",
 "name": "TD Power Systems Ltd.",
 "index": "smallcap250",
-"cmp": 711.55,
-"chg_pct": -0.82,
-"composite": 7.85,
+"cmp": 728.4,
+"chg_pct": 2.37,
+"composite": 7.86,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.09,
 "jhunjhunwala": 8.56,
-"pabrai": 6.61,
+"pabrai": 6.73,
 "kacholia": 8.76,
 "kedia": 8.16,
 "blackrock": 9.23,
@@ -325,15 +325,15 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 22.9,
-"dd_from_52wk": -13.8,
-"ret_6m_pct": 21.0,
-"turnover_cr": 228.91,
+"dma200_dist_pct": 25.3,
+"dd_from_52wk": -11.8,
+"ret_6m_pct": 25.3,
+"turnover_cr": 230.69,
 "ann_vol_pct": 54.9,
-"rvol20": 1.12,
+"rvol20": 1.61,
 "swing_low_20": 613.45,
 "swing_high_20": 851.55,
-"atr14": 38.39
+"atr14": 37.62
 },
 "bear_case": [
 "Weakest lens: Damani scores just 2.8/10 (CFO/PAT conversion + margin + valuation)",
@@ -342,7 +342,7 @@
 "suggested_weight_pct": 8.0,
 "radar_age": {
 "first_seen": "2026-10-17",
-"runs": 16,
+"runs": 17,
 "stale": false
 }
 },
@@ -350,16 +350,16 @@
 "symbol": "SHAILY",
 "name": "Shaily Engineering Plastics Ltd.",
 "index": "microcap250",
-"cmp": 2961.0,
-"chg_pct": -1.65,
-"composite": 7.12,
+"cmp": 2984.8,
+"chg_pct": 0.8,
+"composite": 7.13,
 "grade": "B",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 9.69,
 "jhunjhunwala": 4.96,
-"pabrai": 4.92,
+"pabrai": 4.98,
 "kacholia": 8.31,
 "kedia": 6.58,
 "blackrock": 8.23,
@@ -410,23 +410,23 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 11.0,
-"dd_from_52wk": -14.3,
-"ret_6m_pct": 13.8,
-"turnover_cr": 40.19,
+"dma200_dist_pct": 11.7,
+"dd_from_52wk": -13.6,
+"ret_6m_pct": 13.5,
+"turnover_cr": 41.01,
 "ann_vol_pct": 49.5,
-"rvol20": 0.89,
+"rvol20": 0.67,
 "swing_low_20": 2712.1,
 "swing_high_20": 3245.0,
-"atr14": 160.74
+"atr14": 162.9
 },
 "bear_case": [
-"Weakest lens: Pabrai scores just 4.9/10 (margin-of-safety / downside protection)",
+"Weakest lens: Jhunjhunwala scores just 5.0/10 (earnings momentum vs valuation)",
 "PE 81.2 is 2.7x the current universe median (30) - priced for perfection in this regime"
 ],
 "radar_age": {
 "first_seen": "2026-10-31",
-"runs": 4,
+"runs": 5,
 "stale": false
 },
 "suggested_weight_pct": 8.0
@@ -435,20 +435,20 @@
 "symbol": "GOKULAGRO",
 "name": "Gokul Agro Resources Ltd.",
 "index": "microcap250",
-"cmp": 217.05,
-"chg_pct": 1.16,
-"composite": 6.94,
+"cmp": 223.06,
+"chg_pct": 2.77,
+"composite": 6.96,
 "grade": "B-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 6.98,
 "jhunjhunwala": 7.99,
-"pabrai": 7.36,
+"pabrai": 7.56,
 "kacholia": 9.94,
 "kedia": 7.7,
-"blackrock": 4.78,
-"vanguard": 4.09,
+"blackrock": 4.71,
+"vanguard": 4.08,
 "damani": 4.85
 },
 "framework_notes": {
@@ -477,7 +477,7 @@
 "integrity": {
 "flags": [],
 "sessions": 248,
-"top3_vol_share": 0.37,
+"top3_vol_share": 0.35,
 "radar_ok": true
 },
 "fundamentals": {
@@ -494,16 +494,16 @@
 },
 "technical": {
 "above_200dma": true,
-"above_50dma": false,
-"dma200_dist_pct": 4.8,
-"dd_from_52wk": -14.2,
-"ret_6m_pct": -7.2,
-"turnover_cr": 7.02,
-"ann_vol_pct": 42.1,
-"rvol20": 0.94,
+"above_50dma": true,
+"dma200_dist_pct": 7.5,
+"dd_from_52wk": -11.8,
+"ret_6m_pct": -5.6,
+"turnover_cr": 6.51,
+"ann_vol_pct": 42.2,
+"rvol20": 1.35,
 "swing_low_20": 193.21,
-"swing_high_20": 224.12,
-"atr14": 8.24
+"swing_high_20": 224.44,
+"atr14": 7.91
 },
 "bear_case": [
 "Weakest lens: Vanguard scores just 4.1/10 (profit consistency / low volatility)",
@@ -511,7 +511,7 @@
 ],
 "radar_age": {
 "first_seen": "2026-10-31",
-"runs": 4,
+"runs": 5,
 "stale": false
 },
 "suggested_weight_pct": 8.0
@@ -520,16 +520,16 @@
 "symbol": "SMLMAH",
 "name": "SML Mahindra Ltd.",
 "index": "microcap250",
-"cmp": 4908.2,
-"chg_pct": 0.07,
-"composite": 5.78,
+"cmp": 4928.8,
+"chg_pct": 0.42,
+"composite": 5.79,
 "grade": "C",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 6.8,
 "jhunjhunwala": 5.0,
-"pabrai": 3.58,
+"pabrai": 3.6,
 "kacholia": 8.51,
 "kedia": 2.91,
 "blackrock": 8.0,
@@ -562,7 +562,7 @@
 "integrity": {
 "flags": [],
 "sessions": 248,
-"top3_vol_share": 0.42,
+"top3_vol_share": 0.41,
 "radar_ok": true
 },
 "fundamentals": {
@@ -580,15 +580,15 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 7.2,
-"dd_from_52wk": -28.1,
-"ret_6m_pct": 34.9,
-"turnover_cr": 41.01,
-"ann_vol_pct": 61.5,
-"rvol20": 0.5,
+"dma200_dist_pct": 7.6,
+"dd_from_52wk": -27.8,
+"ret_6m_pct": 28.0,
+"turnover_cr": 40.55,
+"ann_vol_pct": 61.3,
+"rvol20": 0.68,
 "swing_low_20": 4580.5,
 "swing_high_20": 6339.5,
-"atr14": 293.78
+"atr14": 293.11
 },
 "bear_case": [
 "Weakest lens: Kedia scores just 2.9/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
@@ -597,7 +597,7 @@
 ],
 "radar_age": {
 "first_seen": "2026-10-31",
-"runs": 4,
+"runs": 5,
 "stale": false
 },
 "suggested_weight_pct": 8.0
