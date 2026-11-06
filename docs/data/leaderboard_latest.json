@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-06T02:20:01.052132+05:30",
-"trade_date": "2026-11-06",
+"generated_at": "2026-11-07T01:35:35.676816+05:30",
+"trade_date": "2026-11-07",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -37,12 +37,12 @@
 "leaderboard": "manual ACE deep-dives only, entry bar 7.48, max 17"
 },
 "universe_size": 655,
-"scored": 644,
+"scored": 646,
 "excluded_no_fundamentals": 5,
-"excluded_illiquid": 4,
+"excluded_illiquid": 2,
 "excluded_low_coverage": 2,
 "min_coverage": 0.6,
-"universe_source": "NSE index CSVs (fresh)",
+"universe_source": "cache (2026-11-05)",
 "fundamentals_source": "yfinance statements (cached, oldest 2026-10-31)",
 "framework_weights": {
 "buffett": 0.2,
@@ -56,113 +56,113 @@
 },
 "regime": {
 "universe_pe_median": 29.7,
-"nifty_above_200dma": false,
-"nifty_3m_pct": -2.7,
-"india_vix": 15.2,
+"nifty_above_200dma": true,
+"nifty_3m_pct": -0.4,
+"india_vix": 15.6,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 94,
+"sessions_logged": 95,
 "horizons": {
 "1m": {
 "status": "ok",
 "n": 642,
-"asof": "2026-10-07",
-"universe_median_ret_pct": -3.3,
+"asof": "2026-10-08",
+"universe_median_ret_pct": 0.7,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 13,
-"median_ret_pct": -3.5
+"n": 15,
+"median_ret_pct": 2.6
 },
 "B": {
 "n": 71,
-"median_ret_pct": -4.4
+"median_ret_pct": -0.3
 },
 "B+": {
 "n": 47,
-"median_ret_pct": -3.6
+"median_ret_pct": -1.3
 },
 "B-": {
 "n": 107,
-"median_ret_pct": -3.6
+"median_ret_pct": -1.3
 },
 "C": {
-"n": 214,
-"median_ret_pct": -2.0
+"n": 215,
+"median_ret_pct": 1.4
 },
 "D": {
-"n": 138,
-"median_ret_pct": -3.7
+"n": 135,
+"median_ret_pct": 0.7
 },
 "F": {
 "n": 48,
-"median_ret_pct": -2.9
+"median_ret_pct": 3.2
 }
 },
 "framework_ic": {
-"buffett": 0.082,
-"jhunjhunwala": -0.137,
-"pabrai": -0.029,
-"kacholia": -0.095,
-"kedia": -0.192,
-"blackrock": 0.215,
-"vanguard": 0.213,
-"damani": 0.109
+"buffett": 0.024,
+"jhunjhunwala": -0.168,
+"pabrai": -0.084,
+"kacholia": -0.089,
+"kedia": -0.203,
+"blackrock": 0.181,
+"vanguard": 0.158,
+"damani": 0.068
 }
 },
 "3m": {
 "status": "ok",
-"n": 645,
-"asof": "2026-08-12",
-"universe_median_ret_pct": -8.4,
+"n": 647,
+"asof": "2026-08-13",
+"universe_median_ret_pct": -6.7,
 "terminated_n": 0,
 "unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 20,
-"median_ret_pct": 2.1
+"n": 22,
+"median_ret_pct": 5.1
 },
 "B": {
-"n": 87,
-"median_ret_pct": -8.1
+"n": 88,
+"median_ret_pct": -5.8
 },
 "B+": {
-"n": 38,
-"median_ret_pct": -3.0
+"n": 34,
+"median_ret_pct": -2.8
 },
 "B-": {
-"n": 107,
-"median_ret_pct": -9.2
+"n": 109,
+"median_ret_pct": -8.3
 },
 "C": {
-"n": 208,
-"median_ret_pct": -8.8
+"n": 209,
+"median_ret_pct": -6.1
 },
 "D": {
-"n": 121,
-"median_ret_pct": -8.0
+"n": 117,
+"median_ret_pct": -6.3
 },
 "F": {
-"n": 60,
-"median_ret_pct": -13.8
+"n": 63,
+"median_ret_pct": -13.5
 }
 },
 "framework_ic": {
-"buffett": 0.105,
-"jhunjhunwala": 0.061,
+"buffett": 0.102,
+"jhunjhunwala": 0.058,
 "pabrai": 0.079,
-"kacholia": -0.007,
-"kedia": 0.026,
-"blackrock": 0.144,
-"vanguard": 0.026,
-"damani": 0.053
+"kacholia": 0.011,
+"kedia": 0.021,
+"blackrock": 0.161,
+"vanguard": 0.024,
+"damani": 0.064
 }
 },
 "6m": {
-"status": "insufficient history (94/127 sessions)"
+"status": "insufficient history (95/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -175,15 +175,15 @@
 "symbol": "MCX",
 "name": "Multi Commodity Exchange of India Ltd.",
 "provisional": true,
-"ace_score": 8.95,
+"ace_score": 8.96,
 "grade": "A",
-"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"verdict": "Mechanically qualified (Lane 1 - volume confirmed) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 3315.0,
-"chg_pct": -5.02,
-"mech_composite": 8.95,
+"cmp": 3366.0,
+"chg_pct": 1.54,
+"mech_composite": 8.96,
 "mech_grade": "A",
 "divergence": null,
 "divergence_baseline": null,
@@ -206,7 +206,7 @@
 "score": 10.0
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.95, A) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.96, A) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "PE 66.6 is 2.2x the current universe median (30) - priced for perfection in this regime"
 ],
@@ -222,13 +222,13 @@
 "theme": "energy transition / data-centre capex",
 "added": "2026-05-01",
 "provisional": false,
-"cmp": 4725.7,
-"chg_pct": 1.63,
-"mech_composite": 6.48,
+"cmp": 4058.9,
+"chg_pct": -14.11,
+"mech_composite": 6.36,
 "mech_grade": "C",
-"divergence": 2.32,
+"divergence": 2.44,
 "divergence_baseline": 2.19,
-"divergence_drift": 0.13,
+"divergence_drift": 0.25,
 "re_review": false,
 "vetoes_now": [],
 "in_universe": false,
@@ -244,10 +244,10 @@
 },
 {
 "name": "vanguard",
-"score": 8.69
+"score": 8.46
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently does NOT corroborate as strongly (composite 6.48, C) - your ACE score rests more on the qualitative layer than on the current numbers.",
+"mechanical_corroboration": "Mechanical screen currently does NOT corroborate as strongly (composite 6.36, C) - your ACE score rests more on the qualitative layer than on the current numbers.",
 "bear_case": [
 "Weakest lens: Jhunjhunwala scores just 2.6/10 (earnings momentum vs valuation)",
 "PE 52.1 is 1.8x the current universe median (30) - priced for perfection in this regime"
@@ -261,15 +261,15 @@
 "symbol": "GESHIP",
 "name": "Great Eastern Shipping Co. Ltd.",
 "provisional": true,
-"ace_score": 8.67,
+"ace_score": 8.62,
 "grade": "A",
-"verdict": "Mechanically qualified (Lane 1 - volume confirmed) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 1571.8,
-"chg_pct": 2.3,
-"mech_composite": 8.67,
+"cmp": 1460.0,
+"chg_pct": -7.11,
+"mech_composite": 8.62,
 "mech_grade": "A",
 "divergence": null,
 "divergence_baseline": null,
@@ -288,11 +288,11 @@
 "score": 9.89
 },
 {
-"name": "pabrai",
-"score": 9.41
+"name": "blackrock",
+"score": 9.06
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.67, A) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.62, A) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Weakest lens: Kacholia scores just 4.2/10 (3y growth + operating leverage + size runway)"
 ],
@@ -303,15 +303,15 @@
 "symbol": "IGIL",
 "name": "International Gemological Institute Ltd.",
 "provisional": true,
-"ace_score": 8.51,
+"ace_score": 8.52,
 "grade": "A",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 402.0,
-"chg_pct": -1.43,
-"mech_composite": 8.51,
+"cmp": 406.95,
+"chg_pct": 1.23,
+"mech_composite": 8.52,
 "mech_grade": "A",
 "divergence": null,
 "divergence_baseline": null,
@@ -334,10 +334,52 @@
 "score": 8.67
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.51, A) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.52, A) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "PAT compounding slower than revenue - margins are being given up to buy growth",
-"Volume integrity: 67% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+"Volume integrity: 66% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
+],
+"vetoes_now": []
+}
+},
+{
+"symbol": "INDIANB",
+"name": "Indian Bank",
+"provisional": true,
+"ace_score": 8.17,
+"grade": "A-",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 892.15,
+"chg_pct": 4.47,
+"mech_composite": 8.17,
+"mech_grade": "A-",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "jhunjhunwala",
+"score": 9.82
+},
+{
+"name": "damani",
+"score": 9.82
+},
+{
+"name": "blackrock",
+"score": 8.95
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.17, A-) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
+"Weakest lens: Kacholia scores just 4.7/10 (3y growth + operating leverage + size runway)"
 ],
 "vetoes_now": []
 }
@@ -346,15 +388,15 @@
 "symbol": "NATIONALUM",
 "name": "National Aluminium Co. Ltd.",
 "provisional": true,
-"ace_score": 8.06,
+"ace_score": 8.07,
 "grade": "A-",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 326.25,
-"chg_pct": 2.74,
-"mech_composite": 8.06,
+"cmp": 326.5,
+"chg_pct": 1.46,
+"mech_composite": 8.07,
 "mech_grade": "A-",
 "divergence": null,
 "divergence_baseline": null,
@@ -377,7 +419,7 @@
 "score": 9.46
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.06, A-) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.07, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
 ],
@@ -390,12 +432,12 @@
 "provisional": true,
 "ace_score": 8.03,
 "grade": "A-",
-"verdict": "Mechanically qualified (Lane 1 - volume confirmed) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 8777.0,
-"chg_pct": 2.99,
+"cmp": 8845.0,
+"chg_pct": 0.77,
 "mech_composite": 8.03,
 "mech_grade": "A-",
 "divergence": null,
@@ -436,8 +478,8 @@
 "added": "2026-07-01",
 "pending_add": true,
 "provisional": false,
-"cmp": 3159.0,
-"chg_pct": 0.0,
+"cmp": 3145.2,
+"chg_pct": -0.44,
 "mech_composite": 7.75,
 "mech_grade": "B+",
 "divergence": 0.27,
@@ -478,12 +520,12 @@
 "provisional": true,
 "ace_score": 7.97,
 "grade": "B+",
-"verdict": "Mechanically qualified (Lane 1 - volume confirmed) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 2296.0,
-"chg_pct": 0.35,
+"cmp": 2370.0,
+"chg_pct": 3.22,
 "mech_composite": 7.97,
 "mech_grade": "B+",
 "divergence": null,
@@ -504,7 +546,7 @@
 },
 {
 "name": "vanguard",
-"score": 9.69
+"score": 9.67
 }
 ],
 "mechanical_corroboration": "Mechanical screen currently agrees (composite 7.97, B+) - your deep-dive call and the automated read are aligned.",
@@ -517,8 +559,8 @@
 }
 },
 {
-"symbol": "GLENMARK",
-"name": "Glenmark Pharmaceuticals Ltd.",
+"symbol": "HEROMOTOCO",
+"name": "Hero MotoCorp Ltd.",
 "provisional": true,
 "ace_score": 7.96,
 "grade": "B+",
@@ -526,51 +568,9 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 2504.7,
-"chg_pct": 4.02,
+"cmp": 5514.0,
+"chg_pct": 2.12,
 "mech_composite": 7.96,
-"mech_grade": "B+",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "blackrock",
-"score": 10.0
-},
-{
-"name": "jhunjhunwala",
-"score": 9.92
-},
-{
-"name": "buffett",
-"score": 8.36
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.96, B+) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
-"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
-],
-"vetoes_now": []
-}
-},
-{
-"symbol": "HEROMOTOCO",
-"name": "Hero MotoCorp Ltd.",
-"provisional": true,
-"ace_score": 7.94,
-"grade": "B+",
-"verdict": "Mechanically qualified (Lane 1 - volume confirmed) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 5399.5,
-"chg_pct": 1.88,
-"mech_composite": 7.94,
 "mech_grade": "B+",
 "divergence": null,
 "divergence_baseline": null,
@@ -593,9 +593,51 @@
 "score": 8.95
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.94, B+) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.96, B+) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Weakest lens: Kacholia scores just 4.7/10 (3y growth + operating leverage + size runway)"
+],
+"vetoes_now": []
+}
+},
+{
+"symbol": "GLENMARK",
+"name": "Glenmark Pharmaceuticals Ltd.",
+"provisional": true,
+"ace_score": 7.95,
+"grade": "B+",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"theme": null,
+"added": null,
+"pending_add": false,
+"cmp": 2481.8,
+"chg_pct": -0.91,
+"mech_composite": 7.95,
+"mech_grade": "B+",
+"divergence": null,
+"divergence_baseline": null,
+"divergence_drift": null,
+"re_review": false,
+"vetoes_now": [],
+"in_universe": true,
+"why": {
+"top_frameworks": [
+{
+"name": "blackrock",
+"score": 10.0
+},
+{
+"name": "jhunjhunwala",
+"score": 9.92
+},
+{
+"name": "buffett",
+"score": 8.36
+}
+],
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.95, B+) - your deep-dive call and the automated read are aligned.",
+"bear_case": [
+"No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
 ],
 "vetoes_now": []
 }
@@ -604,15 +646,15 @@
 "symbol": "USHAMART",
 "name": "Usha Martin Ltd.",
 "provisional": true,
-"ace_score": 7.94,
+"ace_score": 7.95,
 "grade": "B+",
-"verdict": "Mechanically qualified (Lane 1 - volume confirmed) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
+"verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 486.0,
-"chg_pct": 5.48,
-"mech_composite": 7.94,
+"cmp": 487.65,
+"chg_pct": 0.34,
+"mech_composite": 7.95,
 "mech_grade": "B+",
 "divergence": null,
 "divergence_baseline": null,
@@ -628,14 +670,14 @@
 },
 {
 "name": "vanguard",
-"score": 8.71
+"score": 8.72
 },
 {
 "name": "buffett",
 "score": 8.53
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.94, B+) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.95, B+) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "Weakest lens: Kacholia scores just 5.0/10 (3y growth + operating leverage + size runway)"
 ],
@@ -652,8 +694,8 @@
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 2416.1,
-"chg_pct": 2.18,
+"cmp": 2421.4,
+"chg_pct": 0.22,
 "mech_composite": 7.92,
 "mech_grade": "B+",
 "divergence": null,
@@ -670,11 +712,11 @@
 },
 {
 "name": "vanguard",
-"score": 8.56
+"score": 8.57
 },
 {
 "name": "blackrock",
-"score": 8.23
+"score": 8.2
 }
 ],
 "mechanical_corroboration": "Mechanical screen currently agrees (composite 7.92, B+) - your deep-dive call and the automated read are aligned.",
@@ -685,61 +727,18 @@
 }
 },
 {
-"symbol": "TDPOWERSYS",
-"name": "TD Power Systems Ltd.",
-"provisional": true,
-"ace_score": 7.86,
-"grade": "B+",
-"verdict": "Mechanically qualified (Lane 1 - volume confirmed) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
-"theme": null,
-"added": null,
-"pending_add": false,
-"cmp": 728.4,
-"chg_pct": 2.37,
-"mech_composite": 7.86,
-"mech_grade": "B+",
-"divergence": null,
-"divergence_baseline": null,
-"divergence_drift": null,
-"re_review": false,
-"vetoes_now": [],
-"in_universe": true,
-"why": {
-"top_frameworks": [
-{
-"name": "blackrock",
-"score": 9.23
-},
-{
-"name": "buffett",
-"score": 9.09
-},
-{
-"name": "kacholia",
-"score": 8.76
-}
-],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.86, B+) - your deep-dive call and the automated read are aligned.",
-"bear_case": [
-"Weakest lens: Damani scores just 2.8/10 (CFO/PAT conversion + margin + valuation)",
-"PE 81.1 is 2.7x the current universe median (30) - priced for perfection in this regime"
-],
-"vetoes_now": []
-}
-},
-{
 "symbol": "VIJAYA",
 "name": "Vijaya Diagnostic Centre Ltd.",
 "provisional": true,
-"ace_score": 7.86,
+"ace_score": 7.87,
 "grade": "B+",
 "verdict": "Mechanically qualified (Lane 2 - watching) - no ACE deep-dive done yet. Worksheet available in the Deep-Dive Queue tab.",
 "theme": null,
 "added": null,
 "pending_add": false,
-"cmp": 1424.6,
-"chg_pct": -1.55,
-"mech_composite": 7.86,
+"cmp": 1437.7,
+"chg_pct": 0.92,
+"mech_composite": 7.87,
 "mech_grade": "B+",
 "divergence": null,
 "divergence_baseline": null,
@@ -762,9 +761,9 @@
 "score": 8.71
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.86, B+) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 7.87, B+) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
-"Weakest lens: Pabrai scores just 4.9/10 (margin-of-safety / downside protection)",
+"Weakest lens: Pabrai scores just 5.0/10 (margin-of-safety / downside protection)",
 "PE 79.5 is 2.7x the current universe median (30) - priced for perfection in this regime"
 ],
 "vetoes_now": []
@@ -780,13 +779,13 @@
 "added": "2026-07-01",
 "pending_add": true,
 "provisional": false,
-"cmp": 2008.6,
-"chg_pct": -0.36,
-"mech_composite": 8.25,
+"cmp": 1988.0,
+"chg_pct": -1.03,
+"mech_composite": 8.24,
 "mech_grade": "A-",
-"divergence": -0.66,
+"divergence": -0.65,
 "divergence_baseline": -1.14,
-"divergence_drift": 0.48,
+"divergence_drift": 0.49,
 "re_review": false,
 "vetoes_now": [],
 "in_universe": true,
@@ -805,7 +804,7 @@
 "score": 9.51
 }
 ],
-"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.25, A-) - your deep-dive call and the automated read are aligned.",
+"mechanical_corroboration": "Mechanical screen currently agrees (composite 8.24, A-) - your deep-dive call and the automated read are aligned.",
 "bear_case": [
 "No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
 ],
