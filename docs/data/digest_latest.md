@@ -1,11 +1,13 @@
-### Deep-Dive Queue — 2026-11-20
+### Deep-Dive Queue — 2026-11-21
 
 **🟢 NEW in Lane 1 (volume-confirmed today)** — run these deep-dives first:
-- **EIHOTEL** (EIH Ltd.) — B+ 7.59, RVol 3.53x, ₹313.45 (+1.0%) [worksheet ready in queue_latest.json]
-- **IEX** (Indian Energy Exchange Ltd.) — B+ 7.51, RVol 2.41x, ₹115.0 (+0.5%) [worksheet ready in queue_latest.json]
-- **PRIVISCL** (Privi Speciality Chemicals Ltd.) — B 7.32, RVol 1.62x, ₹3438.3 (+0.2%) [worksheet ready in queue_latest.json]
+- **INDIANB** (Indian Bank) — A- 8.21, RVol 1.65x, ₹947.0 (+1.1%) [worksheet ready in queue_latest.json]
+- **CUB** (City Union Bank Ltd.) — B 7.25, RVol 5.36x, ₹234.16 (+0.8%) [worksheet ready in queue_latest.json]
+- **CENTRALBK** (Central Bank of India) — B 7.07, RVol 4.43x, ₹33.61 (+3.6%) [worksheet ready in queue_latest.json]
 
-**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): HONASA, MAHABANK
+**🟡 New to Lane 2 (watching for volume):** USHAMART
+
+**⚪ Left Lane 1** (composite fell below bar, vetoed, or volume no longer confirming): EIHOTEL, IEX, PRIVISCL
 
 Current queue: Lane 1 = 3, Lane 2 = 20.
 A queue entry is an invitation to run the ACE deep-dive, never a buy signal.
