@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-27T04:06:57.477537+05:30",
-"trade_date": "2026-11-27",
+"generated_at": "2026-11-28T03:50:28.894159+05:30",
+"trade_date": "2026-11-28",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
 "hard_filters": [
@@ -57,112 +57,114 @@
 "regime": {
 "universe_pe_median": 30.4,
 "nifty_above_200dma": true,
-"nifty_3m_pct": 6.6,
-"india_vix": 17.7,
+"nifty_3m_pct": 6.4,
+"india_vix": 16.8,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 108,
+"sessions_logged": 109,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 642,
-"asof": "2026-10-27",
-"universe_median_ret_pct": 3.5,
+"n": 640,
+"asof": "2026-10-28",
+"universe_median_ret_pct": 3.6,
 "terminated_n": 0,
-"unmatched_n": 0,
+"unmatched_n": 1,
 "by_grade": {
 "A-": {
-"n": 9,
-"median_ret_pct": 3.2
+"n": 11,
+"median_ret_pct": 1.9
 },
 "B": {
-"n": 59,
-"median_ret_pct": 1.2
+"n": 58,
+"median_ret_pct": 3.5
 },
 "B+": {
-"n": 43,
-"median_ret_pct": 4.6
+"n": 42,
+"median_ret_pct": 5.0
 },
 "B-": {
-"n": 83,
-"median_ret_pct": 3.1
+"n": 84,
+"median_ret_pct": 3.4
 },
 "C": {
-"n": 227,
-"median_ret_pct": 3.7
+"n": 223,
+"median_ret_pct": 3.4
 },
 "D": {
 "n": 153,
-"median_ret_pct": 4.0
+"median_ret_pct": 3.5
 },
 "F": {
-"n": 64,
-"median_ret_pct": 5.5
+"n": 65,
+"median_ret_pct": 6.4
 }
 },
 "framework_ic": {
-"buffett": -0.035,
-"jhunjhunwala": -0.097,
-"pabrai": -0.094,
-"kacholia": -0.11,
-"kedia": -0.167,
-"blackrock": 0.191,
-"vanguard": 0.181,
-"damani": -0.01
-}
+"buffett": -0.015,
+"jhunjhunwala": -0.103,
+"pabrai": -0.062,
+"kacholia": -0.095,
+"kedia": -0.18,
+"blackrock": 0.184,
+"vanguard": 0.177,
+"damani": 0.005
+},
+"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
 },
 "3m": {
 "status": "ok",
-"n": 623,
-"asof": "2026-08-29",
-"universe_median_ret_pct": -7.9,
+"n": 622,
+"asof": "2026-09-01",
+"universe_median_ret_pct": -7.0,
 "terminated_n": 0,
-"unmatched_n": 0,
+"unmatched_n": 1,
 "by_grade": {
 "A-": {
 "n": 21,
-"median_ret_pct": -8.4
+"median_ret_pct": -3.8
 },
 "B": {
-"n": 74,
-"median_ret_pct": -8.3
+"n": 75,
+"median_ret_pct": -6.0
 },
 "B+": {
-"n": 47,
-"median_ret_pct": -6.4
+"n": 46,
+"median_ret_pct": -3.9
 },
 "B-": {
-"n": 88,
-"median_ret_pct": -8.5
+"n": 90,
+"median_ret_pct": -8.9
 },
 "C": {
-"n": 180,
-"median_ret_pct": -8.2
+"n": 174,
+"median_ret_pct": -7.2
 },
 "D": {
-"n": 138,
-"median_ret_pct": -7.0
+"n": 144,
+"median_ret_pct": -5.8
 },
 "F": {
-"n": 70,
-"median_ret_pct": -7.5
+"n": 68,
+"median_ret_pct": -6.3
 }
 },
 "framework_ic": {
-"buffett": 0.078,
-"jhunjhunwala": -0.022,
-"pabrai": 0.054,
-"kacholia": -0.009,
-"kedia": -0.072,
-"blackrock": 0.165,
-"vanguard": 0.106,
-"damani": 0.043
-}
+"buffett": 0.079,
+"jhunjhunwala": -0.007,
+"pabrai": 0.058,
+"kacholia": 0.016,
+"kedia": -0.079,
+"blackrock": 0.172,
+"vanguard": 0.09,
+"damani": 0.029
+},
+"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
 },
 "6m": {
-"status": "insufficient history (108/127 sessions)"
+"status": "insufficient history (109/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -170,19 +172,8 @@
 "grade_note": "Any triggered hard veto caps grade at C. V1/V2/V4-V7 require manual verification (checklist on each card).",
 "disclaimer": "Educational purposes only. Not investment advice. Not SEBI-registered research. Framework scores are quantified proxies of published investor philosophies computed from reported data; qualitative judgment is not automated. Suggested weights are a risk-budget illustration, not a recommendation. Verify independently before acting.",
 "exit_review": {
-"count": 5,
+"count": 4,
 "names": [
-{
-"symbol": "USHAMART",
-"name": "Usha Martin Ltd.",
-"entered": "2026-07-05",
-"entry_composite": 7.7,
-"current_composite": 6.98,
-"grade": "B-",
-"reasons": [
-"grade B+ -> B- (2 bands)"
-]
-},
 {
 "symbol": "LUPIN",
 "name": "Lupin Ltd.",
@@ -210,7 +201,7 @@
 "name": "Gland Pharma Ltd.",
 "entered": "2026-08-22",
 "entry_composite": 7.84,
-"current_composite": 6.54,
+"current_composite": 6.55,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"
@@ -221,7 +212,7 @@
 "name": "TD Power Systems Ltd.",
 "entered": "2026-10-06",
 "entry_composite": 7.84,
-"current_composite": 6.91,
+"current_composite": 6.95,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"
