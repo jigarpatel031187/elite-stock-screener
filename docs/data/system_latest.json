@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-28T03:50:28.894159+05:30",
+"generated_at": "2026-11-28T18:10:17.539725+05:30",
 "trade_date": "2026-11-28",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
@@ -38,12 +38,12 @@
 },
 "universe_size": 655,
 "scored": 647,
-"excluded_no_fundamentals": 5,
+"excluded_no_fundamentals": 3,
 "excluded_illiquid": 2,
-"excluded_low_coverage": 1,
+"excluded_low_coverage": 3,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-11-05)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-11-21)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -57,114 +57,112 @@
 "regime": {
 "universe_pe_median": 30.4,
 "nifty_above_200dma": true,
-"nifty_3m_pct": 6.4,
-"india_vix": 16.8,
+"nifty_3m_pct": 5.8,
+"india_vix": 16.5,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 109,
+"sessions_logged": 110,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 640,
-"asof": "2026-10-28",
-"universe_median_ret_pct": 3.6,
+"n": 644,
+"asof": "2026-10-29",
+"universe_median_ret_pct": 3.3,
 "terminated_n": 0,
-"unmatched_n": 1,
+"unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 11,
-"median_ret_pct": 1.9
+"n": 10,
+"median_ret_pct": 5.6
 },
 "B": {
-"n": 58,
-"median_ret_pct": 3.5
+"n": 60,
+"median_ret_pct": 2.7
 },
 "B+": {
-"n": 42,
-"median_ret_pct": 5.0
+"n": 44,
+"median_ret_pct": 4.1
 },
 "B-": {
-"n": 84,
-"median_ret_pct": 3.4
+"n": 85,
+"median_ret_pct": 2.7
 },
 "C": {
-"n": 223,
-"median_ret_pct": 3.4
+"n": 224,
+"median_ret_pct": 3.3
 },
 "D": {
-"n": 153,
-"median_ret_pct": 3.5
+"n": 156,
+"median_ret_pct": 3.4
 },
 "F": {
-"n": 65,
-"median_ret_pct": 6.4
+"n": 61,
+"median_ret_pct": 3.5
 }
 },
 "framework_ic": {
-"buffett": -0.015,
-"jhunjhunwala": -0.103,
+"buffett": -0.006,
+"jhunjhunwala": -0.099,
 "pabrai": -0.062,
-"kacholia": -0.095,
-"kedia": -0.18,
-"blackrock": 0.184,
-"vanguard": 0.177,
-"damani": 0.005
-},
-"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+"kacholia": -0.086,
+"kedia": -0.157,
+"blackrock": 0.154,
+"vanguard": 0.152,
+"damani": -0.007
+}
 },
 "3m": {
 "status": "ok",
-"n": 622,
-"asof": "2026-09-01",
-"universe_median_ret_pct": -7.0,
+"n": 623,
+"asof": "2026-09-02",
+"universe_median_ret_pct": -6.3,
 "terminated_n": 0,
-"unmatched_n": 1,
+"unmatched_n": 0,
 "by_grade": {
 "A-": {
 "n": 21,
-"median_ret_pct": -3.8
+"median_ret_pct": 0.5
 },
 "B": {
-"n": 75,
-"median_ret_pct": -6.0
+"n": 71,
+"median_ret_pct": -6.1
 },
 "B+": {
-"n": 46,
-"median_ret_pct": -3.9
+"n": 44,
+"median_ret_pct": -3.5
 },
 "B-": {
-"n": 90,
-"median_ret_pct": -8.9
+"n": 91,
+"median_ret_pct": -6.6
 },
 "C": {
-"n": 174,
-"median_ret_pct": -7.2
+"n": 175,
+"median_ret_pct": -6.7
 },
 "D": {
-"n": 144,
-"median_ret_pct": -5.8
+"n": 147,
+"median_ret_pct": -6.3
 },
 "F": {
-"n": 68,
-"median_ret_pct": -6.3
+"n": 70,
+"median_ret_pct": -6.1
 }
 },
 "framework_ic": {
-"buffett": 0.079,
-"jhunjhunwala": -0.007,
-"pabrai": 0.058,
-"kacholia": 0.016,
-"kedia": -0.079,
-"blackrock": 0.172,
-"vanguard": 0.09,
-"damani": 0.029
-},
-"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+"buffett": 0.08,
+"jhunjhunwala": -0.013,
+"pabrai": 0.061,
+"kacholia": 0.034,
+"kedia": -0.077,
+"blackrock": 0.143,
+"vanguard": 0.077,
+"damani": 0.008
+}
 },
 "6m": {
-"status": "insufficient history (109/127 sessions)"
+"status": "insufficient history (110/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -201,7 +199,7 @@
 "name": "Gland Pharma Ltd.",
 "entered": "2026-08-22",
 "entry_composite": 7.84,
-"current_composite": 6.55,
+"current_composite": 6.52,
 "grade": "B-",
 "reasons": [
 "grade B+ -> B- (2 bands)"

@@ -1,5 +1,5 @@
 {
-"generated_at": "2026-11-28T03:50:28.894159+05:30",
+"generated_at": "2026-11-28T18:10:17.539725+05:30",
 "trade_date": "2026-11-28",
 "criteria": {
 "universe": "Nifty Midcap 150 + Smallcap 250 (primary) \u00b7 + Microcap 250 (radar only)",
@@ -38,12 +38,12 @@
 },
 "universe_size": 655,
 "scored": 647,
-"excluded_no_fundamentals": 5,
+"excluded_no_fundamentals": 3,
 "excluded_illiquid": 2,
-"excluded_low_coverage": 1,
+"excluded_low_coverage": 3,
 "min_coverage": 0.6,
 "universe_source": "cache (2026-11-05)",
-"fundamentals_source": "yfinance statements (cached, oldest 2026-11-21)",
+"fundamentals_source": "yfinance statements (fresh)",
 "framework_weights": {
 "buffett": 0.2,
 "jhunjhunwala": 0.15,
@@ -57,114 +57,112 @@
 "regime": {
 "universe_pe_median": 30.4,
 "nifty_above_200dma": true,
-"nifty_3m_pct": 6.4,
-"india_vix": 16.8,
+"nifty_3m_pct": 5.8,
+"india_vix": 16.5,
 "note": "valuation scored vs universe median PE; Nifty trend + India VIX shown as orthogonal context (fix #10)"
 },
 "attribution": {
 "status": "ok",
-"sessions_logged": 109,
+"sessions_logged": 110,
 "horizons": {
 "1m": {
 "status": "ok",
-"n": 640,
-"asof": "2026-10-28",
-"universe_median_ret_pct": 3.6,
+"n": 644,
+"asof": "2026-10-29",
+"universe_median_ret_pct": 3.3,
 "terminated_n": 0,
-"unmatched_n": 1,
+"unmatched_n": 0,
 "by_grade": {
 "A-": {
-"n": 11,
-"median_ret_pct": 1.9
+"n": 10,
+"median_ret_pct": 5.6
 },
 "B": {
-"n": 58,
-"median_ret_pct": 3.5
+"n": 60,
+"median_ret_pct": 2.7
 },
 "B+": {
-"n": 42,
-"median_ret_pct": 5.0
+"n": 44,
+"median_ret_pct": 4.1
 },
 "B-": {
-"n": 84,
-"median_ret_pct": 3.4
+"n": 85,
+"median_ret_pct": 2.7
 },
 "C": {
-"n": 223,
-"median_ret_pct": 3.4
+"n": 224,
+"median_ret_pct": 3.3
 },
 "D": {
-"n": 153,
-"median_ret_pct": 3.5
+"n": 156,
+"median_ret_pct": 3.4
 },
 "F": {
-"n": 65,
-"median_ret_pct": 6.4
+"n": 61,
+"median_ret_pct": 3.5
 }
 },
 "framework_ic": {
-"buffett": -0.015,
-"jhunjhunwala": -0.103,
+"buffett": -0.006,
+"jhunjhunwala": -0.099,
 "pabrai": -0.062,
-"kacholia": -0.095,
-"kedia": -0.18,
-"blackrock": 0.184,
-"vanguard": 0.177,
-"damani": 0.005
-},
-"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+"kacholia": -0.086,
+"kedia": -0.157,
+"blackrock": 0.154,
+"vanguard": 0.152,
+"damani": -0.007
+}
 },
 "3m": {
 "status": "ok",
-"n": 622,
-"asof": "2026-09-01",
-"universe_median_ret_pct": -7.0,
+"n": 623,
+"asof": "2026-09-02",
+"universe_median_ret_pct": -6.3,
 "terminated_n": 0,
-"unmatched_n": 1,
+"unmatched_n": 0,
 "by_grade": {
 "A-": {
 "n": 21,
-"median_ret_pct": -3.8
+"median_ret_pct": 0.5
 },
 "B": {
-"n": 75,
-"median_ret_pct": -6.0
+"n": 71,
+"median_ret_pct": -6.1
 },
 "B+": {
-"n": 46,
-"median_ret_pct": -3.9
+"n": 44,
+"median_ret_pct": -3.5
 },
 "B-": {
-"n": 90,
-"median_ret_pct": -8.9
+"n": 91,
+"median_ret_pct": -6.6
 },
 "C": {
-"n": 174,
-"median_ret_pct": -7.2
+"n": 175,
+"median_ret_pct": -6.7
 },
 "D": {
-"n": 144,
-"median_ret_pct": -5.8
+"n": 147,
+"median_ret_pct": -6.3
 },
 "F": {
-"n": 68,
-"median_ret_pct": -6.3
+"n": 70,
+"median_ret_pct": -6.1
 }
 },
 "framework_ic": {
-"buffett": 0.079,
-"jhunjhunwala": -0.007,
-"pabrai": 0.058,
-"kacholia": 0.016,
-"kedia": -0.079,
-"blackrock": 0.172,
-"vanguard": 0.09,
-"damani": 0.029
-},
-"bias_warning": "1 scored names have no retrievable price history; medians exclude them and are therefore biased UPWARD (failures disappear first)"
+"buffett": 0.08,
+"jhunjhunwala": -0.013,
+"pabrai": 0.061,
+"kacholia": 0.034,
+"kedia": -0.077,
+"blackrock": 0.143,
+"vanguard": 0.077,
+"damani": 0.008
+}
 },
 "6m": {
-"status": "insufficient history (109/127 sessions)"
+"status": "insufficient history (110/127 sessions)"
 }
 },
 "method": "both return endpoints from this run's split-adjusted series; delisted/exited names measured to last trade (terminated); unmatched names counted, never silently dropped"
@@ -189,102 +187,102 @@
 {
 "symbol": "IGIL",
 "name": "International Gemological Institute Ltd.",
-"composite": 8.44,
+"composite": 8.45,
 "near_miss": "ROE"
 },
 {
 "symbol": "SJS",
 "name": "S.J.S. Enterprises Ltd.",
-"composite": 8.22,
+"composite": 8.24,
 "near_miss": "framework coverage below radar bar"
 },
 {
 "symbol": "TIPSMUSIC",
 "name": "Tips Music Ltd.",
-"composite": 8.04,
+"composite": 8.06,
 "near_miss": "framework coverage below radar bar"
 },
 {
 "symbol": "SANDUMA",
 "name": "Sandur Manganese & Iron Ores Ltd.",
-"composite": 8.03,
+"composite": 8.04,
 "near_miss": "below 200DMA"
 },
 {
 "symbol": "PGHL",
 "name": "Procter & Gamble Health Ltd.",
-"composite": 7.93,
+"composite": 7.94,
 "near_miss": "rev CAGR"
 },
 {
 "symbol": "GPPL",
 "name": "Gujarat Pipavav Port Ltd.",
-"composite": 7.89,
+"composite": 7.88,
 "near_miss": "rev CAGR"
 },
 {
 "symbol": "CAMS",
 "name": "Computer Age Management Services Ltd.",
-"composite": 7.85,
+"composite": 7.82,
 "near_miss": "framework coverage below radar bar"
 },
 {
 "symbol": "ENGINERSIN",
 "name": "Engineers India Ltd.",
-"composite": 7.79,
+"composite": 7.81,
 "near_miss": "rev CAGR"
-},
-{
-"symbol": "MARKSANS",
-"name": "Marksans Pharma Ltd.",
-"composite": 7.78,
-"near_miss": "PAT CAGR"
 },
 {
 "symbol": "KARURVYSYA",
 "name": "Karur Vysya Bank Ltd.",
-"composite": 7.77,
+"composite": 7.79,
 "near_miss": "mcap > 25000cr"
+},
+{
+"symbol": "MARKSANS",
+"name": "Marksans Pharma Ltd.",
+"composite": 7.79,
+"near_miss": "PAT CAGR"
 }
 ],
 "portfolio": {
 "sector_concentration": {
 "counts": {
-"Industrials": 8,
+"Industrials": 10,
+"Technology": 2,
+"Consumer Cyclical": 2,
 "Healthcare": 1,
-"Technology": 1,
-"Financial Services": 1,
-"Consumer Cyclical": 1
+"Financial Services": 1
 },
 "warnings": [
-"Industrials: 8/12 names (67%) - exceeds 30% theme cap; this is one macro bet wearing 8 tickers"
+"Industrials: 10/16 names (62%) - exceeds 30% theme cap; this is one macro bet wearing 10 tickers"
 ]
 },
 "correlation_flags": [],
 "sizing_note": "inverse-volatility, capped 8%"
 },
 "tab": "multibagger",
-"count": 12,
+"count": 16,
 "stocks": [
 {
 "symbol": "ACE",
 "name": "Action Construction Equipment Ltd.",
 "index": "smallcap250",
-"cmp": 1295.0,
-"chg_pct": 8.79,
-"composite": 8.59,
+"cmp": 1325.7,
+"chg_pct": 2.37,
+"composite": 8.52,
 "grade": "A",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 8.71,
-"jhunjhunwala": 9.55,
-"pabrai": 8.9,
-"kacholia": 7.68,
-"kedia": 8.95,
-"blackrock": 8.62,
+"jhunjhunwala": 9.5,
+"pabrai": 8.72,
+"kacholia": 7.59,
+"kedia": 8.79,
+"blackrock": 8.77,
 "vanguard": 8.32,
-"damani": 7.09
+"damani": 6.87
 },
 "framework_notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -316,8 +314,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 13939,
-"pe": 27.3,
+"mcap_cr": 15781,
+"pe": 30.9,
 "roe_pct": 25.2,
 "op_margin_pct": 14.7,
 "de": 0.0,
@@ -330,23 +328,23 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": true,
-"dma200_dist_pct": 29.0,
+"dma200_dist_pct": 31.8,
 "dd_from_52wk": 0.0,
-"ret_6m_pct": 45.0,
-"turnover_cr": 59.98,
+"ret_6m_pct": 46.6,
+"turnover_cr": 63.09,
 "ann_vol_pct": 36.5,
-"rvol20": 1.88,
+"rvol20": 1.89,
 "swing_low_20": 982.15,
-"swing_high_20": 1299.0,
-"atr14": 46.1
+"swing_high_20": 1329.3,
+"atr14": 45.75
 },
 "bear_case": [
 "No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
 ],
-"suggested_weight_pct": 8.0,
+"suggested_weight_pct": 7.3,
 "radar_age": {
 "first_seen": "2026-11-21",
-"runs": 6,
+"runs": 7,
 "stale": false
 }
 },
@@ -354,16 +352,16 @@
 "symbol": "VIJAYA",
 "name": "Vijaya Diagnostic Centre Ltd.",
 "index": "smallcap250",
-"cmp": 1587.1,
-"chg_pct": -2.49,
-"composite": 8.0,
-"grade": "A-",
+"cmp": 1552.5,
+"chg_pct": -2.18,
+"composite": 7.97,
+"grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 8.97,
-"jhunjhunwala": 8.38,
-"pabrai": 5.48,
+"jhunjhunwala": 8.35,
+"pabrai": 5.3,
 "kacholia": 7.67,
 "kedia": 8.77,
 "blackrock": 8.65,
@@ -400,8 +398,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 16030,
-"pe": 78.8,
+"mcap_cr": 15990,
+"pe": 80.4,
 "roe_pct": 21.2,
 "op_margin_pct": 32.1,
 "de": 0.44,
@@ -414,23 +412,23 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": true,
-"dma200_dist_pct": 24.5,
-"dd_from_52wk": -2.5,
-"ret_6m_pct": 26.2,
-"turnover_cr": 40.85,
+"dma200_dist_pct": 21.5,
+"dd_from_52wk": -4.6,
+"ret_6m_pct": 23.2,
+"turnover_cr": 39.39,
 "ann_vol_pct": 34.4,
 "rvol20": 0.29,
 "swing_low_20": 1381.4,
 "swing_high_20": 1659.2,
-"atr14": 69.88
+"atr14": 67.64
 },
 "bear_case": [
-"PE 78.8 is 2.6x the current universe median (30) - priced for perfection in this regime"
+"PE 80.4 is 2.6x the current universe median (30) - priced for perfection in this regime"
 ],
-"suggested_weight_pct": 8.0,
+"suggested_weight_pct": 7.8,
 "radar_age": {
 "first_seen": "2026-11-07",
-"runs": 17,
+"runs": 18,
 "stale": false
 }
 },
@@ -438,19 +436,19 @@
 "symbol": "QPOWER",
 "name": "QUALITY POWER ELECTRICAL EQUIPMENTS Ltd.",
 "index": "microcap250",
-"cmp": 1472.3,
-"chg_pct": -0.11,
-"composite": 7.65,
+"cmp": 1496.8,
+"chg_pct": 1.66,
+"composite": 7.67,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 7.28,
-"jhunjhunwala": 8.82,
-"pabrai": 6.71,
-"kacholia": 9.68,
-"kedia": 9.13,
-"blackrock": 7.92,
+"jhunjhunwala": 8.86,
+"pabrai": 6.8,
+"kacholia": 9.67,
+"kedia": 9.11,
+"blackrock": 7.95,
 "vanguard": 6.67,
 "damani": 3.57
 },
@@ -484,8 +482,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 11942,
-"pe": 78.9,
+"mcap_cr": 12177,
+"pe": 76.6,
 "roe_pct": 29.4,
 "op_margin_pct": 20.0,
 "de": 0.07,
@@ -497,45 +495,45 @@
 },
 "technical": {
 "above_200dma": true,
-"above_50dma": false,
-"dma200_dist_pct": 22.6,
-"dd_from_52wk": -10.7,
-"ret_6m_pct": 32.1,
-"turnover_cr": 52.49,
-"ann_vol_pct": 55.9,
+"above_50dma": true,
+"dma200_dist_pct": 24.3,
+"dd_from_52wk": -9.2,
+"ret_6m_pct": 37.3,
+"turnover_cr": 52.02,
+"ann_vol_pct": 55.8,
 "rvol20": 0.82,
 "swing_low_20": 1330.0,
 "swing_high_20": 1632.9,
-"atr14": 81.12
+"atr14": 79.42
 },
 "bear_case": [
 "Weakest lens: Damani scores just 3.6/10 (CFO/PAT conversion + margin + valuation)",
-"PE 78.9 is 2.6x the current universe median (30) - priced for perfection in this regime"
+"PE 76.6 is 2.5x the current universe median (30) - priced for perfection in this regime"
 ],
 "radar_age": {
 "first_seen": "2026-11-21",
-"runs": 6,
+"runs": 7,
 "stale": false
 },
-"suggested_weight_pct": 5.9
+"suggested_weight_pct": 4.8
 },
 {
 "symbol": "AEROFLEX",
 "name": "Aeroflex Industries Ltd.",
 "index": "microcap250",
-"cmp": 482.35,
-"chg_pct": 2.86,
-"composite": 7.57,
+"cmp": 484.65,
+"chg_pct": 0.48,
+"composite": 7.58,
 "grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 6.83,
-"jhunjhunwala": 9.72,
-"pabrai": 6.47,
-"kacholia": 7.42,
-"kedia": 9.63,
-"blackrock": 7.24,
+"jhunjhunwala": 9.71,
+"pabrai": 6.5,
+"kacholia": 7.41,
+"kedia": 9.61,
+"blackrock": 7.26,
 "vanguard": 6.66,
 "damani": 5.92
 },
@@ -571,8 +569,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 6272,
-"pe": 69.5,
+"mcap_cr": 6413,
+"pe": 71.8,
 "roe_pct": 20.9,
 "op_margin_pct": 20.0,
 "de": 0.02,
@@ -585,46 +583,46 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 19.7,
-"dd_from_52wk": -15.9,
-"ret_6m_pct": 19.7,
-"turnover_cr": 255.31,
-"ann_vol_pct": 65.9,
+"dma200_dist_pct": 19.8,
+"dd_from_52wk": -15.5,
+"ret_6m_pct": 19.1,
+"turnover_cr": 244.53,
+"ann_vol_pct": 65.7,
 "rvol20": 0.17,
 "swing_low_20": 453.2,
 "swing_high_20": 584.95,
-"atr14": 24.25
+"atr14": 23.48
 },
 "bear_case": [
-"PE 69.5 is 2.3x the current universe median (30) - priced for perfection in this regime",
+"PE 71.8 is 2.4x the current universe median (30) - priced for perfection in this regime",
 "Volume integrity: 60% of 20d volume came from 3 sessions - volume concentration consistent with manufactured activity"
 ],
 "radar_age": {
 "first_seen": "2026-11-07",
-"runs": 17,
+"runs": 18,
 "stale": false
 },
-"suggested_weight_pct": 5.0
+"suggested_weight_pct": 4.1
 },
 {
 "symbol": "LOTUSDEV",
 "name": "SRI LOTUS DEVELOPERS AND REALTY Ltd.",
 "index": "microcap250",
-"cmp": 219.98,
-"chg_pct": -2.87,
-"composite": 7.49,
-"grade": "B",
+"cmp": 220.11,
+"chg_pct": 0.06,
+"composite": 7.52,
+"grade": "B+",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 6.8,
-"jhunjhunwala": 7.79,
-"pabrai": 7.49,
-"kacholia": 9.71,
-"kedia": 9.17,
-"blackrock": 6.46,
-"vanguard": 7.0,
-"damani": 4.66
+"jhunjhunwala": 7.83,
+"pabrai": 7.6,
+"kacholia": 9.74,
+"kedia": 9.23,
+"blackrock": 6.38,
+"vanguard": 7.01,
+"damani": 4.8
 },
 "framework_notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -656,8 +654,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 11436,
-"pe": 39.1,
+"mcap_cr": 10757,
+"pe": 36.7,
 "roe_pct": 16.1,
 "op_margin_pct": 38.0,
 "de": 0.07,
@@ -670,46 +668,46 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 30.2,
+"dma200_dist_pct": 30.0,
 "dd_from_52wk": -11.3,
-"ret_6m_pct": 58.5,
-"turnover_cr": 55.21,
-"ann_vol_pct": 46.5,
-"rvol20": 0.39,
-"swing_low_20": 218.25,
+"ret_6m_pct": 62.2,
+"turnover_cr": 53.52,
+"ann_vol_pct": 46.4,
+"rvol20": 0.44,
+"swing_low_20": 216.22,
 "swing_high_20": 252.4,
-"atr14": 9.75
+"atr14": 9.59
 },
 "bear_case": [
-"Weakest lens: Damani scores just 4.7/10 (CFO/PAT conversion + margin + valuation)",
+"Weakest lens: Damani scores just 4.8/10 (CFO/PAT conversion + margin + valuation)",
 "Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
 ],
 "radar_age": {
 "first_seen": "2026-11-27",
-"runs": 2,
+"runs": 3,
 "stale": false
 },
-"suggested_weight_pct": 7.0
+"suggested_weight_pct": 5.8
 },
 {
 "symbol": "KPIL",
 "name": "Kalpataru Projects International Ltd.",
 "index": "smallcap250",
-"cmp": 1314.2,
-"chg_pct": 0.33,
-"composite": 7.24,
+"cmp": 1324.3,
+"chg_pct": 0.77,
+"composite": 7.23,
 "grade": "B",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 5.89,
 "jhunjhunwala": 9.01,
-"pabrai": 7.28,
+"pabrai": 7.33,
 "kacholia": 7.55,
-"kedia": 5.97,
-"blackrock": 7.59,
+"kedia": 5.96,
+"blackrock": 7.54,
 "vanguard": 8.85,
-"damani": 6.16
+"damani": 6.15
 },
 "framework_notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -741,8 +739,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 22544,
-"pe": 19.0,
+"mcap_cr": 22615,
+"pe": 19.1,
 "roe_pct": 15.2,
 "op_margin_pct": 6.4,
 "de": 0.46,
@@ -755,15 +753,15 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 2.6,
-"dd_from_52wk": -9.9,
-"ret_6m_pct": 2.1,
-"turnover_cr": 19.65,
-"ann_vol_pct": 29.9,
+"dma200_dist_pct": 3.3,
+"dd_from_52wk": -9.2,
+"ret_6m_pct": 4.7,
+"turnover_cr": 19.14,
+"ann_vol_pct": 29.8,
 "rvol20": 0.49,
 "swing_low_20": 1277.3,
 "swing_high_20": 1399.9,
-"atr14": 36.26
+"atr14": 35.81
 },
 "bear_case": [
 "No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
@@ -771,7 +769,7 @@
 "suggested_weight_pct": 8.0,
 "radar_age": {
 "first_seen": "2026-11-14",
-"runs": 12,
+"runs": 13,
 "stale": false
 }
 },
@@ -779,8 +777,8 @@
 "symbol": "HBLENGINE",
 "name": "HBL Engineering Ltd.",
 "index": "smallcap250",
-"cmp": 764.25,
-"chg_pct": 0.94,
+"cmp": 757.95,
+"chg_pct": -0.82,
 "composite": 7.21,
 "grade": "B",
 "coverage": 1.0,
@@ -788,10 +786,10 @@
 "frameworks": {
 "buffett": 9.77,
 "jhunjhunwala": 5.0,
-"pabrai": 7.12,
+"pabrai": 7.08,
 "kacholia": 9.27,
-"kedia": 1.66,
-"blackrock": 9.23,
+"kedia": 1.67,
+"blackrock": 9.22,
 "vanguard": 7.94,
 "damani": 6.96
 },
@@ -825,8 +823,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 21067,
-"pe": 35.9,
+"mcap_cr": 21010,
+"pe": 35.8,
 "roe_pct": 26.2,
 "op_margin_pct": 23.5,
 "de": 0.03,
@@ -839,45 +837,129 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 2.1,
-"dd_from_52wk": -20.8,
-"ret_6m_pct": -4.3,
-"turnover_cr": 80.0,
-"ann_vol_pct": 43.9,
+"dma200_dist_pct": 1.3,
+"dd_from_52wk": -21.5,
+"ret_6m_pct": -7.2,
+"turnover_cr": 77.52,
+"ann_vol_pct": 43.8,
 "rvol20": 0.39,
 "swing_low_20": 745.45,
 "swing_high_20": 865.0,
-"atr14": 24.46
+"atr14": 23.81
 },
 "bear_case": [
 "Weakest lens: Kedia scores just 1.7/10 (size + growth runway (promoter % display-only, verify NSE SHP))"
 ],
-"suggested_weight_pct": 7.5,
+"suggested_weight_pct": 6.1,
 "radar_age": {
 "first_seen": "2026-11-18",
-"runs": 10,
+"runs": 11,
 "stale": false
 }
+},
+{
+"symbol": "BALUFORGE",
+"name": "Balu Forge Industries Ltd.",
+"index": "microcap250",
+"cmp": 529.95,
+"chg_pct": 0.2,
+"composite": 7.06,
+"grade": "B",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.09,
+"jhunjhunwala": 6.8,
+"pabrai": 7.16,
+"kacholia": 9.93,
+"kedia": 5.35,
+"blackrock": 7.08,
+"vanguard": 6.92,
+"damani": 5.73
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.1,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.29,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 6433,
+"pe": 21.5,
+"roe_pct": 18.7,
+"op_margin_pct": 25.8,
+"de": 0.1,
+"rev_cagr3y_pct": 49.6,
+"pat_cagr3y_pct": 88.1,
+"promoter_pct": 63.4,
+"sector": "Industrials",
+"latest_quarter": "2026-09-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": true,
+"dma200_dist_pct": 9.4,
+"dd_from_52wk": -18.9,
+"ret_6m_pct": 5.1,
+"turnover_cr": 50.16,
+"ann_vol_pct": 53.9,
+"rvol20": 0.46,
+"swing_low_20": 437.5,
+"swing_high_20": 555.95,
+"atr14": 22.76
+},
+"bear_case": [
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"radar_age": {
+"first_seen": "2026-11-28",
+"runs": 1,
+"stale": false
+},
+"suggested_weight_pct": 5.0
 },
 {
 "symbol": "POWERMECH",
 "name": "Power Mech Projects Ltd.",
 "index": "microcap250",
-"cmp": 2416.3,
-"chg_pct": 1.56,
-"composite": 6.71,
+"cmp": 2414.6,
+"chg_pct": -0.07,
+"composite": 6.7,
 "grade": "B-",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 6.77,
-"jhunjhunwala": 5.9,
-"pabrai": 7.19,
+"jhunjhunwala": 5.88,
+"pabrai": 7.17,
 "kacholia": 7.36,
 "kedia": 7.16,
-"blackrock": 5.55,
+"blackrock": 5.51,
 "vanguard": 7.64,
-"damani": 5.97
+"damani": 5.96
 },
 "framework_notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -909,8 +991,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 7650,
-"pe": 18.9,
+"mcap_cr": 7634,
+"pe": 19.1,
 "roe_pct": 17.0,
 "op_margin_pct": 9.7,
 "de": 0.25,
@@ -923,43 +1005,43 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": true,
-"dma200_dist_pct": 1.4,
-"dd_from_52wk": -16.5,
-"ret_6m_pct": -3.1,
-"turnover_cr": 12.92,
+"dma200_dist_pct": 1.2,
+"dd_from_52wk": -16.6,
+"ret_6m_pct": -2.7,
+"turnover_cr": 12.56,
 "ann_vol_pct": 38.6,
 "rvol20": 0.44,
 "swing_low_20": 2135.0,
 "swing_high_20": 2489.2,
-"atr14": 82.92
+"atr14": 81.12
 },
 "bear_case": [
 "No structural negatives surfaced from reported data - which itself deserves suspicion: the un-scorable risks (V1/V2/V4/V5/V6/V7 checklist) are exactly where clean screens die"
 ],
 "radar_age": {
 "first_seen": "2026-11-28",
-"runs": 1,
+"runs": 2,
 "stale": false
 },
-"suggested_weight_pct": 8.0
+"suggested_weight_pct": 6.9
 },
 {
 "symbol": "AVALON",
 "name": "Avalon Technologies Ltd.",
 "index": "microcap250",
-"cmp": 1814.7,
-"chg_pct": 7.49,
-"composite": 6.49,
+"cmp": 1838.0,
+"chg_pct": 1.28,
+"composite": 6.48,
 "grade": "C",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 7.23,
-"jhunjhunwala": 8.54,
-"pabrai": 3.67,
-"kacholia": 7.85,
-"kedia": 9.16,
-"blackrock": 7.39,
+"jhunjhunwala": 8.45,
+"pabrai": 3.74,
+"kacholia": 7.82,
+"kedia": 9.1,
+"blackrock": 7.45,
 "vanguard": 3.84,
 "damani": 1.51
 },
@@ -993,58 +1075,143 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 11580,
-"pe": 78.2,
+"mcap_cr": 12296,
+"pe": 83.0,
 "roe_pct": 20.5,
 "op_margin_pct": 10.2,
 "de": 0.28,
 "rev_cagr3y_pct": 19.3,
 "pat_cagr3y_pct": 29.1,
-"promoter_pct": 54.4,
+"promoter_pct": 50.3,
 "sector": "Technology",
 "latest_quarter": "2026-09-30"
 },
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 11.4,
-"dd_from_52wk": -28.5,
-"ret_6m_pct": 24.2,
-"turnover_cr": 73.33,
-"ann_vol_pct": 59.6,
+"dma200_dist_pct": 12.6,
+"dd_from_52wk": -27.6,
+"ret_6m_pct": 22.8,
+"turnover_cr": 73.42,
+"ann_vol_pct": 59.5,
 "rvol20": 1.07,
 "swing_low_20": 1662.8,
 "swing_high_20": 2164.4,
-"atr14": 138.76
+"atr14": 134.56
 },
 "bear_case": [
 "Weakest lens: Damani scores just 1.5/10 (CFO/PAT conversion + margin + valuation)",
-"PE 78.2 is 2.6x the current universe median (30) - priced for perfection in this regime"
+"PE 83.0 is 2.7x the current universe median (30) - priced for perfection in this regime"
 ],
 "radar_age": {
 "first_seen": "2026-11-21",
-"runs": 6,
+"runs": 7,
 "stale": false
 },
-"suggested_weight_pct": 5.5
+"suggested_weight_pct": 4.5
+},
+{
+"symbol": "EBGNG",
+"name": "GNG Electronics Ltd.",
+"index": "microcap250",
+"cmp": 521.35,
+"chg_pct": 4.86,
+"composite": 6.36,
+"grade": "C",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 5.16,
+"jhunjhunwala": 7.78,
+"pabrai": 4.26,
+"kacholia": 9.96,
+"kedia": 9.65,
+"blackrock": 7.19,
+"vanguard": 3.33,
+"damani": 2.54
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation (high PAT growth but declining CFO - capped)",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.59,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 246,
+"top3_vol_share": 0.56,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 5944,
+"pe": 35.9,
+"roe_pct": 21.8,
+"op_margin_pct": 11.4,
+"de": 0.59,
+"rev_cagr3y_pct": 43.1,
+"pat_cagr3y_pct": 59.7,
+"promoter_pct": 76.3,
+"sector": "Technology",
+"latest_quarter": "2026-09-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 1.1,
+"dd_from_52wk": -28.7,
+"ret_6m_pct": 18.5,
+"turnover_cr": 79.61,
+"ann_vol_pct": 59.8,
+"rvol20": 0.49,
+"swing_low_20": 460.7,
+"swing_high_20": 775.85,
+"atr14": 40.16
+},
+"bear_case": [
+"Weakest lens: Damani scores just 2.5/10 (CFO/PAT conversion + margin + valuation)",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"radar_age": {
+"first_seen": "2026-11-28",
+"runs": 1,
+"stale": false
+},
+"suggested_weight_pct": 4.5
 },
 {
 "symbol": "CHOICEIN",
 "name": "Choice International Ltd.",
 "index": "smallcap250",
-"cmp": 760.7,
-"chg_pct": 1.66,
-"composite": 6.29,
+"cmp": 770.45,
+"chg_pct": 1.28,
+"composite": 6.27,
 "grade": "C",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 6.17,
-"jhunjhunwala": 5.28,
-"pabrai": 4.58,
-"kacholia": 9.49,
-"kedia": 7.21,
-"blackrock": 7.7,
+"jhunjhunwala": 5.12,
+"pabrai": 4.68,
+"kacholia": 9.45,
+"kedia": 7.12,
+"blackrock": 7.79,
 "vanguard": 6.25,
 "damani": 3.33
 },
@@ -1078,58 +1245,142 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 16174,
-"pe": 61.1,
+"mcap_cr": 17203,
+"pe": 64.8,
 "roe_pct": 15.8,
 "op_margin_pct": 29.3,
 "de": 0.54,
 "rev_cagr3y_pct": 42.3,
 "pat_cagr3y_pct": 53.6,
-"promoter_pct": 60.1,
+"promoter_pct": 59.9,
 "sector": "Financial Services",
 "latest_quarter": "2026-09-30"
 },
 "technical": {
 "above_200dma": true,
 "above_50dma": true,
-"dma200_dist_pct": 4.0,
-"dd_from_52wk": -10.5,
-"ret_6m_pct": 10.6,
-"turnover_cr": 42.23,
+"dma200_dist_pct": 5.3,
+"dd_from_52wk": -9.4,
+"ret_6m_pct": 12.4,
+"turnover_cr": 45.86,
 "ann_vol_pct": 32.5,
-"rvol20": 2.57,
+"rvol20": 2.61,
 "swing_low_20": 709.5,
-"swing_high_20": 765.9,
-"atr14": 16.5
+"swing_high_20": 778.8,
+"atr14": 16.61
 },
 "bear_case": [
 "Weakest lens: Damani scores just 3.3/10 (CFO/PAT conversion + margin + valuation)",
-"PE 61.1 is 2.0x the current universe median (30) - priced for perfection in this regime"
+"PE 64.8 is 2.1x the current universe median (30) - priced for perfection in this regime"
 ],
 "radar_age": {
 "first_seen": "2026-11-25",
-"runs": 4,
+"runs": 5,
 "stale": false
 },
 "suggested_weight_pct": 8.0
 },
 {
+"symbol": "PRECWIRE",
+"name": "Precision Wires India Ltd.",
+"index": "microcap250",
+"cmp": 396.9,
+"chg_pct": 6.36,
+"composite": 6.2,
+"grade": "C",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 4.68,
+"jhunjhunwala": 6.45,
+"pabrai": 4.91,
+"kacholia": 9.01,
+"kedia": 8.02,
+"blackrock": 6.28,
+"vanguard": 6.19,
+"damani": 4.6
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.38,
+"cfo_trend": "stable/rising"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.34,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 7256,
+"pe": 40.0,
+"roe_pct": 22.3,
+"op_margin_pct": 4.1,
+"de": 0.38,
+"rev_cagr3y_pct": 22.7,
+"pat_cagr3y_pct": 37.7,
+"promoter_pct": 65.0,
+"sector": "Industrials",
+"latest_quarter": "2026-09-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 1.1,
+"dd_from_52wk": -23.1,
+"ret_6m_pct": -10.6,
+"turnover_cr": 16.55,
+"ann_vol_pct": 59.5,
+"rvol20": 2.23,
+"swing_low_20": 365.5,
+"swing_high_20": 447.06,
+"atr14": 19.44
+},
+"bear_case": [
+"Weakest lens: Damani scores just 4.6/10 (CFO/PAT conversion + margin + valuation)"
+],
+"radar_age": {
+"first_seen": "2026-11-28",
+"runs": 1,
+"stale": false
+},
+"suggested_weight_pct": 4.5
+},
+{
 "symbol": "DOMS",
 "name": "DOMS Industries Ltd.",
 "index": "smallcap250",
-"cmp": 2299.5,
-"chg_pct": 3.71,
-"composite": 5.86,
+"cmp": 2282.9,
+"chg_pct": -0.72,
+"composite": 5.84,
 "grade": "C",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 4.96,
 "jhunjhunwala": 5.0,
-"pabrai": 5.25,
-"kacholia": 8.62,
-"kedia": 4.32,
-"blackrock": 6.47,
+"pabrai": 5.2,
+"kacholia": 8.58,
+"kedia": 4.25,
+"blackrock": 6.51,
 "vanguard": 9.12,
 "damani": 3.99
 },
@@ -1163,8 +1414,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 13048,
-"pe": 66.6,
+"mcap_cr": 13855,
+"pe": 70.8,
 "roe_pct": 15.9,
 "op_margin_pct": 10.9,
 "de": 0.12,
@@ -1177,46 +1428,132 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": true,
-"dma200_dist_pct": 3.9,
-"dd_from_52wk": -13.9,
-"ret_6m_pct": 4.6,
-"turnover_cr": 15.57,
+"dma200_dist_pct": 3.2,
+"dd_from_52wk": -14.5,
+"ret_6m_pct": 3.5,
+"turnover_cr": 15.27,
 "ann_vol_pct": 27.3,
 "rvol20": 0.57,
 "swing_low_20": 1775.0,
 "swing_high_20": 2322.8,
-"atr14": 69.83
+"atr14": 68.64
 },
 "bear_case": [
 "Weakest lens: Damani scores just 4.0/10 (CFO/PAT conversion + margin + valuation)",
-"PE 66.6 is 2.2x the current universe median (30) - priced for perfection in this regime"
+"PE 70.8 is 2.3x the current universe median (30) - priced for perfection in this regime"
 ],
 "radar_age": {
 "first_seen": "2026-11-27",
-"runs": 2,
+"runs": 3,
 "stale": false
 },
 "suggested_weight_pct": 8.0
 },
 {
+"symbol": "SMLMAH",
+"name": "SML Mahindra Ltd.",
+"index": "microcap250",
+"cmp": 4776.8,
+"chg_pct": 3.76,
+"composite": 5.78,
+"grade": "C",
+"coverage": 1.0,
+"coverage_penalty": 0.0,
+"frameworks": {
+"buffett": 7.02,
+"jhunjhunwala": 5.0,
+"pabrai": 3.29,
+"kacholia": 8.48,
+"kedia": 2.85,
+"blackrock": 8.07,
+"vanguard": 7.5,
+"damani": 3.49
+},
+"framework_notes": {
+"buffett": "ROE/margin/leverage/FCF quality",
+"jhunjhunwala": "earnings momentum vs valuation",
+"pabrai": "margin-of-safety / downside protection",
+"kacholia": "3y growth + operating leverage + size runway",
+"kedia": "size + growth runway (promoter % display-only, verify NSE SHP)",
+"blackrock": "liquidity / scale / quality stability",
+"vanguard": "profit consistency / low volatility",
+"damani": "CFO/PAT conversion + margin + valuation"
+},
+"vetoes_triggered": [],
+"veto_details": {
+"de_ratio": 0.56,
+"cfo_trend": "declining"
+},
+"manual_veto_checklist": {
+"V1": "SEBI / ED / exchange action - verify on SEBI + NSE surveillance lists",
+"V2": "Promoter pledge > 50% - verify NSE shareholding pattern",
+"V4": "Qualified audit opinion - verify latest annual report",
+"V5": "Promoter stake drop > 10% in 12 months - verify shareholding history",
+"V6": "Related-party transactions - verify RPT disclosures in annual report; value siphoning via related entities destroys more Indian small/midcaps than pledges do",
+"V7": "Auditor change / resignation in last 24 months - verify NSE announcements; a resigning auditor is a fire alarm"
+},
+"integrity": {
+"flags": [],
+"sessions": 247,
+"top3_vol_share": 0.33,
+"radar_ok": true
+},
+"fundamentals": {
+"mcap_cr": 7555,
+"pe": 49.5,
+"roe_pct": 29.3,
+"op_margin_pct": 6.8,
+"de": 0.56,
+"rev_cagr3y_pct": 15.9,
+"pat_cagr3y_pct": 100.4,
+"promoter_pct": 72.0,
+"sector": "Consumer Cyclical",
+"latest_quarter": "2026-09-30"
+},
+"technical": {
+"above_200dma": true,
+"above_50dma": false,
+"dma200_dist_pct": 2.5,
+"dd_from_52wk": -30.0,
+"ret_6m_pct": 23.3,
+"turnover_cr": 32.37,
+"ann_vol_pct": 62.5,
+"rvol20": 0.5,
+"swing_low_20": 4581.0,
+"swing_high_20": 5420.2,
+"atr14": 265.75
+},
+"bear_case": [
+"Weakest lens: Kedia scores just 2.9/10 (size + growth runway (promoter % display-only, verify NSE SHP))",
+"PE 49.5 is 1.6x the current universe median (30) - priced for perfection in this regime",
+"Operating cash flow is DECLINING year-over-year while the score rests on reported profits"
+],
+"radar_age": {
+"first_seen": "2026-11-28",
+"runs": 1,
+"stale": false
+},
+"suggested_weight_pct": 4.3
+},
+{
 "symbol": "TBOTEK",
 "name": "TBO Tek Ltd.",
 "index": "smallcap250",
-"cmp": 1483.0,
-"chg_pct": -4.11,
-"composite": 5.38,
+"cmp": 1475.8,
+"chg_pct": -0.49,
+"composite": 5.42,
 "grade": "D",
 "coverage": 1.0,
 "coverage_penalty": 0.0,
 "frameworks": {
 "buffett": 4.72,
-"jhunjhunwala": 5.07,
-"pabrai": 5.75,
-"kacholia": 6.49,
-"kedia": 7.11,
-"blackrock": 6.69,
+"jhunjhunwala": 5.21,
+"pabrai": 5.72,
+"kacholia": 6.52,
+"kedia": 7.18,
+"blackrock": 6.65,
 "vanguard": 5.42,
-"damani": 1.12
+"damani": 1.28
 },
 "framework_notes": {
 "buffett": "ROE/margin/leverage/FCF quality",
@@ -1248,8 +1585,8 @@
 "radar_ok": true
 },
 "fundamentals": {
-"mcap_cr": 16600,
-"pe": 60.8,
+"mcap_cr": 15795,
+"pe": 58.2,
 "roe_pct": 17.5,
 "op_margin_pct": 11.1,
 "de": 0.49,
@@ -1262,28 +1599,28 @@
 "technical": {
 "above_200dma": true,
 "above_50dma": false,
-"dma200_dist_pct": 3.1,
-"dd_from_52wk": -15.0,
-"ret_6m_pct": 22.1,
-"turnover_cr": 15.07,
+"dma200_dist_pct": 2.6,
+"dd_from_52wk": -15.4,
+"ret_6m_pct": 20.5,
+"turnover_cr": 15.29,
 "ann_vol_pct": 35.7,
 "rvol20": 1.4,
-"swing_low_20": 1472.0,
+"swing_low_20": 1461.5,
 "swing_high_20": 1634.9,
-"atr14": 48.43
+"atr14": 47.67
 },
 "bear_case": [
-"Weakest lens: Damani scores just 1.1/10 (CFO/PAT conversion + margin + valuation)",
-"PE 60.8 is 2.0x the current universe median (30) - priced for perfection in this regime",
+"Weakest lens: Damani scores just 1.3/10 (CFO/PAT conversion + margin + valuation)",
+"PE 58.2 is 1.9x the current universe median (30) - priced for perfection in this regime",
 "Operating cash flow is DECLINING year-over-year while the score rests on reported profits",
 "PAT compounding slower than revenue - margins are being given up to buy growth"
 ],
 "radar_age": {
 "first_seen": "2026-11-07",
-"runs": 17,
+"runs": 18,
 "stale": false
 },
-"suggested_weight_pct": 8.0
+"suggested_weight_pct": 7.5
 }
 ]
 }
